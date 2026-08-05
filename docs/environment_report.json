@@ -1,0 +1,21 @@
+{
+  "compute_target": "cuda",
+  "cuda_available": true,
+  "git_commit": null,
+  "gpu_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "matplotlib_version": "3.11.1",
+  "networkx_version": "3.6.1",
+  "numpy_version": "2.4.6",
+  "os": "Windows",
+  "pandas_version": "3.0.5",
+  "pip_version": "26.2.1",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python_executable": "python.exe",
+  "python_version": "3.11.9",
+  "scikit_learn_version": "1.9.0",
+  "scipy_version": "1.17.1",
+  "timestamp_utc": "2026-08-05T14:53:20+00:00",
+  "torch_cuda_runtime": "12.8",
+  "torch_geometric_version": "2.8.0.post1",
+  "torch_version": "2.11.0+cu128"
+}
