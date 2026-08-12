@@ -8,4 +8,5 @@ explainer:
   node_mask_type: "common_attributes"
   epochs: 5
   learning_rate: 0.01
-  seeds: [42, 43, 44]
+  seed: 42
+  top_k_edges: 25
