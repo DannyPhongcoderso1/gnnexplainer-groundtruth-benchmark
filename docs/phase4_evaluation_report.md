@@ -34,9 +34,11 @@ The test suite includes checkpoint reload and model-freeze checks. Phase 4C and 
 
 Repository state recorded for this Phase 4 report:
 
-- Git commit hash: `26a5fc11122c52b45557a2ea8cf7ed21d9f581ed`
+- Phase 4 frozen content commit: `cd7925eebfe0841de51af18f1d3c4cceb5c2f272`
+- Phase 4 tag: `phase4-evaluation-v1`
+- Report metadata commit: documentation-only commit containing this updated report, created after `phase4-evaluation-v1`
 - Git branch: `feature/single-node-gnnexplainer`
-- Git tag at HEAD: `phase4c-gnnexplainer-v2`
+- Previous Phase 4C tag: `phase4c-gnnexplainer-v2`
 
 Runtime environment recorded from the active virtual environment:
 
