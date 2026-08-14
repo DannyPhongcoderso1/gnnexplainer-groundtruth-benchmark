@@ -1,0 +1,35 @@
+explainer:
+  algorithm: "PyG PGExplainer"
+  implementation: "torch_geometric"
+  explanation_type: "phenomenon"
+  explanation_level: "node"
+  task_level: "node"
+  return_type: "raw"
+  edge_mask_type: "object"
+  node_mask_type: null
+  epochs: 30
+  learning_rate: 0.003
+  seed: 42
+  regularization:
+    edge_size: 0.05
+    edge_ent: 1.0
+  temperature:
+    start: 5.0
+    end: 2.0
+  implementation_coefficients:
+    bias:
+      value: 0.01
+      source: "installed PyG 2.8.0.post1 PGExplainer source"
+  target_semantics:
+    target_for_pgexplainer: "frozen_model_prediction"
+    ground_truth_label_is_default_target: false
+  checkpoint_selection:
+    strategy: "fixed_final_epoch"
+    final_epoch: 30
+  stability:
+    seeds:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
