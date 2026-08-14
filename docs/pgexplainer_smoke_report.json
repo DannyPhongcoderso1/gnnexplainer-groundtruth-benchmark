@@ -1,0 +1,36 @@
+{
+  "candidate_edge_count": 56,
+  "edge_ap": 0.1637763841177109,
+  "edge_auroc": 0.23863636363636362,
+  "edge_mask_max": 0.5350531339645386,
+  "edge_mask_min": 0.0,
+  "edge_mask_shape": [
+    3398
+  ],
+  "explainer_gradients_finite": true,
+  "explainer_gradients_present": true,
+  "explainer_optimizer_excludes_gcn_parameters": true,
+  "explainer_parameters_changed": true,
+  "explainer_trainable_parameter_count": 897,
+  "losses": [
+    2.469550132751465,
+    3.0569229125976562,
+    2.455368995666504,
+    3.0671639442443848
+  ],
+  "losses_finite": true,
+  "model_parameter_hash_after": "7e7c6e13da19954707af8a061d40e664a211b8e19749d649b2df89e3c351b8b5",
+  "model_parameter_hash_before": "7e7c6e13da19954707af8a061d40e664a211b8e19749d649b2df89e3c351b8b5",
+  "model_parameters_unchanged": true,
+  "note": "Smoke only: 2 epochs on 2 train nodes, explanation on one validation node.",
+  "selected_edge_count": 12,
+  "sentinel_logits_unchanged": true,
+  "target_has_grad_fn": false,
+  "target_matches_frozen_prediction": true,
+  "target_requires_grad": false,
+  "train_nodes": [
+    300,
+    301
+  ],
+  "validation_node": 325
+}

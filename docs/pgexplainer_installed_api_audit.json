@@ -1,0 +1,73 @@
+{
+  "class_signature": "(epochs: int, lr: float = 0.003, **kwargs)",
+  "coeffs": {
+    "bias": 0.01,
+    "edge_ent": 1.0,
+    "edge_size": 0.05,
+    "temp": [
+      5.0,
+      2.0
+    ]
+  },
+  "cuda": "12.8",
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "documented_lr_default": 0.003,
+  "epochs_required_argument": true,
+  "forward_signature": "(self, model: torch.nn.modules.module.Module, x: Union[torch.Tensor, Dict[str, torch.Tensor]], edge_index: Union[torch.Tensor, Dict[Tuple[str, str, str], torch.Tensor]], *, target: torch.Tensor, index: Union[int, torch.Tensor, NoneType] = None, **kwargs) -> Union[torch_geometric.explain.explanation.Explanation, torch_geometric.explain.explanation.HeteroExplanation]",
+  "mlp": {
+    "after_lazy_initialization": "Sequential(\n  (0): Linear(96, 64, bias=True)\n  (1): ReLU()\n  (2): Linear(64, 1, bias=True)\n)",
+    "before_lazy_initialization": "Sequential(\n  (0): Linear(-1, 64, bias=True)\n  (1): ReLU()\n  (2): Linear(64, 1, bias=True)\n)",
+    "parameter_shapes": {
+      "0.bias": [
+        64
+      ],
+      "0.weight": [
+        64,
+        96
+      ],
+      "2.bias": [
+        1
+      ],
+      "2.weight": [
+        1,
+        64
+      ]
+    }
+  },
+  "paper_aligned_defaults_check": {
+    "edge_ent": 1.0,
+    "edge_size": 0.05,
+    "epochs": 30,
+    "lr": 0.003,
+    "matches_installed_pyg_coefficients": true,
+    "temp": [
+      5.0,
+      2.0
+    ]
+  },
+  "pgexplainer_class": "torch_geometric.explain.algorithm.pg_explainer.PGExplainer",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "source_path": "D:\\CS\\KLTN\\gnnexplainer-groundtruth-benchmark\\.venv\\Lib\\site-packages\\torch_geometric\\explain\\algorithm\\pg_explainer.py",
+  "support_checks": {
+    "model_object_edge_mask_node_task": {
+      "error": "The explanation algorithm 'PGExplainer' does not support the given explanation settings.",
+      "supported": false
+    },
+    "phenomenon_object_edge_mask_node_task": {
+      "error": null,
+      "supported": true
+    },
+    "phenomenon_with_node_feature_mask": {
+      "error": "The explanation algorithm 'PGExplainer' does not support the given explanation settings.",
+      "supported": false
+    }
+  },
+  "target_and_index_requirements": {
+    "explicit_target_required_for_phenomenon": true,
+    "node_level_index_required": true,
+    "thesis_target_semantics": "target_for_pgexplainer = frozen_model_prediction"
+  },
+  "torch": "2.11.0+cu128",
+  "torch_geometric": "2.8.0.post1",
+  "train_signature": "(self, epoch: int, model: torch.nn.modules.module.Module, x: Union[torch.Tensor, Dict[str, torch.Tensor]], edge_index: Union[torch.Tensor, Dict[Tuple[str, str, str], torch.Tensor]], *, target: torch.Tensor, index: Union[int, torch.Tensor, NoneType] = None, **kwargs) -> float"
+}
