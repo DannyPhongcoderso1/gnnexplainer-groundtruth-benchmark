@@ -1,0 +1,596 @@
+{
+  "counts": {
+    "failed": 0,
+    "success": 12,
+    "targets": 12
+  },
+  "dataset": {
+    "path": "artifacts/data/ba_house.pt",
+    "sha256": "4daeb6b5ca55ee1663fa79aa6be5a7fe1ebb86159aa9d60045aceb16fe271a94"
+  },
+  "evaluation_code_provenance": {
+    "evaluation_base_commit": "698e848",
+    "evaluation_module": "src/gnnexplainer_benchmark/explainers/pgexplainer_evaluation.py",
+    "evaluation_module_sha256": "423082d620a177b911397c8c4d059e78709e032a351ce59dc99a65f7ea9e8f16",
+    "evaluation_script": "scripts/evaluate_pgexplainer_gcn.py",
+    "evaluation_script_sha256": "5f3ccc9ca5042c477696c3d7ea360ab66816985cc0fba6c511f0fc06402fcdf1",
+    "note": "Task 16 final evaluation was executed before these Task-16 source files were committed. The file hashes capture the exact implementation now being frozen."
+  },
+  "evaluation_config": {
+    "path": "configs/evaluation/pgexplainer_gcn.yaml",
+    "sha256": "b3b27577d36eb664c1acbc9aee4b12e1e6d29e39d8a1e9fff4063d1b42c76471"
+  },
+  "final_test_status": "frozen",
+  "final_test_targets": {
+    "count": 12,
+    "node_ids": [
+      306,
+      315,
+      316,
+      355,
+      365,
+      375,
+      376,
+      411,
+      445,
+      465,
+      486,
+      491
+    ],
+    "path": "results/metrics/explainer_test_targets.csv",
+    "sha256": "2b1fa0cb70a4aaa107dfbfe864042ddb488372a6bcfd9ea6fd4c04bd1894526f"
+  },
+  "frozen_protocol": {
+    "budget_protocol": "fixed_candidate_edge_ratio",
+    "candidate_edge_scope": "computation_subgraph",
+    "edge_ranking_metric_scope": "continuous_scores_over_full_candidate_edge_set",
+    "metric_implementation": "Frozen Phase-4 evaluation helpers reused by Task-16 PGExplainer evaluator.",
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_ratio": 0.2
+  },
+  "gcn_checkpoint": {
+    "path": "artifacts/checkpoints/ba_house_gcn_best.pt",
+    "sha256": "4c81814172650e20b6edee5fc97bc66cae46ac1e8ba76baec2226c59a7d1d507"
+  },
+  "main_metric_summary": {
+    "edge_ap": {
+      "max": 0.6756086778145602,
+      "mean": 0.3665629996626219,
+      "median": 0.43449331885864395,
+      "min": 0.045875590583658005,
+      "n": 12,
+      "std": 0.25324746878866217
+    },
+    "edge_auroc": {
+      "max": 0.9772727272727273,
+      "mean": 0.747968995696066,
+      "median": 0.8433352849336455,
+      "min": 0.33333333333333337,
+      "n": 12,
+      "std": 0.1882274853793627
+    },
+    "fid_minus": {
+      "max": 1.0,
+      "mean": 0.5833333333333334,
+      "median": 1.0,
+      "min": 0.0,
+      "n": 12,
+      "std": 0.5149286505444373
+    },
+    "fid_plus": {
+      "max": 1.0,
+      "mean": 0.4166666666666667,
+      "median": 0.0,
+      "min": 0.0,
+      "n": 12,
+      "std": 0.5149286505444373
+    },
+    "one_minus_fid_minus": {
+      "max": 1.0,
+      "mean": 0.4166666666666667,
+      "median": 0.0,
+      "min": 0.0,
+      "n": 12,
+      "std": 0.5149286505444373
+    },
+    "sparsity": {
+      "max": 0.8,
+      "mean": 0.7936944650380934,
+      "median": 0.7970328282828283,
+      "min": 0.7692307692307692,
+      "n": 12,
+      "std": 0.008900508700863707
+    }
+  },
+  "parity_checks": {
+    "candidate_count_parity": {
+      "matches": 12,
+      "passed": true,
+      "total": 12
+    },
+    "gcn_weights_unchanged": true,
+    "negative_gt_count_parity": {
+      "matches": 12,
+      "passed": true,
+      "total": 12
+    },
+    "original_prediction_parity": {
+      "matches": 12,
+      "passed": true,
+      "total": 12
+    },
+    "positive_gt_count_parity": {
+      "matches": 12,
+      "passed": true,
+      "total": 12
+    },
+    "selected_count_parity": {
+      "matches": 12,
+      "passed": true,
+      "total": 12
+    },
+    "target_order": [
+      306,
+      315,
+      316,
+      355,
+      365,
+      375,
+      376,
+      411,
+      445,
+      465,
+      486,
+      491
+    ]
+  },
+  "pgexplainer_checkpoint": {
+    "path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed42.pt",
+    "sha256": "a075cd84c52e14a65b042f99f33e04e6b37e4919a70132ccb71e505b08c12eda",
+    "task15_commit": "698e848",
+    "training_code_base_commit": "085a504a6c6262007bf7df1d47aa7fa0be8074f5",
+    "training_epochs": 30,
+    "training_runtime_seconds": 22.389040600013686,
+    "training_seed": 42
+  },
+  "post_test_tuning_policy": {
+    "final_test_exposed_to_pgexplainer": true,
+    "future_rerun_scope": "reproduction / bug verification only",
+    "locked_items": [
+      "epochs",
+      "lr",
+      "edge_size",
+      "edge_ent",
+      "temperature",
+      "bias",
+      "training target membership",
+      "checkpoint-selection strategy"
+    ],
+    "post_test_tuning_allowed": false
+  },
+  "probability_diagnostic_summary": {
+    "remove_probability_delta": {
+      "max": 0.0033530890941619873,
+      "mean": -0.0010142823060353596,
+      "median": -9.465217590332031e-05,
+      "min": -0.009157419204711914,
+      "n": 12,
+      "std": 0.0041871339213939394
+    },
+    "retain_probability": {
+      "max": 0.2769865393638611,
+      "mean": 0.2728879898786545,
+      "median": 0.27125418186187744,
+      "min": 0.27125418186187744,
+      "n": 12,
+      "std": 0.002125023649690635
+    },
+    "retain_probability_delta": {
+      "max": 0.0032901763916015625,
+      "mean": 0.00024454543987909955,
+      "median": 0.0009224265813827515,
+      "min": -0.0034881532192230225,
+      "n": 12,
+      "std": 0.0018853844908876384
+    },
+    "retain_probability_ratio": {
+      "max": 1.012851922720901,
+      "mean": 0.9991076016509096,
+      "median": 0.9966109302723162,
+      "min": 0.9880158659513818,
+      "n": 12,
+      "std": 0.0069050308473781186
+    }
+  },
+  "result_files": {
+    "per_node_metrics": {
+      "path": "results\\metrics\\pgexplainer_gcn_seed42\\per_node_metrics.csv",
+      "sha256": "b88f35d20f6cb8e3f7ceb9dd8ab0d48ef7d71cb1a091ec98be7d0a7f3ed1f626"
+    },
+    "raw_explanation_file_count": 72,
+    "raw_explanation_files": [
+      {
+        "relative_path": "node_306/edge_mask.pt",
+        "sha256": "10150633ef527fc0cd71e11616469e3e032cf8411a92b918996b318d46f7965c",
+        "size_bytes": 15159
+      },
+      {
+        "relative_path": "node_306/metadata.json",
+        "sha256": "bbc9cb36f0dca73e457c5aaebb5a5d5cb57068311ecf3782d76e7a92e0d3db9f",
+        "size_bytes": 893
+      },
+      {
+        "relative_path": "node_306/metrics.json",
+        "sha256": "7e84aa319928d9e3fed5695aefe6022b818679f58f6a880a16415ca819be22bc",
+        "size_bytes": 1870
+      },
+      {
+        "relative_path": "node_306/node_mask.pt",
+        "sha256": "200482aded1db39dd9cb42d3599848cc65b23796150d7055b9605eb57023a237",
+        "size_bytes": 1273
+      },
+      {
+        "relative_path": "node_306/selected_edges.csv",
+        "sha256": "857264e76b3de6c8925b45f4d79490a93e5e339a28baf2ff1eb36101f0f28340",
+        "size_bytes": 3333
+      },
+      {
+        "relative_path": "node_306/top_edges.csv",
+        "sha256": "857264e76b3de6c8925b45f4d79490a93e5e339a28baf2ff1eb36101f0f28340",
+        "size_bytes": 3333
+      },
+      {
+        "relative_path": "node_315/edge_mask.pt",
+        "sha256": "4b55cee0cd9d142a5034c336e7b130e57739aff6a14e13dc0f676d285f77692f",
+        "size_bytes": 15159
+      },
+      {
+        "relative_path": "node_315/metadata.json",
+        "sha256": "d095b6373a1e95171374fa767957960e3be49b5a10163411d47c9dc59c9f92c0",
+        "size_bytes": 894
+      },
+      {
+        "relative_path": "node_315/metrics.json",
+        "sha256": "982ff968bf3c70865f23dfbfc03448c1b2296041a5d53b87b7e49d921a40afa2",
+        "size_bytes": 1891
+      },
+      {
+        "relative_path": "node_315/node_mask.pt",
+        "sha256": "200482aded1db39dd9cb42d3599848cc65b23796150d7055b9605eb57023a237",
+        "size_bytes": 1273
+      },
+      {
+        "relative_path": "node_315/selected_edges.csv",
+        "sha256": "54ba038ba4cc2c99658c68c6a07d6ab3dcfb84e195530cb5bdda0db19a9760c2",
+        "size_bytes": 8827
+      },
+      {
+        "relative_path": "node_315/top_edges.csv",
+        "sha256": "54ba038ba4cc2c99658c68c6a07d6ab3dcfb84e195530cb5bdda0db19a9760c2",
+        "size_bytes": 8827
+      },
+      {
+        "relative_path": "node_316/edge_mask.pt",
+        "sha256": "402f1f0aa7236a520b35bd520b4838b81b1496bb51c97a1f79afcc82d0467cf0",
+        "size_bytes": 15159
+      },
+      {
+        "relative_path": "node_316/metadata.json",
+        "sha256": "8a19c40c7540df4ffef5656e071decb863a46a4bea8f68488791365f89085e0f",
+        "size_bytes": 891
+      },
+      {
+        "relative_path": "node_316/metrics.json",
+        "sha256": "03dfc88fce057d5895218413761022b94b795d17f9e6c8afebd410b2bcfa11ea",
+        "size_bytes": 1885
+      },
+      {
+        "relative_path": "node_316/node_mask.pt",
+        "sha256": "200482aded1db39dd9cb42d3599848cc65b23796150d7055b9605eb57023a237",
+        "size_bytes": 1273
+      },
+      {
+        "relative_path": "node_316/selected_edges.csv",
+        "sha256": "e9f42596988cbcab0af31e6617d1d930fb7c22a6236fcc68936e629e45d92b24",
+        "size_bytes": 415
+      },
+      {
+        "relative_path": "node_316/top_edges.csv",
+        "sha256": "e9f42596988cbcab0af31e6617d1d930fb7c22a6236fcc68936e629e45d92b24",
+        "size_bytes": 415
+      },
+      {
+        "relative_path": "node_355/edge_mask.pt",
+        "sha256": "c384412dbc3cbe6f921b47fdf014a6c5b6459e45d0d304c0d125b2feef0924e3",
+        "size_bytes": 15159
+      },
+      {
+        "relative_path": "node_355/metadata.json",
+        "sha256": "c1fb90cefc715e8e4f87a459c179e8e305c9714fac0156e6d5d0650e9237c289",
+        "size_bytes": 891
+      },
+      {
+        "relative_path": "node_355/metrics.json",
+        "sha256": "021a27854eb51bfdd99aae04eb8417d57795b8ec51ee64a1cbbd892e534a847c",
+        "size_bytes": 1853
+      },
+      {
+        "relative_path": "node_355/node_mask.pt",
+        "sha256": "200482aded1db39dd9cb42d3599848cc65b23796150d7055b9605eb57023a237",
+        "size_bytes": 1273
+      },
+      {
+        "relative_path": "node_355/selected_edges.csv",
+        "sha256": "02da72dca6f216bd1323e7d9dac9bd15d594d372d064f03443e0158179898f65",
+        "size_bytes": 368
+      },
+      {
+        "relative_path": "node_355/top_edges.csv",
+        "sha256": "02da72dca6f216bd1323e7d9dac9bd15d594d372d064f03443e0158179898f65",
+        "size_bytes": 368
+      },
+      {
+        "relative_path": "node_365/edge_mask.pt",
+        "sha256": "5c614d6b8aa114a3925bd658e3d9ba81575fe8b5115b88445008e6f87a0ef543",
+        "size_bytes": 15159
+      },
+      {
+        "relative_path": "node_365/metadata.json",
+        "sha256": "bf194df46acb992e1f823a2e125b303bdb9fb4b530e2a02ccd05cfaa4f333b5a",
+        "size_bytes": 890
+      },
+      {
+        "relative_path": "node_365/metrics.json",
+        "sha256": "d07738542069d543ceca01a081ece87df7f78e2d4e5553a7bb6e45a448b6eddf",
+        "size_bytes": 1882
+      },
+      {
+        "relative_path": "node_365/node_mask.pt",
+        "sha256": "200482aded1db39dd9cb42d3599848cc65b23796150d7055b9605eb57023a237",
+        "size_bytes": 1273
+      },
+      {
+        "relative_path": "node_365/selected_edges.csv",
+        "sha256": "02f139ac192fb9deb33a09512d3b550d68f3d0f58a6921e2eea7034a90593d73",
+        "size_bytes": 374
+      },
+      {
+        "relative_path": "node_365/top_edges.csv",
+        "sha256": "02f139ac192fb9deb33a09512d3b550d68f3d0f58a6921e2eea7034a90593d73",
+        "size_bytes": 374
+      },
+      {
+        "relative_path": "node_375/edge_mask.pt",
+        "sha256": "379cddc915571d0c97852d1180fb0ecb8069a2af21ca98b853fcecdb1354ca61",
+        "size_bytes": 15159
+      },
+      {
+        "relative_path": "node_375/metadata.json",
+        "sha256": "417d6fe3de700b890bfde76dcf45d5cde57565e096c1a087e8b976a40b845b95",
+        "size_bytes": 892
+      },
+      {
+        "relative_path": "node_375/metrics.json",
+        "sha256": "de6b28ee0c2d08e97b9d39d3a43bbe5e99ba8cb59d2e6e88f8b81ba3b420ef1c",
+        "size_bytes": 1884
+      },
+      {
+        "relative_path": "node_375/node_mask.pt",
+        "sha256": "200482aded1db39dd9cb42d3599848cc65b23796150d7055b9605eb57023a237",
+        "size_bytes": 1273
+      },
+      {
+        "relative_path": "node_375/selected_edges.csv",
+        "sha256": "25eae2cf0c3f0f8a08e2685648d1370bbe0a36bb9ac21a9b5e96095fc7b39874",
+        "size_bytes": 374
+      },
+      {
+        "relative_path": "node_375/top_edges.csv",
+        "sha256": "25eae2cf0c3f0f8a08e2685648d1370bbe0a36bb9ac21a9b5e96095fc7b39874",
+        "size_bytes": 374
+      },
+      {
+        "relative_path": "node_376/edge_mask.pt",
+        "sha256": "3cb80a608808f98f5839b48d55379a78f5754d992158f29df082b404f3bf953d",
+        "size_bytes": 15159
+      },
+      {
+        "relative_path": "node_376/metadata.json",
+        "sha256": "83e993838735b00124f9f1801cee7d0fee8e4291cb20fa0c4c53c4fe77c14967",
+        "size_bytes": 893
+      },
+      {
+        "relative_path": "node_376/metrics.json",
+        "sha256": "f98a0e56d3bb0b6c5a1784e10765478b6d776c1b6b942a65b011eda82d47e74d",
+        "size_bytes": 1886
+      },
+      {
+        "relative_path": "node_376/node_mask.pt",
+        "sha256": "200482aded1db39dd9cb42d3599848cc65b23796150d7055b9605eb57023a237",
+        "size_bytes": 1273
+      },
+      {
+        "relative_path": "node_376/selected_edges.csv",
+        "sha256": "8eb26bf0b27026bb3a015a92bf6fa77b1af9f3a3b9f6b9e834271ad083a60037",
+        "size_bytes": 5424
+      },
+      {
+        "relative_path": "node_376/top_edges.csv",
+        "sha256": "8eb26bf0b27026bb3a015a92bf6fa77b1af9f3a3b9f6b9e834271ad083a60037",
+        "size_bytes": 5424
+      },
+      {
+        "relative_path": "node_411/edge_mask.pt",
+        "sha256": "d82634e4144cf19ad6bb4be4f0522a546b99d53ca7c64e66f9c1b7494590c3a8",
+        "size_bytes": 15159
+      },
+      {
+        "relative_path": "node_411/metadata.json",
+        "sha256": "0cd2f358016345cab10b647e7df67d96fb66bff317da9d8132c4dd2784bb69e4",
+        "size_bytes": 893
+      },
+      {
+        "relative_path": "node_411/metrics.json",
+        "sha256": "480bfc2f12732ce6408566d3a4b8a6b3b52a28c02953af73a9b81bdbc913c5ef",
+        "size_bytes": 1887
+      },
+      {
+        "relative_path": "node_411/node_mask.pt",
+        "sha256": "200482aded1db39dd9cb42d3599848cc65b23796150d7055b9605eb57023a237",
+        "size_bytes": 1273
+      },
+      {
+        "relative_path": "node_411/selected_edges.csv",
+        "sha256": "4d6fff5393e7c36f7da18c800ef88e3d82a4e3732a379e32630f15be2f018d93",
+        "size_bytes": 1866
+      },
+      {
+        "relative_path": "node_411/top_edges.csv",
+        "sha256": "4d6fff5393e7c36f7da18c800ef88e3d82a4e3732a379e32630f15be2f018d93",
+        "size_bytes": 1866
+      },
+      {
+        "relative_path": "node_445/edge_mask.pt",
+        "sha256": "fc4ae675b618b4e39e169451e8ddf14c5994b9d3e772dba9e9f13480b8f69537",
+        "size_bytes": 15159
+      },
+      {
+        "relative_path": "node_445/metadata.json",
+        "sha256": "d0a9694b190082ddf6a30781853c18527281cb334264fe18630911e410220da3",
+        "size_bytes": 891
+      },
+      {
+        "relative_path": "node_445/metrics.json",
+        "sha256": "21045e357fed8957db9f8959c3b8e6dbbb45772a8166a4a5441831ec9c38520f",
+        "size_bytes": 1867
+      },
+      {
+        "relative_path": "node_445/node_mask.pt",
+        "sha256": "200482aded1db39dd9cb42d3599848cc65b23796150d7055b9605eb57023a237",
+        "size_bytes": 1273
+      },
+      {
+        "relative_path": "node_445/selected_edges.csv",
+        "sha256": "52db060fb24240074dcb32e1f8cce2d1e5d9713b96ddf199cf904631b697f454",
+        "size_bytes": 321
+      },
+      {
+        "relative_path": "node_445/top_edges.csv",
+        "sha256": "52db060fb24240074dcb32e1f8cce2d1e5d9713b96ddf199cf904631b697f454",
+        "size_bytes": 321
+      },
+      {
+        "relative_path": "node_465/edge_mask.pt",
+        "sha256": "bd5503fcd63ff016928ceed71356e7422dc43d5e4f68e702b203188e20b459fc",
+        "size_bytes": 15159
+      },
+      {
+        "relative_path": "node_465/metadata.json",
+        "sha256": "c04d7f7ed0327c4b83955db73268851000b9c0a878f6457afdb00b2f3e6aba88",
+        "size_bytes": 894
+      },
+      {
+        "relative_path": "node_465/metrics.json",
+        "sha256": "85c88e764503fa1894513448cf09eb454e673af80896564cec09888fb5691d1e",
+        "size_bytes": 1891
+      },
+      {
+        "relative_path": "node_465/node_mask.pt",
+        "sha256": "200482aded1db39dd9cb42d3599848cc65b23796150d7055b9605eb57023a237",
+        "size_bytes": 1273
+      },
+      {
+        "relative_path": "node_465/selected_edges.csv",
+        "sha256": "2784cecec02a27066bd318058aeb19fa7888e36b5eb18f8f32fe71c3a369c187",
+        "size_bytes": 4400
+      },
+      {
+        "relative_path": "node_465/top_edges.csv",
+        "sha256": "2784cecec02a27066bd318058aeb19fa7888e36b5eb18f8f32fe71c3a369c187",
+        "size_bytes": 4400
+      },
+      {
+        "relative_path": "node_486/edge_mask.pt",
+        "sha256": "81bba3eed8d66bbd183b6f6f293ef16370674a41e821bdf0e0c74e7e197c787e",
+        "size_bytes": 15159
+      },
+      {
+        "relative_path": "node_486/metadata.json",
+        "sha256": "459733abbf7d83e75e597bacd5ec94e861864bcd5a182d2550f4fcbc4a58f6e5",
+        "size_bytes": 893
+      },
+      {
+        "relative_path": "node_486/metrics.json",
+        "sha256": "f188a1ceef57e47742e22453b4019474f82bac7a6214d9e76aa061a373e0ae28",
+        "size_bytes": 1889
+      },
+      {
+        "relative_path": "node_486/node_mask.pt",
+        "sha256": "200482aded1db39dd9cb42d3599848cc65b23796150d7055b9605eb57023a237",
+        "size_bytes": 1273
+      },
+      {
+        "relative_path": "node_486/selected_edges.csv",
+        "sha256": "312677fe500e8c414a40ad7ee61f2f2aa037a7d6e4ab39da0dd21103b6f1103d",
+        "size_bytes": 1489
+      },
+      {
+        "relative_path": "node_486/top_edges.csv",
+        "sha256": "312677fe500e8c414a40ad7ee61f2f2aa037a7d6e4ab39da0dd21103b6f1103d",
+        "size_bytes": 1489
+      },
+      {
+        "relative_path": "node_491/edge_mask.pt",
+        "sha256": "f7928e4d4b4d3378efd47e0f2f2acb4c2afed04d8e66f13f6943439ecc1f32fa",
+        "size_bytes": 15159
+      },
+      {
+        "relative_path": "node_491/metadata.json",
+        "sha256": "ee5d5c2b643d445093ae38632b6bb6e5db54c1537325b89f47740a8937a37b92",
+        "size_bytes": 891
+      },
+      {
+        "relative_path": "node_491/metrics.json",
+        "sha256": "0a267a3a26684c5968419a91d9afab415a1cd06ab97be03155ec0a8f60e4bbbf",
+        "size_bytes": 1867
+      },
+      {
+        "relative_path": "node_491/node_mask.pt",
+        "sha256": "200482aded1db39dd9cb42d3599848cc65b23796150d7055b9605eb57023a237",
+        "size_bytes": 1273
+      },
+      {
+        "relative_path": "node_491/selected_edges.csv",
+        "sha256": "e33566b70f86e3a423ac3651865dfd138a6d2cad216a7aa9b44cb9dd0fa0c906",
+        "size_bytes": 321
+      },
+      {
+        "relative_path": "node_491/top_edges.csv",
+        "sha256": "e33566b70f86e3a423ac3651865dfd138a6d2cad216a7aa9b44cb9dd0fa0c906",
+        "size_bytes": 321
+      }
+    ],
+    "raw_explanation_root": "results\\explanations\\pgexplainer_gcn_seed42",
+    "result_manifest": {
+      "path": "results\\metrics\\pgexplainer_gcn_seed42\\manifest.json",
+      "sha256": "37458430f9fc295b4c9e2ff2fb31f6fdea904c62cb1ee894a90605394d47ff79"
+    },
+    "summary_metrics": {
+      "path": "results\\metrics\\pgexplainer_gcn_seed42\\summary_metrics.csv",
+      "sha256": "6c16b5eef25ce923b7a570e41bd9f9fd385a1d7326929ca462090770a05cea3d"
+    }
+  },
+  "runtime_summary": {
+    "pgexplainer_final_test_inference_runtime_seconds_per_target": {
+      "max": 0.008588999975472689,
+      "mean": 0.005550258327275515,
+      "median": 0.005270599998766556,
+      "min": 0.004727200022898614,
+      "n": 12,
+      "std": 0.0010327781415916599
+    },
+    "pgexplainer_upfront_training_runtime_seconds": 22.389040600013686,
+    "runtime_semantics": "inference_runtime_seconds is trained PGExplainer explanation-score generation for one target. It is not the same stage as GNNExplainer optimization/generation runtime."
+  },
+  "status": "success"
+}
