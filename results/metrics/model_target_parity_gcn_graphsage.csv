@@ -1,0 +1,13 @@
+node_id,label,gcn_prediction,graphsage_prediction,gcn_correct,graphsage_correct,gt_explanation_eligible,candidate_mapping_valid_for_gcn,candidate_mapping_valid_for_graphsage,eligible_for_ba_house_2x2
+306,1,1,1,True,True,True,True,True,True
+315,1,1,1,True,True,True,True,True,True
+316,1,1,1,True,True,True,True,True,True
+355,1,1,1,True,True,True,True,True,True
+365,1,1,1,True,True,True,True,True,True
+375,1,1,1,True,True,True,True,True,True
+376,1,1,1,True,True,True,True,True,True
+411,1,1,1,True,True,True,True,True,True
+445,1,1,1,True,True,True,True,True,True
+465,1,1,1,True,True,True,True,True,True
+486,1,1,1,True,True,True,True,True,True
+491,1,1,1,True,True,True,True,True,True

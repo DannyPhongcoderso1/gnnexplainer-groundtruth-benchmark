@@ -1,0 +1,19 @@
+# BA-House GraphSAGE configuration frozen before GraphSAGE explainer work.
+model:
+  type: "GraphSAGE"
+  convolution: "PyG SAGEConv"
+  hidden_channels: 32
+  num_layers: 3
+  dropout: 0.2
+  aggr: "sum"
+  seed: 42
+training:
+  learning_rate: 0.01
+  weight_decay: 0.0005
+  max_epochs: 300
+  patience: 60
+  device: "auto"
+  class_weighting: true
+checkpoint:
+  monitor: "val_accuracy"
+  mode: "max"

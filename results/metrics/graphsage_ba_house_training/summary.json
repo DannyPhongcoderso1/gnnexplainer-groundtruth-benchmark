@@ -1,0 +1,41 @@
+{
+  "best_epoch": 87,
+  "best_validation_accuracy": 0.95,
+  "best_validation_metric": 0.95,
+  "best_validation_metric_name": "val_accuracy",
+  "checkpoint_path": "artifacts\\checkpoints\\ba_house_graphsage_best.pt",
+  "dataset_checksum": "4daeb6b5ca55ee1663fa79aa6be5a7fe1ebb86159aa9d60045aceb16fe271a94",
+  "device": "cuda",
+  "history_path": "results\\metrics\\graphsage_ba_house_training\\history.csv",
+  "majority_baseline_accuracy": 0.6,
+  "motif_test_correct": 36,
+  "motif_test_total": 40,
+  "random_baseline_accuracy": 0.25,
+  "resolved_config": {
+    "checkpoint": {
+      "mode": "max",
+      "monitor": "val_accuracy"
+    },
+    "model": {
+      "aggr": "sum",
+      "convolution": "PyG SAGEConv",
+      "dropout": 0.2,
+      "hidden_channels": 32,
+      "num_layers": 3,
+      "seed": 42,
+      "type": "GraphSAGE"
+    },
+    "training": {
+      "class_weighting": true,
+      "device": "auto",
+      "learning_rate": 0.01,
+      "max_epochs": 300,
+      "patience": 60,
+      "weight_decay": 0.0005
+    }
+  },
+  "summary_path": "results\\metrics\\graphsage_ba_house_training\\summary.json",
+  "test_accuracy": 0.96,
+  "test_correct": 96,
+  "test_total": 100
+}

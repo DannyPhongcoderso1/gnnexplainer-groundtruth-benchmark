@@ -5,7 +5,7 @@ from typing import Any
 
 import torch
 
-from gnnexplainer_benchmark.models import GCN
+from gnnexplainer_benchmark.models import GCN, GraphSAGE
 
 
 def save_checkpoint(
@@ -51,3 +51,34 @@ def build_gcn_from_checkpoint(
     )
     model.load_state_dict(checkpoint["model_state_dict"])
     return model
+
+
+def build_graphsage_from_checkpoint(
+    checkpoint: dict[str, Any],
+    in_channels: int,
+    out_channels: int,
+) -> GraphSAGE:
+    model_config = checkpoint["resolved_config"]["model"]
+    model = GraphSAGE(
+        in_channels=in_channels,
+        hidden_channels=int(model_config["hidden_channels"]),
+        out_channels=out_channels,
+        num_layers=int(model_config["num_layers"]),
+        dropout=float(model_config["dropout"]),
+        aggr=str(model_config.get("aggr", "mean")),
+    )
+    model.load_state_dict(checkpoint["model_state_dict"])
+    return model
+
+
+def build_model_from_checkpoint(
+    checkpoint: dict[str, Any],
+    in_channels: int,
+    out_channels: int,
+) -> torch.nn.Module:
+    model_type = str(checkpoint["resolved_config"]["model"].get("type", "GCN"))
+    if model_type == "GCN":
+        return build_gcn_from_checkpoint(checkpoint, in_channels, out_channels)
+    if model_type == "GraphSAGE":
+        return build_graphsage_from_checkpoint(checkpoint, in_channels, out_channels)
+    raise ValueError(f"Unsupported model type in checkpoint: {model_type}")
