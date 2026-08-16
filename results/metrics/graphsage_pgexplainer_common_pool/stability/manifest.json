@@ -1,0 +1,214 @@
+{
+  "evaluation_rows": [
+    {
+      "checks": {
+        "candidate_parity_12_of_12": true,
+        "gt_parity_12_of_12": true,
+        "model_weights_unchanged": true,
+        "prediction_parity_12_of_12": true,
+        "selected_count_parity_12_of_12": true,
+        "success_12_of_12": true
+      },
+      "evaluation_runtime_seconds": 0.24357639998197556,
+      "failure_count": 0,
+      "manifest_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_0\\manifest.json",
+      "per_node_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_0\\per_node_metrics.csv",
+      "seed": 0,
+      "success_count": 12,
+      "summary_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_0\\summary_metrics.csv"
+    },
+    {
+      "checks": {
+        "candidate_parity_12_of_12": true,
+        "gt_parity_12_of_12": true,
+        "model_weights_unchanged": true,
+        "prediction_parity_12_of_12": true,
+        "selected_count_parity_12_of_12": true,
+        "success_12_of_12": true
+      },
+      "evaluation_runtime_seconds": 0.2273486999911256,
+      "failure_count": 0,
+      "manifest_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_1\\manifest.json",
+      "per_node_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_1\\per_node_metrics.csv",
+      "seed": 1,
+      "success_count": 12,
+      "summary_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_1\\summary_metrics.csv"
+    },
+    {
+      "checks": {
+        "candidate_parity_12_of_12": true,
+        "gt_parity_12_of_12": true,
+        "model_weights_unchanged": true,
+        "prediction_parity_12_of_12": true,
+        "selected_count_parity_12_of_12": true,
+        "success_12_of_12": true
+      },
+      "evaluation_runtime_seconds": 0.23838990001240745,
+      "failure_count": 0,
+      "manifest_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_2\\manifest.json",
+      "per_node_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_2\\per_node_metrics.csv",
+      "seed": 2,
+      "success_count": 12,
+      "summary_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_2\\summary_metrics.csv"
+    },
+    {
+      "checks": {
+        "candidate_parity_12_of_12": true,
+        "gt_parity_12_of_12": true,
+        "model_weights_unchanged": true,
+        "prediction_parity_12_of_12": true,
+        "selected_count_parity_12_of_12": true,
+        "success_12_of_12": true
+      },
+      "evaluation_runtime_seconds": 0.23992249998264015,
+      "failure_count": 0,
+      "manifest_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_3\\manifest.json",
+      "per_node_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_3\\per_node_metrics.csv",
+      "seed": 3,
+      "success_count": 12,
+      "summary_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_3\\summary_metrics.csv"
+    },
+    {
+      "checks": {
+        "candidate_parity_12_of_12": true,
+        "gt_parity_12_of_12": true,
+        "model_weights_unchanged": true,
+        "prediction_parity_12_of_12": true,
+        "selected_count_parity_12_of_12": true,
+        "success_12_of_12": true
+      },
+      "evaluation_runtime_seconds": 0.24089070002082735,
+      "failure_count": 0,
+      "manifest_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_4\\manifest.json",
+      "per_node_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_4\\per_node_metrics.csv",
+      "seed": 4,
+      "success_count": 12,
+      "summary_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_4\\summary_metrics.csv"
+    }
+  ],
+  "evaluation_success_count": 5,
+  "jaccard_summary": {
+    "max": 1.0,
+    "mean": 0.7899562293596624,
+    "median": 0.7760832274197759,
+    "min": 0.5,
+    "node_count": 12,
+    "pairwise_comparisons_per_node": 10,
+    "pairwise_row_count": 120,
+    "seed_count": 5,
+    "std": 0.2046394294786597
+  },
+  "outputs": {
+    "pairwise_jaccard": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\pairwise_jaccard.csv",
+    "per_node_jaccard": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\per_node_jaccard.csv",
+    "stability_summary": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\stability_summary.json"
+  },
+  "runtime": {
+    "evaluation_runtime_seconds": {
+      "max": 0.24357639998197556,
+      "mean": 0.23802563999779522,
+      "median": 0.23992249998264015,
+      "min": 0.2273486999911256,
+      "n": 5,
+      "std": 0.00625993842629318
+    },
+    "inference_runtime_seconds": {
+      "max": 0.005127500044181943,
+      "mean": 0.0031674249990222354,
+      "median": 0.0029972000047564507,
+      "min": 0.002439200005028397,
+      "n": 60,
+      "std": 0.0006431141734545764
+    },
+    "training_runtime_seconds": {
+      "max": 9.81442369997967,
+      "mean": 9.58416362000862,
+      "median": 9.590999600011855,
+      "min": 9.233034000033513,
+      "n": 5,
+      "std": 0.217003567110775
+    }
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "status": "success",
+  "total_explained_targets": 60,
+  "training_rows": [
+    {
+      "artifact_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed0.pt",
+      "checkpoint_reload_ok": true,
+      "checkpoint_sha256": "61ebbb0a7df4172f8bd5fcceeae0940bc2b77f7982f7d04430512d9f0d0c5c6f",
+      "epochs_completed": 30,
+      "final_loss": 1.1766383995612462,
+      "manifest_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed0_manifest.json",
+      "model_parameters_unchanged": true,
+      "optimizer_excludes_graphsage_parameters": true,
+      "seed": 0,
+      "training_runtime_seconds": 9.6936299999943,
+      "validation_failure_count": 0,
+      "validation_success_count": 16
+    },
+    {
+      "artifact_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed1.pt",
+      "checkpoint_reload_ok": true,
+      "checkpoint_sha256": "9e3199793feef16f56eb3fc95ea3f11a0fcf2515b29a9521277709c0f2b72367",
+      "epochs_completed": 30,
+      "final_loss": 1.1768145139018695,
+      "manifest_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed1_manifest.json",
+      "model_parameters_unchanged": true,
+      "optimizer_excludes_graphsage_parameters": true,
+      "seed": 1,
+      "training_runtime_seconds": 9.590999600011855,
+      "validation_failure_count": 0,
+      "validation_success_count": 16
+    },
+    {
+      "artifact_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed2.pt",
+      "checkpoint_reload_ok": true,
+      "checkpoint_sha256": "3a866317f6e2a005cb2229a75fdc6adfdbffe2cc6b29e38ccb7be012b90f07c4",
+      "epochs_completed": 30,
+      "final_loss": 1.1797954738140106,
+      "manifest_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed2_manifest.json",
+      "model_parameters_unchanged": true,
+      "optimizer_excludes_graphsage_parameters": true,
+      "seed": 2,
+      "training_runtime_seconds": 9.81442369997967,
+      "validation_failure_count": 0,
+      "validation_success_count": 16
+    },
+    {
+      "artifact_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed3.pt",
+      "checkpoint_reload_ok": true,
+      "checkpoint_sha256": "bfb68254094bad659915d16a03cd45e64febd2be6a5237ca9cf68319e8ccc8a9",
+      "epochs_completed": 30,
+      "final_loss": 1.1760794073343277,
+      "manifest_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed3_manifest.json",
+      "model_parameters_unchanged": true,
+      "optimizer_excludes_graphsage_parameters": true,
+      "seed": 3,
+      "training_runtime_seconds": 9.233034000033513,
+      "validation_failure_count": 0,
+      "validation_success_count": 16
+    },
+    {
+      "artifact_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed4.pt",
+      "checkpoint_reload_ok": true,
+      "checkpoint_sha256": "ca77b6a7415de56fcb9649a86b563eaf0f05e59983f58037248bda767ac3c70c",
+      "epochs_completed": 30,
+      "final_loss": 1.1738580241799355,
+      "manifest_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed4_manifest.json",
+      "model_parameters_unchanged": true,
+      "optimizer_excludes_graphsage_parameters": true,
+      "seed": 4,
+      "training_runtime_seconds": 9.588730800023768,
+      "validation_failure_count": 0,
+      "validation_success_count": 16
+    }
+  ],
+  "training_success_count": 5
+}

@@ -1,0 +1,668 @@
+{
+  "base_commit_before_task19b": "afff9f89d0b48a913d69e37bc048dd3e1cc0086a",
+  "branch": "main",
+  "checkpoints": {
+    "gcn": {
+      "count": null,
+      "path": "artifacts\\checkpoints\\ba_house_gcn_best.pt",
+      "sha256": "4c81814172650e20b6edee5fc97bc66cae46ac1e8ba76baec2226c59a7d1d507"
+    },
+    "gcn_pg_seed42": {
+      "count": null,
+      "path": "artifacts\\explainers\\pgexplainer_gcn_ba_house_seed42.pt",
+      "sha256": "a075cd84c52e14a65b042f99f33e04e6b37e4919a70132ccb71e505b08c12eda"
+    },
+    "graphsage": {
+      "count": null,
+      "path": "artifacts\\checkpoints\\ba_house_graphsage_best.pt",
+      "sha256": "09992c5ac4d2cd80c10792c12be5f945b3a20d749d8433008eba9cf3694135eb"
+    },
+    "graphsage_pg_common_seed42": {
+      "count": null,
+      "path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed42.pt",
+      "sha256": "4b2f34c00555c8d3dd9beb6fe04dbe14d71c9d1a7636f9958bb56b03130c843e"
+    },
+    "graphsage_pg_natural_seed42": {
+      "count": null,
+      "path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_seed42.pt",
+      "sha256": "0fc6ca4a232388ba861005f9f6d7b63a4cc6241eb7ca1a0eb44921cf0b03fb69"
+    }
+  },
+  "common_pool": {
+    "common_files": {
+      "train": {
+        "count": 48,
+        "path": "configs\\targets\\ba_house_pg_common_train_targets.csv",
+        "sha256": "05e4574515fb7a03b846adb677295c940eb7af380216c15dfedf65bb9430bc3c"
+      },
+      "validation": {
+        "count": 16,
+        "path": "configs\\targets\\ba_house_pg_common_val_targets.csv",
+        "sha256": "57fc6135495d9a6f8c7b8c1c3babcddd6b76187ebb353ed6fd8c289771980776"
+      }
+    },
+    "counts": {
+      "common_train": 48,
+      "common_val": 16,
+      "final": 12,
+      "gcn_train": 48,
+      "gcn_val": 16,
+      "graphsage_only_train": 58,
+      "graphsage_only_val": 19,
+      "graphsage_train": 106,
+      "graphsage_val": 35
+    },
+    "creation_commit_base": "afff9f89d0b48a913d69e37bc048dd3e1cc0086a",
+    "disjointness": {
+      "common_train_count_is_48": true,
+      "common_train_final_disjoint": true,
+      "common_train_val_disjoint": true,
+      "common_val_count_is_16": true,
+      "common_val_final_disjoint": true,
+      "gcn_train_minus_graphsage_train_empty": true,
+      "gcn_val_minus_graphsage_val_empty": true
+    },
+    "gcn_pool_equality_note": "The fact that the common pool equals the original GCN pool is an empirical consequence of set inclusion and was not used as a manual selection rule.",
+    "intersection_rule": "COMMON pool is the symmetric intersection of pre-existing backbone-specific eligible PGExplainer pools using node_id.",
+    "methodological_status": "post-hoc controlled sensitivity analysis",
+    "source_files": {
+      "final_targets": {
+        "count": 12,
+        "path": "configs\\targets\\ba_house_2x2_targets.csv",
+        "sha256": "2b1fa0cb70a4aaa107dfbfe864042ddb488372a6bcfd9ea6fd4c04bd1894526f"
+      },
+      "gcn_train": {
+        "count": 48,
+        "path": "configs\\targets\\pgexplainer_train_targets.csv",
+        "sha256": "05e4574515fb7a03b846adb677295c940eb7af380216c15dfedf65bb9430bc3c"
+      },
+      "gcn_val": {
+        "count": 16,
+        "path": "configs\\targets\\pgexplainer_val_targets.csv",
+        "sha256": "57fc6135495d9a6f8c7b8c1c3babcddd6b76187ebb353ed6fd8c289771980776"
+      },
+      "graphsage_train": {
+        "count": 106,
+        "path": "configs\\targets\\pgexplainer_graphsage_train_targets.csv",
+        "sha256": "5e7efee3dfd90cc6a5bcd547d23352b27344fe313467ea48f502b13be6160284"
+      },
+      "graphsage_val": {
+        "count": 35,
+        "path": "configs\\targets\\pgexplainer_graphsage_val_targets.csv",
+        "sha256": "2254e9bc67710633c7cc2b0da852265cd9e1a98a91f3b4b6151a8a7bf14f91d8"
+      }
+    },
+    "status": "success"
+  },
+  "comparisons": {
+    "controlled_cross_backbone_pg": [
+      {
+        "delta_graphsage_minus_gcn": 0.25189997705026523,
+        "metric": "edge_auroc",
+        "pg_gcn_common": 0.747968995696066,
+        "pg_graphsage_common": 0.9998689727463312
+      },
+      {
+        "delta_graphsage_minus_gcn": 0.6270267439271218,
+        "metric": "edge_ap",
+        "pg_gcn_common": 0.3665629996626219,
+        "pg_graphsage_common": 0.9935897435897436
+      },
+      {
+        "delta_graphsage_minus_gcn": 0.5833333333333333,
+        "metric": "fid_plus",
+        "pg_gcn_common": 0.4166666666666667,
+        "pg_graphsage_common": 1.0
+      },
+      {
+        "delta_graphsage_minus_gcn": -0.08333333333333337,
+        "metric": "fid_minus",
+        "pg_gcn_common": 0.5833333333333334,
+        "pg_graphsage_common": 0.5
+      },
+      {
+        "delta_graphsage_minus_gcn": 0.08333333333333331,
+        "metric": "one_minus_fid_minus",
+        "pg_gcn_common": 0.4166666666666667,
+        "pg_graphsage_common": 0.5
+      },
+      {
+        "delta_graphsage_minus_gcn": -0.1619550476919731,
+        "metric": "stability",
+        "pg_gcn_common": 0.9519112770516355,
+        "pg_graphsage_common": 0.7899562293596624
+      },
+      {
+        "delta_graphsage_minus_gcn": 0.0,
+        "metric": "sparsity",
+        "pg_gcn_common": 0.7936944650380934,
+        "pg_graphsage_common": 0.7936944650380934
+      },
+      {
+        "delta_graphsage_minus_gcn": -0.0022478416649391875,
+        "metric": "inference_runtime_seconds",
+        "pg_gcn_common": 0.005550258327275515,
+        "pg_graphsage_common": 0.003302416662336327
+      }
+    ],
+    "natural_vs_common_graphsage": [
+      {
+        "common_48_16": 0.9998689727463312,
+        "delta_common_minus_natural": -0.00013102725366875845,
+        "metric": "edge_auroc",
+        "natural_106_35": 1.0
+      },
+      {
+        "common_48_16": 0.9935897435897436,
+        "delta_common_minus_natural": -0.0064102564102563875,
+        "metric": "edge_ap",
+        "natural_106_35": 1.0
+      },
+      {
+        "common_48_16": 1.0,
+        "delta_common_minus_natural": 0.0,
+        "metric": "fid_plus",
+        "natural_106_35": 1.0
+      },
+      {
+        "common_48_16": 0.5,
+        "delta_common_minus_natural": 0.0,
+        "metric": "fid_minus",
+        "natural_106_35": 0.5
+      },
+      {
+        "common_48_16": 0.5,
+        "delta_common_minus_natural": 0.0,
+        "metric": "one_minus_fid_minus",
+        "natural_106_35": 0.5
+      },
+      {
+        "common_48_16": 0.7899562293596624,
+        "delta_common_minus_natural": -0.015099630435339573,
+        "metric": "stability",
+        "natural_106_35": 0.8050558597950019
+      },
+      {
+        "common_48_16": 0.7936944650380934,
+        "delta_common_minus_natural": 0.0,
+        "metric": "sparsity",
+        "natural_106_35": 0.7936944650380934
+      },
+      {
+        "common_48_16": 0.003302416662336327,
+        "delta_common_minus_natural": -0.011033633335803946,
+        "metric": "inference_runtime_seconds",
+        "natural_106_35": 0.014336049998140274
+      }
+    ]
+  },
+  "dataset": {
+    "count": null,
+    "path": "artifacts\\data\\ba_house.pt",
+    "sha256": "4daeb6b5ca55ee1663fa79aa6be5a7fe1ebb86159aa9d60045aceb16fe271a94"
+  },
+  "device": "cuda",
+  "gcn_common_reuse": {
+    "existing_gcn_train_identical_to_common": true,
+    "existing_gcn_val_identical_to_common": true,
+    "gcn_pg_checkpoint_sha256": "a075cd84c52e14a65b042f99f33e04e6b37e4919a70132ccb71e505b08c12eda",
+    "gcn_retrained": false
+  },
+  "git_commit_at_manifest_build": "afff9f89d0b48a913d69e37bc048dd3e1cc0086a",
+  "graphsage_common_seed42_evaluation": {
+    "checks": {
+      "candidate_parity_12_of_12": true,
+      "gt_parity_12_of_12": true,
+      "model_weights_unchanged": true,
+      "prediction_parity_12_of_12": true,
+      "selected_count_parity_12_of_12": true,
+      "success_12_of_12": true
+    },
+    "evaluation_runtime_seconds": 0.22951979999197647,
+    "failure_count": 0,
+    "manifest_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\seed42\\manifest.json",
+    "per_node_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\seed42\\per_node_metrics.csv",
+    "seed": 42,
+    "success_count": 12,
+    "summary_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\seed42\\summary_metrics.csv"
+  },
+  "graphsage_common_seed42_training": {
+    "artifact_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed42.pt",
+    "checkpoint_reload_ok": true,
+    "checkpoint_sha256": "4b2f34c00555c8d3dd9beb6fe04dbe14d71c9d1a7636f9958bb56b03130c843e",
+    "epochs_completed": 30,
+    "final_loss": 1.1736823221047719,
+    "manifest_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed42_manifest.json",
+    "model_parameters_unchanged": true,
+    "optimizer_excludes_graphsage_parameters": true,
+    "seed": 42,
+    "training_runtime_seconds": 9.819772300019395,
+    "validation_failure_count": 0,
+    "validation_success_count": 16
+  },
+  "graphsage_common_stability": {
+    "max": 1.0,
+    "mean": 0.7899562293596624,
+    "median": 0.7760832274197759,
+    "min": 0.5,
+    "node_count": 12,
+    "pairwise_comparisons_per_node": 10,
+    "pairwise_row_count": 120,
+    "seed_count": 5,
+    "std": 0.2046394294786597
+  },
+  "graphsage_common_stability_manifest": {
+    "evaluation_rows": [
+      {
+        "checks": {
+          "candidate_parity_12_of_12": true,
+          "gt_parity_12_of_12": true,
+          "model_weights_unchanged": true,
+          "prediction_parity_12_of_12": true,
+          "selected_count_parity_12_of_12": true,
+          "success_12_of_12": true
+        },
+        "evaluation_runtime_seconds": 0.24357639998197556,
+        "failure_count": 0,
+        "manifest_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_0\\manifest.json",
+        "per_node_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_0\\per_node_metrics.csv",
+        "seed": 0,
+        "success_count": 12,
+        "summary_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_0\\summary_metrics.csv"
+      },
+      {
+        "checks": {
+          "candidate_parity_12_of_12": true,
+          "gt_parity_12_of_12": true,
+          "model_weights_unchanged": true,
+          "prediction_parity_12_of_12": true,
+          "selected_count_parity_12_of_12": true,
+          "success_12_of_12": true
+        },
+        "evaluation_runtime_seconds": 0.2273486999911256,
+        "failure_count": 0,
+        "manifest_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_1\\manifest.json",
+        "per_node_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_1\\per_node_metrics.csv",
+        "seed": 1,
+        "success_count": 12,
+        "summary_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_1\\summary_metrics.csv"
+      },
+      {
+        "checks": {
+          "candidate_parity_12_of_12": true,
+          "gt_parity_12_of_12": true,
+          "model_weights_unchanged": true,
+          "prediction_parity_12_of_12": true,
+          "selected_count_parity_12_of_12": true,
+          "success_12_of_12": true
+        },
+        "evaluation_runtime_seconds": 0.23838990001240745,
+        "failure_count": 0,
+        "manifest_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_2\\manifest.json",
+        "per_node_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_2\\per_node_metrics.csv",
+        "seed": 2,
+        "success_count": 12,
+        "summary_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_2\\summary_metrics.csv"
+      },
+      {
+        "checks": {
+          "candidate_parity_12_of_12": true,
+          "gt_parity_12_of_12": true,
+          "model_weights_unchanged": true,
+          "prediction_parity_12_of_12": true,
+          "selected_count_parity_12_of_12": true,
+          "success_12_of_12": true
+        },
+        "evaluation_runtime_seconds": 0.23992249998264015,
+        "failure_count": 0,
+        "manifest_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_3\\manifest.json",
+        "per_node_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_3\\per_node_metrics.csv",
+        "seed": 3,
+        "success_count": 12,
+        "summary_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_3\\summary_metrics.csv"
+      },
+      {
+        "checks": {
+          "candidate_parity_12_of_12": true,
+          "gt_parity_12_of_12": true,
+          "model_weights_unchanged": true,
+          "prediction_parity_12_of_12": true,
+          "selected_count_parity_12_of_12": true,
+          "success_12_of_12": true
+        },
+        "evaluation_runtime_seconds": 0.24089070002082735,
+        "failure_count": 0,
+        "manifest_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_4\\manifest.json",
+        "per_node_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_4\\per_node_metrics.csv",
+        "seed": 4,
+        "success_count": 12,
+        "summary_metrics_path": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\seed_4\\summary_metrics.csv"
+      }
+    ],
+    "evaluation_success_count": 5,
+    "jaccard_summary": {
+      "max": 1.0,
+      "mean": 0.7899562293596624,
+      "median": 0.7760832274197759,
+      "min": 0.5,
+      "node_count": 12,
+      "pairwise_comparisons_per_node": 10,
+      "pairwise_row_count": 120,
+      "seed_count": 5,
+      "std": 0.2046394294786597
+    },
+    "outputs": {
+      "pairwise_jaccard": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\pairwise_jaccard.csv",
+      "per_node_jaccard": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\per_node_jaccard.csv",
+      "stability_summary": "results\\metrics\\graphsage_pgexplainer_common_pool\\stability\\stability_summary.json"
+    },
+    "runtime": {
+      "evaluation_runtime_seconds": {
+        "max": 0.24357639998197556,
+        "mean": 0.23802563999779522,
+        "median": 0.23992249998264015,
+        "min": 0.2273486999911256,
+        "n": 5,
+        "std": 0.00625993842629318
+      },
+      "inference_runtime_seconds": {
+        "max": 0.005127500044181943,
+        "mean": 0.0031674249990222354,
+        "median": 0.0029972000047564507,
+        "min": 0.002439200005028397,
+        "n": 60,
+        "std": 0.0006431141734545764
+      },
+      "training_runtime_seconds": {
+        "max": 9.81442369997967,
+        "mean": 9.58416362000862,
+        "median": 9.590999600011855,
+        "min": 9.233034000033513,
+        "n": 5,
+        "std": 0.217003567110775
+      }
+    },
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "status": "success",
+    "total_explained_targets": 60,
+    "training_rows": [
+      {
+        "artifact_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed0.pt",
+        "checkpoint_reload_ok": true,
+        "checkpoint_sha256": "61ebbb0a7df4172f8bd5fcceeae0940bc2b77f7982f7d04430512d9f0d0c5c6f",
+        "epochs_completed": 30,
+        "final_loss": 1.1766383995612462,
+        "manifest_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed0_manifest.json",
+        "model_parameters_unchanged": true,
+        "optimizer_excludes_graphsage_parameters": true,
+        "seed": 0,
+        "training_runtime_seconds": 9.6936299999943,
+        "validation_failure_count": 0,
+        "validation_success_count": 16
+      },
+      {
+        "artifact_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed1.pt",
+        "checkpoint_reload_ok": true,
+        "checkpoint_sha256": "9e3199793feef16f56eb3fc95ea3f11a0fcf2515b29a9521277709c0f2b72367",
+        "epochs_completed": 30,
+        "final_loss": 1.1768145139018695,
+        "manifest_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed1_manifest.json",
+        "model_parameters_unchanged": true,
+        "optimizer_excludes_graphsage_parameters": true,
+        "seed": 1,
+        "training_runtime_seconds": 9.590999600011855,
+        "validation_failure_count": 0,
+        "validation_success_count": 16
+      },
+      {
+        "artifact_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed2.pt",
+        "checkpoint_reload_ok": true,
+        "checkpoint_sha256": "3a866317f6e2a005cb2229a75fdc6adfdbffe2cc6b29e38ccb7be012b90f07c4",
+        "epochs_completed": 30,
+        "final_loss": 1.1797954738140106,
+        "manifest_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed2_manifest.json",
+        "model_parameters_unchanged": true,
+        "optimizer_excludes_graphsage_parameters": true,
+        "seed": 2,
+        "training_runtime_seconds": 9.81442369997967,
+        "validation_failure_count": 0,
+        "validation_success_count": 16
+      },
+      {
+        "artifact_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed3.pt",
+        "checkpoint_reload_ok": true,
+        "checkpoint_sha256": "bfb68254094bad659915d16a03cd45e64febd2be6a5237ca9cf68319e8ccc8a9",
+        "epochs_completed": 30,
+        "final_loss": 1.1760794073343277,
+        "manifest_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed3_manifest.json",
+        "model_parameters_unchanged": true,
+        "optimizer_excludes_graphsage_parameters": true,
+        "seed": 3,
+        "training_runtime_seconds": 9.233034000033513,
+        "validation_failure_count": 0,
+        "validation_success_count": 16
+      },
+      {
+        "artifact_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed4.pt",
+        "checkpoint_reload_ok": true,
+        "checkpoint_sha256": "ca77b6a7415de56fcb9649a86b563eaf0f05e59983f58037248bda767ac3c70c",
+        "epochs_completed": 30,
+        "final_loss": 1.1738580241799355,
+        "manifest_path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed4_manifest.json",
+        "model_parameters_unchanged": true,
+        "optimizer_excludes_graphsage_parameters": true,
+        "seed": 4,
+        "training_runtime_seconds": 9.588730800023768,
+        "validation_failure_count": 0,
+        "validation_success_count": 16
+      }
+    ],
+    "training_success_count": 5
+  },
+  "graphsage_common_summary": {
+    "edge_ap": {
+      "max": 1.0,
+      "mean": 0.9935897435897436,
+      "median": 1.0,
+      "min": 0.9230769230769231,
+      "n": 12,
+      "std": 0.02220577958421636
+    },
+    "edge_auroc": {
+      "max": 1.0,
+      "mean": 0.9998689727463312,
+      "median": 1.0,
+      "min": 0.9984276729559749,
+      "n": 12,
+      "std": 0.00045389172106101043
+    },
+    "fid_minus": {
+      "max": 1.0,
+      "mean": 0.5,
+      "median": 0.5,
+      "min": 0.0,
+      "n": 12,
+      "std": 0.5222329678670935
+    },
+    "fid_plus": {
+      "max": 1.0,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "n": 12,
+      "std": 0.0
+    },
+    "fidelity_legacy": {
+      "max": 0.5736208073794842,
+      "mean": 0.43144715515275794,
+      "median": 0.43763271532952785,
+      "min": 0.1011635959148407,
+      "n": 12,
+      "std": 0.12422533932854664
+    },
+    "inference_runtime_seconds": {
+      "max": 0.006120999983977526,
+      "mean": 0.003302416662336327,
+      "median": 0.002949699992313981,
+      "min": 0.00256019999505952,
+      "n": 12,
+      "std": 0.0010088062456418427
+    },
+    "one_minus_fid_minus": {
+      "max": 1.0,
+      "mean": 0.5,
+      "median": 0.5,
+      "min": 0.0,
+      "n": 12,
+      "std": 0.5222329678670935
+    },
+    "remove_probability_delta": {
+      "max": 0.5736208073794842,
+      "mean": 0.43144715515275794,
+      "median": 0.43763271532952785,
+      "min": 0.1011635959148407,
+      "n": 12,
+      "std": 0.12422533932854664
+    },
+    "retain_probability": {
+      "max": 0.7419456243515015,
+      "mean": 0.3859651191160083,
+      "median": 0.37905678898096085,
+      "min": 0.029577363282442093,
+      "n": 12,
+      "std": 0.32246227036653236
+    },
+    "retain_probability_delta": {
+      "max": 0.5111815445125103,
+      "mean": 0.15460459856937328,
+      "median": 0.144368015229702,
+      "min": -0.24813660979270935,
+      "n": 12,
+      "std": 0.332352064362767
+    },
+    "retain_probability_ratio": {
+      "max": 1.5511419333874232,
+      "mean": 0.7285117773496461,
+      "median": 0.7352758586078978,
+      "min": 0.05469602600362042,
+      "n": 12,
+      "std": 0.6173308758461634
+    },
+    "sparsity": {
+      "max": 0.8,
+      "mean": 0.7936944650380934,
+      "median": 0.7970328282828283,
+      "min": 0.7692307692307692,
+      "n": 12,
+      "std": 0.008900508700863707
+    }
+  },
+  "integrity": {
+    "best_seed_selection": false,
+    "final_targets_used_for_training": 0,
+    "graphsage_common_checkpoint_differs_from_natural": true,
+    "hyperparameter_tuning": false,
+    "original_task19_artifacts_modified": false,
+    "retraining_of_gcn_pg": false,
+    "target_modification": false
+  },
+  "methodological_status": "post-hoc controlled sensitivity analysis conducted after primary final-test exposure",
+  "pgexplainer_config_hash": "45bde423b3240e9f5fc659530206b98fa3ff5de27bdbc421e3bafc38f909b0e0",
+  "result_file_hashes": {
+    "controlled_cross_backbone_pg": {
+      "count": 8,
+      "path": "results\\metrics\\pgexplainer_common_pool_sensitivity\\controlled_cross_backbone_pg.csv",
+      "sha256": "8d783dd3ade6a6de6987c9d4092126d1008aa1e2aec52c35203848d879dc785e"
+    },
+    "graphsage_common_seed42_per_node": {
+      "count": 12,
+      "path": "results\\metrics\\pgexplainer_common_pool_sensitivity\\graphsage_common_seed42_per_node.csv",
+      "sha256": "19794bf4602ab35c5fb22e382d20cd8fdce6152694970a89005d7e0f131b5b87"
+    },
+    "graphsage_common_seed42_summary": {
+      "count": 12,
+      "path": "results\\metrics\\pgexplainer_common_pool_sensitivity\\graphsage_common_seed42_summary.csv",
+      "sha256": "9703698bb010fc41d707b21974ef776e4983db68294bffe642562c4bffbdb9aa"
+    },
+    "graphsage_common_stability": {
+      "count": 120,
+      "path": "results\\metrics\\pgexplainer_common_pool_sensitivity\\graphsage_common_stability.csv",
+      "sha256": "f9fdbecb4b750d4eee0fa931c51f97b4728a9d2d4b59bcc97a0f3d072a2506a0"
+    },
+    "graphsage_common_stability_summary": {
+      "count": null,
+      "path": "results\\metrics\\pgexplainer_common_pool_sensitivity\\graphsage_common_stability_summary.json",
+      "sha256": "2d43d92b68c3b3f65b202bf97a4952d8dbd91cf4b9c32f9ca68a0563b0a23a22"
+    },
+    "natural_vs_common_graphsage": {
+      "count": 8,
+      "path": "results\\metrics\\pgexplainer_common_pool_sensitivity\\natural_vs_common_graphsage.csv",
+      "sha256": "2e58c4ca6510e11726c3f5cc85e0f0603800635ec348cdd8a003b6c85443fb4f"
+    }
+  },
+  "runtime": {
+    "seed42_evaluation_runtime_seconds": 0.22951979999197647,
+    "seed42_training_runtime_seconds": 9.819772300019395,
+    "stability_runtime": {
+      "evaluation_runtime_seconds": {
+        "max": 0.24357639998197556,
+        "mean": 0.23802563999779522,
+        "median": 0.23992249998264015,
+        "min": 0.2273486999911256,
+        "n": 5,
+        "std": 0.00625993842629318
+      },
+      "inference_runtime_seconds": {
+        "max": 0.005127500044181943,
+        "mean": 0.0031674249990222354,
+        "median": 0.0029972000047564507,
+        "min": 0.002439200005028397,
+        "n": 60,
+        "std": 0.0006431141734545764
+      },
+      "training_runtime_seconds": {
+        "max": 9.81442369997967,
+        "mean": 9.58416362000862,
+        "median": 9.590999600011855,
+        "min": 9.233034000033513,
+        "n": 5,
+        "std": 0.217003567110775
+      }
+    }
+  },
+  "source_hashes": {
+    "common_evaluation_config": {
+      "count": null,
+      "path": "configs\\evaluation\\pgexplainer_graphsage_common_pool.yaml",
+      "sha256": "9a872ea0483c061a457c13414bfa971bb35b6478901990e6ee013ccfe256bf6c"
+    },
+    "explainer_config": {
+      "count": null,
+      "path": "configs\\explainer\\pgexplainer.yaml",
+      "sha256": "60aef2f1ff6d8e6114797e3c3f0d6006b72bce18058a33322b04ee68649de571"
+    },
+    "pg_evaluation": {
+      "count": null,
+      "path": "src\\gnnexplainer_benchmark\\explainers\\pgexplainer_evaluation.py",
+      "sha256": "7142ef01f71d6f222b30eb1965fcdaf2f2d3a71d45713cdd4abf70cd77075c98"
+    },
+    "pg_training": {
+      "count": null,
+      "path": "src\\gnnexplainer_benchmark\\explainers\\pgexplainer_training.py",
+      "sha256": "5c946c395a2da61799cbcbd22aa77966fff56e11955f59995aaa678244ccaa3c"
+    },
+    "task19b_script": {
+      "count": null,
+      "path": "scripts\\run_pgexplainer_common_pool_sensitivity.py",
+      "sha256": "e0d02749a3c83db3d8da07f1e1baad3dbb80d9273c8391bc1bd01b6d78ae0a81"
+    }
+  },
+  "status": "success",
+  "task": "Task 19B controlled common-pool PGExplainer sensitivity analysis"
+}

@@ -1,0 +1,139 @@
+{
+  "candidate_counts_match_phase4": true,
+  "dataset_sha256": "4daeb6b5ca55ee1663fa79aa6be5a7fe1ebb86159aa9d60045aceb16fe271a94",
+  "edge_ranking_metric_scope": "continuous_scores_over_full_candidate_edge_set",
+  "evaluation_runtime_seconds": 0.22951979999197647,
+  "explainer": "PGExplainer",
+  "explainer_checkpoint": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed42.pt",
+  "explainer_checkpoint_sha256": "4b2f34c00555c8d3dd9beb6fe04dbe14d71c9d1a7636f9958bb56b03130c843e",
+  "explainer_manifest": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_common_seed42_manifest.json",
+  "explainer_training_seed": 42,
+  "failure_count": 0,
+  "gcn_checkpoint_sha256": "09992c5ac4d2cd80c10792c12be5f945b3a20d749d8433008eba9cf3694135eb",
+  "ground_truth_counts_match_phase4": true,
+  "model_checkpoint_sha256": "09992c5ac4d2cd80c10792c12be5f945b3a20d749d8433008eba9cf3694135eb",
+  "model_hash_after": "ab7da8f2be5deb6d49a3e3feae441e0118ef30e18402770943182ce94c316f88",
+  "model_hash_before": "ab7da8f2be5deb6d49a3e3feae441e0118ef30e18402770943182ce94c316f88",
+  "model_type": "GraphSAGE",
+  "model_weights_unchanged": true,
+  "original_predictions_match_phase4": true,
+  "per_node_metrics": "results\\metrics\\graphsage_pgexplainer_common_pool\\seed42\\per_node_metrics.csv",
+  "phase4_reference_per_node": "results\\metrics\\graphsage_gnnexplainer\\seed42\\per_node_metrics.csv",
+  "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+  "selected_counts_match_phase4": true,
+  "selected_edge_ratio": 0.2,
+  "success_count": 12,
+  "summary": [
+    {
+      "max": 1.0,
+      "mean": 0.9998689727463312,
+      "median": 1.0,
+      "metric": "edge_auroc",
+      "min": 0.9984276729559749,
+      "n": 12,
+      "std": 0.00045389172106101043
+    },
+    {
+      "max": 1.0,
+      "mean": 0.9935897435897436,
+      "median": 1.0,
+      "metric": "edge_ap",
+      "min": 0.9230769230769231,
+      "n": 12,
+      "std": 0.02220577958421636
+    },
+    {
+      "max": 1.0,
+      "mean": 1.0,
+      "median": 1.0,
+      "metric": "fid_plus",
+      "min": 1.0,
+      "n": 12,
+      "std": 0.0
+    },
+    {
+      "max": 1.0,
+      "mean": 0.5,
+      "median": 0.5,
+      "metric": "fid_minus",
+      "min": 0.0,
+      "n": 12,
+      "std": 0.5222329678670935
+    },
+    {
+      "max": 1.0,
+      "mean": 0.5,
+      "median": 0.5,
+      "metric": "one_minus_fid_minus",
+      "min": 0.0,
+      "n": 12,
+      "std": 0.5222329678670935
+    },
+    {
+      "max": 0.5736208073794842,
+      "mean": 0.43144715515275794,
+      "median": 0.43763271532952785,
+      "metric": "remove_probability_delta",
+      "min": 0.1011635959148407,
+      "n": 12,
+      "std": 0.12422533932854664
+    },
+    {
+      "max": 0.7419456243515015,
+      "mean": 0.3859651191160083,
+      "median": 0.37905678898096085,
+      "metric": "retain_probability",
+      "min": 0.029577363282442093,
+      "n": 12,
+      "std": 0.32246227036653236
+    },
+    {
+      "max": 0.5111815445125103,
+      "mean": 0.15460459856937328,
+      "median": 0.144368015229702,
+      "metric": "retain_probability_delta",
+      "min": -0.24813660979270935,
+      "n": 12,
+      "std": 0.332352064362767
+    },
+    {
+      "max": 1.5511419333874232,
+      "mean": 0.7285117773496461,
+      "median": 0.7352758586078978,
+      "metric": "retain_probability_ratio",
+      "min": 0.05469602600362042,
+      "n": 12,
+      "std": 0.6173308758461634
+    },
+    {
+      "max": 0.5736208073794842,
+      "mean": 0.43144715515275794,
+      "median": 0.43763271532952785,
+      "metric": "fidelity_legacy",
+      "min": 0.1011635959148407,
+      "n": 12,
+      "std": 0.12422533932854664
+    },
+    {
+      "max": 0.8,
+      "mean": 0.7936944650380934,
+      "median": 0.7970328282828283,
+      "metric": "sparsity",
+      "min": 0.7692307692307692,
+      "n": 12,
+      "std": 0.008900508700863707
+    },
+    {
+      "max": 0.006120999983977526,
+      "mean": 0.003302416662336327,
+      "median": 0.002949699992313981,
+      "metric": "inference_runtime_seconds",
+      "min": 0.00256019999505952,
+      "n": 12,
+      "std": 0.0010088062456418427
+    }
+  ],
+  "summary_metrics": "results\\metrics\\graphsage_pgexplainer_common_pool\\seed42\\summary_metrics.csv",
+  "target_count": 12,
+  "target_file": "configs\\targets\\ba_house_2x2_targets.csv"
+}

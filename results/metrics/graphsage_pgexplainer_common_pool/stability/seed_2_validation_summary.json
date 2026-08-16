@@ -1,0 +1,9 @@
+{
+  "all_masks_finite": true,
+  "all_masks_non_degenerate": true,
+  "edge_ap_mean": 0.9951923076923077,
+  "edge_auroc_mean": 0.9973958333333334,
+  "failure_count": 0,
+  "success_count": 16,
+  "validation_node_count": 16
+}

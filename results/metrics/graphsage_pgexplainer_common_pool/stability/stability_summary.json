@@ -1,0 +1,11 @@
+{
+  "max": 1.0,
+  "mean": 0.7899562293596624,
+  "median": 0.7760832274197759,
+  "min": 0.5,
+  "node_count": 12,
+  "pairwise_comparisons_per_node": 10,
+  "pairwise_row_count": 120,
+  "seed_count": 5,
+  "std": 0.2046394294786597
+}

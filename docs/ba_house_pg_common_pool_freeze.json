@@ -1,0 +1,66 @@
+{
+  "common_files": {
+    "train": {
+      "count": 48,
+      "path": "configs\\targets\\ba_house_pg_common_train_targets.csv",
+      "sha256": "05e4574515fb7a03b846adb677295c940eb7af380216c15dfedf65bb9430bc3c"
+    },
+    "validation": {
+      "count": 16,
+      "path": "configs\\targets\\ba_house_pg_common_val_targets.csv",
+      "sha256": "57fc6135495d9a6f8c7b8c1c3babcddd6b76187ebb353ed6fd8c289771980776"
+    }
+  },
+  "counts": {
+    "common_train": 48,
+    "common_val": 16,
+    "final": 12,
+    "gcn_train": 48,
+    "gcn_val": 16,
+    "graphsage_only_train": 58,
+    "graphsage_only_val": 19,
+    "graphsage_train": 106,
+    "graphsage_val": 35
+  },
+  "creation_commit_base": "afff9f89d0b48a913d69e37bc048dd3e1cc0086a",
+  "disjointness": {
+    "common_train_count_is_48": true,
+    "common_train_final_disjoint": true,
+    "common_train_val_disjoint": true,
+    "common_val_count_is_16": true,
+    "common_val_final_disjoint": true,
+    "gcn_train_minus_graphsage_train_empty": true,
+    "gcn_val_minus_graphsage_val_empty": true
+  },
+  "gcn_pool_equality_note": "The fact that the common pool equals the original GCN pool is an empirical consequence of set inclusion and was not used as a manual selection rule.",
+  "intersection_rule": "COMMON pool is the symmetric intersection of pre-existing backbone-specific eligible PGExplainer pools using node_id.",
+  "methodological_status": "post-hoc controlled sensitivity analysis",
+  "source_files": {
+    "final_targets": {
+      "count": 12,
+      "path": "configs\\targets\\ba_house_2x2_targets.csv",
+      "sha256": "2b1fa0cb70a4aaa107dfbfe864042ddb488372a6bcfd9ea6fd4c04bd1894526f"
+    },
+    "gcn_train": {
+      "count": 48,
+      "path": "configs\\targets\\pgexplainer_train_targets.csv",
+      "sha256": "05e4574515fb7a03b846adb677295c940eb7af380216c15dfedf65bb9430bc3c"
+    },
+    "gcn_val": {
+      "count": 16,
+      "path": "configs\\targets\\pgexplainer_val_targets.csv",
+      "sha256": "57fc6135495d9a6f8c7b8c1c3babcddd6b76187ebb353ed6fd8c289771980776"
+    },
+    "graphsage_train": {
+      "count": 106,
+      "path": "configs\\targets\\pgexplainer_graphsage_train_targets.csv",
+      "sha256": "5e7efee3dfd90cc6a5bcd547d23352b27344fe313467ea48f502b13be6160284"
+    },
+    "graphsage_val": {
+      "count": 35,
+      "path": "configs\\targets\\pgexplainer_graphsage_val_targets.csv",
+      "sha256": "2254e9bc67710633c7cc2b0da852265cd9e1a98a91f3b4b6151a8a7bf14f91d8"
+    }
+  },
+  "status": "success"
+}

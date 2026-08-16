@@ -1,0 +1,17 @@
+node_id,ground_truth_label,frozen_model_prediction,target_for_pgexplainer,confidence,base_model_split,is_ground_truth_motif,gcn_prediction_correct,candidate_edge_count,candidate_edge_mapping_valid
+325,1,1,1,0.2717951834201813,validation,True,True,56,True
+326,1,1,1,0.2717951834201813,validation,True,True,56,True
+335,1,1,1,0.273624986410141,validation,True,True,14,True
+336,1,1,1,0.2722652554512024,validation,True,True,28,True
+350,1,1,1,0.2740495204925537,validation,True,True,604,True
+386,1,1,1,0.2723735272884369,validation,True,True,32,True
+391,1,1,1,0.2734624147415161,validation,True,True,14,True
+396,1,1,1,0.27415573596954346,validation,True,True,584,True
+415,1,1,1,0.27457645535469055,validation,True,True,340,True
+425,1,1,1,0.2720351219177246,validation,True,True,38,True
+426,1,1,1,0.2720351219177246,validation,True,True,38,True
+446,1,1,1,0.2721937298774719,validation,True,True,24,True
+451,1,1,1,0.27398601174354553,validation,True,True,698,True
+456,1,1,1,0.27259954810142517,validation,True,True,24,True
+470,1,1,1,0.2723155617713928,validation,True,True,28,True
+475,1,1,1,0.2741338014602661,validation,True,True,776,True
