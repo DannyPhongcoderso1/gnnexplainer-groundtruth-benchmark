@@ -5,7 +5,7 @@ import hashlib
 import json
 from collections import defaultdict
 from pathlib import Path
-from statistics import mean
+from statistics import mean, median, stdev
 from typing import Any
 
 METHODS = ["Random", "GNNExplainer", "PGExplainer"]
@@ -48,17 +48,34 @@ def build_gcn_explainer_comparison() -> dict[str, Any]:
     if node_ids != sorted(random_by_node) or node_ids != sorted(pg_by_node):
         raise ValueError("Method target node ids do not match")
 
-    summary_rows = build_summary_rows()
-    per_node_rows = build_per_node_rows(node_ids, gnn_by_node, pg_by_node, random_by_node)
-    paired_delta_rows = build_paired_delta_rows(per_node_rows)
+    summary_rows = build_summary_rows(random_by_node)
+    wide_per_node_rows = build_wide_per_node_rows(
+        node_ids,
+        gnn_by_node,
+        pg_by_node,
+        random_by_node,
+    )
+    per_node_rows = build_long_per_node_rows(wide_per_node_rows)
+    paired_delta_rows = build_paired_delta_rows(wide_per_node_rows)
     runtime_rows = build_runtime_rows()
+    random_aggregation_audit_rows = build_random_aggregation_audit_rows(
+        random_rows,
+        random_by_node,
+    )
 
     write_csv(output_dir / "summary.csv", summary_rows)
     write_csv(output_dir / "per_node.csv", per_node_rows)
     write_csv(output_dir / "paired_deltas.csv", paired_delta_rows)
     write_csv(output_dir / "runtime.csv", runtime_rows)
+    write_csv(output_dir / "random_aggregation_audit.csv", random_aggregation_audit_rows)
 
-    manifest = build_manifest(output_dir, summary_rows, per_node_rows, paired_delta_rows)
+    manifest = build_manifest(
+        output_dir,
+        summary_rows,
+        per_node_rows,
+        paired_delta_rows,
+        random_aggregation_audit_rows,
+    )
     (output_dir / "manifest.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
@@ -66,6 +83,8 @@ def build_gcn_explainer_comparison() -> dict[str, Any]:
     write_freeze_docs(
         manifest,
         summary_rows,
+        runtime_rows,
+        random_aggregation_audit_rows,
         comparison_manifest_sha256=sha256_file(output_dir / "manifest.json"),
     )
     print(
@@ -143,11 +162,9 @@ def aggregate_rows_by_node(rows: list[dict[str, str]]) -> dict[int, dict[str, An
     return aggregated
 
 
-def build_summary_rows() -> list[dict[str, Any]]:
+def build_summary_rows(random_by_node: dict[int, dict[str, Any]]) -> list[dict[str, Any]]:
     summaries = {
-        "Random": read_summary(
-            Path("results/metrics/phase4d_random_baseline/random_baseline_summary.csv")
-        ),
+        "Random": summarize_quality_rows(list(random_by_node.values())),
         "GNNExplainer": read_summary(Path("results/metrics/frozen_phase4c_v2/summary_metrics.csv")),
         "PGExplainer": read_summary(
             Path("results/metrics/pgexplainer_gcn_seed42/summary_metrics.csv")
@@ -211,6 +228,27 @@ def build_summary_rows() -> list[dict[str, Any]]:
     return rows
 
 
+def summarize_quality_rows(rows: list[dict[str, Any]]) -> dict[str, dict[str, float]]:
+    return {
+        metric: summarize_values(float(row[metric]) for row in rows)
+        for metric in QUALITY_METRICS
+    }
+
+
+def summarize_values(values: Any) -> dict[str, float]:
+    items = list(values)
+    if not items:
+        raise ValueError("Cannot summarize an empty value list")
+    return {
+        "n": float(len(items)),
+        "mean": mean(items),
+        "std": stdev(items) if len(items) > 1 else 0.0,
+        "median": median(items),
+        "min": min(items),
+        "max": max(items),
+    }
+
+
 def read_summary(path: Path) -> dict[str, dict[str, float]]:
     rows = read_csv(path)
     return {
@@ -264,7 +302,7 @@ def runtime_semantics(method: str) -> str:
     return "random edge selection plus metric evaluation runtime"
 
 
-def build_per_node_rows(
+def build_wide_per_node_rows(
     node_ids: list[int],
     gnn_by_node: dict[int, dict[str, str]],
     pg_by_node: dict[int, dict[str, str]],
@@ -291,6 +329,29 @@ def build_per_node_rows(
     return rows
 
 
+def build_long_per_node_rows(wide_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    rows = []
+    for wide_row in wide_rows:
+        base = {
+            "node_id": wide_row["node_id"],
+            "candidate_edge_count": wide_row["candidate_edge_count"],
+            "positive_gt_edges": wide_row["positive_gt_edges"],
+            "negative_gt_edges": wide_row["negative_gt_edges"],
+            "selected_edge_count": wide_row["selected_edge_count"],
+            "original_prediction": wide_row["original_prediction"],
+        }
+        for method, prefix in [
+            ("Random", "random"),
+            ("GNNExplainer", "gnn"),
+            ("PGExplainer", "pg"),
+        ]:
+            row = {**base, "method": method}
+            for metric in QUALITY_METRICS:
+                row[metric] = wide_row[f"{prefix}_{metric}"]
+            rows.append(row)
+    return rows
+
+
 def build_paired_delta_rows(per_node_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     rows = []
     for row in per_node_rows:
@@ -300,6 +361,34 @@ def build_paired_delta_rows(per_node_rows: list[dict[str, Any]]) -> list[dict[st
             out[f"gnn_minus_random_{metric}"] = row[f"gnn_{metric}"] - row[f"random_{metric}"]
             out[f"pg_minus_random_{metric}"] = row[f"pg_{metric}"] - row[f"random_{metric}"]
         rows.append(out)
+    return rows
+
+
+def build_random_aggregation_audit_rows(
+    random_rows: list[dict[str, str]],
+    random_by_node: dict[int, dict[str, Any]],
+) -> list[dict[str, Any]]:
+    node_rows = list(random_by_node.values())
+    rows = []
+    for metric in QUALITY_METRICS:
+        raw = summarize_values(float(row[metric]) for row in random_rows)
+        node = summarize_values(float(row[metric]) for row in node_rows)
+        rows.append(
+            {
+                "metric": metric,
+                "raw_seed_level_n": int(raw["n"]),
+                "raw_seed_level_mean": raw["mean"],
+                "raw_seed_level_std": raw["std"],
+                "raw_seed_level_median": raw["median"],
+                "node_level_n": int(node["n"]),
+                "node_level_mean": node["mean"],
+                "node_level_std": node["std"],
+                "node_level_median": node["median"],
+                "mean_changed": abs(raw["mean"] - node["mean"]) > 1e-12,
+                "std_changed": abs(raw["std"] - node["std"]) > 1e-12,
+                "median_changed": abs(raw["median"] - node["median"]) > 1e-12,
+            }
+        )
     return rows
 
 
@@ -351,6 +440,7 @@ def build_manifest(
     summary_rows: list[dict[str, Any]],
     per_node_rows: list[dict[str, Any]],
     paired_delta_rows: list[dict[str, Any]],
+    random_aggregation_audit_rows: list[dict[str, Any]],
 ) -> dict[str, Any]:
     return {
         "status": "success",
@@ -359,7 +449,52 @@ def build_manifest(
         "methods": METHODS,
         "only_frozen_outputs_reused": True,
         "post_test_tuning": False,
+        "primary_comparison_unit": "node_id",
+        "primary_target_count": 12,
         "primary_pg_quality_seed": 42,
+        "random_aggregation": {
+            "raw_run_count": 120,
+            "seeds_per_node": 10,
+            "main_aggregation": (
+                "mean within node_id across 10 frozen random seeds, "
+                "then summarize across 12 nodes"
+            ),
+            "raw_seed_level_artifact": (
+                "results/metrics/phase4d_random_baseline/"
+                "random_baseline_per_node.csv"
+            ),
+            "audit_artifact": (
+                "results/metrics/gcn_explainer_comparison/"
+                "random_aggregation_audit.csv"
+            ),
+        },
+        "primary_rows": {
+            "Random": 12,
+            "GNNExplainer": 12,
+            "PGExplainer": 12,
+        },
+        "stability_protocol": {
+            "metric": "pairwise Jaccard(A, B) = |A intersection B| / |A union B|",
+            "selected_edge_sets": "top-20% selected candidate-edge sets",
+            "stochastic_source": {
+                "Random": "repeated random edge selections",
+                "GNNExplainer": (
+                    "independent explanation optimization runs / "
+                    "frozen GNNExplainer stability runs"
+                ),
+                "PGExplainer": "independently trained PGExplainer checkpoints",
+            },
+            "pair_counts_per_node": {
+                "Random": 45,
+                "GNNExplainer": 10,
+                "PGExplainer": 10,
+            },
+            "seed_counts": {
+                "Random": 10,
+                "GNNExplainer": 5,
+                "PGExplainer": 5,
+            },
+        },
         "fairness_checks": {
             "join_key": "node_id",
             "candidate_edge_count": "12/12 all methods",
@@ -372,6 +507,7 @@ def build_manifest(
         "summary_rows": summary_rows,
         "per_node_row_count": len(per_node_rows),
         "paired_delta_row_count": len(paired_delta_rows),
+        "random_aggregation_audit_rows": random_aggregation_audit_rows,
         "runtime_semantics": {
             method: runtime_semantics(method) for method in METHODS
         },
@@ -380,6 +516,9 @@ def build_manifest(
             "per_node": sha256_file(output_dir / "per_node.csv"),
             "paired_deltas": sha256_file(output_dir / "paired_deltas.csv"),
             "runtime": sha256_file(output_dir / "runtime.csv"),
+            "random_aggregation_audit": sha256_file(
+                output_dir / "random_aggregation_audit.csv"
+            ),
         },
         "comparison_code": {
             "script": "scripts/build_gcn_explainer_comparison.py",
@@ -413,6 +552,8 @@ def authoritative_sources() -> dict[str, Any]:
 def write_freeze_docs(
     manifest: dict[str, Any],
     summary_rows: list[dict[str, Any]],
+    runtime_rows: list[dict[str, Any]],
+    random_aggregation_audit_rows: list[dict[str, Any]],
     comparison_manifest_sha256: str,
 ) -> None:
     freeze_manifest = {
@@ -424,6 +565,7 @@ def write_freeze_docs(
         encoding="utf-8",
     )
     row_by_method = {row["method"]: row for row in summary_rows}
+    random_audit = {row["metric"]: row for row in random_aggregation_audit_rows}
     report = f"""# GCN Explainer Three-Way Comparison Freeze
 
 ## Scope
@@ -441,6 +583,7 @@ reuses frozen outputs only and does not rerun, tune, or replace any experiment.
 - Explanation budget: fixed candidate-edge ratio `0.2`.
 - Sparsity is primarily a protocol confirmation because the selected ratio is fixed.
 - PGExplainer primary quality uses seed `42`, not a best seed from stability.
+- Primary comparison unit: one node-level observation per `node_id`.
 
 ## Fairness Checks
 
@@ -452,9 +595,12 @@ stability use 5 frozen seeds.
 ## Summary
 
 Values in the main table are means over the frozen evaluation rows. The full
-`summary.csv` also records standard deviation and median columns. The
-`per_node.csv` and `paired_deltas.csv` files retain node-level values,
-remove/retain diagnostics, and paired differences.
+`summary.csv` also records standard deviation and median columns. Random is
+first averaged within each `node_id` across its 10 frozen random seeds, then
+summarized across the same 12 node-level observations used by GNNExplainer and
+PGExplainer. The original 120 Random rows remain preserved in the frozen Random
+artifact and the aggregation audit is saved in
+`random_aggregation_audit.csv`.
 
 | Method | AUROC | AP | Fid+ | Fid- | 1-Fid- | Sparsity | Stability | Runtime semantics |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
@@ -462,19 +608,66 @@ remove/retain diagnostics, and paired differences.
 {summary_markdown_row(row_by_method['GNNExplainer'])}
 {summary_markdown_row(row_by_method['PGExplainer'])}
 
+## Random Aggregation Audit
+
+Random has 120 frozen seed-level rows: 12 nodes times 10 seeds. For the main
+comparison it is reduced to 12 node-level values by taking the mean over the 10
+seeds within each node. Because every node has exactly 10 Random seeds, AUROC
+and AP means are unchanged, while standard deviation and median reflect the
+node-level sampling unit.
+
+| Metric | Raw n | Raw mean | Raw std | Raw median | Node n | Node mean | Node std | Node median |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+{random_audit_markdown_row(random_audit['edge_auroc'])}
+{random_audit_markdown_row(random_audit['edge_ap'])}
+
+## Stability Protocol
+
+All methods use the same pairwise Jaccard metric over top-20% selected
+candidate-edge sets: `Jaccard(A, B) = |A intersection B| / |A union B|`. The
+stochastic source follows each method's frozen protocol: Random uses repeated
+random edge selections, GNNExplainer uses independent explanation optimization
+runs, and PGExplainer uses independently trained checkpoints.
+
+| Method | Seeds/checkpoints | Pairs per node | Stochastic source |
+|---|---:|---:|---|
+| Random | 10 | 45 | repeated random edge selections |
+| GNNExplainer | 5 | 10 | independent explanation optimization runs |
+| PGExplainer | 5 | 10 | independently trained PGExplainer checkpoints |
+
 ## Runtime
 
 Runtime is decomposed rather than collapsed into a single winner column.
 GNNExplainer runtime is per-target optimization/generation. PGExplainer has an
 upfront training cost and then cheap trained-explainer inference. Random runtime
-is random edge selection plus metric evaluation.
+is random edge selection plus metric evaluation. Runtime boundaries differ by
+method and therefore are interpreted as computational-behavior descriptors
+rather than perfectly identical wall-clock workloads.
+
+| Method | Upfront training | Per-target generation/inference | Other eval cost | Semantics |
+|---|---:|---:|---:|---|
+{runtime_markdown_row(runtime_rows[0])}
+{runtime_markdown_row(runtime_rows[1])}
+{runtime_markdown_row(runtime_rows[2])}
+
+The PGExplainer primary seed42 training runtime is kept separate from
+Task16B independent stability-checkpoint training runtime. Stability-checkpoint
+timings are not averaged into the primary seed42 quality runtime.
+
+## Sparsity
+
+Sparsity is largely determined by the fixed 20% candidate-edge budget and is
+therefore a protocol confirmation rather than an independent method-quality
+discriminator.
 
 ## Interpretation
 
-Observed metrics show trade-offs across ground-truth agreement, faithfulness,
-stability, and efficiency. These are descriptive results on 12 targets, so the
-comparison should not be treated as a universal superiority claim or a formal
-statistical significance result.
+On frozen GCN/BA-House, GNNExplainer achieves the strongest observed
+ground-truth agreement and faithfulness, while PGExplainer exhibits the highest
+observed top-20% Jaccard stability and low post-training per-target inference
+cost. These descriptive results show a trade-off between explanation quality,
+reproducibility, and computational behavior, not one method dominating every
+evaluation dimension.
 
 PGExplainer final-test results have already been exposed. They must not be used
 to tune epochs, learning rate, regularization, temperature, bias, target
@@ -486,6 +679,7 @@ membership, checkpoint selection, or seed choice.
 - `results/metrics/gcn_explainer_comparison/per_node.csv`
 - `results/metrics/gcn_explainer_comparison/paired_deltas.csv`
 - `results/metrics/gcn_explainer_comparison/runtime.csv`
+- `results/metrics/gcn_explainer_comparison/random_aggregation_audit.csv`
 - `results/metrics/gcn_explainer_comparison/manifest.json`
 - `docs/gcn_explainer_comparison_freeze.json`
 """
@@ -501,6 +695,33 @@ def summary_markdown_row(row: dict[str, Any]) -> str:
         f"{float(row['sparsity_mean']):.6f} | "
         f"{float(row['stability_mean']):.6f} | {row['runtime_semantics']} |"
     )
+
+
+def random_audit_markdown_row(row: dict[str, Any]) -> str:
+    return (
+        f"| {row['metric']} | {int(row['raw_seed_level_n'])} | "
+        f"{float(row['raw_seed_level_mean']):.6f} | "
+        f"{float(row['raw_seed_level_std']):.6f} | "
+        f"{float(row['raw_seed_level_median']):.6f} | "
+        f"{int(row['node_level_n'])} | {float(row['node_level_mean']):.6f} | "
+        f"{float(row['node_level_std']):.6f} | "
+        f"{float(row['node_level_median']):.6f} |"
+    )
+
+
+def runtime_markdown_row(row: dict[str, Any]) -> str:
+    return (
+        f"| {row['method']} | {format_runtime(row['upfront_training_runtime_mean'])} | "
+        f"{format_runtime(row['per_target_generation_or_inference_mean'])} | "
+        f"{format_runtime(row['metric_evaluation_runtime_mean'])} | "
+        f"{row['runtime_semantics']} |"
+    )
+
+
+def format_runtime(value: Any) -> str:
+    if value == "":
+        return "N/A"
+    return f"{float(value):.6f} s"
 
 
 def sha256_file(path: Path) -> str:
