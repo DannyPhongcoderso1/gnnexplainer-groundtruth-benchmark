@@ -1,0 +1,4 @@
+method,upfront_training_runtime_mean,per_target_generation_or_inference_mean,metric_evaluation_runtime_mean,runtime_semantics
+Random,,,0.02137547000408328,random edge selection plus metric evaluation runtime
+GNNExplainer,,0.12950543333621076,,per-target optimization/generation runtime
+PGExplainer,22.389040600013686,0.005550258327275515,0.2704079399816692,upfront training plus trained-explainer inference per target

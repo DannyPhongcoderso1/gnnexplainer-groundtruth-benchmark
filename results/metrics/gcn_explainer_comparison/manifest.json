@@ -1,0 +1,175 @@
+{
+  "authoritative_sources": {
+    "GNNExplainer": {
+      "quality": "results/metrics/frozen_phase4c_v2/per_node_metrics.csv",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "stability": "results/metrics/phase4d_stability/gnnexplainer_stability_summary.csv"
+    },
+    "PGExplainer": {
+      "quality": "results/metrics/pgexplainer_gcn_seed42/per_node_metrics.csv",
+      "quality_seed": 42,
+      "stability": "docs/pgexplainer_gcn_stability_freeze.json",
+      "stability_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "Random": {
+      "quality": "results/metrics/phase4d_random_baseline/random_baseline_per_node.csv",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "stability": "results/metrics/phase4d_random_baseline/random_stability_summary.csv"
+    }
+  },
+  "backbone": "frozen GCN",
+  "comparison_code": {
+    "base_commit": "792c2c97a29f61fe91902b225d64b1a744165c81",
+    "script": "scripts/build_gcn_explainer_comparison.py",
+    "script_sha256": "4aba9eab9f1f66250f6c7ad935f67d3a1ea2d04edeb2b5fe621d639bacffb5cd"
+  },
+  "fairness_checks": {
+    "candidate_edge_count": "12/12 all methods",
+    "join_key": "node_id",
+    "original_prediction": "12/12 all methods",
+    "positive_negative_gt_counts": "12/12 all methods",
+    "selected_edge_count": "12/12 all methods",
+    "selected_edge_ratio": 0.2
+  },
+  "methods": [
+    "Random",
+    "GNNExplainer",
+    "PGExplainer"
+  ],
+  "only_frozen_outputs_reused": true,
+  "paired_delta_row_count": 12,
+  "per_node_row_count": 12,
+  "post_test_tuning": false,
+  "primary_pg_quality_seed": 42,
+  "result_file_hashes": {
+    "paired_deltas": "95ac93bab14635f93efca567087e9a044f0bba65adf487bf78578b030e47d588",
+    "per_node": "c0e4ccac82edb53a83c7d1f61c559c67f85818ad13c74856509519498be387cc",
+    "runtime": "0c2fcaec58dfeac0a3897042ae699d6294eeffb33b9bf387cf36a33d2ebb667b",
+    "summary": "05cc93585ade14dc0723c9a1ff124178246e884838ee5565a4a390ed54770fac"
+  },
+  "runtime_semantics": {
+    "GNNExplainer": "per-target optimization/generation runtime",
+    "PGExplainer": "upfront training plus trained-explainer inference per target",
+    "Random": "random edge selection plus metric evaluation runtime"
+  },
+  "status": "success",
+  "summary_rows": [
+    {
+      "edge_ap_mean": 0.2771782735276123,
+      "edge_ap_median": 0.21644476121732883,
+      "edge_ap_std": 0.23306699066578368,
+      "edge_auroc_mean": 0.49672747641120163,
+      "edge_auroc_median": 0.5009505703422052,
+      "edge_auroc_std": 0.10206276572290125,
+      "fid_minus_mean": 0.625,
+      "fid_minus_median": 1.0,
+      "fid_minus_std": 0.4861527926641233,
+      "fid_plus_mean": 0.3333333333333333,
+      "fid_plus_median": 0.0,
+      "fid_plus_std": 0.4733810683311509,
+      "method": "Random",
+      "one_minus_fid_minus_mean": 0.375,
+      "one_minus_fid_minus_median": 0.0,
+      "one_minus_fid_minus_std": 0.4861527926641233,
+      "remove_probability_delta_mean": -0.000993995616833369,
+      "remove_probability_delta_median": -0.0007841289043426514,
+      "remove_probability_delta_std": 0.006808510960118692,
+      "retain_probability_delta_mean": -0.005173252026240031,
+      "retain_probability_delta_median": 0.00015676021575927734,
+      "retain_probability_delta_std": 0.00879813755882625,
+      "runtime_semantics": "random edge selection plus metric evaluation runtime",
+      "sparsity_mean": 0.7936944650380934,
+      "sparsity_median": 0.7970328282828283,
+      "sparsity_std": 0.008557318389727262,
+      "stability_mean": 0.1265360411344618,
+      "stability_median": 0.12346079846079847,
+      "stability_std": 0.017375689604513356
+    },
+    {
+      "edge_ap_mean": 0.5277312499284467,
+      "edge_ap_median": 0.5841779738008037,
+      "edge_ap_std": 0.23666167760540122,
+      "edge_auroc_mean": 0.8706170709757783,
+      "edge_auroc_median": 0.8929179769392033,
+      "edge_auroc_std": 0.07779655111325057,
+      "fid_minus_mean": 0.25,
+      "fid_minus_median": 0.0,
+      "fid_minus_std": 0.45226701686664544,
+      "fid_plus_mean": 0.6666666666666666,
+      "fid_plus_median": 1.0,
+      "fid_plus_std": 0.49236596391733095,
+      "method": "GNNExplainer",
+      "one_minus_fid_minus_mean": 0.75,
+      "one_minus_fid_minus_median": 1.0,
+      "one_minus_fid_minus_std": 0.45226701686664544,
+      "remove_probability_delta_mean": -0.00035668909549713135,
+      "remove_probability_delta_median": 0.0029862672090530396,
+      "remove_probability_delta_std": 0.006903625048782633,
+      "retain_probability_delta_mean": -0.007995647688706716,
+      "retain_probability_delta_median": -0.007592305541038513,
+      "retain_probability_delta_std": 0.0057574809249399065,
+      "runtime_semantics": "per-target optimization/generation runtime",
+      "sparsity_mean": 0.7936944650380934,
+      "sparsity_median": 0.7970328282828283,
+      "sparsity_std": 0.008900508700863707,
+      "stability_mean": 0.4412717003697576,
+      "stability_median": 0.3682635008855909,
+      "stability_std": 0.27918140342538894
+    },
+    {
+      "edge_ap_mean": 0.3665629996626219,
+      "edge_ap_median": 0.43449331885864395,
+      "edge_ap_std": 0.25324746878866217,
+      "edge_auroc_mean": 0.747968995696066,
+      "edge_auroc_median": 0.8433352849336455,
+      "edge_auroc_std": 0.1882274853793627,
+      "fid_minus_mean": 0.5833333333333334,
+      "fid_minus_median": 1.0,
+      "fid_minus_std": 0.5149286505444373,
+      "fid_plus_mean": 0.4166666666666667,
+      "fid_plus_median": 0.0,
+      "fid_plus_std": 0.5149286505444373,
+      "method": "PGExplainer",
+      "one_minus_fid_minus_mean": 0.4166666666666667,
+      "one_minus_fid_minus_median": 0.0,
+      "one_minus_fid_minus_std": 0.5149286505444373,
+      "remove_probability_delta_mean": -0.0010142823060353596,
+      "remove_probability_delta_median": -9.465217590332031e-05,
+      "remove_probability_delta_std": 0.0041871339213939394,
+      "retain_probability_delta_mean": 0.00024454543987909955,
+      "retain_probability_delta_median": 0.0009224265813827515,
+      "retain_probability_delta_std": 0.0018853844908876384,
+      "runtime_semantics": "upfront training plus trained-explainer inference per target",
+      "sparsity_mean": 0.7936944650380934,
+      "sparsity_median": 0.7970328282828283,
+      "sparsity_std": 0.008900508700863707,
+      "stability_mean": 0.9519112770516355,
+      "stability_median": 0.9645419959028387,
+      "stability_std": 0.04750290769960817
+    }
+  ],
+  "target_count": 12
+}
