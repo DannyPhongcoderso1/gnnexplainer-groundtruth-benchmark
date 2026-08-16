@@ -1,0 +1,235 @@
+{
+  "best_seed_selection": false,
+  "checkpoint_hashes": {
+    "0": {
+      "path": "artifacts\\explainers\\pgexplainer_gcn_ba_house_seed0.pt",
+      "sha256": "14a0beae8a539071f56b8bcd51eb56ec3ed4487d621aae55dc85e3d4f223cab4"
+    },
+    "1": {
+      "path": "artifacts\\explainers\\pgexplainer_gcn_ba_house_seed1.pt",
+      "sha256": "58c9ebc9f9a931c12c143927efed44a7d763e26138b2c95cb8809e907c8d6593"
+    },
+    "2": {
+      "path": "artifacts\\explainers\\pgexplainer_gcn_ba_house_seed2.pt",
+      "sha256": "d22a31b7814000bf671366cd7c00e729a7ea0aea1b5fe956deaa630c8a97ec1c"
+    },
+    "3": {
+      "path": "artifacts\\explainers\\pgexplainer_gcn_ba_house_seed3.pt",
+      "sha256": "2556c726cd80d335734b5dbc20fe78ad8d3bc5db8d73a54eba2305cf78820f31"
+    },
+    "4": {
+      "path": "artifacts\\explainers\\pgexplainer_gcn_ba_house_seed4.pt",
+      "sha256": "809352c124a2fa61cfdacf14a47dc92054071424b64b60ca686d2e80fe29b9b5"
+    }
+  },
+  "dataset_sha256": "4daeb6b5ca55ee1663fa79aa6be5a7fe1ebb86159aa9d60045aceb16fe271a94",
+  "evaluation_success_count": 5,
+  "final_targets": {
+    "count": 12,
+    "sha256": "2b1fa0cb70a4aaa107dfbfe864042ddb488372a6bcfd9ea6fd4c04bd1894526f"
+  },
+  "gcn_checkpoint_sha256": "4c81814172650e20b6edee5fc97bc66cae46ac1e8ba76baec2226c59a7d1d507",
+  "jaccard_summary": {
+    "max": 1.0,
+    "mean": 0.9519112770516355,
+    "median": 0.9645419959028387,
+    "min": 0.8666666666666667,
+    "node_count": 12,
+    "pairwise_comparisons_per_node": 10,
+    "pairwise_row_count": 120,
+    "seed_count": 5,
+    "std": 0.04750290769960817
+  },
+  "outputs": {
+    "evaluation_runtime": "results\\metrics\\pgexplainer_gcn_stability\\evaluation_runtime.csv",
+    "inference_runtime": "results\\metrics\\pgexplainer_gcn_stability\\inference_runtime.csv",
+    "pairwise_jaccard": "results\\metrics\\pgexplainer_gcn_stability\\pairwise_jaccard.csv",
+    "per_node_jaccard": "results\\metrics\\pgexplainer_gcn_stability\\per_node_jaccard.csv",
+    "per_seed_metrics": "results\\metrics\\pgexplainer_gcn_stability\\per_seed_metrics.csv",
+    "stability_summary": "results\\metrics\\pgexplainer_gcn_stability\\stability_summary.json",
+    "training_runtime": "results\\metrics\\pgexplainer_gcn_stability\\training_runtime.csv"
+  },
+  "pairwise_row_count": 120,
+  "per_node_jaccard_rows": [
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.9557506584723442,
+      "median_jaccard": 0.9411764705882353,
+      "min_jaccard": 0.9411764705882353,
+      "node_id": 306,
+      "pair_count": 10,
+      "std_jaccard": 0.020694617058593285
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.9751400201919092,
+      "median_jaccard": 0.9772727272727273,
+      "min_jaccard": 0.9441340782122905,
+      "node_id": 315,
+      "pair_count": 10,
+      "std_jaccard": 0.0156308519214568
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.9,
+      "median_jaccard": 1.0,
+      "min_jaccard": 0.75,
+      "node_id": 316,
+      "pair_count": 10,
+      "std_jaccard": 0.12909944487358058
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.8857142857142857,
+      "median_jaccard": 1.0,
+      "min_jaccard": 0.7142857142857143,
+      "node_id": 355,
+      "pair_count": 10,
+      "std_jaccard": 0.14754222271266348
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 1.0,
+      "median_jaccard": 1.0,
+      "min_jaccard": 1.0,
+      "node_id": 365,
+      "pair_count": 10,
+      "std_jaccard": 0.0
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 1.0,
+      "median_jaccard": 1.0,
+      "min_jaccard": 1.0,
+      "node_id": 375,
+      "pair_count": 10,
+      "std_jaccard": 0.0
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.9550798753063915,
+      "median_jaccard": 0.9459459459459459,
+      "min_jaccard": 0.911504424778761,
+      "node_id": 376,
+      "pair_count": 10,
+      "std_jaccard": 0.026746448794571148
+    },
+    {
+      "max_jaccard": 0.9459459459459459,
+      "mean_jaccard": 0.9203413940256046,
+      "median_jaccard": 0.9203413940256046,
+      "min_jaccard": 0.8947368421052632,
+      "node_id": 411,
+      "pair_count": 10,
+      "std_jaccard": 0.026989567512105652
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 1.0,
+      "median_jaccard": 1.0,
+      "min_jaccard": 1.0,
+      "node_id": 445,
+      "pair_count": 10,
+      "std_jaccard": 0.0
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.990909090909091,
+      "median_jaccard": 1.0,
+      "min_jaccard": 0.9772727272727273,
+      "node_id": 465,
+      "pair_count": 10,
+      "std_jaccard": 0.011736313170325495
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.9733333333333334,
+      "median_jaccard": 1.0,
+      "min_jaccard": 0.9333333333333333,
+      "node_id": 486,
+      "pair_count": 10,
+      "std_jaccard": 0.03442651863295481
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.8666666666666667,
+      "median_jaccard": 1.0,
+      "min_jaccard": 0.6666666666666666,
+      "node_id": 491,
+      "pair_count": 10,
+      "std_jaccard": 0.1721325931647741
+    }
+  ],
+  "pgexplainer_config_hash": "45bde423b3240e9f5fc659530206b98fa3ff5de27bdbc421e3bafc38f909b0e0",
+  "post_test_tuning": false,
+  "primary_quality_seed": 42,
+  "primary_quality_seed_checkpoint_sha256": "a075cd84c52e14a65b042f99f33e04e6b37e4919a70132ccb71e505b08c12eda",
+  "protocol_parity": {
+    "candidate_edge_count": "12/12 per seed",
+    "gt_edge_counts": "12/12 per seed",
+    "original_prediction": "12/12 per seed",
+    "selected_edge_count": "12/12 per seed"
+  },
+  "result_file_hashes": {
+    "evaluation_runtime": "2da07d0dc6d2edd5d571c208309d4a67d816de6110691e947dd6ac246913ae23",
+    "inference_runtime": "cdeb44581ee15de57c0fdfbfa0ea0c5e800adda94a5557d31bff5788668ff67d",
+    "pairwise_jaccard": "2a42a23f48de03aa90d0330815b1c9a6fd905f46bc97f1dcf0a08018afbfd0d5",
+    "per_node_jaccard": "9475db1da8dba418b077dff08b92ea13cc866cd519f84b055e86d5e584a94902",
+    "per_seed_metrics": "98d5ec5c86263ba5313677f9eeaf7ec5ce67446451fd13e0fee95dd6cfb62dd4",
+    "stability_summary": "f317cc35fc3ef39baabfd48517dc1288ac3a0e26dfdf7362dee1273610954476",
+    "training_runtime": "4ae462925edf332265db0af2fe82cdfa5f04fc0dfae578dacebedb5f3de09b3f"
+  },
+  "runtime": {
+    "evaluation_runtime_seconds": {
+      "max": 0.3297424999764189,
+      "mean": 0.2704079399816692,
+      "median": 0.2576104999752715,
+      "min": 0.24771209998289123,
+      "n": 5,
+      "std": 0.033898499612772776
+    },
+    "inference_runtime_seconds": {
+      "max": 0.004900500003714114,
+      "mean": 0.0031999849966571976,
+      "median": 0.003027049999218434,
+      "min": 0.0021149999811314046,
+      "n": 60,
+      "std": 0.0006219022408714299
+    },
+    "semantics": {
+      "evaluation_runtime_seconds": "per-seed final-target batch scoring/evaluation wall time",
+      "inference_runtime_seconds": "trained PGExplainer explanation-score generation per target",
+      "training_runtime_seconds": "upfront PGExplainer checkpoint training"
+    },
+    "training_runtime_seconds": {
+      "max": 11.489799900038633,
+      "mean": 10.542065700003878,
+      "median": 10.524397899978794,
+      "min": 9.846523499989416,
+      "n": 5,
+      "std": 0.6480155384599212
+    }
+  },
+  "stability_code_base_commit": "0f8fff7acf8d9fe4ed976ecefd4236c0fdc54a0a",
+  "stability_script_sha256": "201e38631cc88d8621bdd551d9982a177f911105b8f52a5798e902b4b43b9e66",
+  "training_module_sha256": "50a4f5c2d123b4d5c250d31cc81c8b6f5baf26f04816ab4823ab5fc8b70c34be",
+  "evaluation_module_sha256": "423082d620a177b911397c8c4d059e78709e032a351ce59dc99a65f7ea9e8f16",
+  "stability_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "status": "success",
+  "total_explained_targets": 60,
+  "train_targets": {
+    "count": 48,
+    "sha256": "05e4574515fb7a03b846adb677295c940eb7af380216c15dfedf65bb9430bc3c"
+  },
+  "training_success_count": 5,
+  "validation_targets": {
+    "count": 16,
+    "sha256": "57fc6135495d9a6f8c7b8c1c3babcddd6b76187ebb353ed6fd8c289771980776"
+  }
+}

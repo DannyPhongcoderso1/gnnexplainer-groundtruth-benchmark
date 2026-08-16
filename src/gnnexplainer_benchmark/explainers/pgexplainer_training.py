@@ -157,9 +157,12 @@ def train_pgexplainer_gcn(
         "results/metrics/pgexplainer_gcn_seed42_validation_summary.json"
     ),
     device: str = "cpu",
+    seed_override: int | None = None,
 ) -> PGExplainerTrainingResult:
     explainer_config = load_yaml(explainer_config_path)
     evaluation_config = load_yaml(evaluation_config_path)
+    if seed_override is not None:
+        explainer_config["explainer"]["seed"] = seed_override
     seed = int(explainer_config["explainer"]["seed"])
     epochs = int(explainer_config["explainer"]["epochs"])
     seed_everything(seed)
