@@ -15,7 +15,7 @@ from gnnexplainer_benchmark.data.pgexplainer_targets import (
 from gnnexplainer_benchmark.data.serialization import load_data_artifact
 from gnnexplainer_benchmark.data.validation import validate_ba_house_data
 from gnnexplainer_benchmark.training.checkpointing import (
-    build_gcn_from_checkpoint,
+    build_model_from_checkpoint,
     load_checkpoint,
 )
 
@@ -127,7 +127,7 @@ def main() -> None:
     validate_ba_house_data(data_cpu)
     checkpoint = load_checkpoint(args.checkpoint)
     device = resolve_device(args.device)
-    model = build_gcn_from_checkpoint(
+    model = build_model_from_checkpoint(
         checkpoint,
         in_channels=int(data_cpu.x.size(1)),
         out_channels=int(data_cpu.y.max().item()) + 1,

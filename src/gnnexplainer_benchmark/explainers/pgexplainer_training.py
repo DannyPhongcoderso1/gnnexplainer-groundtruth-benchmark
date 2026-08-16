@@ -30,7 +30,7 @@ from gnnexplainer_benchmark.evaluation.edge_ground_truth import (
 from gnnexplainer_benchmark.explain.subgraph_mapping import computation_subgraph_edge_mask
 from gnnexplainer_benchmark.explainers.pgexplainer_smoke import model_parameter_hash
 from gnnexplainer_benchmark.training.checkpointing import (
-    build_gcn_from_checkpoint,
+    build_model_from_checkpoint,
     load_checkpoint,
 )
 from gnnexplainer_benchmark.utils.reproducibility import seed_everything
@@ -177,7 +177,7 @@ def train_pgexplainer_gcn(
     data_cpu = load_data_artifact(dataset_path)
     data = data_cpu.clone().to(torch_device)
     checkpoint = load_checkpoint(checkpoint_path)
-    model = build_gcn_from_checkpoint(
+    model = build_model_from_checkpoint(
         checkpoint,
         in_channels=int(data_cpu.x.size(1)),
         out_channels=int(data_cpu.y.max().item()) + 1,
@@ -193,12 +193,12 @@ def train_pgexplainer_gcn(
     validate_targets_match_frozen_predictions(validation_targets, frozen_predictions)
 
     gcn_hash_before = model_parameter_hash(model)
-    algorithm = build_pgexplainer_from_config(explainer_config)
+    algorithm = build_pgexplainer_from_config(explainer_config).to(torch_device)
     explainer = wrap_pgexplainer(model, algorithm)
     materialize_pgexplainer(algorithm, model, data.x, data.edge_index, train_targets[0].node_id)
     optimizer_excludes_gcn = optimizer_excludes_gcn_parameters(algorithm, model)
     if not optimizer_excludes_gcn:
-        raise RuntimeError("PGExplainer optimizer unexpectedly includes frozen GCN parameters")
+        raise RuntimeError("PGExplainer optimizer unexpectedly includes frozen model parameters")
 
     epoch_rows: list[dict[str, Any]] = []
     start = time.perf_counter()
@@ -235,7 +235,7 @@ def train_pgexplainer_gcn(
     gcn_hash_after = model_parameter_hash(model)
     model_parameters_unchanged = gcn_hash_before == gcn_hash_after
     if not model_parameters_unchanged:
-        raise RuntimeError("Frozen GCN parameters changed during PGExplainer training")
+        raise RuntimeError("Frozen model parameters changed during PGExplainer training")
 
     save_pgexplainer_artifact(
         artifact_path=artifact_path,
@@ -282,6 +282,9 @@ def train_pgexplainer_gcn(
         "dataset_config_path": str(dataset_config_path),
         "dataset_seed": int(dataset_config["dataset"]["seed"]),
         "dataset_sha256": sha256_file(dataset_path),
+        "model_type": str(checkpoint["resolved_config"]["model"].get("type", "GCN")),
+        "model_checkpoint_path": str(checkpoint_path),
+        "model_checkpoint_sha256": sha256_file(checkpoint_path),
         "gcn_checkpoint_path": str(checkpoint_path),
         "gcn_checkpoint_sha256": sha256_file(checkpoint_path),
         "gcn_model_hash_before": gcn_hash_before,
@@ -453,7 +456,7 @@ def verify_pgexplainer_reload(
     materialization_node_id: int,
 ) -> bool:
     payload = torch.load(artifact_path, map_location=x.device, weights_only=False)
-    reloaded = build_pgexplainer_from_config(explainer_config)
+    reloaded = build_pgexplainer_from_config(explainer_config).to(x.device)
     wrap_pgexplainer(model, reloaded)
     materialize_pgexplainer(reloaded, model, x, edge_index, materialization_node_id)
     reloaded.load_state_dict(payload["algorithm_state_dict"])

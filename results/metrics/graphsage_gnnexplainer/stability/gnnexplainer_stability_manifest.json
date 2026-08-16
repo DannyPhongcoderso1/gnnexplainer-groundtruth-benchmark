@@ -1,0 +1,22 @@
+{
+  "device": "cuda",
+  "edge_ranking_metric_scope": "continuous_scores_over_full_candidate_edge_set",
+  "failed_nodes": 0,
+  "model_weights_unchanged": true,
+  "per_seed_metrics": "results\\metrics\\graphsage_gnnexplainer\\stability\\gnnexplainer_stability_seed_metrics.csv",
+  "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "selected_edge_ratio": 0.2,
+  "stability_metrics": "results\\metrics\\graphsage_gnnexplainer\\stability\\gnnexplainer_stability.csv",
+  "stability_summary": "results\\metrics\\graphsage_gnnexplainer\\stability\\gnnexplainer_stability_summary.csv",
+  "success_nodes": 12,
+  "target_count": 12,
+  "target_file": "configs\\targets\\ba_house_2x2_targets.csv",
+  "total_runtime_seconds": 22.547322499973234
+}

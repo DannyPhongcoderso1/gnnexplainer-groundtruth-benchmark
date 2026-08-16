@@ -1,0 +1,6 @@
+rank,global_edge_index,src,dst,score,is_ground_truth,in_candidate_edge_set
+1,3244,445,446,1.0,True,True
+2,3249,446,445,1.0,True,True
+3,3250,447,446,1.0,True,True
+4,3251,447,448,1.0,True,True
+5,3252,448,447,1.0,True,True

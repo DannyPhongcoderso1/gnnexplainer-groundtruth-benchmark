@@ -1,0 +1,64 @@
+{
+  "batch_run_signature": "8108a07b6ce3938e267bbfa2352f6329deb7426679de5e9d918a422bb66c0ea8",
+  "budget_protocol": "fixed_candidate_edge_ratio",
+  "checkpoint": {
+    "path": "artifacts\\checkpoints\\ba_house_graphsage_best.pt"
+  },
+  "dataset_checksum": "4daeb6b5ca55ee1663fa79aa6be5a7fe1ebb86159aa9d60045aceb16fe271a94",
+  "explainer_config": {
+    "explainer": {
+      "algorithm": "PyG GNNExplainer",
+      "edge_mask_type": "object",
+      "epochs": 5,
+      "explanation_type": "model",
+      "learning_rate": 0.01,
+      "node_mask_type": "common_attributes",
+      "return_type": "raw",
+      "seed": 1,
+      "task_level": "node",
+      "top_k_edges": 25
+    }
+  },
+  "mask_shapes": {
+    "edge_mask": [
+      3398
+    ],
+    "node_mask": [
+      1,
+      10
+    ]
+  },
+  "metrics_config": {
+    "evaluation": {
+      "budget_protocol": "fixed_candidate_edge_ratio",
+      "candidate_edge_ratios_evaluated_on_validation": [
+        0.05,
+        0.1,
+        0.2
+      ],
+      "candidate_edge_scope": "computation_subgraph",
+      "edge_ranking_metric_scope": "continuous_scores_over_full_candidate_edge_set",
+      "fidelity_metric": "remove_delta",
+      "fidelity_protocol": "remove_top_k_and_retain_top_k_edges",
+      "ratio_selection_criterion": "validation_only_max_mean_remove_delta_tie_lowest_ratio",
+      "schema_version": "core_metrics_v1",
+      "selected_edge_ratio": 0.2,
+      "sparsity_protocol": "top_k_candidate_edges",
+      "top_k_edges": 25
+    }
+  },
+  "num_hops": 3,
+  "raw_explanation_reused": false,
+  "raw_masks_saved": true,
+  "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+  "runtime_seconds": 0.04932829999597743,
+  "selected_edge_ratio": 0.2,
+  "subgraph_edge_count": 434,
+  "target": {
+    "confidence": 0.27460721135139465,
+    "label": 1,
+    "node_id": 465,
+    "prediction": 1
+  },
+  "top_k_edges": 87
+}

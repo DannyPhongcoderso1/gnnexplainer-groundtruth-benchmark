@@ -1,0 +1,138 @@
+{
+  "candidate_counts_match_phase4": true,
+  "dataset_sha256": "4daeb6b5ca55ee1663fa79aa6be5a7fe1ebb86159aa9d60045aceb16fe271a94",
+  "edge_ranking_metric_scope": "continuous_scores_over_full_candidate_edge_set",
+  "explainer": "PGExplainer",
+  "explainer_checkpoint": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_seed2.pt",
+  "explainer_checkpoint_sha256": "d4585e75a29cca9bdbd4ac8c4bc2d7e9901f8f722710278fc56bb7f06f5584f3",
+  "explainer_manifest": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_seed2_manifest.json",
+  "explainer_training_seed": 2,
+  "failure_count": 0,
+  "gcn_checkpoint_sha256": "09992c5ac4d2cd80c10792c12be5f945b3a20d749d8433008eba9cf3694135eb",
+  "ground_truth_counts_match_phase4": true,
+  "model_checkpoint_sha256": "09992c5ac4d2cd80c10792c12be5f945b3a20d749d8433008eba9cf3694135eb",
+  "model_hash_after": "ab7da8f2be5deb6d49a3e3feae441e0118ef30e18402770943182ce94c316f88",
+  "model_hash_before": "ab7da8f2be5deb6d49a3e3feae441e0118ef30e18402770943182ce94c316f88",
+  "model_type": "GraphSAGE",
+  "model_weights_unchanged": true,
+  "original_predictions_match_phase4": true,
+  "per_node_metrics": "results\\metrics\\graphsage_pgexplainer\\stability\\seed_2\\per_node_metrics.csv",
+  "phase4_reference_per_node": "results\\metrics\\graphsage_gnnexplainer\\seed42\\per_node_metrics.csv",
+  "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+  "selected_counts_match_phase4": true,
+  "selected_edge_ratio": 0.2,
+  "success_count": 12,
+  "summary": [
+    {
+      "max": 1.0,
+      "mean": 1.0,
+      "median": 1.0,
+      "metric": "edge_auroc",
+      "min": 1.0,
+      "n": 12,
+      "std": 0.0
+    },
+    {
+      "max": 1.0,
+      "mean": 1.0,
+      "median": 1.0,
+      "metric": "edge_ap",
+      "min": 1.0,
+      "n": 12,
+      "std": 0.0
+    },
+    {
+      "max": 1.0,
+      "mean": 1.0,
+      "median": 1.0,
+      "metric": "fid_plus",
+      "min": 1.0,
+      "n": 12,
+      "std": 0.0
+    },
+    {
+      "max": 1.0,
+      "mean": 0.5,
+      "median": 0.5,
+      "metric": "fid_minus",
+      "min": 0.0,
+      "n": 12,
+      "std": 0.5222329678670935
+    },
+    {
+      "max": 1.0,
+      "mean": 0.5,
+      "median": 0.5,
+      "metric": "one_minus_fid_minus",
+      "min": 0.0,
+      "n": 12,
+      "std": 0.5222329678670935
+    },
+    {
+      "max": 0.5736208073794842,
+      "mean": 0.4219074308251341,
+      "median": 0.43763271532952785,
+      "metric": "remove_probability_delta",
+      "min": 0.10116380453109741,
+      "n": 12,
+      "std": 0.1284749152431336
+    },
+    {
+      "max": 0.7207512259483337,
+      "mean": 0.37274843485405046,
+      "median": 0.37905678898096085,
+      "metric": "retain_probability",
+      "min": 0.029577363282442093,
+      "n": 12,
+      "std": 0.30475393531377776
+    },
+    {
+      "max": 0.5111815445125103,
+      "mean": 0.1678212828313311,
+      "median": 0.15399526804685593,
+      "metric": "retain_probability_delta",
+      "min": -0.18645048141479492,
+      "n": 12,
+      "std": 0.3127515671248646
+    },
+    {
+      "max": 1.348961672470758,
+      "mean": 0.70096226421842,
+      "median": 0.7193155104414083,
+      "metric": "retain_probability_ratio",
+      "min": 0.05469602600362042,
+      "n": 12,
+      "std": 0.5755800727811076
+    },
+    {
+      "max": 0.5736208073794842,
+      "mean": 0.4219074308251341,
+      "median": 0.43763271532952785,
+      "metric": "fidelity_legacy",
+      "min": 0.10116380453109741,
+      "n": 12,
+      "std": 0.1284749152431336
+    },
+    {
+      "max": 0.8,
+      "mean": 0.7936944650380934,
+      "median": 0.7970328282828283,
+      "metric": "sparsity",
+      "min": 0.7692307692307692,
+      "n": 12,
+      "std": 0.008900508700863707
+    },
+    {
+      "max": 0.005989200028125197,
+      "mean": 0.005452466672674443,
+      "median": 0.005513849988346919,
+      "metric": "inference_runtime_seconds",
+      "min": 0.005026700033340603,
+      "n": 12,
+      "std": 0.0002557480785078633
+    }
+  ],
+  "summary_metrics": "results\\metrics\\graphsage_pgexplainer\\stability\\seed_2\\summary_metrics.csv",
+  "target_count": 12,
+  "target_file": "configs\\targets\\ba_house_2x2_targets.csv"
+}

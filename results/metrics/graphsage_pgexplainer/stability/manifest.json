@@ -1,0 +1,225 @@
+{
+  "best_seed_selection": false,
+  "checkpoint_hashes": {
+    "0": {
+      "path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_seed0.pt",
+      "sha256": "9611568e19fb8480f01993cfb73f5f2ce43391f04763f577b129660214c0ab7d"
+    },
+    "1": {
+      "path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_seed1.pt",
+      "sha256": "157e83dcac0bb45dbe26d6cc9df33f2c9a2499259414a1496f2653c753319bf5"
+    },
+    "2": {
+      "path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_seed2.pt",
+      "sha256": "d4585e75a29cca9bdbd4ac8c4bc2d7e9901f8f722710278fc56bb7f06f5584f3"
+    },
+    "3": {
+      "path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_seed3.pt",
+      "sha256": "21ba9c516fdd18f68a40e8685b3142a4942e62dbd73d6590a858e0f44fbd9e04"
+    },
+    "4": {
+      "path": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_seed4.pt",
+      "sha256": "d7cca587f33143e83b96c15cc7a01137f5519aced1bf2590043b50d78902a34d"
+    }
+  },
+  "dataset_sha256": "4daeb6b5ca55ee1663fa79aa6be5a7fe1ebb86159aa9d60045aceb16fe271a94",
+  "evaluation_success_count": 5,
+  "final_targets": {
+    "count": 12,
+    "sha256": "2b1fa0cb70a4aaa107dfbfe864042ddb488372a6bcfd9ea6fd4c04bd1894526f"
+  },
+  "graphsage_checkpoint_sha256": "09992c5ac4d2cd80c10792c12be5f945b3a20d749d8433008eba9cf3694135eb",
+  "jaccard_summary": {
+    "max": 1.0,
+    "mean": 0.8050558597950019,
+    "median": 0.8309643588205848,
+    "min": 0.6444444444444445,
+    "node_count": 12,
+    "pairwise_comparisons_per_node": 10,
+    "pairwise_row_count": 120,
+    "seed_count": 5,
+    "std": 0.11852629853229832
+  },
+  "model": "GraphSAGE",
+  "outputs": {
+    "evaluation_runtime": "results\\metrics\\graphsage_pgexplainer\\stability\\evaluation_runtime.csv",
+    "inference_runtime": "results\\metrics\\graphsage_pgexplainer\\stability\\inference_runtime.csv",
+    "pairwise_jaccard": "results\\metrics\\graphsage_pgexplainer\\stability\\pairwise_jaccard.csv",
+    "per_node_jaccard": "results\\metrics\\graphsage_pgexplainer\\stability\\per_node_jaccard.csv",
+    "per_seed_metrics": "results\\metrics\\graphsage_pgexplainer\\stability\\per_seed_metrics.csv",
+    "stability_summary": "results\\metrics\\graphsage_pgexplainer\\stability\\stability_summary.json",
+    "training_runtime": "results\\metrics\\graphsage_pgexplainer\\stability\\training_runtime.csv"
+  },
+  "pairwise_row_count": 120,
+  "per_node_jaccard_rows": [
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.8726869905978984,
+      "median_jaccard": 0.8857142857142857,
+      "min_jaccard": 0.76,
+      "node_id": 306,
+      "pair_count": 10,
+      "std_jaccard": 0.07876496865281064
+    },
+    {
+      "max_jaccard": 0.9885714285714285,
+      "mean_jaccard": 0.9240117524630402,
+      "median_jaccard": 0.9772727272727273,
+      "min_jaccard": 0.8315789473684211,
+      "node_id": 315,
+      "pair_count": 10,
+      "std_jaccard": 0.07142150281858967
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.76,
+      "median_jaccard": 1.0,
+      "min_jaccard": 0.4,
+      "node_id": 316,
+      "pair_count": 10,
+      "std_jaccard": 0.30983866769659335
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.6523809523809524,
+      "median_jaccard": 0.7142857142857143,
+      "min_jaccard": 0.3333333333333333,
+      "node_id": 355,
+      "pair_count": 10,
+      "std_jaccard": 0.23735334149230153
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.7333333333333333,
+      "median_jaccard": 1.0,
+      "min_jaccard": 0.3333333333333333,
+      "node_id": 365,
+      "pair_count": 10,
+      "std_jaccard": 0.34426518632954817
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.8,
+      "median_jaccard": 1.0,
+      "min_jaccard": 0.5,
+      "node_id": 375,
+      "pair_count": 10,
+      "std_jaccard": 0.25819888974716115
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.8905633086083661,
+      "median_jaccard": 0.9285714285714286,
+      "min_jaccard": 0.7704918032786885,
+      "node_id": 376,
+      "pair_count": 10,
+      "std_jaccard": 0.09217295561050994
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.8619287176411695,
+      "median_jaccard": 0.9203413940256046,
+      "min_jaccard": 0.7142857142857143,
+      "node_id": 411,
+      "pair_count": 10,
+      "std_jaccard": 0.1127302635956534
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.6444444444444445,
+      "median_jaccard": 1.0,
+      "min_jaccard": 0.1111111111111111,
+      "node_id": 445,
+      "pair_count": 10,
+      "std_jaccard": 0.45902024843939754
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.8768763736263736,
+      "median_jaccard": 0.9120879120879121,
+      "min_jaccard": 0.74,
+      "node_id": 465,
+      "pair_count": 10,
+      "std_jaccard": 0.110326576776639
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 1.0,
+      "median_jaccard": 1.0,
+      "min_jaccard": 1.0,
+      "node_id": 486,
+      "pair_count": 10,
+      "std_jaccard": 0.0
+    },
+    {
+      "max_jaccard": 1.0,
+      "mean_jaccard": 0.6444444444444445,
+      "median_jaccard": 1.0,
+      "min_jaccard": 0.1111111111111111,
+      "node_id": 491,
+      "pair_count": 10,
+      "std_jaccard": 0.45902024843939754
+    }
+  ],
+  "pgexplainer_config_hash": "45bde423b3240e9f5fc659530206b98fa3ff5de27bdbc421e3bafc38f909b0e0",
+  "post_test_tuning": false,
+  "primary_quality_seed": 42,
+  "result_file_hashes": {
+    "evaluation_runtime": "41c740ebd0442b942ff24675423de2067faabcece96d4463156c3b88a6142458",
+    "inference_runtime": "4da7da5b3cdb46825ad459a7b6012901cf27c71da58f71d5f090ca487a9e6175",
+    "pairwise_jaccard": "d1b300f29cf4d9f31cbc22a90efd9b235b3f49764f0971cbf3be5ea4993e31d3",
+    "per_node_jaccard": "a2b931843a1f4cc921cad5173b20ebd60d676092709405d8cb21e1a4725c148c",
+    "per_seed_metrics": "c6eeae7698cff8a675f587259df110327ef96a0ea76d5b62cee88c4e470c50ee",
+    "stability_summary": "81f6bd08b28895d357c45cbb005e42f4f99ce25dcf72344a79bcfb1a03c6f845",
+    "training_runtime": "36d074c60533b77f0ccfe1d72d8d6bc15641b250e40d1e14965870d7a81dfad6"
+  },
+  "runtime": {
+    "evaluation_runtime_seconds": {
+      "max": 0.45878590003121644,
+      "mean": 0.4291652000043541,
+      "median": 0.42076070001348853,
+      "min": 0.41215960000408813,
+      "n": 5,
+      "std": 0.018265970327598982
+    },
+    "inference_runtime_seconds": {
+      "max": 0.006457899988163263,
+      "mean": 0.005627951668187355,
+      "median": 0.005550900008529425,
+      "min": 0.00492189999204129,
+      "n": 60,
+      "std": 0.0003647058882760818
+    },
+    "semantics": {
+      "evaluation_runtime_seconds": "per-seed final-target batch scoring/evaluation wall time",
+      "inference_runtime_seconds": "trained PGExplainer explanation-score generation per target",
+      "training_runtime_seconds": "upfront PGExplainer checkpoint training"
+    },
+    "training_runtime_seconds": {
+      "max": 61.19521639996674,
+      "mean": 56.925290520000274,
+      "median": 57.44239699997706,
+      "min": 50.61472130002221,
+      "n": 5,
+      "std": 3.9882950979723204
+    }
+  },
+  "stability_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "status": "success",
+  "total_explained_targets": 60,
+  "train_targets": {
+    "count": 106,
+    "sha256": "5e7efee3dfd90cc6a5bcd547d23352b27344fe313467ea48f502b13be6160284"
+  },
+  "training_success_count": 5,
+  "validation_targets": {
+    "count": 35,
+    "sha256": "2254e9bc67710633c7cc2b0da852265cd9e1a98a91f3b4b6151a8a7bf14f91d8"
+  }
+}

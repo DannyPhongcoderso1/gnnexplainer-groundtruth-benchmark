@@ -26,7 +26,7 @@ from gnnexplainer_benchmark.explainers.pgexplainer_training import (
     wrap_pgexplainer,
 )
 from gnnexplainer_benchmark.training.checkpointing import (
-    build_gcn_from_checkpoint,
+    build_model_from_checkpoint,
     load_checkpoint,
 )
 
@@ -127,7 +127,7 @@ def evaluate_pgexplainer_gcn(
     validate_target_order(targets, phase4_rows)
 
     torch_device = torch.device(device)
-    model = build_gcn_from_checkpoint(
+    model = build_model_from_checkpoint(
         checkpoint,
         in_channels=int(data_cpu.x.size(1)),
         out_channels=int(data_cpu.y.max().item()) + 1,
@@ -140,7 +140,7 @@ def evaluate_pgexplainer_gcn(
     with torch.no_grad():
         frozen_predictions = model(data.x, data.edge_index).argmax(dim=-1).detach()
 
-    algorithm = build_pgexplainer_from_config(explainer_config)
+    algorithm = build_pgexplainer_from_config(explainer_config).to(torch_device)
     explainer = wrap_pgexplainer(model, algorithm)
     materialize_pgexplainer(algorithm, model, data.x, data.edge_index, targets[0].node_id)
     algorithm.load_state_dict(explainer_payload["algorithm_state_dict"])
@@ -251,7 +251,7 @@ def evaluate_pgexplainer_gcn(
     model_hash_after = model_parameter_hash(model)
     model_weights_unchanged = model_hash_before == model_hash_after
     if not model_weights_unchanged:
-        raise RuntimeError("Frozen GCN weights changed during PGExplainer evaluation")
+        raise RuntimeError("Frozen model weights changed during PGExplainer evaluation")
     per_node_path = metrics_output_dir / "per_node_metrics.csv"
     summary_path = metrics_output_dir / "summary_metrics.csv"
     manifest_path = metrics_output_dir / "manifest.json"
@@ -273,6 +273,8 @@ def evaluate_pgexplainer_gcn(
         "selected_counts_match_phase4": True,
         "original_predictions_match_phase4": True,
         "dataset_sha256": sha256_file(artifact_path),
+        "model_type": str(checkpoint["resolved_config"]["model"].get("type", "GCN")),
+        "model_checkpoint_sha256": sha256_file(checkpoint_path),
         "gcn_checkpoint_sha256": sha256_file(checkpoint_path),
         "model_hash_before": model_hash_before,
         "model_hash_after": model_hash_after,

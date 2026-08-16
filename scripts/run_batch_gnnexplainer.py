@@ -26,7 +26,7 @@ from gnnexplainer_benchmark.evaluation.batch_gnnexplainer import (
 )
 from gnnexplainer_benchmark.explain.gnnexplainer_runner import load_explainer_config
 from gnnexplainer_benchmark.training.checkpointing import (
-    build_gcn_from_checkpoint,
+    build_model_from_checkpoint,
     load_checkpoint,
 )
 
@@ -129,7 +129,7 @@ def main() -> None:
     else:
         dataset_checksum = sha256_file(args.artifact)
 
-    model = build_gcn_from_checkpoint(
+    model = build_model_from_checkpoint(
         checkpoint,
         in_channels=int(data_cpu.x.size(1)),
         out_channels=int(data_cpu.y.max().item()) + 1,

@@ -1,0 +1,27 @@
+{
+  "budget_protocol": "fixed_candidate_edge_ratio",
+  "candidate_edge_count": 24,
+  "edge_ranking_metric_scope": "continuous_scores_over_full_candidate_edge_set",
+  "explainer": "PGExplainer",
+  "explainer_checkpoint": "artifacts\\explainers\\pgexplainer_graphsage_ba_house_seed42.pt",
+  "explainer_checkpoint_sha256": "0fc6ca4a232388ba861005f9f6d7b63a4cc6241eb7ca1a0eb44921cf0b03fb69",
+  "explainer_training_seed": 42,
+  "inference_runtime_seconds": 0.0049983999924734235,
+  "mask_shapes": {
+    "edge_mask": [
+      3398
+    ],
+    "node_mask": null
+  },
+  "node_mask_available": false,
+  "raw_masks_saved": true,
+  "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+  "selected_edge_count": 5,
+  "selected_edge_ratio": 0.2,
+  "target": {
+    "confidence": 0.2722824811935425,
+    "label": 1,
+    "node_id": 491,
+    "prediction": 1
+  }
+}

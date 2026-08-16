@@ -1,0 +1,20 @@
+{
+  "budget_protocol": "fixed_candidate_edge_ratio",
+  "device": "cuda",
+  "edge_ranking_metric_scope": "continuous_scores_over_full_candidate_edge_set",
+  "fail_count": 0,
+  "failed_targets": "results\\metrics\\graphsage_gnnexplainer\\seed42\\failed_targets.csv",
+  "model_weights_unchanged": true,
+  "per_node_metrics": "results\\metrics\\graphsage_gnnexplainer\\seed42\\per_node_metrics.csv",
+  "raw_explanations_generated": 12,
+  "raw_explanations_reused": 0,
+  "raw_generation_runtime_seconds": 1.5553880000370555,
+  "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+  "seed": 42,
+  "selected_edge_ratio": 0.2,
+  "success_count": 12,
+  "summary_metrics": "results\\metrics\\graphsage_gnnexplainer\\seed42\\summary_metrics.csv",
+  "target_count": 12,
+  "target_file": "configs\\targets\\ba_house_2x2_targets.csv",
+  "total_runtime_seconds": 6.8971694999490865
+}

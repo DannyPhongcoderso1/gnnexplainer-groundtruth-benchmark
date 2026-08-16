@@ -1,0 +1,63 @@
+{
+  "edge_ground_truth": {
+    "candidate_edge_count": 26,
+    "candidate_edge_scope": "computation_subgraph",
+    "candidate_edge_scope_detail": "3-hop computation subgraph around target node",
+    "candidate_negative_edge_count": 14,
+    "candidate_positive_edge_count": 12,
+    "edge_ap": 0.687698820787056,
+    "edge_ap_reason": null,
+    "edge_ap_valid": true,
+    "edge_auroc": 0.8154761904761905,
+    "edge_auroc_reason": null,
+    "edge_auroc_valid": true,
+    "edge_mapping_validated": true,
+    "ground_truth_edge_prevalence": 0.46153846153846156
+  },
+  "explainer": "PyG GNNExplainer",
+  "fidelity": {
+    "fid_minus": 1,
+    "fid_plus": 1,
+    "fidelity_legacy": 0.2580653429031372,
+    "metric_name": "remove_delta",
+    "one_minus_fid_minus": 0,
+    "original": {
+      "prediction": 1,
+      "probability": 0.5500384569168091
+    },
+    "protocol": "remove_top_k_and_retain_top_k_edges",
+    "remove_result": {
+      "changed_prediction": true,
+      "prediction": 2,
+      "probability": 0.2919731140136719,
+      "remove_delta": 0.2580653429031372,
+      "remove_probability_delta": 0.2580653429031372
+    },
+    "retain_result": {
+      "matches_original_prediction": false,
+      "prediction": 2,
+      "probability": 0.10189687460660934,
+      "probability_ratio": 0.18525409146440974,
+      "retain_delta": 0.44814158231019974,
+      "retain_probability_delta": 0.44814158231019974
+    }
+  },
+  "node_id": 365,
+  "runtime": {
+    "runtime_seconds": 0.08706310001434758
+  },
+  "schema_version": "core_metrics_v1",
+  "sparsity": {
+    "protocol": "fixed_candidate_edge_ratio",
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_count": 6,
+    "selected_edge_ratio": 0.2,
+    "sparsity": 0.7692307692307692
+  },
+  "target": {
+    "confidence": 0.2723442018032074,
+    "label": 1,
+    "node_id": 365,
+    "prediction": 1
+  }
+}

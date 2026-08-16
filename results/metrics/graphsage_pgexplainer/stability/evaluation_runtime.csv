@@ -1,0 +1,6 @@
+seed,evaluation_runtime_seconds,success_count,failure_count,model_weights_unchanged
+0,0.4204076000023633,12,0,True
+1,0.42076070001348853,12,0,True
+2,0.41215960000408813,12,0,True
+3,0.43371219997061417,12,0,True
+4,0.45878590003121644,12,0,True

@@ -1,0 +1,347 @@
+{
+  "artifact_hashes": {
+    "artifacts/explainers/pgexplainer_graphsage_ba_house_seed42.pt": "0fc6ca4a232388ba861005f9f6d7b63a4cc6241eb7ca1a0eb44921cf0b03fb69",
+    "configs/targets/ba_house_2x2_targets.csv": "2b1fa0cb70a4aaa107dfbfe864042ddb488372a6bcfd9ea6fd4c04bd1894526f",
+    "configs/targets/pgexplainer_graphsage_train_targets.csv": "5e7efee3dfd90cc6a5bcd547d23352b27344fe313467ea48f502b13be6160284",
+    "configs/targets/pgexplainer_graphsage_val_targets.csv": "2254e9bc67710633c7cc2b0da852265cd9e1a98a91f3b4b6151a8a7bf14f91d8",
+    "results/metrics/graphsage_gnnexplainer/seed42/per_node_metrics.csv": "ea96daa21c961a3d185b541bbfa59d9fe68c84c515211ec5dcdc00d0a5376fc7",
+    "results/metrics/graphsage_pgexplainer/seed42/per_node_metrics.csv": "305cb33e3c084d5025719838ada28bdd2c8dea40511c12cbffc49e1c7ab4192a",
+    "results/metrics/graphsage_pgexplainer/stability/manifest.json": "a301239098acd4b252f52a91c6afc3e62f65de49e4365bbc152d1ac7dad4aed5"
+  },
+  "dataset_sha256": "4daeb6b5ca55ee1663fa79aa6be5a7fe1ebb86159aa9d60045aceb16fe271a94",
+  "git": {
+    "branch": "main",
+    "commit": "40463c9a2332d5f06c9b0b05a6ca6926c54522fa"
+  },
+  "gnnexplainer": {
+    "quality_seed": 42,
+    "stability": {
+      "mean": 0.47961272811468,
+      "median": 0.42140392407909255,
+      "pairwise_comparisons_per_node": 10,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "std": 0.2584274536265013
+    },
+    "summary": {
+      "edge_ap": {
+        "max": 0.8679327072709426,
+        "mean": 0.594340070633861,
+        "median": 0.6428994888553712,
+        "min": 0.2058473662018477,
+        "n": 12,
+        "std": 0.22929603307332272
+      },
+      "edge_auroc": {
+        "max": 0.961489898989899,
+        "mean": 0.8956118303642931,
+        "median": 0.9160279088050314,
+        "min": 0.6785714285714286,
+        "n": 12,
+        "std": 0.08349535580730555
+      },
+      "evaluation_runtime_seconds": {
+        "max": null,
+        "mean": null,
+        "median": null,
+        "min": null,
+        "n": 0,
+        "std": null
+      },
+      "fid_minus": {
+        "max": 1.0,
+        "mean": 0.5,
+        "median": 0.5,
+        "min": 0.0,
+        "n": 12,
+        "std": 0.5222329678670935
+      },
+      "fid_plus": {
+        "max": 1.0,
+        "mean": 0.9166666666666666,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 12,
+        "std": 0.28867513459481287
+      },
+      "fidelity_legacy": {
+        "max": 0.5736208073794842,
+        "mean": 0.4120751088485122,
+        "median": 0.4575775284320116,
+        "min": 0.037357449531555176,
+        "n": 12,
+        "std": 0.15145676928469984
+      },
+      "generation_runtime_seconds": {
+        "max": 0.7263454000349157,
+        "mean": 0.12961566666975463,
+        "median": 0.07788845000322908,
+        "min": 0.05109000002266839,
+        "n": 12,
+        "std": 0.18875167086510405
+      },
+      "one_minus_fid_minus": {
+        "max": 1.0,
+        "mean": 0.5,
+        "median": 0.5,
+        "min": 0.0,
+        "n": 12,
+        "std": 0.5222329678670935
+      },
+      "remove_probability_delta": {
+        "max": 0.5736208073794842,
+        "mean": 0.4120751088485122,
+        "median": 0.4575775284320116,
+        "min": 0.037357449531555176,
+        "n": 12,
+        "std": 0.15145676928469984
+      },
+      "retain_probability": {
+        "max": 0.6670989394187927,
+        "mean": 0.32661105661342543,
+        "median": 0.3462224528193474,
+        "min": 0.029577363282442093,
+        "n": 12,
+        "std": 0.24758241908587666
+      },
+      "retain_probability_delta": {
+        "max": 0.5111815445125103,
+        "mean": 0.21395865610490242,
+        "median": 0.18186075240373611,
+        "min": -0.06390076875686646,
+        "n": 12,
+        "std": 0.2537455191678029
+      },
+      "runtime_seconds": {
+        "max": 0.7263454000349157,
+        "mean": 0.12961566666975463,
+        "median": 0.07788845000322908,
+        "min": 0.05109000002266839,
+        "n": 12,
+        "std": 0.18875167086510405
+      },
+      "sparsity": {
+        "max": 0.8,
+        "mean": 0.7936944650380934,
+        "median": 0.7970328282828283,
+        "min": 0.7692307692307692,
+        "n": 12,
+        "std": 0.008900508700863707
+      }
+    }
+  },
+  "graphsage_checkpoint_sha256": "09992c5ac4d2cd80c10792c12be5f945b3a20d749d8433008eba9cf3694135eb",
+  "model": "GraphSAGE",
+  "outputs": {
+    "gnnexplainer_quality": "results/metrics/graphsage_gnnexplainer/seed42",
+    "gnnexplainer_stability": "results/metrics/graphsage_gnnexplainer/stability",
+    "pgexplainer_quality": "results/metrics/graphsage_pgexplainer/seed42",
+    "pgexplainer_stability": "results/metrics/graphsage_pgexplainer/stability"
+  },
+  "pgexplainer": {
+    "primary_quality_seed": 42,
+    "stability": {
+      "max": 1.0,
+      "mean": 0.8050558597950019,
+      "median": 0.8309643588205848,
+      "min": 0.6444444444444445,
+      "node_count": 12,
+      "pairwise_comparisons_per_node": 10,
+      "pairwise_row_count": 120,
+      "seed_count": 5,
+      "std": 0.11852629853229832
+    },
+    "stability_manifest": {
+      "evaluation_success_count": 5,
+      "runtime": {
+        "evaluation_runtime_seconds": {
+          "max": 0.45878590003121644,
+          "mean": 0.4291652000043541,
+          "median": 0.42076070001348853,
+          "min": 0.41215960000408813,
+          "n": 5,
+          "std": 0.018265970327598982
+        },
+        "inference_runtime_seconds": {
+          "max": 0.006457899988163263,
+          "mean": 0.005627951668187355,
+          "median": 0.005550900008529425,
+          "min": 0.00492189999204129,
+          "n": 60,
+          "std": 0.0003647058882760818
+        },
+        "semantics": {
+          "evaluation_runtime_seconds": "per-seed final-target batch scoring/evaluation wall time",
+          "inference_runtime_seconds": "trained PGExplainer explanation-score generation per target",
+          "training_runtime_seconds": "upfront PGExplainer checkpoint training"
+        },
+        "training_runtime_seconds": {
+          "max": 61.19521639996674,
+          "mean": 56.925290520000274,
+          "median": 57.44239699997706,
+          "min": 50.61472130002221,
+          "n": 5,
+          "std": 3.9882950979723204
+        }
+      },
+      "total_explained_targets": 60,
+      "training_success_count": 5
+    },
+    "summary": {
+      "edge_ap": {
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "n": 12,
+        "std": 0.0
+      },
+      "edge_auroc": {
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "n": 12,
+        "std": 0.0
+      },
+      "fid_minus": {
+        "max": 1.0,
+        "mean": 0.5,
+        "median": 0.5,
+        "min": 0.0,
+        "n": 12,
+        "std": 0.5222329678670935
+      },
+      "fid_plus": {
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "n": 12,
+        "std": 0.0
+      },
+      "fidelity_legacy": {
+        "max": 0.5736208073794842,
+        "mean": 0.42582582651327056,
+        "median": 0.43763271532952785,
+        "min": 0.1011635959148407,
+        "n": 12,
+        "std": 0.1262680030256177
+      },
+      "inference_runtime_seconds": {
+        "max": 0.11533629999030381,
+        "mean": 0.014336049998140274,
+        "median": 0.005216250021476299,
+        "min": 0.004820099973585457,
+        "n": 12,
+        "std": 0.031807633702433925
+      },
+      "one_minus_fid_minus": {
+        "max": 1.0,
+        "mean": 0.5,
+        "median": 0.5,
+        "min": 0.0,
+        "n": 12,
+        "std": 0.5222329678670935
+      },
+      "remove_probability_delta": {
+        "max": 0.5736208073794842,
+        "mean": 0.42582582651327056,
+        "median": 0.43763271532952785,
+        "min": 0.1011635959148407,
+        "n": 12,
+        "std": 0.1262680030256177
+      },
+      "retain_probability": {
+        "max": 0.6983593106269836,
+        "mean": 0.36587979427228373,
+        "median": 0.37905678898096085,
+        "min": 0.029577363282442093,
+        "n": 12,
+        "std": 0.30171571323766966
+      },
+      "retain_probability_delta": {
+        "max": 0.5111815445125103,
+        "mean": 0.17468992341309786,
+        "median": 0.15399526804685593,
+        "min": -0.15503740310668945,
+        "n": 12,
+        "std": 0.3099067580517681
+      },
+      "retain_probability_ratio": {
+        "max": 1.2901687948087026,
+        "mean": 0.6883634040093544,
+        "median": 0.7193155104414083,
+        "min": 0.05469602600362042,
+        "n": 12,
+        "std": 0.5704120706088912
+      },
+      "sparsity": {
+        "max": 0.8,
+        "mean": 0.7936944650380934,
+        "median": 0.7970328282828283,
+        "min": 0.7692307692307692,
+        "n": 12,
+        "std": 0.008900508700863707
+      }
+    },
+    "training": {
+      "checkpoint_reload_ok": true,
+      "final_test_targets_used_for_training": 0,
+      "model_weights_unchanged": true,
+      "train_target_count": 106,
+      "training_runtime_seconds": 44.85833279998042,
+      "validation_health": {
+        "all_masks_finite": true,
+        "all_masks_non_degenerate": true,
+        "edge_ap_mean": 1.0,
+        "edge_auroc_mean": 1.0,
+        "failure_count": 0,
+        "success_count": 35,
+        "validation_node_count": 35
+      },
+      "validation_target_count": 35
+    }
+  },
+  "protocol": {
+    "candidate_edge_scope": "computation_subgraph",
+    "edge_ranking_metric_scope": "continuous_scores_over_full_candidate_edge_set",
+    "post_test_tuning": false,
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_ratio": 0.2,
+    "target_semantics": "frozen GraphSAGE predicted class"
+  },
+  "status": "success",
+  "target_intersection": {
+    "frozen_before_graphsage_explanations": true,
+    "node_ids": [
+      306,
+      315,
+      316,
+      355,
+      365,
+      375,
+      376,
+      411,
+      445,
+      465,
+      486,
+      491
+    ],
+    "output": "configs\\targets\\ba_house_2x2_targets.csv",
+    "output_sha256": "2b1fa0cb70a4aaa107dfbfe864042ddb488372a6bcfd9ea6fd4c04bd1894526f",
+    "rule": "original frozen GCN target AND GCN correct AND GraphSAGE correct AND GT explanation eligible AND valid candidate mapping for both backbones",
+    "source_frozen_gcn_targets": "results\\metrics\\explainer_test_targets.csv",
+    "source_frozen_gcn_targets_sha256": "2b1fa0cb70a4aaa107dfbfe864042ddb488372a6bcfd9ea6fd4c04bd1894526f",
+    "source_parity_table": "results\\metrics\\model_target_parity_gcn_graphsage.csv",
+    "source_parity_table_sha256": "a66c39f77ed394f747b674b541f3200480da299a337cd1d41a2a869c3f38e393",
+    "status": "success",
+    "target_count": 12
+  },
+  "task": "Task 19 GraphSAGE explainers on BA-House"
+}
