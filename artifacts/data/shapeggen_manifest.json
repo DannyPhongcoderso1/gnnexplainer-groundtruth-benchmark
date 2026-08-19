@@ -1,0 +1,102 @@
+{
+  "config": {
+    "dataset": {
+      "add_sensitive_feature": false,
+      "class_sep": 0.5,
+      "flip_y": 0.01,
+      "homophily_coef": null,
+      "max_tries_verification": 15,
+      "model_layers": 3,
+      "n_clusters_per_class": 2,
+      "n_features": 10,
+      "n_informative": 6,
+      "num_subgraphs": 100,
+      "prob_connection": 0.09,
+      "protocol_name": "THESIS_SHAPEGGEN_V1",
+      "seed": 912,
+      "shape": "house",
+      "source": "GraphXAI ShapeGGen",
+      "source_commit": "a11e65ffbc4df737f35522a8accf2283a8aeaa37",
+      "source_repository": "https://github.com/mims-harvard/GraphXAI",
+      "split": {
+        "method": "stratified_disjoint",
+        "test_ratio": 0.2,
+        "train_ratio": 0.6,
+        "val_ratio": 0.2
+      },
+      "subgraph_size": 13,
+      "type": "ShapeGGen",
+      "variant": 1,
+      "verify": true
+    }
+  },
+  "ground_truth_counts": {
+    "candidate_edge_entries": 148852,
+    "eligible_targets": 1279,
+    "max_candidate_edges_per_target": 306,
+    "max_positive_edges_per_target": 28,
+    "min_candidate_edges_per_target": 18,
+    "min_positive_edges_per_target": 12,
+    "positive_edge_entries": 27700,
+    "positive_node_entries": 10250
+  },
+  "label_distribution": {
+    "0": 508,
+    "1": 771
+  },
+  "protocol": {
+    "candidate_edge_representation": "directed PyG edge_index with reverse-edge copies",
+    "feature_explanations_in_core_metrics": false,
+    "name": "THESIS_SHAPEGGEN_V1",
+    "split_policy": "stratified_disjoint"
+  },
+  "seed": 912,
+  "sha256": "ecf0975a1a38ed89225b91992331165b14879b943dc96360ca4406dbbaacc6ac",
+  "shapes": {
+    "candidate_edge_mask": [
+      1279,
+      4390
+    ],
+    "edge_index": [
+      2,
+      4390
+    ],
+    "edge_mask": [
+      1279,
+      4390
+    ],
+    "node_mask": [
+      1279,
+      1279
+    ],
+    "num_edges": 4390,
+    "num_node_features": 10,
+    "num_nodes": 1279,
+    "num_undirected_edges": 2195,
+    "x": [
+      1279,
+      10
+    ],
+    "y": [
+      1279
+    ]
+  },
+  "source": {
+    "commit": "a11e65ffbc4df737f35522a8accf2283a8aeaa37",
+    "implementation": "local source-aligned implementation",
+    "local_package_installed": false,
+    "name": "GraphXAI ShapeGGen",
+    "repository": "https://github.com/mims-harvard/GraphXAI"
+  },
+  "split_counts": {
+    "test": 258,
+    "train": 766,
+    "validation": 255
+  },
+  "versions": {
+    "numpy": "2.4.6",
+    "python": "3.11.9",
+    "torch": "2.11.0+cu128",
+    "torch_geometric": "2.8.0.post1"
+  }
+}

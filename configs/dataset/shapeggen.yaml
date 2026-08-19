@@ -1,0 +1,30 @@
+# Frozen ShapeGGen dataset protocol for the second synthetic benchmark.
+# This file freezes the graph/data/ground-truth protocol before any ShapeGGen
+# backbone training or explainer evaluation.
+dataset:
+  type: "ShapeGGen"
+  source: "GraphXAI ShapeGGen"
+  source_repository: "https://github.com/mims-harvard/GraphXAI"
+  source_commit: "a11e65ffbc4df737f35522a8accf2283a8aeaa37"
+  protocol_name: "THESIS_SHAPEGGEN_V1"
+  seed: 912
+  model_layers: 3
+  shape: "house"
+  variant: 1
+  num_subgraphs: 100
+  prob_connection: 0.09
+  subgraph_size: 13
+  verify: true
+  max_tries_verification: 15
+  n_features: 10
+  n_informative: 6
+  n_clusters_per_class: 2
+  class_sep: 0.5
+  flip_y: 0.01
+  homophily_coef: null
+  add_sensitive_feature: false
+  split:
+    method: "stratified_disjoint"
+    train_ratio: 0.6
+    val_ratio: 0.2
+    test_ratio: 0.2
