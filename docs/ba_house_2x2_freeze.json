@@ -78,9 +78,7 @@
     "results\\metrics\\ba_house_2x2\\random_node_level_summary.csv": "a2e276ea4031659d05cbf78eb7a2a11b7f165b47411ad6f36961119c67351715",
     "results\\metrics\\ba_house_2x2\\controlled_pg_common_pool.csv": "3a17c7cbc102a54aa0c66775f9fba6951e8d1498220cc53c865af4350ab57383",
     "results\\metrics\\ba_house_2x2\\pg_pool_sensitivity.csv": "f84475b80ac3f3112212ac011c1a71de5d3193df0fc3b76b8a9ede7a29ef18c2",
-    "docs\\ba_house_2x2_evaluation_report.md": "7aa38aca0e88c2daa279da98a1c4089b34b03e32312849294327b980c08188e5",
-    "results\\metrics\\ba_house_2x2\\manifest.json": "139db15be69882767f5ddcfc83129e25f5b545fe22e8792b3c05f6d6f7d20a37",
-    "docs\\ba_house_2x2_freeze.json": "1b31101d08c748d605f20dc8beed8bb0b45e2ade39161b23f462c8d5481dc40c"
+    "docs\\ba_house_2x2_evaluation_report.md": "a6ae7c896aeb018128d8aa673eb2fe0470a3cab7ccea98c7b185148177e15a86"
   },
   "acceptance": {
     "task19a_audit_referenced": true,
@@ -94,5 +92,6 @@
     "graphsage_pool_sensitivity_separated": true,
     "no_causal_backbone_wording_intended": true
   },
-  "freeze_json_self_hash_note": "docs/ba_house_2x2_freeze.json is not self-hashed because it embeds this manifest; use git object hash or external checksum after review if needed."
+  "final_report_hash_updated_after_reporting_refinement": true,
+  "self_hash_note": "Manifest and freeze JSON files are not self-hashed because they embed output hashes; use git object hash or an external checksum after freeze if needed."
 }
