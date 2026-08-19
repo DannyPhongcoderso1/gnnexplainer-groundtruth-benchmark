@@ -1,0 +1,5 @@
+backbone,explainer,jaccard_n_nodes,jaccard_mean,jaccard_std,jaccard_median,jaccard_min,jaccard_max,stochastic_source,seeds_pairs
+GCN,GNNExplainer,12,0.4412717003697576,0.2791814034253889,0.3682635008855909,0.1595238095238095,0.9772727272727272,GNNExplainer independent optimization seeds,"5 seeds, 10 pairs/node"
+GCN,PGExplainer,12,0.9519112770516355,0.04750290769960817,0.9645419959028387,0.8666666666666667,1.0,independently trained PGExplainer checkpoints,"5 seeds, 10 pairs/node"
+GraphSAGE,GNNExplainer,12,0.47961272811468,0.2584274536265013,0.4214039240790925,0.1999999999999999,0.9772727272727272,GNNExplainer independent optimization seeds,"5 seeds, 10 pairs/node"
+GraphSAGE,PGExplainer natural106/35,12,0.8050558597950019,0.11852629853229832,0.8309643588205848,0.6444444444444445,1.0,independently trained PGExplainer checkpoints,"5 seeds, 10 pairs/node"

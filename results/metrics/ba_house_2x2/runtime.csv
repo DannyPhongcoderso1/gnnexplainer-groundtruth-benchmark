@@ -1,0 +1,5 @@
+backbone,explainer,upfront_training,per_target_generation_or_inference_mean_seconds,evaluation_runtime_mean_seconds,semantics
+GCN,GNNExplainer,none,0.1295054333362107,not separately recorded in primary seed42 summary,per-target GNNExplainer optimization/generation time
+GCN,PGExplainer,"22.389041 s explainer training, seed42",0.0055502583272755,not separately recorded in primary seed42 summary,PGExplainer has upfront explainer training then per-target inference
+GraphSAGE,GNNExplainer,none,0.1296156666697546,not separately recorded in primary seed42 summary,per-target GNNExplainer optimization/generation time
+GraphSAGE,PGExplainer natural106/35,"44.858333 s explainer training, seed42",0.0143360499981402,not separately recorded in primary seed42 summary,PGExplainer natural backbone-specific train/val pool: 106/35
