@@ -1,0 +1,298 @@
+{
+  "backbones": {
+    "GCN": {
+      "backbone": "GCN",
+      "checkpoint_path": "artifacts\\checkpoints\\shapeggen_gcn_best.pt",
+      "checkpoint_sha256": "15bfa8960fe4e0f0712c3a794db93ed4e90aad6fce3555a16db23a8a13b91e36",
+      "config_path": "configs\\model\\shapeggen_gcn.yaml",
+      "config_sha256": "3c905885f04a8e6f56a5c4f053e586e19f78d27394b306d2bd14c58dd22f980d",
+      "reload_parity": {
+        "max_abs_diff": 0.0,
+        "passed": true
+      },
+      "status": "success",
+      "summary": {
+        "best_epoch": 16,
+        "best_validation_accuracy": 0.752895752895753,
+        "best_validation_metric": 0.752895752895753,
+        "best_validation_metric_name": "val_accuracy",
+        "checkpoint_path": "artifacts\\checkpoints\\shapeggen_gcn_best.pt",
+        "dataset_checksum": "9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e",
+        "device": "cuda",
+        "history_path": "results\\metrics\\shapeggen_backbone_comparison\\gcn_history.csv",
+        "majority_baseline_accuracy": 0.6130268199233716,
+        "motif_test_correct": 119,
+        "motif_test_total": 160,
+        "random_baseline_accuracy": 0.5,
+        "resolved_config": {
+          "checkpoint": {
+            "mode": "max",
+            "monitor": "val_accuracy"
+          },
+          "model": {
+            "cached": false,
+            "convolution": "PyG GCNConv",
+            "dropout": 0.2,
+            "hidden_channels": 32,
+            "num_layers": 3,
+            "seed": 42,
+            "type": "GCN"
+          },
+          "training": {
+            "class_weighting": true,
+            "device": "auto",
+            "learning_rate": 0.01,
+            "max_epochs": 300,
+            "patience": 60,
+            "weight_decay": 0.0005
+          }
+        },
+        "summary_path": "results\\metrics\\shapeggen_backbone_comparison\\gcn_summary.json",
+        "test_accuracy": 0.6819923371647509,
+        "test_correct": 178,
+        "test_total": 261
+      },
+      "training_result": {
+        "best_epoch": 16,
+        "best_validation_accuracy": 0.752895752895753,
+        "best_validation_metric": 0.752895752895753,
+        "best_validation_metric_name": "val_accuracy",
+        "checkpoint_path": "artifacts\\checkpoints\\shapeggen_gcn_best.pt",
+        "history_path": "results\\metrics\\shapeggen_backbone_comparison\\gcn_history.csv",
+        "majority_baseline_accuracy": 0.6130268199233716,
+        "motif_test_correct": 119,
+        "motif_test_total": 160,
+        "random_baseline_accuracy": 0.5,
+        "summary_path": "results\\metrics\\shapeggen_backbone_comparison\\gcn_summary.json",
+        "test_accuracy": 0.6819923371647509,
+        "test_correct": 178,
+        "test_total": 261
+      }
+    },
+    "GraphSAGE": {
+      "backbone": "GraphSAGE",
+      "checkpoint_path": "artifacts\\checkpoints\\shapeggen_graphsage_best.pt",
+      "checkpoint_sha256": "498a74875360a82749b78cb40a69b3e4ec04ec634b85e4713e85d96f34c666a0",
+      "config_path": "configs\\model\\shapeggen_graphsage.yaml",
+      "config_sha256": "2f3ec148dcfb8cbf9f3f5e5126450dfb05772f31432eb079876b7cc7edb59b35",
+      "reload_parity": {
+        "max_abs_diff": 0.0,
+        "passed": true
+      },
+      "status": "success",
+      "summary": {
+        "best_epoch": 263,
+        "best_validation_accuracy": 0.8841698841698842,
+        "best_validation_metric": 0.8841698841698842,
+        "best_validation_metric_name": "val_accuracy",
+        "checkpoint_path": "artifacts\\checkpoints\\shapeggen_graphsage_best.pt",
+        "dataset_checksum": "9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e",
+        "device": "cuda",
+        "history_path": "results\\metrics\\shapeggen_backbone_comparison\\graphsage_history.csv",
+        "majority_baseline_accuracy": 0.6130268199233716,
+        "motif_test_correct": 141,
+        "motif_test_total": 160,
+        "random_baseline_accuracy": 0.5,
+        "resolved_config": {
+          "checkpoint": {
+            "mode": "max",
+            "monitor": "val_accuracy"
+          },
+          "model": {
+            "aggr": "sum",
+            "convolution": "PyG SAGEConv",
+            "dropout": 0.2,
+            "hidden_channels": 32,
+            "num_layers": 3,
+            "seed": 42,
+            "type": "GraphSAGE"
+          },
+          "training": {
+            "class_weighting": true,
+            "device": "auto",
+            "learning_rate": 0.01,
+            "max_epochs": 300,
+            "patience": 60,
+            "weight_decay": 0.0005
+          }
+        },
+        "summary_path": "results\\metrics\\shapeggen_backbone_comparison\\graphsage_summary.json",
+        "test_accuracy": 0.8697318007662835,
+        "test_correct": 227,
+        "test_total": 261
+      },
+      "training_result": {
+        "best_epoch": 263,
+        "best_validation_accuracy": 0.8841698841698842,
+        "best_validation_metric": 0.8841698841698842,
+        "best_validation_metric_name": "val_accuracy",
+        "checkpoint_path": "artifacts\\checkpoints\\shapeggen_graphsage_best.pt",
+        "history_path": "results\\metrics\\shapeggen_backbone_comparison\\graphsage_history.csv",
+        "majority_baseline_accuracy": 0.6130268199233716,
+        "motif_test_correct": 141,
+        "motif_test_total": 160,
+        "random_baseline_accuracy": 0.5,
+        "summary_path": "results\\metrics\\shapeggen_backbone_comparison\\graphsage_summary.json",
+        "test_accuracy": 0.8697318007662835,
+        "test_correct": 227,
+        "test_total": 261
+      }
+    }
+  },
+  "dataset": {
+    "artifact": "artifacts\\data\\shapeggen.pt",
+    "candidate_reverse_edge_policy": "target-specific candidate masks over directed PyG edge_index with reverse entries",
+    "config": "configs/dataset/shapeggen.yaml",
+    "gt_policy": "target-specific dense boolean masks derived from official GraphXAI Explanation objects",
+    "protocol_name": "THESIS_SHAPEGGEN_OFFICIAL_V1",
+    "sha256": "9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e",
+    "split_counts": {
+      "test": 261,
+      "train": 778,
+      "validation": 259
+    },
+    "upstream_commit": "a11e65ffbc4df737f35522a8accf2283a8aeaa37"
+  },
+  "disjointness": {
+    "common_train_common_val_disjoint": true,
+    "common_train_final_disjoint": true,
+    "common_val_final_disjoint": true
+  },
+  "environment": {
+    "cuda": "12.8",
+    "cuda_available": true,
+    "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch": "2.11.0+cu128"
+  },
+  "frozen_before_xai": true,
+  "git": {
+    "branch": "main",
+    "commit": "c71ef33b3078802ad2f360ac6e55506913ba8cab",
+    "status_short": "?? configs/model/shapeggen_gcn.yaml\n?? configs/model/shapeggen_graphsage.yaml\n?? configs/targets/shapeggen_2x2_targets.csv\n?? configs/targets/shapeggen_pg_common_train.csv\n?? configs/targets/shapeggen_pg_common_val.csv\n?? configs/targets/shapeggen_pg_gcn_train_eligible.csv\n?? configs/targets/shapeggen_pg_gcn_val_eligible.csv\n?? configs/targets/shapeggen_pg_graphsage_train_eligible.csv\n?? configs/targets/shapeggen_pg_graphsage_val_eligible.csv\n?? scripts/run_shapeggen_backbones_and_targets.py"
+  },
+  "model_architecture_policy": {
+    "gcn_difference": "GCNConv(cached=False)",
+    "graphsage_difference": "SAGEConv(aggr=sum)",
+    "same_dropout": true,
+    "same_hidden_width": true,
+    "same_message_passing_depth": true,
+    "same_training_policy": true
+  },
+  "no_explainer_outputs_created": true,
+  "predictive_performance": {
+    "GCN": {
+      "checkpoint_sha256": "15bfa8960fe4e0f0712c3a794db93ed4e90aad6fce3555a16db23a8a13b91e36",
+      "reload_parity": {
+        "max_abs_diff": 0.0,
+        "passed": true
+      },
+      "test": {
+        "accuracy": 0.6819923371647509,
+        "correct": 178,
+        "loss": 0.6071463227272034,
+        "motif_correct": 119,
+        "motif_total": 160,
+        "total": 261
+      },
+      "train": {
+        "accuracy": 0.6928020565552699,
+        "correct": 539,
+        "loss": 0.5444915890693665,
+        "motif_correct": 345,
+        "motif_total": 477,
+        "total": 778
+      },
+      "validation": {
+        "accuracy": 0.752895752895753,
+        "correct": 195,
+        "loss": 0.5735694169998169,
+        "motif_correct": 125,
+        "motif_total": 159,
+        "total": 259
+      }
+    },
+    "GraphSAGE": {
+      "checkpoint_sha256": "498a74875360a82749b78cb40a69b3e4ec04ec634b85e4713e85d96f34c666a0",
+      "reload_parity": {
+        "max_abs_diff": 0.0,
+        "passed": true
+      },
+      "test": {
+        "accuracy": 0.8697318007662835,
+        "correct": 227,
+        "loss": 0.3372076153755188,
+        "motif_correct": 141,
+        "motif_total": 160,
+        "total": 261
+      },
+      "train": {
+        "accuracy": 0.9987146529562982,
+        "correct": 777,
+        "loss": 0.034667279571294785,
+        "motif_correct": 476,
+        "motif_total": 477,
+        "total": 778
+      },
+      "validation": {
+        "accuracy": 0.8841698841698842,
+        "correct": 229,
+        "loss": 0.3210240602493286,
+        "motif_correct": 147,
+        "motif_total": 159,
+        "total": 259
+      }
+    }
+  },
+  "status": "success",
+  "targets": {
+    "common_pg_train": {
+      "count": 539,
+      "path": "configs\\targets\\shapeggen_pg_common_train.csv",
+      "sha256": "c05a5be38a64b629c8bb837b1fb3408d8a008726713e70f0318aee3499746b70"
+    },
+    "common_pg_val": {
+      "count": 182,
+      "path": "configs\\targets\\shapeggen_pg_common_val.csv",
+      "sha256": "b988e40c2af234724b07802ec31d0831ef039a3ef4de3bfee1b80051b49cdc5d"
+    },
+    "final_2x2": {
+      "count": 167,
+      "path": "configs\\targets\\shapeggen_2x2_targets.csv",
+      "sha256": "bd128dec7810421d592debe8177f3cb46d6c7d9b01fd3f562b8b13971517b41d"
+    },
+    "pg_gcn_train_eligible": {
+      "count": 539,
+      "path": "configs\\targets\\shapeggen_pg_gcn_train_eligible.csv",
+      "sha256": "17a69bd999853a8487a1f85af7bec21409e171dad8f021d99918f98192279b4f"
+    },
+    "pg_gcn_val_eligible": {
+      "count": 195,
+      "path": "configs\\targets\\shapeggen_pg_gcn_val_eligible.csv",
+      "sha256": "c3ec03b26f3636266acc0d0872a53d605b28670125249a098f18fd843b2de47f"
+    },
+    "pg_graphsage_train_eligible": {
+      "count": 777,
+      "path": "configs\\targets\\shapeggen_pg_graphsage_train_eligible.csv",
+      "sha256": "d5fc96cdd8e9c6b4f4dab6e707ecfbf2e1c3b36fcdf525c004b446a8d74ddd91"
+    },
+    "pg_graphsage_val_eligible": {
+      "count": 229,
+      "path": "configs\\targets\\shapeggen_pg_graphsage_val_eligible.csv",
+      "sha256": "4189685c8facd2c6ff24fd12fc85715c47c97691c5760c9b7877eb13d7f448ba"
+    },
+    "set_counts": {
+      "common_train": 539,
+      "common_val": 182,
+      "final_intersection": 167,
+      "gcn_test_eligible": 178,
+      "gcn_train_eligible": 539,
+      "gcn_val_eligible": 195,
+      "graphsage_test_eligible": 227,
+      "graphsage_train_eligible": 777,
+      "graphsage_val_eligible": 229
+    }
+  },
+  "task": "Task22 ShapeGGen backbones and pre-XAI target freeze"
+}

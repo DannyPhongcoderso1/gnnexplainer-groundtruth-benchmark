@@ -1,0 +1,69 @@
+{
+  "backbone": "GraphSAGE",
+  "checkpoint_path": "artifacts\\checkpoints\\shapeggen_graphsage_best.pt",
+  "checkpoint_sha256": "498a74875360a82749b78cb40a69b3e4ec04ec634b85e4713e85d96f34c666a0",
+  "config_path": "configs\\model\\shapeggen_graphsage.yaml",
+  "config_sha256": "2f3ec148dcfb8cbf9f3f5e5126450dfb05772f31432eb079876b7cc7edb59b35",
+  "reload_parity": {
+    "max_abs_diff": 0.0,
+    "passed": true
+  },
+  "status": "success",
+  "summary": {
+    "best_epoch": 263,
+    "best_validation_accuracy": 0.8841698841698842,
+    "best_validation_metric": 0.8841698841698842,
+    "best_validation_metric_name": "val_accuracy",
+    "checkpoint_path": "artifacts\\checkpoints\\shapeggen_graphsage_best.pt",
+    "dataset_checksum": "9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e",
+    "device": "cuda",
+    "history_path": "results\\metrics\\shapeggen_backbone_comparison\\graphsage_history.csv",
+    "majority_baseline_accuracy": 0.6130268199233716,
+    "motif_test_correct": 141,
+    "motif_test_total": 160,
+    "random_baseline_accuracy": 0.5,
+    "resolved_config": {
+      "checkpoint": {
+        "mode": "max",
+        "monitor": "val_accuracy"
+      },
+      "model": {
+        "aggr": "sum",
+        "convolution": "PyG SAGEConv",
+        "dropout": 0.2,
+        "hidden_channels": 32,
+        "num_layers": 3,
+        "seed": 42,
+        "type": "GraphSAGE"
+      },
+      "training": {
+        "class_weighting": true,
+        "device": "auto",
+        "learning_rate": 0.01,
+        "max_epochs": 300,
+        "patience": 60,
+        "weight_decay": 0.0005
+      }
+    },
+    "summary_path": "results\\metrics\\shapeggen_backbone_comparison\\graphsage_summary.json",
+    "test_accuracy": 0.8697318007662835,
+    "test_correct": 227,
+    "test_total": 261
+  },
+  "training_result": {
+    "best_epoch": 263,
+    "best_validation_accuracy": 0.8841698841698842,
+    "best_validation_metric": 0.8841698841698842,
+    "best_validation_metric_name": "val_accuracy",
+    "checkpoint_path": "artifacts\\checkpoints\\shapeggen_graphsage_best.pt",
+    "history_path": "results\\metrics\\shapeggen_backbone_comparison\\graphsage_history.csv",
+    "majority_baseline_accuracy": 0.6130268199233716,
+    "motif_test_correct": 141,
+    "motif_test_total": 160,
+    "random_baseline_accuracy": 0.5,
+    "summary_path": "results\\metrics\\shapeggen_backbone_comparison\\graphsage_summary.json",
+    "test_accuracy": 0.8697318007662835,
+    "test_correct": 227,
+    "test_total": 261
+  }
+}

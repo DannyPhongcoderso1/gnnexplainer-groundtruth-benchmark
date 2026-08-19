@@ -1,0 +1,69 @@
+{
+  "backbone": "GCN",
+  "checkpoint_path": "artifacts\\checkpoints\\shapeggen_gcn_best.pt",
+  "checkpoint_sha256": "15bfa8960fe4e0f0712c3a794db93ed4e90aad6fce3555a16db23a8a13b91e36",
+  "config_path": "configs\\model\\shapeggen_gcn.yaml",
+  "config_sha256": "3c905885f04a8e6f56a5c4f053e586e19f78d27394b306d2bd14c58dd22f980d",
+  "reload_parity": {
+    "max_abs_diff": 0.0,
+    "passed": true
+  },
+  "status": "success",
+  "summary": {
+    "best_epoch": 16,
+    "best_validation_accuracy": 0.752895752895753,
+    "best_validation_metric": 0.752895752895753,
+    "best_validation_metric_name": "val_accuracy",
+    "checkpoint_path": "artifacts\\checkpoints\\shapeggen_gcn_best.pt",
+    "dataset_checksum": "9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e",
+    "device": "cuda",
+    "history_path": "results\\metrics\\shapeggen_backbone_comparison\\gcn_history.csv",
+    "majority_baseline_accuracy": 0.6130268199233716,
+    "motif_test_correct": 119,
+    "motif_test_total": 160,
+    "random_baseline_accuracy": 0.5,
+    "resolved_config": {
+      "checkpoint": {
+        "mode": "max",
+        "monitor": "val_accuracy"
+      },
+      "model": {
+        "cached": false,
+        "convolution": "PyG GCNConv",
+        "dropout": 0.2,
+        "hidden_channels": 32,
+        "num_layers": 3,
+        "seed": 42,
+        "type": "GCN"
+      },
+      "training": {
+        "class_weighting": true,
+        "device": "auto",
+        "learning_rate": 0.01,
+        "max_epochs": 300,
+        "patience": 60,
+        "weight_decay": 0.0005
+      }
+    },
+    "summary_path": "results\\metrics\\shapeggen_backbone_comparison\\gcn_summary.json",
+    "test_accuracy": 0.6819923371647509,
+    "test_correct": 178,
+    "test_total": 261
+  },
+  "training_result": {
+    "best_epoch": 16,
+    "best_validation_accuracy": 0.752895752895753,
+    "best_validation_metric": 0.752895752895753,
+    "best_validation_metric_name": "val_accuracy",
+    "checkpoint_path": "artifacts\\checkpoints\\shapeggen_gcn_best.pt",
+    "history_path": "results\\metrics\\shapeggen_backbone_comparison\\gcn_history.csv",
+    "majority_baseline_accuracy": 0.6130268199233716,
+    "motif_test_correct": 119,
+    "motif_test_total": 160,
+    "random_baseline_accuracy": 0.5,
+    "summary_path": "results\\metrics\\shapeggen_backbone_comparison\\gcn_summary.json",
+    "test_accuracy": 0.6819923371647509,
+    "test_correct": 178,
+    "test_total": 261
+  }
+}

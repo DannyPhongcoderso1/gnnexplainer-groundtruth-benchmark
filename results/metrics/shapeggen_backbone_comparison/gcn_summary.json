@@ -1,0 +1,41 @@
+{
+  "best_epoch": 16,
+  "best_validation_accuracy": 0.752895752895753,
+  "best_validation_metric": 0.752895752895753,
+  "best_validation_metric_name": "val_accuracy",
+  "checkpoint_path": "artifacts\\checkpoints\\shapeggen_gcn_best.pt",
+  "dataset_checksum": "9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e",
+  "device": "cuda",
+  "history_path": "results\\metrics\\shapeggen_backbone_comparison\\gcn_history.csv",
+  "majority_baseline_accuracy": 0.6130268199233716,
+  "motif_test_correct": 119,
+  "motif_test_total": 160,
+  "random_baseline_accuracy": 0.5,
+  "resolved_config": {
+    "checkpoint": {
+      "mode": "max",
+      "monitor": "val_accuracy"
+    },
+    "model": {
+      "cached": false,
+      "convolution": "PyG GCNConv",
+      "dropout": 0.2,
+      "hidden_channels": 32,
+      "num_layers": 3,
+      "seed": 42,
+      "type": "GCN"
+    },
+    "training": {
+      "class_weighting": true,
+      "device": "auto",
+      "learning_rate": 0.01,
+      "max_epochs": 300,
+      "patience": 60,
+      "weight_decay": 0.0005
+    }
+  },
+  "summary_path": "results\\metrics\\shapeggen_backbone_comparison\\gcn_summary.json",
+  "test_accuracy": 0.6819923371647509,
+  "test_correct": 178,
+  "test_total": 261
+}
