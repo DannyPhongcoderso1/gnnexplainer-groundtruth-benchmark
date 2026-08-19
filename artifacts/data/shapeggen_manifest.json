@@ -1,99 +1,112 @@
 {
-  "config": {
-    "dataset": {
-      "add_sensitive_feature": false,
-      "class_sep": 0.5,
-      "flip_y": 0.01,
-      "homophily_coef": null,
-      "max_tries_verification": 15,
-      "model_layers": 3,
-      "n_clusters_per_class": 2,
-      "n_features": 10,
-      "n_informative": 6,
-      "num_subgraphs": 100,
-      "prob_connection": 0.09,
-      "protocol_name": "THESIS_SHAPEGGEN_V1",
+  "dataset_name": "ShapeGGen",
+  "dependency_strategy": "vendored unmodified official GraphXAI source",
+  "generation_command": ".\\.venv\\Scripts\\python.exe scripts\\generate_shapeggen.py --config configs\\dataset\\shapeggen.yaml --output artifacts\\data\\shapeggen.pt --metadata artifacts\\data\\shapeggen_manifest.json",
+  "generator_config": {
+    "add_sensitive_feature": false,
+    "attribute_sensitive_feature": false,
+    "class_sep": 0.5,
+    "homophily_coef": null,
+    "make_explanations": true,
+    "max_tries_verification": 15,
+    "model_layers": 3,
+    "n_clusters_per_class": 2,
+    "n_features": 10,
+    "n_informative": 6,
+    "num_subgraphs": 100,
+    "prob_connection": 0.09,
+    "seed": 912,
+    "sens_attribution_noise": 0.25,
+    "shape": "house",
+    "subgraph_size": 13,
+    "variant": 1,
+    "verify": true
+  },
+  "generator_seed": 912,
+  "ground_truth": {
+    "candidate_edge_entries": 156266,
+    "edge_mask": "shape [num_nodes, num_directed_edge_entries]",
+    "eligible_targets": 1298,
+    "feature_mask": "shape [num_features], global common upstream feature_imp",
+    "max_candidate_edges_per_target": 296,
+    "max_positive_edges_per_target": 28,
+    "min_candidate_edges_per_target": 22,
+    "min_positive_edges_per_target": 12,
+    "node_mask": "shape [num_nodes, num_nodes]",
+    "positive_edge_entries": 28316,
+    "positive_node_entries": 10470,
+    "representation": "target-specific dense boolean masks derived from official GraphXAI Explanation objects"
+  },
+  "historical_local_task21_commit": "e7d753361fbebc205aa574c62c2b2520cc93d61b",
+  "historical_local_task21_sha256": "ecf0975a1a38ed89225b91992331165b14879b943dc96360ca4406dbbaacc6ac",
+  "label_distribution": {
+    "0": 502,
+    "1": 796
+  },
+  "local_adapter_config": {
+    "edge_representation": "directed_pyg_edge_index_with_reverse_entries_from_upstream_graph",
+    "feature_explanations_in_core_metrics": false,
+    "ground_truth_storage": "target_specific_dense_masks_from_official_graphxai_explanations",
+    "split": {
+      "method": "stratified_disjoint",
       "seed": 912,
-      "shape": "house",
-      "source": "GraphXAI ShapeGGen",
-      "source_commit": "a11e65ffbc4df737f35522a8accf2283a8aeaa37",
-      "source_repository": "https://github.com/mims-harvard/GraphXAI",
-      "split": {
-        "method": "stratified_disjoint",
-        "test_ratio": 0.2,
-        "train_ratio": 0.6,
-        "val_ratio": 0.2
-      },
-      "subgraph_size": 13,
-      "type": "ShapeGGen",
-      "variant": 1,
-      "verify": true
+      "test_ratio": 0.2,
+      "train_ratio": 0.6,
+      "val_ratio": 0.2
     }
   },
-  "ground_truth_counts": {
-    "candidate_edge_entries": 148852,
-    "eligible_targets": 1279,
-    "max_candidate_edges_per_target": 306,
-    "max_positive_edges_per_target": 28,
-    "min_candidate_edges_per_target": 18,
-    "min_positive_edges_per_target": 12,
-    "positive_edge_entries": 27700,
-    "positive_node_entries": 10250
-  },
-  "label_distribution": {
-    "0": 508,
-    "1": 771
-  },
-  "protocol": {
-    "candidate_edge_representation": "directed PyG edge_index with reverse-edge copies",
-    "feature_explanations_in_core_metrics": false,
-    "name": "THESIS_SHAPEGGEN_V1",
-    "split_policy": "stratified_disjoint"
-  },
-  "seed": 912,
-  "sha256": "ecf0975a1a38ed89225b91992331165b14879b943dc96360ca4406dbbaacc6ac",
+  "local_config_path": "configs/dataset/shapeggen.yaml",
+  "protocol_name": "THESIS_SHAPEGGEN_OFFICIAL_V1",
+  "sha256": "9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e",
   "shapes": {
     "candidate_edge_mask": [
-      1279,
-      4390
+      1298,
+      4518
     ],
     "edge_index": [
       2,
-      4390
+      4518
     ],
     "edge_mask": [
-      1279,
-      4390
+      1298,
+      4518
+    ],
+    "feature_mask": [
+      10
     ],
     "node_mask": [
-      1279,
-      1279
+      1298,
+      1298
     ],
-    "num_edges": 4390,
+    "num_directed_edge_entries": 4518,
     "num_node_features": 10,
-    "num_nodes": 1279,
-    "num_undirected_edges": 2195,
+    "num_nodes": 1298,
+    "num_undirected_edges": 2259,
     "x": [
-      1279,
+      1298,
       10
     ],
     "y": [
-      1279
+      1298
     ]
   },
-  "source": {
-    "commit": "a11e65ffbc4df737f35522a8accf2283a8aeaa37",
-    "implementation": "local source-aligned implementation",
-    "local_package_installed": false,
-    "name": "GraphXAI ShapeGGen",
-    "repository": "https://github.com/mims-harvard/GraphXAI"
+  "split": {
+    "counts": {
+      "test": 261,
+      "train": 778,
+      "validation": 259
+    },
+    "method": "stratified_disjoint",
+    "seed": 912
   },
-  "split_counts": {
-    "test": 258,
-    "train": 766,
-    "validation": 255
-  },
+  "upstream_commit_or_version": "a11e65ffbc4df737f35522a8accf2283a8aeaa37",
+  "upstream_import_path": "graphxai.datasets.shape_graph.ShapeGGen",
+  "upstream_license": "MIT",
+  "upstream_project": "GraphXAI",
+  "upstream_repository": "https://github.com/mims-harvard/GraphXAI",
+  "upstream_shape_ggen_source": "graphxai/datasets/shape_graph.py",
   "versions": {
+    "networkx": "3.6.1",
     "numpy": "2.4.6",
     "python": "3.11.9",
     "torch": "2.11.0+cu128",

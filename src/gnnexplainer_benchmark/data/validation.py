@@ -130,10 +130,11 @@ def validate_shapeggen_data(data: Data) -> None:
 
     positive_counts = data.edge_mask.sum(dim=1)
     candidate_counts = data.candidate_edge_mask.sum(dim=1)
-    if bool((positive_counts == 0).any()):
-        raise ValueError("every target must have at least one positive edge")
-    if bool((candidate_counts <= positive_counts).any()):
-        raise ValueError("every target must have at least one negative candidate edge")
+    eligible_targets = (positive_counts > 0) & (candidate_counts > positive_counts)
+    if int(eligible_targets.sum().item()) == 0:
+        raise ValueError(
+            "ShapeGGen must contain at least one target with positive and negative edges"
+        )
 
     edge_pairs = {
         (int(data.edge_index[0, edge_idx]), int(data.edge_index[1, edge_idx]))

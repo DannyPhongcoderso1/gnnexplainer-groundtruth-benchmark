@@ -28,7 +28,8 @@ def main() -> None:
     print(f"directed_edges={data.edge_index.size(1)}")
     print(f"features={data.x.size(1)}")
     print(f"labels={label_distribution}")
-    print(f"splits={metadata['split_counts']}")
+    split_counts = metadata.get("split_counts", metadata.get("split", {}).get("counts", {}))
+    print(f"splits={split_counts}")
     print(
         "candidate_edges_per_target="
         f"min={int(candidate_counts.min())}, "

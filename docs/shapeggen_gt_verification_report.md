@@ -2,74 +2,85 @@
 
 ## Verification Status
 
-ShapeGGen protocol freeze status: passed.
+Task21C official GraphXAI migration status: passed candidate audit.
 
-Generated artifact:
+Generated production artifact:
 
 - `artifacts/data/shapeggen.pt`
-- SHA256: `ecf0975a1a38ed89225b91992331165b14879b943dc96360ca4406dbbaacc6ac`
+- SHA256: `9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e`
+- Upstream commit: `a11e65ffbc4df737f35522a8accf2283a8aeaa37`
 
-## Checks Performed
+## Official Ground-Truth Source
 
-The dataset generator and tests verify:
+Official `ShapeGGen(..., make_explanations=True)` returns
+`dataset.explanations`, a list with one `Explanation` object per target node.
+Each object contains:
 
-- Each planted motif id corresponds to exactly five nodes.
-- Each planted motif subgraph is isomorphic to the NetworkX house motif.
-- Labels encode one or two nearby motifs as `shapes_in_khop - 1`.
-- Train, validation, and test masks are boolean, complete, and disjoint.
-- `edge_index` contains reverse-edge copies.
-- Candidate edge masks are target-specific model-layer computation edges.
-- Positive edge masks are strict subsets of candidate edge masks.
-- Every target has positive explanatory edges and negative candidate edges.
-- Reverse-edge candidate masks and ground-truth masks are aligned.
-- Dataset artifact SHA256 is locked in tests.
+- `node_idx`: target node id;
+- `feature_imp`: global feature-importance mask;
+- `node_imp`: node GT over the enclosing subgraph nodes;
+- `edge_imp`: edge GT over the enclosing subgraph edge order;
+- `enc_subgraph.nodes`: full-graph node ids in the target enclosing subgraph;
+- `enc_subgraph.edge_mask`: full-graph edge-index aligned candidate mask;
+- `enc_subgraph.edge_index`: enclosing-subgraph edge order.
 
-## Candidate And Ground-Truth Mapping
+## Local Conversion Checks
 
-For target node `t`:
+The adapter verifies:
 
-1. Compute the one-hop motif id set around `t`.
-2. Compute the `model_layers=3` computation node set around `t`.
-3. Candidate edges are directed PyG edges whose endpoints are both in that
-   computation node set.
-4. Positive nodes are motif nodes inside the computation node set whose motif id
-   appears in the one-hop motif id set.
-5. Positive edges are candidate edges whose endpoints are both positive nodes.
-6. If `t` is not a positive motif node, source-to-motif candidate edges touching
-   `t` and a positive motif node are also positive.
-
-This mirrors the audited GraphXAI target-specific ShapeGGen explanation
-semantics.
+- exactly one upstream explanation exists per target node;
+- upstream `enc_subgraph.edge_mask` length equals full graph `edge_index` length;
+- upstream `edge_imp` length equals enclosing-subgraph edge count;
+- upstream `node_imp` length equals enclosing-subgraph node count;
+- feature masks are globally consistent across targets;
+- local `edge_mask[target]` is a subset of `candidate_edge_mask[target]`;
+- reverse-edge candidate and GT masks are aligned;
+- split masks are boolean, disjoint, and complete;
+- all tensors are finite where applicable.
 
 ## Frozen Statistics
 
 | Metric | Value |
 |---|---:|
-| Targets | 1279 |
-| Candidate edge entries | 148852 |
-| Positive edge entries | 27700 |
-| Positive node entries | 10250 |
-| Min candidate edges per target | 18 |
-| Median candidate edges per target | 110 |
-| Max candidate edges per target | 306 |
+| Targets | 1298 |
+| Directed edge entries | 4518 |
+| Undirected edges | 2259 |
+| Candidate edge entries | 156266 |
+| Positive edge entries | 28316 |
+| Positive node entries | 10420 |
+| Eligible targets | 1298 |
+| Min candidate edges per target | 22 |
+| Median candidate edges per target | 118 |
+| Max candidate edges per target | 296 |
 | Min positive edges per target | 12 |
 | Median positive edges per target | 26 |
 | Max positive edges per target | 28 |
 
-## Test Coverage
+## Feature Ground Truth
 
-ShapeGGen-specific tests:
+Feature GT is stored as a global boolean `feature_mask` of shape `[10]`.
+Positive upstream feature indices after official feature shuffling are:
 
-- `tests/test_shapeggen_generation.py`
-- `tests/test_shapeggen_gt_masks.py`
-- `tests/test_shapeggen_metadata.py`
-- `tests/test_shapeggen_reproducibility.py`
+```text
+0, 1, 3, 6, 8, 9
+```
 
-The tests are intended to fail if the frozen artifact changes unexpectedly, if
-the split stops being disjoint, or if edge/candidate/ground-truth mapping drifts.
+Feature explanation metrics remain excluded from the core thesis comparison.
+
+## Evaluator Contract
+
+Future ShapeGGen evaluation must retrieve edge GT through:
+
+```python
+get_target_edge_ground_truth(data, node_id)
+get_target_candidate_edge_mask(data, node_id)
+```
+
+This isolates ShapeGGen target-specific storage from BA-House's 1D global
+ground-truth masks.
 
 ## Stop Boundary
 
-No ShapeGGen backbone training or explainer evaluation was run during this task.
-The next phase may train ShapeGGen backbones only after this protocol/data/GT
-freeze is reviewed.
+No ShapeGGen GCN or GraphSAGE training, final target selection, GNNExplainer,
+PGExplainer, Random baseline, or stability experiment was started during this
+freeze.

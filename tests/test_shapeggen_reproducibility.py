@@ -9,9 +9,10 @@ from gnnexplainer_benchmark.data.shapeggen import generate_shapeggen_data, load_
 
 def test_shapeggen_generation_is_deterministic_for_same_config() -> None:
     config = load_shapeggen_config(Path("configs/dataset/shapeggen.yaml"))
-    config["dataset"]["num_subgraphs"] = 12
-    config["dataset"]["seed"] = 456
-    config["dataset"]["prob_connection"] = 0.1
+    config["dataset"]["upstream_generator"]["num_subgraphs"] = 12
+    config["dataset"]["upstream_generator"]["seed"] = 456
+    config["dataset"]["upstream_generator"]["prob_connection"] = 0.1
+    config["dataset"]["local_adapter"]["split"]["seed"] = 456
 
     first = generate_shapeggen_data(config)
     second = generate_shapeggen_data(config)

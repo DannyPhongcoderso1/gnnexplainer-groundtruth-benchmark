@@ -11,6 +11,13 @@ from gnnexplainer_benchmark.data.serialization import (
     save_metadata,
     sha256_file,
 )
+from gnnexplainer_benchmark.data.shapeggen import (
+    generate_and_save_shapeggen,
+    generate_shapeggen_data,
+    get_target_candidate_edge_mask,
+    get_target_edge_ground_truth,
+    load_shapeggen_config,
+)
 from gnnexplainer_benchmark.data.splitting import (
     SplitConfig,
     make_stratified_node_splits,
@@ -30,8 +37,13 @@ __all__ = [
     "SplitConfig",
     "build_metadata",
     "generate_and_save_ba_house",
+    "generate_and_save_shapeggen",
     "generate_ba_house_data",
+    "generate_shapeggen_data",
+    "get_target_candidate_edge_mask",
+    "get_target_edge_ground_truth",
     "load_ba_house_config",
+    "load_shapeggen_config",
     "load_data_artifact",
     "load_metadata",
     "make_stratified_node_splits",

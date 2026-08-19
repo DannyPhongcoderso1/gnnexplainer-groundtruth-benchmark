@@ -1,78 +1,99 @@
-# ShapeGGen Implementation Provenance
+# ShapeGGen Official GraphXAI Provenance
 
-## Purpose
+## Status
 
-ShapeGGen is introduced as the second synthetic benchmark after BA-House. This
-document freezes the implementation basis before any ShapeGGen backbone training
-or explainer evaluation.
+Task21C replaces the first local ShapeGGen reimplementation with the official
+GraphXAI ShapeGGen implementation.
 
-## Audited Sources
+The historical Task21 commit
+`e7d753361fbebc205aa574c62c2b2520cc93d61b` remains in Git history as the first
+local-generation attempt. Its dataset SHA256 was
+`ecf0975a1a38ed89225b91992331165b14879b943dc96360ca4406dbbaacc6ac`.
+That artifact is superseded. No ShapeGGen backbone, explainer, Random baseline,
+stability run, or PGExplainer pool was created from that historical artifact.
 
-- GraphXAI paper: *GraphXAI: Graph Neural Networks for Explainable AI*.
-- Official project page: `https://zitniklab.hms.harvard.edu/projects/GraphXAI/`.
-- Official source repository: `https://github.com/mims-harvard/GraphXAI`.
-- Audited official repository commit: `a11e65ffbc4df737f35522a8accf2283a8aeaa37`.
-- Local package audit: `graphxai` is not installed in the current virtual environment.
+## Authoritative Source
 
-## Source Files Audited
+- Upstream project: GraphXAI
+- Repository: `https://github.com/mims-harvard/GraphXAI`
+- Pinned commit: `a11e65ffbc4df737f35522a8accf2283a8aeaa37`
+- License: MIT
+- Upstream source class: `graphxai.datasets.shape_graph.ShapeGGen`
+- Upstream source file: `graphxai/datasets/shape_graph.py`
+
+The official repository is vendored unmodified under `src/graphxai` because its
+`setup.py` at the pinned commit installs only the top-level package and does not
+install required subpackages such as `graphxai.datasets` and `graphxai.utils`.
+
+## Upstream Files Audited
 
 - `graphxai/datasets/shape_graph.py`
+- `graphxai/datasets/utils/bound_graph.py`
 - `graphxai/datasets/utils/bound_graph_pref_att.py`
 - `graphxai/datasets/utils/label_generators.py`
-- `graphxai/datasets/utils/verify.py`
-- `graphxai/datasets/utils/shapes.py`
 - `graphxai/datasets/utils/feature_generators.py`
 - `graphxai/datasets/feature/structured_feature.py`
+- `graphxai/datasets/utils/verify.py`
+- `graphxai/datasets/utils/shapes.py`
+- `graphxai/utils/explanation.py`
 
-The temporary audited clone was kept outside this repository at
-`D:\CS\KLTN\_tmp_graphxai_source_task21` and is not a project artifact.
+## Upstream Behavior
 
-## Official Semantics Captured
+Official `ShapeGGen`:
 
-The local implementation follows the official ShapeGGen variant-1 construction:
+- constructs a NetworkX graph from inserted motifs and surrounding subgraphs;
+- supports variant `1`, the preferential-attachment construction;
+- uses house motifs for this frozen benchmark;
+- labels nodes by the number of nearby unique motifs minus one;
+- creates structured label-correlated node features;
+- optionally creates sensitive features and homophily-adjusted features;
+- creates one target-specific `Explanation` object per node when
+  `make_explanations=True`;
+- stores each explanation over the target node's model-layer enclosing subgraph.
 
-- Start from house motifs.
-- Grow each motif with a Barabasi-Albert-like preferential attachment process.
-- Connect subgraphs probabilistically while keeping each node near one or two motifs.
-- Label each node by the number of unique nearby motifs minus one.
-- Build structured Gaussian features from labels.
-- Store PyG directed `edge_index` with reverse-edge copies.
-- Define target-specific ground truth over the model-layer computation subgraph.
+## Local Adapter Behavior
 
-Official target-specific explanation semantics were preserved:
+The local file `src/gnnexplainer_benchmark/data/shapeggen.py` is now an adapter.
+It does not implement ShapeGGen graph construction, motif creation, label
+generation, feature generation, homophily behavior, or explanation generation.
 
-- Important nodes are motif nodes whose motif id appears in the target node's
-  one-hop motif set.
-- Important edges are candidate edges whose endpoints are both important motif
-  nodes.
-- If the target node is not itself a motif node, direct source-to-motif candidate
-  edges are also marked important.
+The adapter performs only benchmark integration:
 
-## Thesis Protocol Decisions
+- calls official `ShapeGGen`;
+- copies the official PyG `Data` tensors;
+- converts official `Explanation` objects to dense target-specific masks;
+- attaches local stratified disjoint train/validation/test splits;
+- validates edge/index/GT consistency;
+- serializes the artifact and manifest.
 
-These are intentional frozen thesis-protocol decisions and are not explainer-driven:
+## Ground-Truth Conversion
 
-- `ShapeGGen` is implemented locally because the `graphxai` package is not
-  installed in the project environment.
-- The official independently sampled train, validation, and test masks were not
-  reused because they can overlap. The thesis protocol uses stratified disjoint
-  masks.
-- Feature explanations are stored as metadata via `feature_mask`, but feature
-  explanation metrics are excluded from core thesis metrics.
-- Candidate and ground-truth edge masks use the same directed PyG edge indexing
-  that future GNNExplainer, PGExplainer, and Random evaluations will consume.
-- Future PGExplainer comparisons must use a common candidate pool within the same
-  backbone and dataset. Natural-pool results may be reported only as diagnostic
-  results, not as the primary fair comparison protocol.
+For each upstream explanation:
 
-## Frozen Implementation Files
+1. `Explanation.node_idx` gives the target node.
+2. `Explanation.enc_subgraph.edge_mask` gives the target candidate edge set,
+   aligned to the official full-graph `edge_index`.
+3. `Explanation.edge_imp` gives binary edge GT over the enclosing subgraph edge
+   order.
+4. The adapter writes those values into `edge_mask[target_id, edge_id]`.
+5. `Explanation.enc_subgraph.nodes` and `Explanation.node_imp` are converted to
+   `node_mask[target_id, node_id]`.
+6. `Explanation.feature_imp` is checked to be globally consistent and stored as
+   `feature_mask`.
 
-- `configs/dataset/shapeggen.yaml`
-- `src/gnnexplainer_benchmark/data/shapeggen.py`
-- `scripts/generate_shapeggen.py`
-- `scripts/inspect_shapeggen.py`
-- `artifacts/data/shapeggen.pt`
-- `artifacts/data/shapeggen_manifest.json`
+No motif reconstruction is used in the adapter.
 
-No ShapeGGen backbone training, GNNExplainer, PGExplainer, Random baseline, or
-GraphSAGE evaluation has been started as part of this freeze.
+## Dependency Compatibility
+
+Direct source import from the official clone initially failed because upstream
+imports a debug dependency, `ipdb`, through `graphxai.gnn_models...testing`.
+The ShapeGGen path does not use `ipdb` behavior. A minimal compatibility shim is
+provided in `src/ipdb.py` so the vendored upstream source can import without
+modifying upstream files or adding a debug dependency to the thesis runtime.
+
+## Future Protocol Note
+
+ShapeGGen uses target-specific GT masks. Future evaluator code must access edge
+GT through the adapter function `get_target_edge_ground_truth(data, node_id)`;
+it must not assume that every dataset stores `data.edge_mask` as a 1D global
+mask like BA-House.
