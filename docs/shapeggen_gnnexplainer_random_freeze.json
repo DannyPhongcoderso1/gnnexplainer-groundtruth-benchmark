@@ -1115,5 +1115,2407 @@
   },
   "status": "success",
   "task": "Task23 ShapeGGen GNNExplainer and Random",
+  "task23_audit": {
+    "acceptance": {
+      "coverage_complete_without_failures_or_duplicates": true,
+      "fid_count_checks_match": true,
+      "frozen_input_hashes_match": true,
+      "metric_formula_checks_pass": true,
+      "raw_artifacts_complete_and_aligned": true,
+      "reported_values_recomputed": true,
+      "stability_pair_counts_valid": true,
+      "target_candidate_gt_mapping_valid": true,
+      "task24_pgexplainer_not_started": true
+    },
+    "backbone_audit": {
+      "gcn": {
+        "artifact_inventory": {
+          "metric_files": {
+            "gnn_primary": {
+              "column_names": [
+                "node_id",
+                "label",
+                "prediction",
+                "confidence",
+                "candidate_edge_count",
+                "positive_gt_edges",
+                "negative_gt_edges",
+                "ground_truth_edge_prevalence",
+                "selected_edge_ratio",
+                "selected_edge_count",
+                "edge_auroc",
+                "edge_ap",
+                "original_prediction",
+                "remove_prediction",
+                "retain_prediction",
+                "fid_plus",
+                "fid_minus",
+                "one_minus_fid_minus",
+                "original_probability",
+                "remove_probability",
+                "remove_probability_delta",
+                "retain_probability",
+                "retain_probability_delta",
+                "retain_probability_ratio",
+                "fidelity_legacy",
+                "sparsity",
+                "runtime_seconds",
+                "generation_runtime_seconds",
+                "evaluation_runtime_seconds",
+                "explanation_source",
+                "seed",
+                "status",
+                "error"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 167,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\gcn\\gnnexplainer\\per_node_metrics.csv",
+              "role": "metric_csv",
+              "row_count": 167,
+              "seed_coverage": [
+                "42"
+              ],
+              "sha256": "ff6e1136daeec2c193289e7c3c988709ad37551d3c54a07d8c29b6903de4dc06",
+              "target_node_count": 167
+            },
+            "gnn_stability_node": {
+              "column_names": [
+                "node_id",
+                "mean_pairwise_jaccard",
+                "std_pairwise_jaccard",
+                "median_pairwise_jaccard",
+                "min_pairwise_jaccard",
+                "max_pairwise_jaccard",
+                "num_seeds",
+                "num_pairs",
+                "status",
+                "error"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 167,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\gcn\\gnnexplainer\\stability_per_node_jaccard.csv",
+              "role": "metric_csv",
+              "row_count": 167,
+              "seed_coverage": [
+                ""
+              ],
+              "sha256": "51da556a098048d6a5087fd9ed23e54c8ab3557964f2c445cd96790c297ee7bc",
+              "target_node_count": 167
+            },
+            "gnn_stability_pairwise": {
+              "column_names": [
+                "node_id",
+                "seed_a",
+                "seed_b",
+                "selected_edge_count",
+                "intersection_count",
+                "union_count",
+                "jaccard"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 0,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\gcn\\gnnexplainer\\stability_pairwise_jaccard.csv",
+              "role": "metric_csv",
+              "row_count": 1670,
+              "seed_coverage": [
+                ""
+              ],
+              "sha256": "6c7887386621a699dfc29db78a7e2d53ab564249333e9730c92ca94b3114d432",
+              "target_node_count": 167
+            },
+            "gnn_stability_seed": {
+              "column_names": [
+                "node_id",
+                "label",
+                "prediction",
+                "confidence",
+                "candidate_edge_count",
+                "positive_gt_edges",
+                "negative_gt_edges",
+                "ground_truth_edge_prevalence",
+                "selected_edge_ratio",
+                "selected_edge_count",
+                "edge_auroc",
+                "edge_ap",
+                "original_prediction",
+                "remove_prediction",
+                "retain_prediction",
+                "fid_plus",
+                "fid_minus",
+                "one_minus_fid_minus",
+                "original_probability",
+                "remove_probability",
+                "remove_probability_delta",
+                "retain_probability",
+                "retain_probability_delta",
+                "retain_probability_ratio",
+                "fidelity_legacy",
+                "sparsity",
+                "runtime_seconds",
+                "generation_runtime_seconds",
+                "evaluation_runtime_seconds",
+                "explanation_source",
+                "seed",
+                "status",
+                "error"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 835,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\gcn\\gnnexplainer\\stability_seed_metrics.csv",
+              "role": "metric_csv",
+              "row_count": 835,
+              "seed_coverage": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4"
+              ],
+              "sha256": "59f2ed269ef2912e1cf3164ad56a56c51020dbfc59aea07cb7a1d61658ce3c79",
+              "target_node_count": 167
+            },
+            "random_node": {
+              "column_names": [
+                "node_id",
+                "label",
+                "prediction",
+                "confidence",
+                "candidate_edge_count",
+                "positive_gt_edges",
+                "negative_gt_edges",
+                "ground_truth_edge_prevalence",
+                "selected_edge_ratio",
+                "selected_edge_count",
+                "edge_auroc",
+                "edge_ap",
+                "original_prediction",
+                "remove_prediction",
+                "retain_prediction",
+                "fid_plus",
+                "fid_minus",
+                "one_minus_fid_minus",
+                "original_probability",
+                "remove_probability",
+                "remove_probability_delta",
+                "retain_probability",
+                "retain_probability_delta",
+                "retain_probability_ratio",
+                "fidelity_legacy",
+                "sparsity",
+                "runtime_seconds",
+                "generation_runtime_seconds",
+                "evaluation_runtime_seconds",
+                "explanation_source",
+                "seed",
+                "status",
+                "error"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 334,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\gcn\\random\\random_node_level_metrics.csv",
+              "role": "metric_csv",
+              "row_count": 167,
+              "seed_coverage": [
+                "node_mean"
+              ],
+              "sha256": "0f1ad5f9f5e5884483eefc594a07b32e77e5a7e283f226c2c6ae94eb80bacfa6",
+              "target_node_count": 167
+            },
+            "random_seed": {
+              "column_names": [
+                "node_id",
+                "label",
+                "prediction",
+                "confidence",
+                "candidate_edge_count",
+                "positive_gt_edges",
+                "negative_gt_edges",
+                "ground_truth_edge_prevalence",
+                "selected_edge_ratio",
+                "selected_edge_count",
+                "edge_auroc",
+                "edge_ap",
+                "original_prediction",
+                "remove_prediction",
+                "retain_prediction",
+                "fid_plus",
+                "fid_minus",
+                "one_minus_fid_minus",
+                "original_probability",
+                "remove_probability",
+                "remove_probability_delta",
+                "retain_probability",
+                "retain_probability_delta",
+                "retain_probability_ratio",
+                "fidelity_legacy",
+                "sparsity",
+                "runtime_seconds",
+                "generation_runtime_seconds",
+                "evaluation_runtime_seconds",
+                "explanation_source",
+                "seed",
+                "status",
+                "error"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 3340,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\gcn\\random\\random_seed_level_metrics.csv",
+              "role": "metric_csv",
+              "row_count": 1670,
+              "seed_coverage": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "sha256": "060baf55fd9ee15c18be026ea28868349ff9109d9a0dd08d14d3e93343f98794",
+              "target_node_count": 167
+            },
+            "random_stability_node": {
+              "column_names": [
+                "node_id",
+                "mean_pairwise_jaccard",
+                "std_pairwise_jaccard",
+                "median_pairwise_jaccard",
+                "min_pairwise_jaccard",
+                "max_pairwise_jaccard",
+                "num_seeds",
+                "num_pairs",
+                "status",
+                "error"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 167,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\gcn\\random\\random_stability_per_node_jaccard.csv",
+              "role": "metric_csv",
+              "row_count": 167,
+              "seed_coverage": [
+                ""
+              ],
+              "sha256": "5521d8107735f744a5cdfdbb5a2a91c188b87ec0e24d2c5bf5368a798dbc0032",
+              "target_node_count": 167
+            },
+            "random_stability_pairwise": {
+              "column_names": [
+                "node_id",
+                "seed_a",
+                "seed_b",
+                "selected_edge_count",
+                "intersection_count",
+                "union_count",
+                "jaccard"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 0,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\gcn\\random\\random_stability_pairwise_jaccard.csv",
+              "role": "metric_csv",
+              "row_count": 7515,
+              "seed_coverage": [
+                ""
+              ],
+              "sha256": "a385eb15828a00e835d1f8842c04b434e2e918e7b28d33521ff577e4ef20d5dc",
+              "target_node_count": 167
+            }
+          },
+          "raw_artifacts": {
+            "gnnexplainer": {
+              "duplicate_selected_global_edges": 0,
+              "edge_mask_size_violations": 0,
+              "existing_run_dirs": 1002,
+              "expected_run_dirs": 1002,
+              "file_count": 6012,
+              "missing_files": {},
+              "missing_run_dirs": 0,
+              "path": "results\\explanations\\shapeggen\\gcn\\gnnexplainer",
+              "role": "gcn_gnnexplainer_raw_explanations",
+              "score_length_violations": 0,
+              "seed_coverage": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                42
+              ],
+              "selected_count_violations": 0,
+              "selected_non_candidate_violations": 0,
+              "sha256_manifest": "748c5bb57dc8d5199aa9957233bdea7262e91d30c775a84d48e91e3ba1a1c207",
+              "target_node_count": 167,
+              "total_bytes": 26994303
+            },
+            "random": {
+              "duplicate_selected_global_edges": 0,
+              "edge_mask_size_violations": 0,
+              "existing_run_dirs": 1670,
+              "expected_run_dirs": 1670,
+              "file_count": 10020,
+              "missing_files": {},
+              "missing_run_dirs": 0,
+              "path": "results\\explanations\\shapeggen\\gcn\\random",
+              "role": "gcn_random_raw_explanations",
+              "score_length_violations": 0,
+              "seed_coverage": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "selected_count_violations": 0,
+              "selected_non_candidate_violations": 0,
+              "sha256_manifest": "aefe3607dde5a99d0dbcc84c3c7c2f7def3f8be2a3c092821bcb8bbafd100c1c",
+              "target_node_count": 167,
+              "total_bytes": 44907109
+            }
+          }
+        },
+        "coverage": {
+          "gnn_primary_seed42": {
+            "duplicated": 0,
+            "expected": 167,
+            "failed": 0,
+            "failure_reasons": [],
+            "missing": 0,
+            "seed_coverage": [
+              42
+            ],
+            "succeeded": 167,
+            "unique_node_count": 167
+          },
+          "gnn_stability_seeds0_to_4": {
+            "duplicated": 0,
+            "expected": 835,
+            "failed": 0,
+            "failure_reasons": [],
+            "missing": 0,
+            "seed_coverage": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "succeeded": 835,
+            "unique_node_count": 167
+          },
+          "random_node_means": {
+            "duplicated": 0,
+            "expected": 167,
+            "failed": 0,
+            "failure_reasons": [],
+            "missing": 0,
+            "seed_coverage": [
+              "node_mean"
+            ],
+            "succeeded": 167,
+            "unique_node_count": 167
+          },
+          "random_seeds0_to_9": {
+            "duplicated": 0,
+            "expected": 1670,
+            "failed": 0,
+            "failure_reasons": [],
+            "missing": 0,
+            "seed_coverage": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "succeeded": 1670,
+            "unique_node_count": 167
+          }
+        },
+        "metric_semantics_violations": {
+          "gnn_primary": {
+            "metric_formula_violations": {}
+          },
+          "gnn_stability_seed": {
+            "metric_formula_violations": {}
+          },
+          "random_node": {
+            "metric_formula_violations": {}
+          },
+          "random_seed": {
+            "metric_formula_violations": {}
+          }
+        },
+        "quality_summary": {
+          "gnnexplainer_seed42": [
+            {
+              "max": 0.85,
+              "mean": 0.6484449809298942,
+              "median": 0.6477878464818763,
+              "metric": "edge_auroc",
+              "min": 0.4785714285714286,
+              "n": 167,
+              "std": 0.06715412847982727
+            },
+            {
+              "max": 0.6396478463180144,
+              "mean": 0.32428097941682177,
+              "median": 0.31614586317075694,
+              "metric": "edge_ap",
+              "min": 0.13401287171354637,
+              "n": 167,
+              "std": 0.09840750915932185
+            },
+            {
+              "max": 1.0,
+              "mean": 0.562874251497006,
+              "median": 1.0,
+              "metric": "fid_plus",
+              "min": 0.0,
+              "n": 167,
+              "std": 0.4975229022958886
+            },
+            {
+              "max": 1.0,
+              "mean": 0.011976047904191617,
+              "median": 0.0,
+              "metric": "fid_minus",
+              "min": 0.0,
+              "n": 167,
+              "std": 0.10910500922184506
+            },
+            {
+              "max": 1.0,
+              "mean": 0.9880239520958084,
+              "median": 1.0,
+              "metric": "one_minus_fid_minus",
+              "min": 0.0,
+              "n": 167,
+              "std": 0.10910500922184506
+            },
+            {
+              "max": 0.900782123208046,
+              "mean": 0.2464675166640932,
+              "median": 0.268807977437973,
+              "metric": "remove_probability_delta",
+              "min": -0.4714280962944031,
+              "n": 167,
+              "std": 0.32075921306171756
+            },
+            {
+              "max": 0.9998886585235596,
+              "mean": 0.9432234364020788,
+              "median": 0.9783254861831665,
+              "metric": "retain_probability",
+              "min": 0.017170334234833717,
+              "n": 167,
+              "std": 0.10928933596451994
+            },
+            {
+              "max": 0.640770947560668,
+              "mean": -0.22539356829386628,
+              "median": -0.223372220993042,
+              "metric": "retain_probability_delta",
+              "min": -0.4815008044242859,
+              "n": 167,
+              "std": 0.1369968054360324
+            },
+            {
+              "max": 1.9310691828828574,
+              "mean": 1.345208163694218,
+              "median": 1.3030521584489958,
+              "metric": "retain_probability_ratio",
+              "min": 0.026097061713434972,
+              "n": 167,
+              "std": 0.25341423207697533
+            },
+            {
+              "max": 0.8,
+              "mean": 0.7959276224059845,
+              "median": 0.7965116279069767,
+              "metric": "sparsity",
+              "min": 0.7777777777777778,
+              "n": 167,
+              "std": 0.003665533159147349
+            },
+            {
+              "max": 0.3637311999918893,
+              "mean": 0.04811816766278115,
+              "median": 0.044653600023593754,
+              "metric": "runtime_seconds",
+              "min": 0.03549909999128431,
+              "n": 167,
+              "std": 0.026833671588545105
+            },
+            {
+              "max": 0.3637311999918893,
+              "mean": 0.04811816766278115,
+              "median": 0.044653600023593754,
+              "metric": "generation_runtime_seconds",
+              "min": 0.03549909999128431,
+              "n": 167,
+              "std": 0.026833671588545105
+            },
+            {
+              "max": 0.027105099987238646,
+              "mean": 0.014312470659772548,
+              "median": 0.013102700002491474,
+              "metric": "evaluation_runtime_seconds",
+              "min": 0.009432899998500943,
+              "n": 167,
+              "std": 0.004095269457938014
+            }
+          ],
+          "random_node_level": [
+            {
+              "max": 0.5703781512605042,
+              "mean": 0.5022734980555777,
+              "median": 0.5031623931623932,
+              "metric": "edge_auroc",
+              "min": 0.3873949579831933,
+              "n": 167,
+              "std": 0.026172431270748493
+            },
+            {
+              "max": 0.5075701546689204,
+              "mean": 0.237006032011355,
+              "median": 0.2315240174981356,
+              "metric": "edge_ap",
+              "min": 0.08417459343139938,
+              "n": 167,
+              "std": 0.0787225610863007
+            },
+            {
+              "max": 0.7,
+              "mean": 0.12754491017964073,
+              "median": 0.0,
+              "metric": "fid_plus",
+              "min": 0.0,
+              "n": 167,
+              "std": 0.17169062631284418
+            },
+            {
+              "max": 1.0,
+              "mean": 0.23952095808383234,
+              "median": 0.2,
+              "metric": "fid_minus",
+              "min": 0.0,
+              "n": 167,
+              "std": 0.23946679821987632
+            },
+            {
+              "max": 1.0,
+              "mean": 0.7604790419161677,
+              "median": 0.8,
+              "metric": "one_minus_fid_minus",
+              "min": 0.0,
+              "n": 167,
+              "std": 0.23946679821987632
+            },
+            {
+              "max": 0.25178849697113037,
+              "mean": 0.0026190809273958474,
+              "median": 0.001556071639060974,
+              "metric": "remove_probability_delta",
+              "min": -0.17848063707351686,
+              "n": 167,
+              "std": 0.06653481817297588
+            },
+            {
+              "max": 0.9983887672424316,
+              "mean": 0.720530953298394,
+              "median": 0.7521503150463105,
+              "metric": "retain_probability",
+              "min": 0.18957067355513574,
+              "n": 167,
+              "std": 0.19571851183787517
+            },
+            {
+              "max": 0.47091173343360426,
+              "mean": -0.0027010846905017125,
+              "median": -0.03158265948295593,
+              "metric": "retain_probability_delta",
+              "min": -0.4487214684486389,
+              "n": 167,
+              "std": 0.20537990527783373
+            },
+            {
+              "max": 1.8286650664199262,
+              "mean": 1.0226810475105261,
+              "median": 1.0399413603422614,
+              "metric": "retain_probability_ratio",
+              "min": 0.33320441195329836,
+              "n": 167,
+              "std": 0.3100101150821712
+            },
+            {
+              "max": 0.8,
+              "mean": 0.7959276224059845,
+              "median": 0.7965116279069767,
+              "metric": "sparsity",
+              "min": 0.7777777777777778,
+              "n": 167,
+              "std": 0.003665533159147349
+            },
+            {
+              "max": 0.024715099990135058,
+              "mean": 0.01908633940059184,
+              "median": 0.018786889989860354,
+              "metric": "runtime_seconds",
+              "min": 0.012112629995681346,
+              "n": 167,
+              "std": 0.002177013341377305
+            },
+            {
+              "max": null,
+              "mean": null,
+              "median": null,
+              "metric": "generation_runtime_seconds",
+              "min": null,
+              "n": 0,
+              "std": null
+            },
+            {
+              "max": 0.024715099990135058,
+              "mean": 0.01908633940059184,
+              "median": 0.018786889989860354,
+              "metric": "evaluation_runtime_seconds",
+              "min": 0.012112629995681346,
+              "n": 167,
+              "std": 0.002177013341377305
+            }
+          ],
+          "random_seed_level_preserved_reference": [
+            {
+              "max": 0.7637362637362637,
+              "mean": 0.5022734980555777,
+              "median": 0.5033558558558557,
+              "metric": "edge_auroc",
+              "min": 0.20588235294117643,
+              "n": 1670,
+              "std": 0.07221950213354106
+            },
+            {
+              "max": 0.6380593182648681,
+              "mean": 0.237006032011355,
+              "median": 0.22228454948306114,
+              "metric": "edge_ap",
+              "min": 0.05548566915302837,
+              "n": 1670,
+              "std": 0.09178225430011425
+            },
+            {
+              "max": 1.0,
+              "mean": 0.12754491017964073,
+              "median": 0.0,
+              "metric": "fid_plus",
+              "min": 0.0,
+              "n": 1670,
+              "std": 0.3336823025699358
+            },
+            {
+              "max": 1.0,
+              "mean": 0.23952095808383234,
+              "median": 0.0,
+              "metric": "fid_minus",
+              "min": 0.0,
+              "n": 1670,
+              "std": 0.4269189692799054
+            },
+            {
+              "max": 1.0,
+              "mean": 0.7604790419161677,
+              "median": 1.0,
+              "metric": "one_minus_fid_minus",
+              "min": 0.0,
+              "n": 1670,
+              "std": 0.4269189692799054
+            },
+            {
+              "max": 0.835949515691027,
+              "mean": 0.0026190809273958474,
+              "median": -0.00986596941947937,
+              "metric": "remove_probability_delta",
+              "min": -0.4709175229072571,
+              "n": 1670,
+              "std": 0.15138958058091506
+            },
+            {
+              "max": 0.9999995231628418,
+              "mean": 0.720530953298394,
+              "median": 0.9202367663383484,
+              "metric": "retain_probability",
+              "min": 2.2806369088357314e-05,
+              "n": 1670,
+              "std": 0.3338304527763198
+            },
+            {
+              "max": 0.9049512616693391,
+              "mean": -0.0027010846905017125,
+              "median": -0.11179250478744507,
+              "metric": "retain_probability_delta",
+              "min": -0.4988439679145813,
+              "n": 1670,
+              "std": 0.33955418402710713
+            },
+            {
+              "max": 1.997133775036428,
+              "mean": 1.0226810475105261,
+              "median": 1.1294704653896506,
+              "metric": "retain_probability_ratio",
+              "min": 3.793494972353822e-05,
+              "n": 1670,
+              "std": 0.5045346337424694
+            },
+            {
+              "max": 0.8,
+              "mean": 0.7959276224059845,
+              "median": 0.7965116279069767,
+              "metric": "sparsity",
+              "min": 0.7777777777777778,
+              "n": 1670,
+              "std": 0.003655636696380975
+            },
+            {
+              "max": 0.057957899989560246,
+              "mean": 0.01908633940059184,
+              "median": 0.018497500015655532,
+              "metric": "runtime_seconds",
+              "min": 0.009277899982407689,
+              "n": 1670,
+              "std": 0.0057574990781522365
+            },
+            {
+              "max": null,
+              "mean": null,
+              "median": null,
+              "metric": "generation_runtime_seconds",
+              "min": null,
+              "n": 0,
+              "std": null
+            },
+            {
+              "max": 0.057957899989560246,
+              "mean": 0.01908633940059184,
+              "median": 0.018497500015655532,
+              "metric": "evaluation_runtime_seconds",
+              "min": 0.009277899982407689,
+              "n": 1670,
+              "std": 0.0057574990781522365
+            }
+          ]
+        },
+        "runtime": {
+          "gnn_primary": {
+            "evaluation_runtime_seconds": {
+              "max": 0.027105099987238646,
+              "mean": 0.014312470659772548,
+              "median": 0.013102700002491474,
+              "min": 0.009432899998500943,
+              "n": 167,
+              "std": 0.004095269457938014,
+              "total": 2.3901826001820154
+            },
+            "generation_runtime_seconds": {
+              "max": 0.3637311999918893,
+              "mean": 0.04811816766278115,
+              "median": 0.044653600023593754,
+              "min": 0.03549909999128431,
+              "n": 167,
+              "std": 0.026833671588545105,
+              "total": 8.035733999684453
+            },
+            "runtime_seconds": {
+              "max": 0.3637311999918893,
+              "mean": 0.04811816766278115,
+              "median": 0.044653600023593754,
+              "min": 0.03549909999128431,
+              "n": 167,
+              "std": 0.026833671588545105,
+              "total": 8.035733999684453
+            }
+          },
+          "random_node_level": {
+            "evaluation_runtime_seconds": {
+              "max": 0.024715099990135058,
+              "mean": 0.01908633940059184,
+              "median": 0.018786889989860354,
+              "min": 0.012112629995681346,
+              "n": 167,
+              "std": 0.002177013341377305,
+              "total": 3.1874186798988378
+            },
+            "generation_runtime_seconds": {
+              "max": null,
+              "mean": null,
+              "median": null,
+              "min": null,
+              "n": 0,
+              "std": null,
+              "total": null
+            },
+            "runtime_seconds": {
+              "max": 0.024715099990135058,
+              "mean": 0.01908633940059184,
+              "median": 0.018786889989860354,
+              "min": 0.012112629995681346,
+              "n": 167,
+              "std": 0.002177013341377305,
+              "total": 3.1874186798988378
+            }
+          },
+          "random_seed_level": {
+            "evaluation_runtime_seconds": {
+              "max": 0.057957899989560246,
+              "mean": 0.01908633940059184,
+              "median": 0.018497500015655532,
+              "min": 0.009277899982407689,
+              "n": 1670,
+              "std": 0.0057574990781522365,
+              "total": 31.874186798988376
+            },
+            "generation_runtime_seconds": {
+              "max": null,
+              "mean": null,
+              "median": null,
+              "min": null,
+              "n": 0,
+              "std": null,
+              "total": null
+            },
+            "runtime_seconds": {
+              "max": 0.057957899989560246,
+              "mean": 0.01908633940059184,
+              "median": 0.018497500015655532,
+              "min": 0.009277899982407689,
+              "n": 1670,
+              "std": 0.0057574990781522365,
+              "total": 31.874186798988376
+            }
+          }
+        },
+        "stability": {
+          "gnnexplainer": {
+            "actual_pair_rows": 1670,
+            "duplicate_unordered_pair_count": 0,
+            "expected_pair_rows": 1670,
+            "jaccard_out_of_range_count": 0,
+            "node_count": 167,
+            "node_level_sampling_unit": "mean pairwise Jaccard within node, then summarize across nodes",
+            "self_pair_count": 0,
+            "stochastic_source": "independent per-instance explanation optimization runs",
+            "summary": [
+              {
+                "max": 0.5042066729052269,
+                "mean": 0.367796794329411,
+                "median": 0.3753184948467095,
+                "metric": "mean_pairwise_jaccard",
+                "min": 0.19976811594202898,
+                "n": 167,
+                "std": 0.051098667489304236
+              }
+            ]
+          },
+          "random": {
+            "actual_pair_rows": 7515,
+            "duplicate_unordered_pair_count": 0,
+            "expected_pair_rows": 7515,
+            "jaccard_out_of_range_count": 0,
+            "node_count": 167,
+            "node_level_sampling_unit": "mean pairwise Jaccard within node, then summarize across nodes",
+            "self_pair_count": 0,
+            "stochastic_source": "repeated random edge selections",
+            "summary": [
+              {
+                "max": 0.15054871054871055,
+                "mean": 0.1160989095325942,
+                "median": 0.11561620749808227,
+                "metric": "mean_pairwise_jaccard",
+                "min": 0.09899816619413543,
+                "n": 167,
+                "std": 0.007709795174496896
+              }
+            ]
+          }
+        }
+      },
+      "graphsage": {
+        "artifact_inventory": {
+          "metric_files": {
+            "gnn_primary": {
+              "column_names": [
+                "node_id",
+                "label",
+                "prediction",
+                "confidence",
+                "candidate_edge_count",
+                "positive_gt_edges",
+                "negative_gt_edges",
+                "ground_truth_edge_prevalence",
+                "selected_edge_ratio",
+                "selected_edge_count",
+                "edge_auroc",
+                "edge_ap",
+                "original_prediction",
+                "remove_prediction",
+                "retain_prediction",
+                "fid_plus",
+                "fid_minus",
+                "one_minus_fid_minus",
+                "original_probability",
+                "remove_probability",
+                "remove_probability_delta",
+                "retain_probability",
+                "retain_probability_delta",
+                "retain_probability_ratio",
+                "fidelity_legacy",
+                "sparsity",
+                "runtime_seconds",
+                "generation_runtime_seconds",
+                "evaluation_runtime_seconds",
+                "explanation_source",
+                "seed",
+                "status",
+                "error"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 167,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\graphsage\\gnnexplainer\\per_node_metrics.csv",
+              "role": "metric_csv",
+              "row_count": 167,
+              "seed_coverage": [
+                "42"
+              ],
+              "sha256": "153c372a076241b80baabf9a684e4dec47b39e38b18bb5e93caa32bfaccd11c8",
+              "target_node_count": 167
+            },
+            "gnn_stability_node": {
+              "column_names": [
+                "node_id",
+                "mean_pairwise_jaccard",
+                "std_pairwise_jaccard",
+                "median_pairwise_jaccard",
+                "min_pairwise_jaccard",
+                "max_pairwise_jaccard",
+                "num_seeds",
+                "num_pairs",
+                "status",
+                "error"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 167,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\graphsage\\gnnexplainer\\stability_per_node_jaccard.csv",
+              "role": "metric_csv",
+              "row_count": 167,
+              "seed_coverage": [
+                ""
+              ],
+              "sha256": "f63e61a91b9eff44ae806259b54ac19e77dbc8eb14e5ba86de60ab16d133da63",
+              "target_node_count": 167
+            },
+            "gnn_stability_pairwise": {
+              "column_names": [
+                "node_id",
+                "seed_a",
+                "seed_b",
+                "selected_edge_count",
+                "intersection_count",
+                "union_count",
+                "jaccard"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 0,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\graphsage\\gnnexplainer\\stability_pairwise_jaccard.csv",
+              "role": "metric_csv",
+              "row_count": 1670,
+              "seed_coverage": [
+                ""
+              ],
+              "sha256": "ab0fa97e0b17e8620d0faed6dc04f624d693bd891eb16d8904277ae13d08127f",
+              "target_node_count": 167
+            },
+            "gnn_stability_seed": {
+              "column_names": [
+                "node_id",
+                "label",
+                "prediction",
+                "confidence",
+                "candidate_edge_count",
+                "positive_gt_edges",
+                "negative_gt_edges",
+                "ground_truth_edge_prevalence",
+                "selected_edge_ratio",
+                "selected_edge_count",
+                "edge_auroc",
+                "edge_ap",
+                "original_prediction",
+                "remove_prediction",
+                "retain_prediction",
+                "fid_plus",
+                "fid_minus",
+                "one_minus_fid_minus",
+                "original_probability",
+                "remove_probability",
+                "remove_probability_delta",
+                "retain_probability",
+                "retain_probability_delta",
+                "retain_probability_ratio",
+                "fidelity_legacy",
+                "sparsity",
+                "runtime_seconds",
+                "generation_runtime_seconds",
+                "evaluation_runtime_seconds",
+                "explanation_source",
+                "seed",
+                "status",
+                "error"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 835,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\graphsage\\gnnexplainer\\stability_seed_metrics.csv",
+              "role": "metric_csv",
+              "row_count": 835,
+              "seed_coverage": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4"
+              ],
+              "sha256": "dd42fe250fb09c3cfc82d3c93a30d8d5b868e77646d2022f39c0caf8801c3fd9",
+              "target_node_count": 167
+            },
+            "random_node": {
+              "column_names": [
+                "node_id",
+                "label",
+                "prediction",
+                "confidence",
+                "candidate_edge_count",
+                "positive_gt_edges",
+                "negative_gt_edges",
+                "ground_truth_edge_prevalence",
+                "selected_edge_ratio",
+                "selected_edge_count",
+                "edge_auroc",
+                "edge_ap",
+                "original_prediction",
+                "remove_prediction",
+                "retain_prediction",
+                "fid_plus",
+                "fid_minus",
+                "one_minus_fid_minus",
+                "original_probability",
+                "remove_probability",
+                "remove_probability_delta",
+                "retain_probability",
+                "retain_probability_delta",
+                "retain_probability_ratio",
+                "fidelity_legacy",
+                "sparsity",
+                "runtime_seconds",
+                "generation_runtime_seconds",
+                "evaluation_runtime_seconds",
+                "explanation_source",
+                "seed",
+                "status",
+                "error"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 334,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\graphsage\\random\\random_node_level_metrics.csv",
+              "role": "metric_csv",
+              "row_count": 167,
+              "seed_coverage": [
+                "node_mean"
+              ],
+              "sha256": "de8beb38b327e9af42499d419560a3433af0b0f4672d063af4b714cd1d635032",
+              "target_node_count": 167
+            },
+            "random_seed": {
+              "column_names": [
+                "node_id",
+                "label",
+                "prediction",
+                "confidence",
+                "candidate_edge_count",
+                "positive_gt_edges",
+                "negative_gt_edges",
+                "ground_truth_edge_prevalence",
+                "selected_edge_ratio",
+                "selected_edge_count",
+                "edge_auroc",
+                "edge_ap",
+                "original_prediction",
+                "remove_prediction",
+                "retain_prediction",
+                "fid_plus",
+                "fid_minus",
+                "one_minus_fid_minus",
+                "original_probability",
+                "remove_probability",
+                "remove_probability_delta",
+                "retain_probability",
+                "retain_probability_delta",
+                "retain_probability_ratio",
+                "fidelity_legacy",
+                "sparsity",
+                "runtime_seconds",
+                "generation_runtime_seconds",
+                "evaluation_runtime_seconds",
+                "explanation_source",
+                "seed",
+                "status",
+                "error"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 3340,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\graphsage\\random\\random_seed_level_metrics.csv",
+              "role": "metric_csv",
+              "row_count": 1670,
+              "seed_coverage": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "sha256": "994ebd3972ac5a28406435cd984ce9bae631df4ae2f508306f5280697f6494c1",
+              "target_node_count": 167
+            },
+            "random_stability_node": {
+              "column_names": [
+                "node_id",
+                "mean_pairwise_jaccard",
+                "std_pairwise_jaccard",
+                "median_pairwise_jaccard",
+                "min_pairwise_jaccard",
+                "max_pairwise_jaccard",
+                "num_seeds",
+                "num_pairs",
+                "status",
+                "error"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 167,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\graphsage\\random\\random_stability_per_node_jaccard.csv",
+              "role": "metric_csv",
+              "row_count": 167,
+              "seed_coverage": [
+                ""
+              ],
+              "sha256": "5521d8107735f744a5cdfdbb5a2a91c188b87ec0e24d2c5bf5368a798dbc0032",
+              "target_node_count": 167
+            },
+            "random_stability_pairwise": {
+              "column_names": [
+                "node_id",
+                "seed_a",
+                "seed_b",
+                "selected_edge_count",
+                "intersection_count",
+                "union_count",
+                "jaccard"
+              ],
+              "duplicate_node_seed_count": 0,
+              "missing_value_count": 0,
+              "nan_inf_count": 0,
+              "path": "results\\metrics\\shapeggen\\graphsage\\random\\random_stability_pairwise_jaccard.csv",
+              "role": "metric_csv",
+              "row_count": 7515,
+              "seed_coverage": [
+                ""
+              ],
+              "sha256": "a385eb15828a00e835d1f8842c04b434e2e918e7b28d33521ff577e4ef20d5dc",
+              "target_node_count": 167
+            }
+          },
+          "raw_artifacts": {
+            "gnnexplainer": {
+              "duplicate_selected_global_edges": 0,
+              "edge_mask_size_violations": 0,
+              "existing_run_dirs": 1002,
+              "expected_run_dirs": 1002,
+              "file_count": 6012,
+              "missing_files": {},
+              "missing_run_dirs": 0,
+              "path": "results\\explanations\\shapeggen\\graphsage\\gnnexplainer",
+              "role": "graphsage_gnnexplainer_raw_explanations",
+              "score_length_violations": 0,
+              "seed_coverage": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                42
+              ],
+              "selected_count_violations": 0,
+              "selected_non_candidate_violations": 0,
+              "sha256_manifest": "c329079628a07a5106368617eed766c4cfe95d9fa2c3745a762de964e72278cb",
+              "target_node_count": 167,
+              "total_bytes": 26996698
+            },
+            "random": {
+              "duplicate_selected_global_edges": 0,
+              "edge_mask_size_violations": 0,
+              "existing_run_dirs": 1670,
+              "expected_run_dirs": 1670,
+              "file_count": 10020,
+              "missing_files": {},
+              "missing_run_dirs": 0,
+              "path": "results\\explanations\\shapeggen\\graphsage\\random",
+              "role": "graphsage_random_raw_explanations",
+              "score_length_violations": 0,
+              "seed_coverage": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "selected_count_violations": 0,
+              "selected_non_candidate_violations": 0,
+              "sha256_manifest": "7c2d372a4ce685543e7306c9b2098a4d9eafc464edb77cae2608a574245c7fac",
+              "target_node_count": 167,
+              "total_bytes": 44904639
+            }
+          }
+        },
+        "coverage": {
+          "gnn_primary_seed42": {
+            "duplicated": 0,
+            "expected": 167,
+            "failed": 0,
+            "failure_reasons": [],
+            "missing": 0,
+            "seed_coverage": [
+              42
+            ],
+            "succeeded": 167,
+            "unique_node_count": 167
+          },
+          "gnn_stability_seeds0_to_4": {
+            "duplicated": 0,
+            "expected": 835,
+            "failed": 0,
+            "failure_reasons": [],
+            "missing": 0,
+            "seed_coverage": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "succeeded": 835,
+            "unique_node_count": 167
+          },
+          "random_node_means": {
+            "duplicated": 0,
+            "expected": 167,
+            "failed": 0,
+            "failure_reasons": [],
+            "missing": 0,
+            "seed_coverage": [
+              "node_mean"
+            ],
+            "succeeded": 167,
+            "unique_node_count": 167
+          },
+          "random_seeds0_to_9": {
+            "duplicated": 0,
+            "expected": 1670,
+            "failed": 0,
+            "failure_reasons": [],
+            "missing": 0,
+            "seed_coverage": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "succeeded": 1670,
+            "unique_node_count": 167
+          }
+        },
+        "metric_semantics_violations": {
+          "gnn_primary": {
+            "metric_formula_violations": {}
+          },
+          "gnn_stability_seed": {
+            "metric_formula_violations": {}
+          },
+          "random_node": {
+            "metric_formula_violations": {}
+          },
+          "random_seed": {
+            "metric_formula_violations": {}
+          }
+        },
+        "quality_summary": {
+          "gnnexplainer_seed42": [
+            {
+              "max": 0.7802083333333334,
+              "mean": 0.6315852640548624,
+              "median": 0.6264140271493213,
+              "metric": "edge_auroc",
+              "min": 0.4619047619047619,
+              "n": 167,
+              "std": 0.06083299456697015
+            },
+            {
+              "max": 0.6712465688029597,
+              "mean": 0.29754929337330277,
+              "median": 0.28993330790954985,
+              "metric": "edge_ap",
+              "min": 0.10285887833200602,
+              "n": 167,
+              "std": 0.10051639558202803
+            },
+            {
+              "max": 1.0,
+              "mean": 0.49700598802395207,
+              "median": 0.0,
+              "metric": "fid_plus",
+              "min": 0.0,
+              "n": 167,
+              "std": 0.501494771645751
+            },
+            {
+              "max": 1.0,
+              "mean": 0.25748502994011974,
+              "median": 0.0,
+              "metric": "fid_minus",
+              "min": 0.0,
+              "n": 167,
+              "std": 0.43856380965144975
+            },
+            {
+              "max": 1.0,
+              "mean": 0.7425149700598802,
+              "median": 1.0,
+              "metric": "one_minus_fid_minus",
+              "min": 0.0,
+              "n": 167,
+              "std": 0.43856380965144975
+            },
+            {
+              "max": 0.998673559864983,
+              "mean": 0.45340243202374825,
+              "median": 0.46596992015838623,
+              "metric": "remove_probability_delta",
+              "min": -0.3412564992904663,
+              "n": 167,
+              "std": 0.405311026528868
+            },
+            {
+              "max": 1.0,
+              "mean": 0.7289035521013018,
+              "median": 0.9383718371391296,
+              "metric": "retain_probability",
+              "min": 0.00017985815065912902,
+              "n": 167,
+              "std": 0.3591797296270313
+            },
+            {
+              "max": 0.9983735802816227,
+              "mean": 0.23042973100042533,
+              "median": 0.04858297109603882,
+              "metric": "retain_probability_delta",
+              "min": -0.3559257388114929,
+              "n": 167,
+              "std": 0.3448202754593074
+            },
+            {
+              "max": 1.5538558156204134,
+              "mean": 0.7552054465216668,
+              "median": 0.9514127369926109,
+              "metric": "retain_probability_ratio",
+              "min": 0.00019661314368122574,
+              "n": 167,
+              "std": 0.3727376977695404
+            },
+            {
+              "max": 0.8,
+              "mean": 0.7959276224059845,
+              "median": 0.7965116279069767,
+              "metric": "sparsity",
+              "min": 0.7777777777777778,
+              "n": 167,
+              "std": 0.003665533159147349
+            },
+            {
+              "max": 0.10773350001545623,
+              "mean": 0.03127231676491189,
+              "median": 0.030317299999296665,
+              "metric": "runtime_seconds",
+              "min": 0.02337220002664253,
+              "n": 167,
+              "std": 0.007081424185952375
+            },
+            {
+              "max": 0.10773350001545623,
+              "mean": 0.03127231676491189,
+              "median": 0.030317299999296665,
+              "metric": "generation_runtime_seconds",
+              "min": 0.02337220002664253,
+              "n": 167,
+              "std": 0.007081424185952375
+            },
+            {
+              "max": 0.019401900004595518,
+              "mean": 0.009278394013830087,
+              "median": 0.008562699949834496,
+              "metric": "evaluation_runtime_seconds",
+              "min": 0.00588790001347661,
+              "n": 167,
+              "std": 0.002622240620998493
+            }
+          ],
+          "random_node_level": [
+            {
+              "max": 0.5703781512605042,
+              "mean": 0.5022734980555777,
+              "median": 0.5031623931623932,
+              "metric": "edge_auroc",
+              "min": 0.3873949579831933,
+              "n": 167,
+              "std": 0.026172431270748493
+            },
+            {
+              "max": 0.5075701546689204,
+              "mean": 0.237006032011355,
+              "median": 0.2315240174981356,
+              "metric": "edge_ap",
+              "min": 0.08417459343139938,
+              "n": 167,
+              "std": 0.0787225610863007
+            },
+            {
+              "max": 1.0,
+              "mean": 0.12874251497005987,
+              "median": 0.0,
+              "metric": "fid_plus",
+              "min": 0.0,
+              "n": 167,
+              "std": 0.23798901372010461
+            },
+            {
+              "max": 1.0,
+              "mean": 0.5856287425149701,
+              "median": 0.9,
+              "metric": "fid_minus",
+              "min": 0.0,
+              "n": 167,
+              "std": 0.46117652699200684
+            },
+            {
+              "max": 1.0,
+              "mean": 0.41437125748502995,
+              "median": 0.1,
+              "metric": "one_minus_fid_minus",
+              "min": 0.0,
+              "n": 167,
+              "std": 0.46117652699200684
+            },
+            {
+              "max": 0.8408775099483947,
+              "mean": 0.11519945910203129,
+              "median": 0.035028308629989624,
+              "metric": "remove_probability_delta",
+              "min": -0.1669442594051361,
+              "n": 167,
+              "std": 0.17674769041991223
+            },
+            {
+              "max": 1.0,
+              "mean": 0.45384051503682626,
+              "median": 0.2751999568194151,
+              "metric": "retain_probability",
+              "min": 1.0965420877084854e-06,
+              "n": 167,
+              "std": 0.424049038537578
+            },
+            {
+              "max": 0.9988003162796304,
+              "mean": 0.5054927662446392,
+              "median": 0.6509889306500554,
+              "metric": "retain_probability_delta",
+              "min": -0.35213853120803834,
+              "n": 167,
+              "std": 0.4185580403525129
+            },
+            {
+              "max": 1.547962594964094,
+              "mean": 0.46942994486277706,
+              "median": 0.275224268502946,
+              "metric": "retain_probability_ratio",
+              "min": 1.2153024959995015e-06,
+              "n": 167,
+              "std": 0.4430910763068851
+            },
+            {
+              "max": 0.8,
+              "mean": 0.7959276224059845,
+              "median": 0.7965116279069767,
+              "metric": "sparsity",
+              "min": 0.7777777777777778,
+              "n": 167,
+              "std": 0.003665533159147349
+            },
+            {
+              "max": 0.017740170005708933,
+              "mean": 0.014183349401096139,
+              "median": 0.014082470012363046,
+              "metric": "runtime_seconds",
+              "min": 0.01144587000599131,
+              "n": 167,
+              "std": 0.001368916561944435
+            },
+            {
+              "max": null,
+              "mean": null,
+              "median": null,
+              "metric": "generation_runtime_seconds",
+              "min": null,
+              "n": 0,
+              "std": null
+            },
+            {
+              "max": 0.017740170005708933,
+              "mean": 0.014183349401096139,
+              "median": 0.014082470012363046,
+              "metric": "evaluation_runtime_seconds",
+              "min": 0.01144587000599131,
+              "n": 167,
+              "std": 0.001368916561944435
+            }
+          ],
+          "random_seed_level_preserved_reference": [
+            {
+              "max": 0.7637362637362637,
+              "mean": 0.5022734980555777,
+              "median": 0.5033558558558557,
+              "metric": "edge_auroc",
+              "min": 0.20588235294117643,
+              "n": 1670,
+              "std": 0.07221950213354106
+            },
+            {
+              "max": 0.6380593182648681,
+              "mean": 0.237006032011355,
+              "median": 0.22228454948306114,
+              "metric": "edge_ap",
+              "min": 0.05548566915302837,
+              "n": 1670,
+              "std": 0.09178225430011425
+            },
+            {
+              "max": 1.0,
+              "mean": 0.12874251497005987,
+              "median": 0.0,
+              "metric": "fid_plus",
+              "min": 0.0,
+              "n": 1670,
+              "std": 0.3350150540615083
+            },
+            {
+              "max": 1.0,
+              "mean": 0.5856287425149701,
+              "median": 1.0,
+              "metric": "fid_minus",
+              "min": 0.0,
+              "n": 1670,
+              "std": 0.4927607081844827
+            },
+            {
+              "max": 1.0,
+              "mean": 0.41437125748502995,
+              "median": 0.0,
+              "metric": "one_minus_fid_minus",
+              "min": 0.0,
+              "n": 1670,
+              "std": 0.4927607081844827
+            },
+            {
+              "max": 0.9886306351982057,
+              "mean": 0.11519945910203129,
+              "median": 0.004076749086380005,
+              "metric": "remove_probability_delta",
+              "min": -0.3405880928039551,
+              "n": 1670,
+              "std": 0.23830327992505534
+            },
+            {
+              "max": 1.0,
+              "mean": 0.45384051503682626,
+              "median": 0.2628231346607208,
+              "metric": "retain_probability",
+              "min": 1.9865913358785292e-08,
+              "n": 1670,
+              "std": 0.435988075822919
+            },
+            {
+              "max": 0.9999188430374488,
+              "mean": 0.5054927662446392,
+              "median": 0.6451124250888824,
+              "metric": "retain_probability_delta",
+              "min": -0.35482943058013916,
+              "n": 1670,
+              "std": 0.4306782996214171
+            },
+            {
+              "max": 1.5521499535040404,
+              "mean": 0.46942994486277706,
+              "median": 0.27347992202456883,
+              "metric": "retain_probability_ratio",
+              "min": 2.201748052202446e-08,
+              "n": 1670,
+              "std": 0.4551980105505117
+            },
+            {
+              "max": 0.8,
+              "mean": 0.7959276224059845,
+              "median": 0.7965116279069767,
+              "metric": "sparsity",
+              "min": 0.7777777777777778,
+              "n": 1670,
+              "std": 0.003655636696380975
+            },
+            {
+              "max": 0.0384413999854587,
+              "mean": 0.014183349401096139,
+              "median": 0.014603049989091232,
+              "metric": "runtime_seconds",
+              "min": 0.0060193000244908035,
+              "n": 1670,
+              "std": 0.0040386239805481425
+            },
+            {
+              "max": null,
+              "mean": null,
+              "median": null,
+              "metric": "generation_runtime_seconds",
+              "min": null,
+              "n": 0,
+              "std": null
+            },
+            {
+              "max": 0.0384413999854587,
+              "mean": 0.014183349401096139,
+              "median": 0.014603049989091232,
+              "metric": "evaluation_runtime_seconds",
+              "min": 0.0060193000244908035,
+              "n": 1670,
+              "std": 0.0040386239805481425
+            }
+          ]
+        },
+        "runtime": {
+          "gnn_primary": {
+            "evaluation_runtime_seconds": {
+              "max": 0.019401900004595518,
+              "mean": 0.009278394013830087,
+              "median": 0.008562699949834496,
+              "min": 0.00588790001347661,
+              "n": 167,
+              "std": 0.002622240620998493,
+              "total": 1.5494918003096245
+            },
+            "generation_runtime_seconds": {
+              "max": 0.10773350001545623,
+              "mean": 0.03127231676491189,
+              "median": 0.030317299999296665,
+              "min": 0.02337220002664253,
+              "n": 167,
+              "std": 0.007081424185952375,
+              "total": 5.222476899740286
+            },
+            "runtime_seconds": {
+              "max": 0.10773350001545623,
+              "mean": 0.03127231676491189,
+              "median": 0.030317299999296665,
+              "min": 0.02337220002664253,
+              "n": 167,
+              "std": 0.007081424185952375,
+              "total": 5.222476899740286
+            }
+          },
+          "random_node_level": {
+            "evaluation_runtime_seconds": {
+              "max": 0.017740170005708933,
+              "mean": 0.014183349401096139,
+              "median": 0.014082470012363046,
+              "min": 0.01144587000599131,
+              "n": 167,
+              "std": 0.001368916561944435,
+              "total": 2.3686193499830552
+            },
+            "generation_runtime_seconds": {
+              "max": null,
+              "mean": null,
+              "median": null,
+              "min": null,
+              "n": 0,
+              "std": null,
+              "total": null
+            },
+            "runtime_seconds": {
+              "max": 0.017740170005708933,
+              "mean": 0.014183349401096139,
+              "median": 0.014082470012363046,
+              "min": 0.01144587000599131,
+              "n": 167,
+              "std": 0.001368916561944435,
+              "total": 2.3686193499830552
+            }
+          },
+          "random_seed_level": {
+            "evaluation_runtime_seconds": {
+              "max": 0.0384413999854587,
+              "mean": 0.014183349401096139,
+              "median": 0.014603049989091232,
+              "min": 0.0060193000244908035,
+              "n": 1670,
+              "std": 0.0040386239805481425,
+              "total": 23.68619349983055
+            },
+            "generation_runtime_seconds": {
+              "max": null,
+              "mean": null,
+              "median": null,
+              "min": null,
+              "n": 0,
+              "std": null,
+              "total": null
+            },
+            "runtime_seconds": {
+              "max": 0.0384413999854587,
+              "mean": 0.014183349401096139,
+              "median": 0.014603049989091232,
+              "min": 0.0060193000244908035,
+              "n": 1670,
+              "std": 0.0040386239805481425,
+              "total": 23.68619349983055
+            }
+          }
+        },
+        "stability": {
+          "gnnexplainer": {
+            "actual_pair_rows": 1670,
+            "duplicate_unordered_pair_count": 0,
+            "expected_pair_rows": 1670,
+            "jaccard_out_of_range_count": 0,
+            "node_count": 167,
+            "node_level_sampling_unit": "mean pairwise Jaccard within node, then summarize across nodes",
+            "self_pair_count": 0,
+            "stochastic_source": "independent per-instance explanation optimization runs",
+            "summary": [
+              {
+                "max": 0.5753099943534726,
+                "mean": 0.32134253024383225,
+                "median": 0.3432394977905814,
+                "metric": "mean_pairwise_jaccard",
+                "min": 0.16025804261098378,
+                "n": 167,
+                "std": 0.0940185348717838
+              }
+            ]
+          },
+          "random": {
+            "actual_pair_rows": 7515,
+            "duplicate_unordered_pair_count": 0,
+            "expected_pair_rows": 7515,
+            "jaccard_out_of_range_count": 0,
+            "node_count": 167,
+            "node_level_sampling_unit": "mean pairwise Jaccard within node, then summarize across nodes",
+            "self_pair_count": 0,
+            "stochastic_source": "repeated random edge selections",
+            "summary": [
+              {
+                "max": 0.15054871054871055,
+                "mean": 0.1160989095325942,
+                "median": 0.11561620749808227,
+                "metric": "mean_pairwise_jaccard",
+                "min": 0.09899816619413543,
+                "n": 167,
+                "std": 0.007709795174496896
+              }
+            ]
+          }
+        }
+      }
+    },
+    "candidate_gt_audit": {
+      "all_split_test": true,
+      "candidate_edge_count": {
+        "max": 278.0,
+        "mean": 123.18562874251496,
+        "median": 118.0,
+        "min": 30.0,
+        "n": 167,
+        "std": 53.2659414177047
+      },
+      "duplicate_target_count": 0,
+      "gt_negative_edge_count": {
+        "max": 252.0,
+        "mean": 100.69461077844312,
+        "median": 94.0,
+        "min": 16.0,
+        "n": 167,
+        "std": 49.53272163883187
+      },
+      "gt_positive_edge_count": {
+        "max": 28.0,
+        "mean": 22.491017964071855,
+        "median": 26.0,
+        "min": 12.0,
+        "n": 167,
+        "std": 6.605828262208747
+      },
+      "reverse_duplicate_policy": {
+        "directed_edge_entries": 4518,
+        "duplicate_directed_edge_count": 0,
+        "matches_task21_policy": true,
+        "missing_reverse_edge_count": 0,
+        "self_loop_count": 0
+      },
+      "selected_edge_count": {
+        "max": 56.0,
+        "mean": 25.04191616766467,
+        "median": 24.0,
+        "min": 6.0,
+        "n": 167,
+        "std": 10.655816497192763
+      },
+      "sorted_by_node_id": true,
+      "target_count": 167,
+      "target_records_sample": [
+        {
+          "candidate_edge_count": 88,
+          "negative_gt_edges": 74,
+          "node_id": 10,
+          "positive_gt_edges": 14,
+          "selected_edge_count": 18
+        },
+        {
+          "candidate_edge_count": 176,
+          "negative_gt_edges": 148,
+          "node_id": 11,
+          "positive_gt_edges": 28,
+          "selected_edge_count": 36
+        },
+        {
+          "candidate_edge_count": 122,
+          "negative_gt_edges": 94,
+          "node_id": 15,
+          "positive_gt_edges": 28,
+          "selected_edge_count": 25
+        },
+        {
+          "candidate_edge_count": 136,
+          "negative_gt_edges": 108,
+          "node_id": 17,
+          "positive_gt_edges": 28,
+          "selected_edge_count": 28
+        },
+        {
+          "candidate_edge_count": 56,
+          "negative_gt_edges": 42,
+          "node_id": 24,
+          "positive_gt_edges": 14,
+          "selected_edge_count": 12
+        },
+        {
+          "candidate_edge_count": 162,
+          "negative_gt_edges": 134,
+          "node_id": 36,
+          "positive_gt_edges": 28,
+          "selected_edge_count": 33
+        },
+        {
+          "candidate_edge_count": 190,
+          "negative_gt_edges": 164,
+          "node_id": 37,
+          "positive_gt_edges": 26,
+          "selected_edge_count": 38
+        },
+        {
+          "candidate_edge_count": 144,
+          "negative_gt_edges": 118,
+          "node_id": 38,
+          "positive_gt_edges": 26,
+          "selected_edge_count": 29
+        },
+        {
+          "candidate_edge_count": 90,
+          "negative_gt_edges": 62,
+          "node_id": 58,
+          "positive_gt_edges": 28,
+          "selected_edge_count": 18
+        },
+        {
+          "candidate_edge_count": 98,
+          "negative_gt_edges": 70,
+          "node_id": 65,
+          "positive_gt_edges": 28,
+          "selected_edge_count": 20
+        }
+      ],
+      "unique_node_count": 167,
+      "violations": {}
+    },
+    "differences_vs_previous_report": [
+      {
+        "backbone": "GCN",
+        "difference": -1.9070105827800887e-08,
+        "method": "GNNExplainer",
+        "metric": "edge_auroc",
+        "previous_report_rounded": 0.648445,
+        "recomputed": 0.6484449809298942
+      },
+      {
+        "backbone": "GCN",
+        "difference": -2.058317821740374e-08,
+        "method": "GNNExplainer",
+        "metric": "edge_ap",
+        "previous_report_rounded": 0.324281,
+        "recomputed": 0.32428097941682177
+      },
+      {
+        "backbone": "GCN",
+        "difference": 2.5149700599857994e-07,
+        "method": "GNNExplainer",
+        "metric": "fid_plus",
+        "previous_report_rounded": 0.562874,
+        "recomputed": 0.562874251497006
+      },
+      {
+        "backbone": "GCN",
+        "difference": 4.79041916169598e-08,
+        "method": "GNNExplainer",
+        "metric": "fid_minus",
+        "previous_report_rounded": 0.011976,
+        "recomputed": 0.011976047904191617
+      },
+      {
+        "backbone": "GCN",
+        "difference": -4.7904191613490354e-08,
+        "method": "GNNExplainer",
+        "metric": "one_minus_fid_minus",
+        "previous_report_rounded": 0.988024,
+        "recomputed": 0.9880239520958084
+      },
+      {
+        "backbone": "GCN",
+        "difference": -3.7759401549930516e-07,
+        "method": "GNNExplainer",
+        "metric": "sparsity",
+        "previous_report_rounded": 0.795928,
+        "recomputed": 0.7959276224059845
+      },
+      {
+        "backbone": "GCN",
+        "difference": -2.056705890041144e-07,
+        "method": "GNNExplainer",
+        "metric": "stability",
+        "previous_report_rounded": 0.367797,
+        "recomputed": 0.367796794329411
+      },
+      {
+        "backbone": "GCN",
+        "difference": 4.980555777800433e-07,
+        "method": "Random",
+        "metric": "edge_auroc",
+        "previous_report_rounded": 0.502273,
+        "recomputed": 0.5022734980555777
+      },
+      {
+        "backbone": "GCN",
+        "difference": 3.201135501118557e-08,
+        "method": "Random",
+        "metric": "edge_ap",
+        "previous_report_rounded": 0.237006,
+        "recomputed": 0.237006032011355
+      },
+      {
+        "backbone": "GCN",
+        "difference": -8.982035926141663e-08,
+        "method": "Random",
+        "metric": "fid_plus",
+        "previous_report_rounded": 0.127545,
+        "recomputed": 0.12754491017964073
+      },
+      {
+        "backbone": "GCN",
+        "difference": -4.191616767568185e-08,
+        "method": "Random",
+        "metric": "fid_minus",
+        "previous_report_rounded": 0.239521,
+        "recomputed": 0.23952095808383234
+      },
+      {
+        "backbone": "GCN",
+        "difference": 4.191616764792627e-08,
+        "method": "Random",
+        "metric": "one_minus_fid_minus",
+        "previous_report_rounded": 0.760479,
+        "recomputed": 0.7604790419161677
+      },
+      {
+        "backbone": "GCN",
+        "difference": -3.7759401549930516e-07,
+        "method": "Random",
+        "metric": "sparsity",
+        "previous_report_rounded": 0.795928,
+        "recomputed": 0.7959276224059845
+      },
+      {
+        "backbone": "GCN",
+        "difference": -9.046740578888546e-08,
+        "method": "Random",
+        "metric": "stability",
+        "previous_report_rounded": 0.116099,
+        "recomputed": 0.1160989095325942
+      },
+      {
+        "backbone": "GraphSAGE",
+        "difference": 2.6405486241998233e-07,
+        "method": "GNNExplainer",
+        "metric": "edge_auroc",
+        "previous_report_rounded": 0.631585,
+        "recomputed": 0.6315852640548624
+      },
+      {
+        "backbone": "GraphSAGE",
+        "difference": 2.9337330276213436e-07,
+        "method": "GNNExplainer",
+        "metric": "edge_ap",
+        "previous_report_rounded": 0.297549,
+        "recomputed": 0.29754929337330277
+      },
+      {
+        "backbone": "GraphSAGE",
+        "difference": -1.1976047931128164e-08,
+        "method": "GNNExplainer",
+        "metric": "fid_plus",
+        "previous_report_rounded": 0.497006,
+        "recomputed": 0.49700598802395207
+      },
+      {
+        "backbone": "GraphSAGE",
+        "difference": 2.994011971679811e-08,
+        "method": "GNNExplainer",
+        "metric": "fid_minus",
+        "previous_report_rounded": 0.257485,
+        "recomputed": 0.25748502994011974
+      },
+      {
+        "backbone": "GraphSAGE",
+        "difference": -2.994011982782041e-08,
+        "method": "GNNExplainer",
+        "metric": "one_minus_fid_minus",
+        "previous_report_rounded": 0.742515,
+        "recomputed": 0.7425149700598802
+      },
+      {
+        "backbone": "GraphSAGE",
+        "difference": -3.7759401549930516e-07,
+        "method": "GNNExplainer",
+        "metric": "sparsity",
+        "previous_report_rounded": 0.795928,
+        "recomputed": 0.7959276224059845
+      },
+      {
+        "backbone": "GraphSAGE",
+        "difference": -4.697561677424744e-07,
+        "method": "GNNExplainer",
+        "metric": "stability",
+        "previous_report_rounded": 0.321343,
+        "recomputed": 0.32134253024383225
+      },
+      {
+        "backbone": "GraphSAGE",
+        "difference": 4.980555777800433e-07,
+        "method": "Random",
+        "metric": "edge_auroc",
+        "previous_report_rounded": 0.502273,
+        "recomputed": 0.5022734980555777
+      },
+      {
+        "backbone": "GraphSAGE",
+        "difference": 3.201135501118557e-08,
+        "method": "Random",
+        "metric": "edge_ap",
+        "previous_report_rounded": 0.237006,
+        "recomputed": 0.237006032011355
+      },
+      {
+        "backbone": "GraphSAGE",
+        "difference": -4.850299401282232e-07,
+        "method": "Random",
+        "metric": "fid_plus",
+        "previous_report_rounded": 0.128743,
+        "recomputed": 0.12874251497005987
+      },
+      {
+        "backbone": "GraphSAGE",
+        "difference": -2.574850298531217e-07,
+        "method": "Random",
+        "metric": "fid_minus",
+        "previous_report_rounded": 0.585629,
+        "recomputed": 0.5856287425149701
+      },
+      {
+        "backbone": "GraphSAGE",
+        "difference": 2.57485029964144e-07,
+        "method": "Random",
+        "metric": "one_minus_fid_minus",
+        "previous_report_rounded": 0.414371,
+        "recomputed": 0.41437125748502995
+      },
+      {
+        "backbone": "GraphSAGE",
+        "difference": -3.7759401549930516e-07,
+        "method": "Random",
+        "metric": "sparsity",
+        "previous_report_rounded": 0.795928,
+        "recomputed": 0.7959276224059845
+      },
+      {
+        "backbone": "GraphSAGE",
+        "difference": -9.046740578888546e-08,
+        "method": "Random",
+        "metric": "stability",
+        "previous_report_rounded": 0.116099,
+        "recomputed": 0.1160989095325942
+      }
+    ],
+    "environment": {
+      "cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+      "torch": "2.11.0+cu128",
+      "torch_cuda": "12.8"
+    },
+    "fid_count_checks": {
+      "gcn_gnnexplainer": {
+        "actual": {
+          "fid_minus_sum": 2,
+          "fid_plus_sum": 94
+        },
+        "expected": {
+          "fid_minus_sum": 2,
+          "fid_plus_sum": 94
+        },
+        "matches": true
+      },
+      "graphsage_gnnexplainer": {
+        "actual": {
+          "fid_minus_sum": 43,
+          "fid_plus_sum": 83
+        },
+        "expected": {
+          "fid_minus_sum": 43,
+          "fid_plus_sum": 83
+        },
+        "matches": true
+      }
+    },
+    "frozen_input_verification": {
+      "dataset": {
+        "exists": true,
+        "expected_sha256": "9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e",
+        "matches_expected": true,
+        "path": "artifacts\\data\\shapeggen.pt",
+        "sha256": "9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e"
+      },
+      "gcn_checkpoint": {
+        "exists": true,
+        "expected_sha256": "15bfa8960fe4e0f0712c3a794db93ed4e90aad6fce3555a16db23a8a13b91e36",
+        "matches_expected": true,
+        "path": "artifacts\\checkpoints\\shapeggen_gcn_best.pt",
+        "sha256": "15bfa8960fe4e0f0712c3a794db93ed4e90aad6fce3555a16db23a8a13b91e36"
+      },
+      "gnnexplainer_config": {
+        "exists": true,
+        "expected_sha256": null,
+        "matches_expected": true,
+        "path": "configs\\explainer\\gnnexplainer.yaml",
+        "sha256": "990631db53fddcce2b4d281c24c50cfe822655fa5965762fda127c1f48b20d60"
+      },
+      "graphsage_checkpoint": {
+        "exists": true,
+        "expected_sha256": "498a74875360a82749b78cb40a69b3e4ec04ec634b85e4713e85d96f34c666a0",
+        "matches_expected": true,
+        "path": "artifacts\\checkpoints\\shapeggen_graphsage_best.pt",
+        "sha256": "498a74875360a82749b78cb40a69b3e4ec04ec634b85e4713e85d96f34c666a0"
+      },
+      "targets": {
+        "exists": true,
+        "expected_sha256": "bd128dec7810421d592debe8177f3cb46d6c7d9b01fd3f562b8b13971517b41d",
+        "matches_expected": true,
+        "path": "configs\\targets\\shapeggen_2x2_targets.csv",
+        "sha256": "bd128dec7810421d592debe8177f3cb46d6c7d9b01fd3f562b8b13971517b41d"
+      },
+      "task23_config": {
+        "exists": true,
+        "expected_sha256": null,
+        "matches_expected": true,
+        "path": "configs\\evaluation\\shapeggen_task23.yaml",
+        "sha256": "7c4d0daa3b270c002995f0e0260bece849d4a0ff0bc86f74683ac6a5dd126c8b"
+      }
+    },
+    "git": {
+      "branch": "main",
+      "commit": "70df56bdaffd7a76f98f668b69247be502a763d1",
+      "tags_at_head": null
+    },
+    "initial_state": {
+      "branch": "main",
+      "git_status_short_before_audit": "clean; captured before audit edits with git status --short",
+      "head": "70df56bdaffd7a76f98f668b69247be502a763d1",
+      "log_oneline_decorate_5": "70df56bd (HEAD -> main, origin/main) Run ShapeGGen GNNExplainer and Random baselines\n9ed9a61d Add full thesis progress summary\nbed705d0 Freeze ShapeGGen backbones and targets\nc71ef33b (tag: shapeggen-dataset-v1) Replace local ShapeGGen generator with official GraphXAI implementation\ne7d75336 Freeze ShapeGGen protocol dataset and ground truth"
+    },
+    "metric_semantics": {
+      "edge_auroc_edge_ap": "candidate_edge_scores_and_labels receives continuous edge scores and candidate_edge_mask, then compute_edge_ground_truth_metrics computes AUROC/AP over the full candidate-edge set without thresholding.",
+      "fid_minus": "1 when retaining only selected edges changes original prediction, else 0.",
+      "fid_plus": "1 when removing selected edges changes original prediction, else 0.",
+      "one_minus_fid_minus": "1 - Fid- for every raw row.",
+      "probability_reference_class": "All probabilities are softmax probabilities of the original predicted class.",
+      "remove_probability_delta": "original_probability - remove_probability.",
+      "retain_probability": "softmax probability of original predicted class on retain-only graph.",
+      "retain_probability_delta": "original_probability - retain_probability.",
+      "retain_probability_ratio": "retain_probability / original_probability when original_probability != 0.0, otherwise None. No epsilon or clipping is used.",
+      "sparsity": "1 - selected_edge_count / candidate_edge_count."
+    },
+    "previous_freeze_status": "success",
+    "protocol": {
+      "candidate_edge_scope": "target_specific_graphxai_candidate_edge_mask",
+      "edge_ranking_metric_scope": "continuous_scores_over_full_candidate_edge_set",
+      "gnnexplainer_primary_seed": 42,
+      "gnnexplainer_stability_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "random_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+      "selected_edge_ratio": 0.2,
+      "target_count": 167
+    },
+    "random_aggregation_explanation": "Random raw seed rows are preserved. The primary Random quality table first averages each metric across seeds 0..9 inside each node_id, then summarizes the 167 node-level means across nodes. Edge AUROC/AP can match across backbones because they depend on the same candidate/GT/random scores. Perturbation metrics can differ because predictions after edge removal or retention are computed by each frozen backbone.",
+    "recomputed_comparison_rows": [
+      {
+        "backbone": "GCN",
+        "edge_ap": 0.32428097941682177,
+        "edge_auroc": 0.6484449809298942,
+        "fid_minus": 0.011976047904191617,
+        "fid_plus": 0.562874251497006,
+        "method": "GNNExplainer",
+        "one_minus_fid_minus": 0.9880239520958084,
+        "sparsity": 0.7959276224059845,
+        "stability": 0.367796794329411
+      },
+      {
+        "backbone": "GCN",
+        "edge_ap": 0.237006032011355,
+        "edge_auroc": 0.5022734980555777,
+        "fid_minus": 0.23952095808383234,
+        "fid_plus": 0.12754491017964073,
+        "method": "Random",
+        "one_minus_fid_minus": 0.7604790419161677,
+        "sparsity": 0.7959276224059845,
+        "stability": 0.1160989095325942
+      },
+      {
+        "backbone": "GraphSAGE",
+        "edge_ap": 0.29754929337330277,
+        "edge_auroc": 0.6315852640548624,
+        "fid_minus": 0.25748502994011974,
+        "fid_plus": 0.49700598802395207,
+        "method": "GNNExplainer",
+        "one_minus_fid_minus": 0.7425149700598802,
+        "sparsity": 0.7959276224059845,
+        "stability": 0.32134253024383225
+      },
+      {
+        "backbone": "GraphSAGE",
+        "edge_ap": 0.237006032011355,
+        "edge_auroc": 0.5022734980555777,
+        "fid_minus": 0.5856287425149701,
+        "fid_plus": 0.12874251497005987,
+        "method": "Random",
+        "one_minus_fid_minus": 0.41437125748502995,
+        "sparsity": 0.7959276224059845,
+        "stability": 0.1160989095325942
+      }
+    ],
+    "task": "TASK23 AUDIT + COMPLETION ONLY",
+    "task24_authorized": false,
+    "validation_results": {
+      "git_diff_check": "pass",
+      "pytest": "115 passed, 3 warnings",
+      "ruff": "All checks passed"
+    },
+    "verdict": "PASS"
+  },
   "total_runtime_seconds": 327.12794989999384
 }
