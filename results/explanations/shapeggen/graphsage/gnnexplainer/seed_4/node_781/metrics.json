@@ -1,0 +1,63 @@
+{
+  "edge_ground_truth": {
+    "candidate_edge_count": 138,
+    "candidate_edge_scope": "target_specific_graphxai_candidate_edge_mask",
+    "candidate_edge_scope_detail": "Official GraphXAI target-specific candidate edge mask aligned to the full directed PyG edge_index",
+    "candidate_negative_edge_count": 112,
+    "candidate_positive_edge_count": 26,
+    "edge_ap": 0.2542541270053101,
+    "edge_ap_reason": null,
+    "edge_ap_valid": true,
+    "edge_auroc": 0.6126373626373627,
+    "edge_auroc_reason": null,
+    "edge_auroc_valid": true,
+    "edge_mapping_validated": true,
+    "ground_truth_edge_prevalence": 0.18840579710144928
+  },
+  "explainer": "GNNExplainer",
+  "fidelity": {
+    "fid_minus": 0,
+    "fid_plus": 0,
+    "fidelity_legacy": 0.1672559380531311,
+    "metric_name": "remove_delta",
+    "one_minus_fid_minus": 1,
+    "original": {
+      "prediction": 1,
+      "probability": 0.9999887943267822
+    },
+    "protocol": "remove_top_k_and_retain_top_k_edges",
+    "remove_result": {
+      "changed_prediction": false,
+      "prediction": 1,
+      "probability": 0.8327328562736511,
+      "remove_delta": 0.1672559380531311,
+      "remove_probability_delta": 0.1672559380531311
+    },
+    "retain_result": {
+      "matches_original_prediction": true,
+      "prediction": 1,
+      "probability": 0.9939801692962646,
+      "probability_ratio": 0.9939913076380393,
+      "retain_delta": 0.006008625030517578,
+      "retain_probability_delta": 0.006008625030517578
+    }
+  },
+  "node_id": 781,
+  "runtime": {
+    "runtime_seconds": 0.02975659997900948
+  },
+  "schema_version": "shapeggen_task23_core_metrics_v1",
+  "sparsity": {
+    "protocol": "fixed_candidate_edge_ratio",
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_count": 28,
+    "selected_edge_ratio": 0.2,
+    "sparsity": 0.7971014492753623
+  },
+  "target": {
+    "confidence": 0.9999887943267822,
+    "label": 1,
+    "node_id": 781,
+    "prediction": 1
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "edge_ground_truth": {
+    "candidate_edge_count": 144,
+    "candidate_edge_scope": "target_specific_graphxai_candidate_edge_mask",
+    "candidate_edge_scope_detail": "Official GraphXAI target-specific candidate edge mask aligned to the full directed PyG edge_index",
+    "candidate_negative_edge_count": 118,
+    "candidate_positive_edge_count": 26,
+    "edge_ap": 0.1852142046491272,
+    "edge_ap_reason": null,
+    "edge_ap_valid": true,
+    "edge_auroc": 0.5133637548891786,
+    "edge_auroc_reason": null,
+    "edge_auroc_valid": true,
+    "edge_mapping_validated": true,
+    "ground_truth_edge_prevalence": 0.18055555555555555
+  },
+  "explainer": "Random",
+  "fidelity": {
+    "fid_minus": 1,
+    "fid_plus": 1,
+    "fidelity_legacy": 0.3413982540369034,
+    "metric_name": "remove_delta",
+    "one_minus_fid_minus": 0,
+    "original": {
+      "prediction": 1,
+      "probability": 0.5302029252052307
+    },
+    "protocol": "remove_top_k_and_retain_top_k_edges",
+    "remove_result": {
+      "changed_prediction": true,
+      "prediction": 0,
+      "probability": 0.18880467116832733,
+      "remove_delta": 0.3413982540369034,
+      "remove_probability_delta": 0.3413982540369034
+    },
+    "retain_result": {
+      "matches_original_prediction": false,
+      "prediction": 0,
+      "probability": 0.0007055172463878989,
+      "probability_ratio": 0.0013306551375868165,
+      "retain_delta": 0.5294974079588428,
+      "retain_probability_delta": 0.5294974079588428
+    }
+  },
+  "node_id": 557,
+  "runtime": {
+    "runtime_seconds": 0.009529899980407208
+  },
+  "schema_version": "shapeggen_task23_core_metrics_v1",
+  "sparsity": {
+    "protocol": "fixed_candidate_edge_ratio",
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_count": 29,
+    "selected_edge_ratio": 0.2,
+    "sparsity": 0.7986111111111112
+  },
+  "target": {
+    "confidence": 0.5302029848098755,
+    "label": 1,
+    "node_id": 557,
+    "prediction": 1
+  }
+}

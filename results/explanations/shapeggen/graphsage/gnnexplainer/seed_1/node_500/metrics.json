@@ -1,0 +1,63 @@
+{
+  "edge_ground_truth": {
+    "candidate_edge_count": 124,
+    "candidate_edge_scope": "target_specific_graphxai_candidate_edge_mask",
+    "candidate_edge_scope_detail": "Official GraphXAI target-specific candidate edge mask aligned to the full directed PyG edge_index",
+    "candidate_negative_edge_count": 96,
+    "candidate_positive_edge_count": 28,
+    "edge_ap": 0.4089491138306634,
+    "edge_ap_reason": null,
+    "edge_ap_valid": true,
+    "edge_auroc": 0.7079613095238095,
+    "edge_auroc_reason": null,
+    "edge_auroc_valid": true,
+    "edge_mapping_validated": true,
+    "ground_truth_edge_prevalence": 0.22580645161290322
+  },
+  "explainer": "GNNExplainer",
+  "fidelity": {
+    "fid_minus": 0,
+    "fid_plus": 0,
+    "fidelity_legacy": 0.4597349166870117,
+    "metric_name": "remove_delta",
+    "one_minus_fid_minus": 1,
+    "original": {
+      "prediction": 1,
+      "probability": 0.9970740079879761
+    },
+    "protocol": "remove_top_k_and_retain_top_k_edges",
+    "remove_result": {
+      "changed_prediction": false,
+      "prediction": 1,
+      "probability": 0.5373390913009644,
+      "remove_delta": 0.4597349166870117,
+      "remove_probability_delta": 0.4597349166870117
+    },
+    "retain_result": {
+      "matches_original_prediction": true,
+      "prediction": 1,
+      "probability": 0.9414823651313782,
+      "probability_ratio": 0.9442452190998561,
+      "retain_delta": 0.0555916428565979,
+      "retain_probability_delta": 0.0555916428565979
+    }
+  },
+  "node_id": 500,
+  "runtime": {
+    "runtime_seconds": 0.02949149999767542
+  },
+  "schema_version": "shapeggen_task23_core_metrics_v1",
+  "sparsity": {
+    "protocol": "fixed_candidate_edge_ratio",
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_count": 25,
+    "selected_edge_ratio": 0.2,
+    "sparsity": 0.7983870967741935
+  },
+  "target": {
+    "confidence": 0.9970740079879761,
+    "label": 1,
+    "node_id": 500,
+    "prediction": 1
+  }
+}

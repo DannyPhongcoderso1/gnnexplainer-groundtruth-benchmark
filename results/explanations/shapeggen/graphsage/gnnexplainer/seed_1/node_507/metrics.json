@@ -1,0 +1,63 @@
+{
+  "edge_ground_truth": {
+    "candidate_edge_count": 208,
+    "candidate_edge_scope": "target_specific_graphxai_candidate_edge_mask",
+    "candidate_edge_scope_detail": "Official GraphXAI target-specific candidate edge mask aligned to the full directed PyG edge_index",
+    "candidate_negative_edge_count": 182,
+    "candidate_positive_edge_count": 26,
+    "edge_ap": 0.21222129638738624,
+    "edge_ap_reason": null,
+    "edge_ap_valid": true,
+    "edge_auroc": 0.6204564666103127,
+    "edge_auroc_reason": null,
+    "edge_auroc_valid": true,
+    "edge_mapping_validated": true,
+    "ground_truth_edge_prevalence": 0.125
+  },
+  "explainer": "GNNExplainer",
+  "fidelity": {
+    "fid_minus": 1,
+    "fid_plus": 1,
+    "fidelity_legacy": 0.9950432463301695,
+    "metric_name": "remove_delta",
+    "one_minus_fid_minus": 0,
+    "original": {
+      "prediction": 1,
+      "probability": 0.9951203465461731
+    },
+    "protocol": "remove_top_k_and_retain_top_k_edges",
+    "remove_result": {
+      "changed_prediction": true,
+      "prediction": 0,
+      "probability": 7.710021600360051e-05,
+      "remove_delta": 0.9950432463301695,
+      "remove_probability_delta": 0.9950432463301695
+    },
+    "retain_result": {
+      "matches_original_prediction": false,
+      "prediction": 0,
+      "probability": 0.11229703575372696,
+      "probability_ratio": 0.11284769339053649,
+      "retain_delta": 0.8828233107924461,
+      "retain_probability_delta": 0.8828233107924461
+    }
+  },
+  "node_id": 507,
+  "runtime": {
+    "runtime_seconds": 0.032369199965614825
+  },
+  "schema_version": "shapeggen_task23_core_metrics_v1",
+  "sparsity": {
+    "protocol": "fixed_candidate_edge_ratio",
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_count": 42,
+    "selected_edge_ratio": 0.2,
+    "sparsity": 0.7980769230769231
+  },
+  "target": {
+    "confidence": 0.9951203465461731,
+    "label": 1,
+    "node_id": 507,
+    "prediction": 1
+  }
+}

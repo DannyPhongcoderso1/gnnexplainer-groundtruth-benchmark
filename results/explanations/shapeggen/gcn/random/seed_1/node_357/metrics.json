@@ -1,0 +1,63 @@
+{
+  "edge_ground_truth": {
+    "candidate_edge_count": 82,
+    "candidate_edge_scope": "target_specific_graphxai_candidate_edge_mask",
+    "candidate_edge_scope_detail": "Official GraphXAI target-specific candidate edge mask aligned to the full directed PyG edge_index",
+    "candidate_negative_edge_count": 54,
+    "candidate_positive_edge_count": 28,
+    "edge_ap": 0.36423733300565436,
+    "edge_ap_reason": null,
+    "edge_ap_valid": true,
+    "edge_auroc": 0.4312169312169313,
+    "edge_auroc_reason": null,
+    "edge_auroc_valid": true,
+    "edge_mapping_validated": true,
+    "ground_truth_edge_prevalence": 0.34146341463414637
+  },
+  "explainer": "Random",
+  "fidelity": {
+    "fid_minus": 1,
+    "fid_plus": 0,
+    "fidelity_legacy": -0.007501721382141113,
+    "metric_name": "remove_delta",
+    "one_minus_fid_minus": 0,
+    "original": {
+      "prediction": 1,
+      "probability": 0.5268843770027161
+    },
+    "protocol": "remove_top_k_and_retain_top_k_edges",
+    "remove_result": {
+      "changed_prediction": false,
+      "prediction": 1,
+      "probability": 0.5343860983848572,
+      "remove_delta": -0.007501721382141113,
+      "remove_probability_delta": -0.007501721382141113
+    },
+    "retain_result": {
+      "matches_original_prediction": false,
+      "prediction": 0,
+      "probability": 0.14497333765029907,
+      "probability_ratio": 0.2751520902460764,
+      "retain_delta": 0.381911039352417,
+      "retain_probability_delta": 0.381911039352417
+    }
+  },
+  "node_id": 357,
+  "runtime": {
+    "runtime_seconds": 0.025383300031535327
+  },
+  "schema_version": "shapeggen_task23_core_metrics_v1",
+  "sparsity": {
+    "protocol": "fixed_candidate_edge_ratio",
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_count": 17,
+    "selected_edge_ratio": 0.2,
+    "sparsity": 0.7926829268292683
+  },
+  "target": {
+    "confidence": 0.5268843770027161,
+    "label": 1,
+    "node_id": 357,
+    "prediction": 1
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "edge_ground_truth": {
+    "candidate_edge_count": 140,
+    "candidate_edge_scope": "target_specific_graphxai_candidate_edge_mask",
+    "candidate_edge_scope_detail": "Official GraphXAI target-specific candidate edge mask aligned to the full directed PyG edge_index",
+    "candidate_negative_edge_count": 126,
+    "candidate_positive_edge_count": 14,
+    "edge_ap": 0.10167115381137565,
+    "edge_ap_reason": null,
+    "edge_ap_valid": true,
+    "edge_auroc": 0.4744897959183674,
+    "edge_auroc_reason": null,
+    "edge_auroc_valid": true,
+    "edge_mapping_validated": true,
+    "ground_truth_edge_prevalence": 0.1
+  },
+  "explainer": "Random",
+  "fidelity": {
+    "fid_minus": 1,
+    "fid_plus": 0,
+    "fidelity_legacy": -0.08958578109741211,
+    "metric_name": "remove_delta",
+    "one_minus_fid_minus": 0,
+    "original": {
+      "prediction": 0,
+      "probability": 0.5002778768539429
+    },
+    "protocol": "remove_top_k_and_retain_top_k_edges",
+    "remove_result": {
+      "changed_prediction": false,
+      "prediction": 0,
+      "probability": 0.589863657951355,
+      "remove_delta": -0.08958578109741211,
+      "remove_probability_delta": -0.08958578109741211
+    },
+    "retain_result": {
+      "matches_original_prediction": false,
+      "prediction": 1,
+      "probability": 0.01904723420739174,
+      "probability_ratio": 0.0380733090321174,
+      "retain_delta": 0.48123064264655113,
+      "retain_probability_delta": 0.48123064264655113
+    }
+  },
+  "node_id": 597,
+  "runtime": {
+    "runtime_seconds": 0.02540210000006482
+  },
+  "schema_version": "shapeggen_task23_core_metrics_v1",
+  "sparsity": {
+    "protocol": "fixed_candidate_edge_ratio",
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_count": 28,
+    "selected_edge_ratio": 0.2,
+    "sparsity": 0.8
+  },
+  "target": {
+    "confidence": 0.5002779364585876,
+    "label": 0,
+    "node_id": 597,
+    "prediction": 0
+  }
+}

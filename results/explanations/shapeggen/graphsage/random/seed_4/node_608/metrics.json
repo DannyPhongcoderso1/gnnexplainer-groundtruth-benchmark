@@ -1,0 +1,63 @@
+{
+  "edge_ground_truth": {
+    "candidate_edge_count": 184,
+    "candidate_edge_scope": "target_specific_graphxai_candidate_edge_mask",
+    "candidate_edge_scope_detail": "Official GraphXAI target-specific candidate edge mask aligned to the full directed PyG edge_index",
+    "candidate_negative_edge_count": 158,
+    "candidate_positive_edge_count": 26,
+    "edge_ap": 0.14779991172223694,
+    "edge_ap_reason": null,
+    "edge_ap_valid": true,
+    "edge_auroc": 0.5391918208373905,
+    "edge_auroc_reason": null,
+    "edge_auroc_valid": true,
+    "edge_mapping_validated": true,
+    "ground_truth_edge_prevalence": 0.14130434782608695
+  },
+  "explainer": "Random",
+  "fidelity": {
+    "fid_minus": 1,
+    "fid_plus": 0,
+    "fidelity_legacy": 0.001656174659729004,
+    "metric_name": "remove_delta",
+    "one_minus_fid_minus": 0,
+    "original": {
+      "prediction": 1,
+      "probability": 0.9998564720153809
+    },
+    "protocol": "remove_top_k_and_retain_top_k_edges",
+    "remove_result": {
+      "changed_prediction": false,
+      "prediction": 1,
+      "probability": 0.9982002973556519,
+      "remove_delta": 0.001656174659729004,
+      "remove_probability_delta": 0.001656174659729004
+    },
+    "retain_result": {
+      "matches_original_prediction": false,
+      "prediction": 0,
+      "probability": 0.030991770327091217,
+      "probability_ratio": 0.03099621915195691,
+      "retain_delta": 0.9688647016882896,
+      "retain_probability_delta": 0.9688647016882896
+    }
+  },
+  "node_id": 608,
+  "runtime": {
+    "runtime_seconds": 0.010144200001377612
+  },
+  "schema_version": "shapeggen_task23_core_metrics_v1",
+  "sparsity": {
+    "protocol": "fixed_candidate_edge_ratio",
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_count": 37,
+    "selected_edge_ratio": 0.2,
+    "sparsity": 0.7989130434782609
+  },
+  "target": {
+    "confidence": 0.9998564720153809,
+    "label": 1,
+    "node_id": 608,
+    "prediction": 1
+  }
+}

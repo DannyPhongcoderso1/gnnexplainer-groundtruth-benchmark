@@ -1,0 +1,63 @@
+{
+  "edge_ground_truth": {
+    "candidate_edge_count": 210,
+    "candidate_edge_scope": "target_specific_graphxai_candidate_edge_mask",
+    "candidate_edge_scope_detail": "Official GraphXAI target-specific candidate edge mask aligned to the full directed PyG edge_index",
+    "candidate_negative_edge_count": 184,
+    "candidate_positive_edge_count": 26,
+    "edge_ap": 0.1108772591946888,
+    "edge_ap_reason": null,
+    "edge_ap_valid": true,
+    "edge_auroc": 0.4508779264214047,
+    "edge_auroc_reason": null,
+    "edge_auroc_valid": true,
+    "edge_mapping_validated": true,
+    "ground_truth_edge_prevalence": 0.12380952380952381
+  },
+  "explainer": "Random",
+  "fidelity": {
+    "fid_minus": 1,
+    "fid_plus": 0,
+    "fidelity_legacy": 0.022951960563659668,
+    "metric_name": "remove_delta",
+    "one_minus_fid_minus": 0,
+    "original": {
+      "prediction": 1,
+      "probability": 0.954916775226593
+    },
+    "protocol": "remove_top_k_and_retain_top_k_edges",
+    "remove_result": {
+      "changed_prediction": false,
+      "prediction": 1,
+      "probability": 0.9319648146629333,
+      "remove_delta": 0.022951960563659668,
+      "remove_probability_delta": 0.022951960563659668
+    },
+    "retain_result": {
+      "matches_original_prediction": false,
+      "prediction": 0,
+      "probability": 0.22779154777526855,
+      "probability_ratio": 0.23854596932933314,
+      "retain_delta": 0.7271252274513245,
+      "retain_probability_delta": 0.7271252274513245
+    }
+  },
+  "node_id": 1061,
+  "runtime": {
+    "runtime_seconds": 0.01922110002487898
+  },
+  "schema_version": "shapeggen_task23_core_metrics_v1",
+  "sparsity": {
+    "protocol": "fixed_candidate_edge_ratio",
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_count": 42,
+    "selected_edge_ratio": 0.2,
+    "sparsity": 0.8
+  },
+  "target": {
+    "confidence": 0.954916775226593,
+    "label": 1,
+    "node_id": 1061,
+    "prediction": 1
+  }
+}

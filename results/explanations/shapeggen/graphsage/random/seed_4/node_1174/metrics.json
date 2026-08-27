@@ -1,0 +1,63 @@
+{
+  "edge_ground_truth": {
+    "candidate_edge_count": 86,
+    "candidate_edge_scope": "target_specific_graphxai_candidate_edge_mask",
+    "candidate_edge_scope_detail": "Official GraphXAI target-specific candidate edge mask aligned to the full directed PyG edge_index",
+    "candidate_negative_edge_count": 74,
+    "candidate_positive_edge_count": 12,
+    "edge_ap": 0.20788766720061366,
+    "edge_ap_reason": null,
+    "edge_ap_valid": true,
+    "edge_auroc": 0.5968468468468469,
+    "edge_auroc_reason": null,
+    "edge_auroc_valid": true,
+    "edge_mapping_validated": true,
+    "ground_truth_edge_prevalence": 0.13953488372093023
+  },
+  "explainer": "Random",
+  "fidelity": {
+    "fid_minus": 0,
+    "fid_plus": 0,
+    "fidelity_legacy": -0.0063367486000061035,
+    "metric_name": "remove_delta",
+    "one_minus_fid_minus": 1,
+    "original": {
+      "prediction": 0,
+      "probability": 0.993640124797821
+    },
+    "protocol": "remove_top_k_and_retain_top_k_edges",
+    "remove_result": {
+      "changed_prediction": false,
+      "prediction": 0,
+      "probability": 0.9999768733978271,
+      "remove_delta": -0.0063367486000061035,
+      "remove_probability_delta": -0.0063367486000061035
+    },
+    "retain_result": {
+      "matches_original_prediction": true,
+      "prediction": 0,
+      "probability": 1.0,
+      "probability_ratio": 1.006400582105592,
+      "retain_delta": -0.006359875202178955,
+      "retain_probability_delta": -0.006359875202178955
+    }
+  },
+  "node_id": 1174,
+  "runtime": {
+    "runtime_seconds": 0.008984700019937009
+  },
+  "schema_version": "shapeggen_task23_core_metrics_v1",
+  "sparsity": {
+    "protocol": "fixed_candidate_edge_ratio",
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_count": 18,
+    "selected_edge_ratio": 0.2,
+    "sparsity": 0.7906976744186046
+  },
+  "target": {
+    "confidence": 0.993640124797821,
+    "label": 0,
+    "node_id": 1174,
+    "prediction": 0
+  }
+}

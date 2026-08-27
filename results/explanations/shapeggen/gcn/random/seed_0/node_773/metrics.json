@@ -1,0 +1,63 @@
+{
+  "edge_ground_truth": {
+    "candidate_edge_count": 162,
+    "candidate_edge_scope": "target_specific_graphxai_candidate_edge_mask",
+    "candidate_edge_scope_detail": "Official GraphXAI target-specific candidate edge mask aligned to the full directed PyG edge_index",
+    "candidate_negative_edge_count": 150,
+    "candidate_positive_edge_count": 12,
+    "edge_ap": 0.0696817175983266,
+    "edge_ap_reason": null,
+    "edge_ap_valid": true,
+    "edge_auroc": 0.46611111111111114,
+    "edge_auroc_reason": null,
+    "edge_auroc_valid": true,
+    "edge_mapping_validated": true,
+    "ground_truth_edge_prevalence": 0.07407407407407407
+  },
+  "explainer": "Random",
+  "fidelity": {
+    "fid_minus": 1,
+    "fid_plus": 0,
+    "fidelity_legacy": -0.07191646099090576,
+    "metric_name": "remove_delta",
+    "one_minus_fid_minus": 0,
+    "original": {
+      "prediction": 0,
+      "probability": 0.5472412109375
+    },
+    "protocol": "remove_top_k_and_retain_top_k_edges",
+    "remove_result": {
+      "changed_prediction": false,
+      "prediction": 0,
+      "probability": 0.6191576719284058,
+      "remove_delta": -0.07191646099090576,
+      "remove_probability_delta": -0.07191646099090576
+    },
+    "retain_result": {
+      "matches_original_prediction": false,
+      "prediction": 1,
+      "probability": 0.2517445981502533,
+      "probability_ratio": 0.46002492706823,
+      "retain_delta": 0.2954966127872467,
+      "retain_probability_delta": 0.2954966127872467
+    }
+  },
+  "node_id": 773,
+  "runtime": {
+    "runtime_seconds": 0.01843130000634119
+  },
+  "schema_version": "shapeggen_task23_core_metrics_v1",
+  "sparsity": {
+    "protocol": "fixed_candidate_edge_ratio",
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_count": 33,
+    "selected_edge_ratio": 0.2,
+    "sparsity": 0.7962962962962963
+  },
+  "target": {
+    "confidence": 0.5472413301467896,
+    "label": 0,
+    "node_id": 773,
+    "prediction": 0
+  }
+}

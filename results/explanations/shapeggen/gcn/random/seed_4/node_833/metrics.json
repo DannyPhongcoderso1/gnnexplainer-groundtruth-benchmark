@@ -1,0 +1,63 @@
+{
+  "edge_ground_truth": {
+    "candidate_edge_count": 104,
+    "candidate_edge_scope": "target_specific_graphxai_candidate_edge_mask",
+    "candidate_edge_scope_detail": "Official GraphXAI target-specific candidate edge mask aligned to the full directed PyG edge_index",
+    "candidate_negative_edge_count": 76,
+    "candidate_positive_edge_count": 28,
+    "edge_ap": 0.2788555722579331,
+    "edge_ap_reason": null,
+    "edge_ap_valid": true,
+    "edge_auroc": 0.4534774436090226,
+    "edge_auroc_reason": null,
+    "edge_auroc_valid": true,
+    "edge_mapping_validated": true,
+    "ground_truth_edge_prevalence": 0.2692307692307692
+  },
+  "explainer": "Random",
+  "fidelity": {
+    "fid_minus": 1,
+    "fid_plus": 0,
+    "fidelity_legacy": -0.06488299369812012,
+    "metric_name": "remove_delta",
+    "one_minus_fid_minus": 0,
+    "original": {
+      "prediction": 1,
+      "probability": 0.8966915607452393
+    },
+    "protocol": "remove_top_k_and_retain_top_k_edges",
+    "remove_result": {
+      "changed_prediction": false,
+      "prediction": 1,
+      "probability": 0.9615745544433594,
+      "remove_delta": -0.06488299369812012,
+      "remove_probability_delta": -0.06488299369812012
+    },
+    "retain_result": {
+      "matches_original_prediction": false,
+      "prediction": 0,
+      "probability": 0.07193262130022049,
+      "probability_ratio": 0.0802200270965385,
+      "retain_delta": 0.8247589394450188,
+      "retain_probability_delta": 0.8247589394450188
+    }
+  },
+  "node_id": 833,
+  "runtime": {
+    "runtime_seconds": 0.02331449999473989
+  },
+  "schema_version": "shapeggen_task23_core_metrics_v1",
+  "sparsity": {
+    "protocol": "fixed_candidate_edge_ratio",
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_count": 21,
+    "selected_edge_ratio": 0.2,
+    "sparsity": 0.7980769230769231
+  },
+  "target": {
+    "confidence": 0.8966916799545288,
+    "label": 1,
+    "node_id": 833,
+    "prediction": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "backbone": "GraphSAGE",
+  "candidate_edge_scope": "target_specific_graphxai_candidate_edge_mask",
+  "checkpoint": {
+    "path": "artifacts/checkpoints/shapeggen_graphsage_best.pt",
+    "sha256": "498a74875360a82749b78cb40a69b3e4ec04ec634b85e4713e85d96f34c666a0"
+  },
+  "dataset_sha256": "9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e",
+  "edge_ranking_metric_scope": "continuous_scores_over_full_candidate_edge_set",
+  "evaluation_runtime_seconds": null,
+  "generation_runtime_seconds": null,
+  "method": "Random",
+  "node_mask_available": false,
+  "node_random_seed": 7000860,
+  "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+  "seed": 7,
+  "selected_edge_ratio": 0.2,
+  "target": {
+    "confidence": 0.9999598264694214,
+    "label": 1,
+    "node_id": 839,
+    "prediction": 1,
+    "split": "test"
+  },
+  "target_file": "configs/targets/shapeggen_2x2_targets.csv",
+  "target_sha256": "bd128dec7810421d592debe8177f3cb46d6c7d9b01fd3f562b8b13971517b41d",
+  "task23_signature": "426641c6d593542b061364970fec4694545187bc0bfe31a89f3ef35f86bf6b0b",
+  "task_config_sha256": "7c4d0daa3b270c002995f0e0260bece849d4a0ff0bc86f74683ac6a5dd126c8b"
+}

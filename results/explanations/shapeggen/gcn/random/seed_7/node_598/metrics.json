@@ -1,0 +1,63 @@
+{
+  "edge_ground_truth": {
+    "candidate_edge_count": 102,
+    "candidate_edge_scope": "target_specific_graphxai_candidate_edge_mask",
+    "candidate_edge_scope_detail": "Official GraphXAI target-specific candidate edge mask aligned to the full directed PyG edge_index",
+    "candidate_negative_edge_count": 88,
+    "candidate_positive_edge_count": 14,
+    "edge_ap": 0.17919403955682534,
+    "edge_ap_reason": null,
+    "edge_ap_valid": true,
+    "edge_auroc": 0.5998376623376623,
+    "edge_auroc_reason": null,
+    "edge_auroc_valid": true,
+    "edge_mapping_validated": true,
+    "ground_truth_edge_prevalence": 0.13725490196078433
+  },
+  "explainer": "Random",
+  "fidelity": {
+    "fid_minus": 1,
+    "fid_plus": 0,
+    "fidelity_legacy": -0.017392396926879883,
+    "metric_name": "remove_delta",
+    "one_minus_fid_minus": 0,
+    "original": {
+      "prediction": 0,
+      "probability": 0.5091871619224548
+    },
+    "protocol": "remove_top_k_and_retain_top_k_edges",
+    "remove_result": {
+      "changed_prediction": false,
+      "prediction": 0,
+      "probability": 0.5265795588493347,
+      "remove_delta": -0.017392396926879883,
+      "remove_probability_delta": -0.017392396926879883
+    },
+    "retain_result": {
+      "matches_original_prediction": false,
+      "prediction": 1,
+      "probability": 0.05124323070049286,
+      "probability_ratio": 0.10063731871601428,
+      "retain_delta": 0.457943931221962,
+      "retain_probability_delta": 0.457943931221962
+    }
+  },
+  "node_id": 598,
+  "runtime": {
+    "runtime_seconds": 0.025696199969388545
+  },
+  "schema_version": "shapeggen_task23_core_metrics_v1",
+  "sparsity": {
+    "protocol": "fixed_candidate_edge_ratio",
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "selected_edge_count": 21,
+    "selected_edge_ratio": 0.2,
+    "sparsity": 0.7941176470588236
+  },
+  "target": {
+    "confidence": 0.5091871619224548,
+    "label": 0,
+    "node_id": 598,
+    "prediction": 0
+  }
+}
