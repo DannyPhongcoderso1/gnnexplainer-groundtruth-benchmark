@@ -1201,6 +1201,1261 @@
   "status": "success",
   "stop_boundary": "STOP FOR REVIEW; Task25 not started",
   "task": "Task24 ShapeGGen PGExplainer",
+  "task24_audit": {
+    "acceptance": {
+      "backbone_hashes_match": true,
+      "budget_and_sparsity_ok": true,
+      "common_train_539": true,
+      "common_val_182": true,
+      "domain_violations_zero": true,
+      "edge_protocol_complete": true,
+      "epochs_reload_and_weights_ok": true,
+      "final_targets_167": true,
+      "identity_violations_zero": true,
+      "no_duplicate_missing_invalid_pool_nodes": true,
+      "pg_checkpoints_complete_and_readable": true,
+      "row_coverage_complete": true,
+      "stability_complete": true,
+      "summary_recomputed": true,
+      "task25_not_started": true,
+      "train_val_final_disjoint": true,
+      "unexpected_required_nulls_zero": true
+    },
+    "audit_version": "task24_audit_only_v1",
+    "backbone_audit": {
+      "gcn": {
+        "actual_sha256": "15bfa8960fe4e0f0712c3a794db93ed4e90aad6fce3555a16db23a8a13b91e36",
+        "expected_sha256": "15bfa8960fe4e0f0712c3a794db93ed4e90aad6fce3555a16db23a8a13b91e36",
+        "model_parameter_hash_loaded": "de3ac38108633bea667c189caf0ad6e943ccd019ed3972b6b8a9776fb46317ab",
+        "path": "artifacts\\checkpoints\\shapeggen_gcn_best.pt",
+        "self_compare_changed_tensor_count": 0,
+        "self_compare_max_abs_diff": 0.0,
+        "sha256_matches": true,
+        "state_tensor_count": 6
+      },
+      "graphsage": {
+        "actual_sha256": "498a74875360a82749b78cb40a69b3e4ec04ec634b85e4713e85d96f34c666a0",
+        "expected_sha256": "498a74875360a82749b78cb40a69b3e4ec04ec634b85e4713e85d96f34c666a0",
+        "model_parameter_hash_loaded": "113f62b93dddf4600b97f71c84ecba35b905df6f54ea3c2bc1991fec0fe8107a",
+        "path": "artifacts\\checkpoints\\shapeggen_graphsage_best.pt",
+        "self_compare_changed_tensor_count": 0,
+        "self_compare_max_abs_diff": 0.0,
+        "sha256_matches": true,
+        "state_tensor_count": 9
+      }
+    },
+    "budget_audit": {
+      "gcn": {
+        "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+        "selected_count_violation_count": 0,
+        "selected_edge_ratio": 0.2,
+        "sparsity_distribution": {
+          "max": 0.8,
+          "mean": 0.7959276224059845,
+          "median": 0.7965116279069767,
+          "min": 0.7777777777777778,
+          "n": 167,
+          "std": 0.003665533159147349
+        }
+      },
+      "graphsage": {
+        "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+        "selected_count_violation_count": 0,
+        "selected_edge_ratio": 0.2,
+        "sparsity_distribution": {
+          "max": 0.8,
+          "mean": 0.7959276224059845,
+          "median": 0.7965116279069767,
+          "min": 0.7777777777777778,
+          "n": 167,
+          "std": 0.003665533159147349
+        }
+      }
+    },
+    "checkpoint_audit": {
+      "gcn": {
+        "all_epochs_30": true,
+        "all_exist": true,
+        "all_model_weights_unchanged": true,
+        "all_post_test_tuning_false": true,
+        "all_readable": true,
+        "all_reload_ok": true,
+        "checkpoint_count": 6,
+        "rows": [
+          {
+            "checkpoint_exists": true,
+            "checkpoint_path": "artifacts\\explainers\\shapeggen_pg_gcn_seed42.pt",
+            "checkpoint_readable": true,
+            "checkpoint_reload_ok": true,
+            "checkpoint_sha256": "95c7b5070099c04968b3ebf5b4fa7664ec468a5cc9ff4a17752c198641def978",
+            "epochs_completed": 30,
+            "manifest_backbone": "GCN",
+            "manifest_exists": true,
+            "manifest_path": "artifacts\\explainers\\shapeggen_pg_gcn_seed42_manifest.json",
+            "manifest_seed": 42,
+            "model_weights_unchanged": true,
+            "payload_keys": [
+              "algorithm_class",
+              "algorithm_current_epoch",
+              "algorithm_state_dict",
+              "explainer_config",
+              "seed",
+              "task_config",
+              "train_node_ids",
+              "validation_node_ids"
+            ],
+            "post_test_tuning": false,
+            "seed": 42,
+            "train_id_field_is_path_only": false
+          },
+          {
+            "checkpoint_exists": true,
+            "checkpoint_path": "artifacts\\explainers\\shapeggen_pg_gcn_seed0.pt",
+            "checkpoint_readable": true,
+            "checkpoint_reload_ok": true,
+            "checkpoint_sha256": "53e4dbc903f7a8fa4906ea595897f0db069ead6a42cf9851fbda0cc2b9b576ac",
+            "epochs_completed": 30,
+            "manifest_backbone": "GCN",
+            "manifest_exists": true,
+            "manifest_path": "artifacts\\explainers\\shapeggen_pg_gcn_seed0_manifest.json",
+            "manifest_seed": 0,
+            "model_weights_unchanged": true,
+            "payload_keys": [
+              "algorithm_class",
+              "algorithm_current_epoch",
+              "algorithm_state_dict",
+              "explainer_config",
+              "seed",
+              "task_config",
+              "train_node_ids",
+              "validation_node_ids"
+            ],
+            "post_test_tuning": false,
+            "seed": 0,
+            "train_id_field_is_path_only": false
+          },
+          {
+            "checkpoint_exists": true,
+            "checkpoint_path": "artifacts\\explainers\\shapeggen_pg_gcn_seed1.pt",
+            "checkpoint_readable": true,
+            "checkpoint_reload_ok": true,
+            "checkpoint_sha256": "c9a11e09b152fd268496f72fb6f9b14ec0492cedec989ec90274bcceed1f924a",
+            "epochs_completed": 30,
+            "manifest_backbone": "GCN",
+            "manifest_exists": true,
+            "manifest_path": "artifacts\\explainers\\shapeggen_pg_gcn_seed1_manifest.json",
+            "manifest_seed": 1,
+            "model_weights_unchanged": true,
+            "payload_keys": [
+              "algorithm_class",
+              "algorithm_current_epoch",
+              "algorithm_state_dict",
+              "explainer_config",
+              "seed",
+              "task_config",
+              "train_node_ids",
+              "validation_node_ids"
+            ],
+            "post_test_tuning": false,
+            "seed": 1,
+            "train_id_field_is_path_only": false
+          },
+          {
+            "checkpoint_exists": true,
+            "checkpoint_path": "artifacts\\explainers\\shapeggen_pg_gcn_seed2.pt",
+            "checkpoint_readable": true,
+            "checkpoint_reload_ok": true,
+            "checkpoint_sha256": "50154f5c71caa2117ab95e8e0cc224ca6d0a096ee746bcc21c5833c53d0e1b48",
+            "epochs_completed": 30,
+            "manifest_backbone": "GCN",
+            "manifest_exists": true,
+            "manifest_path": "artifacts\\explainers\\shapeggen_pg_gcn_seed2_manifest.json",
+            "manifest_seed": 2,
+            "model_weights_unchanged": true,
+            "payload_keys": [
+              "algorithm_class",
+              "algorithm_current_epoch",
+              "algorithm_state_dict",
+              "explainer_config",
+              "seed",
+              "task_config",
+              "train_node_ids",
+              "validation_node_ids"
+            ],
+            "post_test_tuning": false,
+            "seed": 2,
+            "train_id_field_is_path_only": false
+          },
+          {
+            "checkpoint_exists": true,
+            "checkpoint_path": "artifacts\\explainers\\shapeggen_pg_gcn_seed3.pt",
+            "checkpoint_readable": true,
+            "checkpoint_reload_ok": true,
+            "checkpoint_sha256": "0cceda0622da6b409bb96c8d20da8033c3b452e5fbb500779df41faa65534b1f",
+            "epochs_completed": 30,
+            "manifest_backbone": "GCN",
+            "manifest_exists": true,
+            "manifest_path": "artifacts\\explainers\\shapeggen_pg_gcn_seed3_manifest.json",
+            "manifest_seed": 3,
+            "model_weights_unchanged": true,
+            "payload_keys": [
+              "algorithm_class",
+              "algorithm_current_epoch",
+              "algorithm_state_dict",
+              "explainer_config",
+              "seed",
+              "task_config",
+              "train_node_ids",
+              "validation_node_ids"
+            ],
+            "post_test_tuning": false,
+            "seed": 3,
+            "train_id_field_is_path_only": false
+          },
+          {
+            "checkpoint_exists": true,
+            "checkpoint_path": "artifacts\\explainers\\shapeggen_pg_gcn_seed4.pt",
+            "checkpoint_readable": true,
+            "checkpoint_reload_ok": true,
+            "checkpoint_sha256": "0615477814038a02d95ba70c6c42180eddb7ab7d5c1138fbda2656fbfdf539f0",
+            "epochs_completed": 30,
+            "manifest_backbone": "GCN",
+            "manifest_exists": true,
+            "manifest_path": "artifacts\\explainers\\shapeggen_pg_gcn_seed4_manifest.json",
+            "manifest_seed": 4,
+            "model_weights_unchanged": true,
+            "payload_keys": [
+              "algorithm_class",
+              "algorithm_current_epoch",
+              "algorithm_state_dict",
+              "explainer_config",
+              "seed",
+              "task_config",
+              "train_node_ids",
+              "validation_node_ids"
+            ],
+            "post_test_tuning": false,
+            "seed": 4,
+            "train_id_field_is_path_only": false
+          }
+        ]
+      },
+      "graphsage": {
+        "all_epochs_30": true,
+        "all_exist": true,
+        "all_model_weights_unchanged": true,
+        "all_post_test_tuning_false": true,
+        "all_readable": true,
+        "all_reload_ok": true,
+        "checkpoint_count": 6,
+        "rows": [
+          {
+            "checkpoint_exists": true,
+            "checkpoint_path": "artifacts\\explainers\\shapeggen_pg_graphsage_seed42.pt",
+            "checkpoint_readable": true,
+            "checkpoint_reload_ok": true,
+            "checkpoint_sha256": "a7d77988b9716c84c0b0436b2ef5c340e4af8ce9afeb14906cb615d2eee0e913",
+            "epochs_completed": 30,
+            "manifest_backbone": "GraphSAGE",
+            "manifest_exists": true,
+            "manifest_path": "artifacts\\explainers\\shapeggen_pg_graphsage_seed42_manifest.json",
+            "manifest_seed": 42,
+            "model_weights_unchanged": true,
+            "payload_keys": [
+              "algorithm_class",
+              "algorithm_current_epoch",
+              "algorithm_state_dict",
+              "explainer_config",
+              "seed",
+              "task_config",
+              "train_node_ids",
+              "validation_node_ids"
+            ],
+            "post_test_tuning": false,
+            "seed": 42,
+            "train_id_field_is_path_only": false
+          },
+          {
+            "checkpoint_exists": true,
+            "checkpoint_path": "artifacts\\explainers\\shapeggen_pg_graphsage_seed0.pt",
+            "checkpoint_readable": true,
+            "checkpoint_reload_ok": true,
+            "checkpoint_sha256": "a62b4cdcb27926bd4911fbb1591d697a6c6ad2781b7aac0b19cd155d6daa2ac7",
+            "epochs_completed": 30,
+            "manifest_backbone": "GraphSAGE",
+            "manifest_exists": true,
+            "manifest_path": "artifacts\\explainers\\shapeggen_pg_graphsage_seed0_manifest.json",
+            "manifest_seed": 0,
+            "model_weights_unchanged": true,
+            "payload_keys": [
+              "algorithm_class",
+              "algorithm_current_epoch",
+              "algorithm_state_dict",
+              "explainer_config",
+              "seed",
+              "task_config",
+              "train_node_ids",
+              "validation_node_ids"
+            ],
+            "post_test_tuning": false,
+            "seed": 0,
+            "train_id_field_is_path_only": false
+          },
+          {
+            "checkpoint_exists": true,
+            "checkpoint_path": "artifacts\\explainers\\shapeggen_pg_graphsage_seed1.pt",
+            "checkpoint_readable": true,
+            "checkpoint_reload_ok": true,
+            "checkpoint_sha256": "a2bb660a9a4ef3475413b985ed97d189652791de77971c6e91bde258bdaba81f",
+            "epochs_completed": 30,
+            "manifest_backbone": "GraphSAGE",
+            "manifest_exists": true,
+            "manifest_path": "artifacts\\explainers\\shapeggen_pg_graphsage_seed1_manifest.json",
+            "manifest_seed": 1,
+            "model_weights_unchanged": true,
+            "payload_keys": [
+              "algorithm_class",
+              "algorithm_current_epoch",
+              "algorithm_state_dict",
+              "explainer_config",
+              "seed",
+              "task_config",
+              "train_node_ids",
+              "validation_node_ids"
+            ],
+            "post_test_tuning": false,
+            "seed": 1,
+            "train_id_field_is_path_only": false
+          },
+          {
+            "checkpoint_exists": true,
+            "checkpoint_path": "artifacts\\explainers\\shapeggen_pg_graphsage_seed2.pt",
+            "checkpoint_readable": true,
+            "checkpoint_reload_ok": true,
+            "checkpoint_sha256": "68afac6f030041a1cb47a64faee1f5da6ea67f3db4892224fd71e64aaac35db0",
+            "epochs_completed": 30,
+            "manifest_backbone": "GraphSAGE",
+            "manifest_exists": true,
+            "manifest_path": "artifacts\\explainers\\shapeggen_pg_graphsage_seed2_manifest.json",
+            "manifest_seed": 2,
+            "model_weights_unchanged": true,
+            "payload_keys": [
+              "algorithm_class",
+              "algorithm_current_epoch",
+              "algorithm_state_dict",
+              "explainer_config",
+              "seed",
+              "task_config",
+              "train_node_ids",
+              "validation_node_ids"
+            ],
+            "post_test_tuning": false,
+            "seed": 2,
+            "train_id_field_is_path_only": false
+          },
+          {
+            "checkpoint_exists": true,
+            "checkpoint_path": "artifacts\\explainers\\shapeggen_pg_graphsage_seed3.pt",
+            "checkpoint_readable": true,
+            "checkpoint_reload_ok": true,
+            "checkpoint_sha256": "a15abde1a663bc2ed98e287c1e42b98307d7e35f0f48c09dafe8526902152f70",
+            "epochs_completed": 30,
+            "manifest_backbone": "GraphSAGE",
+            "manifest_exists": true,
+            "manifest_path": "artifacts\\explainers\\shapeggen_pg_graphsage_seed3_manifest.json",
+            "manifest_seed": 3,
+            "model_weights_unchanged": true,
+            "payload_keys": [
+              "algorithm_class",
+              "algorithm_current_epoch",
+              "algorithm_state_dict",
+              "explainer_config",
+              "seed",
+              "task_config",
+              "train_node_ids",
+              "validation_node_ids"
+            ],
+            "post_test_tuning": false,
+            "seed": 3,
+            "train_id_field_is_path_only": false
+          },
+          {
+            "checkpoint_exists": true,
+            "checkpoint_path": "artifacts\\explainers\\shapeggen_pg_graphsage_seed4.pt",
+            "checkpoint_readable": true,
+            "checkpoint_reload_ok": true,
+            "checkpoint_sha256": "f6bc41090abd715cfad915e398576622fd4ecfc30648ca0329e95aa2f79ba674",
+            "epochs_completed": 30,
+            "manifest_backbone": "GraphSAGE",
+            "manifest_exists": true,
+            "manifest_path": "artifacts\\explainers\\shapeggen_pg_graphsage_seed4_manifest.json",
+            "manifest_seed": 4,
+            "model_weights_unchanged": true,
+            "payload_keys": [
+              "algorithm_class",
+              "algorithm_current_epoch",
+              "algorithm_state_dict",
+              "explainer_config",
+              "seed",
+              "task_config",
+              "train_node_ids",
+              "validation_node_ids"
+            ],
+            "post_test_tuning": false,
+            "seed": 4,
+            "train_id_field_is_path_only": false
+          }
+        ]
+      }
+    },
+    "edge_ground_truth_metric_audit": {
+      "gcn": {
+        "candidate_scope": "target_specific_graphxai_candidate_edge_mask",
+        "edge_ap_computed_count": 167,
+        "edge_auroc_computed_count": 167,
+        "mapping_error_count": 0,
+        "not_applicable_count": 0,
+        "protocol": "continuous_scores_over_full_candidate_edge_set",
+        "single_class_case_count": 0
+      },
+      "graphsage": {
+        "candidate_scope": "target_specific_graphxai_candidate_edge_mask",
+        "edge_ap_computed_count": 167,
+        "edge_auroc_computed_count": 167,
+        "mapping_error_count": 0,
+        "not_applicable_count": 0,
+        "protocol": "continuous_scores_over_full_candidate_edge_set",
+        "single_class_case_count": 0
+      }
+    },
+    "environment": {
+      "cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+      "torch": "2.11.0+cu128",
+      "torch_cuda": "12.8",
+      "torch_geometric": "2.8.0.post1"
+    },
+    "experimental_artifacts_changed_by_audit": false,
+    "experiments_rerun": false,
+    "initial_git_state": {
+      "branch": "main",
+      "head": "957f490a1fa1611fe6fd100dadefac5a6d0a1c19",
+      "status_short": "M docs/shapeggen_pgexplainer_freeze.json\n M docs/shapeggen_pgexplainer_report.md\n?? docs/shapeggen_pgexplainer_audit.json\n?? scripts/audit_shapeggen_task24.py",
+      "upstream_parity": "0\t0"
+    },
+    "integrity": {
+      "file_hashes": {
+        "artifacts\\checkpoints\\shapeggen_gcn_best.pt": "15bfa8960fe4e0f0712c3a794db93ed4e90aad6fce3555a16db23a8a13b91e36",
+        "artifacts\\checkpoints\\shapeggen_graphsage_best.pt": "498a74875360a82749b78cb40a69b3e4ec04ec634b85e4713e85d96f34c666a0",
+        "artifacts\\data\\shapeggen.pt": "9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e",
+        "artifacts\\explainers\\shapeggen_pg_gcn_seed0.pt": "53e4dbc903f7a8fa4906ea595897f0db069ead6a42cf9851fbda0cc2b9b576ac",
+        "artifacts\\explainers\\shapeggen_pg_gcn_seed1.pt": "c9a11e09b152fd268496f72fb6f9b14ec0492cedec989ec90274bcceed1f924a",
+        "artifacts\\explainers\\shapeggen_pg_gcn_seed2.pt": "50154f5c71caa2117ab95e8e0cc224ca6d0a096ee746bcc21c5833c53d0e1b48",
+        "artifacts\\explainers\\shapeggen_pg_gcn_seed3.pt": "0cceda0622da6b409bb96c8d20da8033c3b452e5fbb500779df41faa65534b1f",
+        "artifacts\\explainers\\shapeggen_pg_gcn_seed4.pt": "0615477814038a02d95ba70c6c42180eddb7ab7d5c1138fbda2656fbfdf539f0",
+        "artifacts\\explainers\\shapeggen_pg_gcn_seed42.pt": "95c7b5070099c04968b3ebf5b4fa7664ec468a5cc9ff4a17752c198641def978",
+        "artifacts\\explainers\\shapeggen_pg_graphsage_seed0.pt": "a62b4cdcb27926bd4911fbb1591d697a6c6ad2781b7aac0b19cd155d6daa2ac7",
+        "artifacts\\explainers\\shapeggen_pg_graphsage_seed1.pt": "a2bb660a9a4ef3475413b985ed97d189652791de77971c6e91bde258bdaba81f",
+        "artifacts\\explainers\\shapeggen_pg_graphsage_seed2.pt": "68afac6f030041a1cb47a64faee1f5da6ea67f3db4892224fd71e64aaac35db0",
+        "artifacts\\explainers\\shapeggen_pg_graphsage_seed3.pt": "a15abde1a663bc2ed98e287c1e42b98307d7e35f0f48c09dafe8526902152f70",
+        "artifacts\\explainers\\shapeggen_pg_graphsage_seed4.pt": "f6bc41090abd715cfad915e398576622fd4ecfc30648ca0329e95aa2f79ba674",
+        "artifacts\\explainers\\shapeggen_pg_graphsage_seed42.pt": "a7d77988b9716c84c0b0436b2ef5c340e4af8ce9afeb14906cb615d2eee0e913",
+        "configs\\targets\\shapeggen_2x2_targets.csv": "bd128dec7810421d592debe8177f3cb46d6c7d9b01fd3f562b8b13971517b41d",
+        "configs\\targets\\shapeggen_pg_common_train.csv": "c05a5be38a64b629c8bb837b1fb3408d8a008726713e70f0318aee3499746b70",
+        "configs\\targets\\shapeggen_pg_common_val.csv": "b988e40c2af234724b07802ec31d0831ef039a3ef4de3bfee1b80051b49cdc5d",
+        "docs\\shapeggen_pgexplainer_freeze.json": "99104b3692b44a1f2b6c4879b72515a46f26f4a4c3c04509c3853b4860febd08",
+        "docs\\shapeggen_pgexplainer_report.md": "c29e6a00a0b7f9f9e73d88eb1396d1115617ba76f3dd602cc4849f23f314da15",
+        "results\\metrics\\shapeggen\\gcn\\pgexplainer\\per_node_metrics.csv": "04f0e0ed92e04d78947e49fe44b4bfd14a8ad534b4360706b0d9589065bd83f4",
+        "results\\metrics\\shapeggen\\gcn\\pgexplainer\\stability_seed_metrics.csv": "d2918823041eaf1896d1672c4eb682a7796f391dcc2dfffd0ecc8cfe0ff03b00",
+        "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\per_node_metrics.csv": "1aeda53a477ab2d2c40c346458d0000be85a06e008ddb7e67e8ed027b54f4917",
+        "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\stability_seed_metrics.csv": "22d831ca4913b4f97a11de6cea0c92e3acb7928e3ce202407ca6ff083e75f44b",
+        "results\\metrics\\shapeggen\\task24_pgexplainer_summary.csv": "74537d996e76b9381955a3020dc8962c892c425fc349feabbd500ef6f04e0792"
+      },
+      "old_freeze_hash": "99104b3692b44a1f2b6c4879b72515a46f26f4a4c3c04509c3853b4860febd08",
+      "old_report_hash": "c29e6a00a0b7f9f9e73d88eb1396d1115617ba76f3dd602cc4849f23f314da15",
+      "previous_freeze_hash_from_user": "099b2c9c705d93a48533265b15d3dd7665788824cff0938aee77b4ad42bfd369",
+      "previous_report_hash_from_user": "c79773e390879a337bb6580464cbb2ff3538d99d022f618fe747b985cd5c4f9f",
+      "raw_explanation_manifests": {
+        "gcn_raw_explanations": {
+          "bytes": 26643990,
+          "file_count": 6012,
+          "path": "results\\explanations\\shapeggen\\gcn\\pgexplainer",
+          "sha256": "f6a0f3fed26cbd014ddca7ad9daea93e0347e720373acd2124259a16e21ba02b"
+        },
+        "graphsage_raw_explanations": {
+          "bytes": 26489976,
+          "file_count": 6012,
+          "path": "results\\explanations\\shapeggen\\graphsage\\pgexplainer",
+          "sha256": "52e3db70b9223f147d735057b4841bf92cb78ced9dea93b7c078f7ab3f314937"
+        }
+      }
+    },
+    "metric_semantics": {
+      "edge_auroc_edge_ap": "continuous PGExplainer edge scores over the full candidate-edge set.",
+      "fid_minus": "1 when retaining only selected top-20% edges changes the original prediction, else 0.",
+      "fid_plus": "1 when removing selected top-20% edges changes the original prediction, else 0.",
+      "one_minus_fid_minus": "1 - Fid-.",
+      "probability_reference_class": "the frozen backbone original predicted class."
+    },
+    "pool_audit": {
+      "common_train": {
+        "duplicate_count": 0,
+        "expected_count": 539,
+        "invalid_node_id_count": 0,
+        "missing_node_id_count": 0,
+        "observed_count": 539,
+        "sorted": true,
+        "unique_count": 539
+      },
+      "common_val": {
+        "duplicate_count": 0,
+        "expected_count": 182,
+        "invalid_node_id_count": 0,
+        "missing_node_id_count": 0,
+        "observed_count": 182,
+        "sorted": true,
+        "unique_count": 182
+      },
+      "final": {
+        "duplicate_count": 0,
+        "expected_count": 167,
+        "invalid_node_id_count": 0,
+        "missing_node_id_count": 0,
+        "observed_count": 167,
+        "sorted": true,
+        "unique_count": 167
+      },
+      "intersections": {
+        "train_final_intersection_count": 0,
+        "train_val_intersection_count": 0,
+        "val_final_intersection_count": 0
+      },
+      "same_identity_semantics": {
+        "gcn_and_graphsage_use_same_common_train_file": true,
+        "gcn_and_graphsage_use_same_common_val_file": true,
+        "gcn_and_graphsage_use_same_final_file": true
+      }
+    },
+    "previous_freeze_status": "success",
+    "row_audit": {
+      "gcn": {
+        "coverage": [
+          {
+            "backbone": "GCN",
+            "duplicates": 0,
+            "expected_targets": 167,
+            "extra": 0,
+            "failed": 0,
+            "missing": 0,
+            "observed_unique_targets": 167,
+            "seed": 42,
+            "success": 167
+          },
+          {
+            "backbone": "GCN",
+            "duplicates": 0,
+            "expected_targets": 167,
+            "extra": 0,
+            "failed": 0,
+            "missing": 0,
+            "observed_unique_targets": 167,
+            "seed": 0,
+            "success": 167
+          },
+          {
+            "backbone": "GCN",
+            "duplicates": 0,
+            "expected_targets": 167,
+            "extra": 0,
+            "failed": 0,
+            "missing": 0,
+            "observed_unique_targets": 167,
+            "seed": 1,
+            "success": 167
+          },
+          {
+            "backbone": "GCN",
+            "duplicates": 0,
+            "expected_targets": 167,
+            "extra": 0,
+            "failed": 0,
+            "missing": 0,
+            "observed_unique_targets": 167,
+            "seed": 2,
+            "success": 167
+          },
+          {
+            "backbone": "GCN",
+            "duplicates": 0,
+            "expected_targets": 167,
+            "extra": 0,
+            "failed": 0,
+            "missing": 0,
+            "observed_unique_targets": 167,
+            "seed": 3,
+            "success": 167
+          },
+          {
+            "backbone": "GCN",
+            "duplicates": 0,
+            "expected_targets": 167,
+            "extra": 0,
+            "failed": 0,
+            "missing": 0,
+            "observed_unique_targets": 167,
+            "seed": 4,
+            "success": 167
+          }
+        ],
+        "domain_violations": {},
+        "identity_checks": {
+          "one_minus_fid_minus": {
+            "applicable_rows": 1002,
+            "checked_rows": 1002,
+            "maximum_absolute_error": 0.0,
+            "pass": true,
+            "tolerance": 1e-09,
+            "violation_count": 0
+          },
+          "original_probability_zero_count": 0,
+          "remove_probability_delta": {
+            "applicable_rows": 1002,
+            "checked_rows": 1002,
+            "maximum_absolute_error": 0.0,
+            "pass": true,
+            "tolerance": 1e-09,
+            "violation_count": 0
+          },
+          "retain_probability_delta": {
+            "applicable_rows": 1002,
+            "checked_rows": 1002,
+            "maximum_absolute_error": 0.0,
+            "pass": true,
+            "tolerance": 1e-09,
+            "violation_count": 0
+          },
+          "retain_probability_ratio": {
+            "applicable_rows": 1002,
+            "checked_rows": 1002,
+            "maximum_absolute_error": 0.0,
+            "pass": true,
+            "tolerance": 1e-09,
+            "violation_count": 0
+          },
+          "sparsity": {
+            "applicable_rows": 1002,
+            "checked_rows": 1002,
+            "maximum_absolute_error": 0.0,
+            "pass": true,
+            "tolerance": 1e-09,
+            "violation_count": 0
+          }
+        },
+        "null_audit": [
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "generation_runtime_seconds",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\per_node_metrics.csv",
+            "null_count": 167,
+            "reason": "expected structural null: Task24 PGExplainer separates upfront training, per-target inference, and per-target evaluation; no per-target generation field is applicable.",
+            "total_rows": 167
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\per_node_metrics.csv",
+            "null_count": 167,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 167
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "generation_runtime_seconds",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\stability_seed_metrics.csv",
+            "null_count": 835,
+            "reason": "expected structural null: Task24 PGExplainer separates upfront training, per-target inference, and per-target evaluation; no per-target generation field is applicable.",
+            "total_rows": 835
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\stability_seed_metrics.csv",
+            "null_count": 835,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 835
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\stability_per_node_jaccard.csv",
+            "null_count": 167,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 167
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "mean",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\summary_metrics.csv",
+            "null_count": 1,
+            "reason": "expected structural null: per-target generation_runtime_seconds has n=0 for Task24 PGExplainer because runtime is separated into upfront training, per-target inference, and per-target evaluation.",
+            "total_rows": 13
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "std",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\summary_metrics.csv",
+            "null_count": 1,
+            "reason": "expected structural null: per-target generation_runtime_seconds has n=0 for Task24 PGExplainer because runtime is separated into upfront training, per-target inference, and per-target evaluation.",
+            "total_rows": 13
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "median",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\summary_metrics.csv",
+            "null_count": 1,
+            "reason": "expected structural null: per-target generation_runtime_seconds has n=0 for Task24 PGExplainer because runtime is separated into upfront training, per-target inference, and per-target evaluation.",
+            "total_rows": 13
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "min",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\summary_metrics.csv",
+            "null_count": 1,
+            "reason": "expected structural null: per-target generation_runtime_seconds has n=0 for Task24 PGExplainer because runtime is separated into upfront training, per-target inference, and per-target evaluation.",
+            "total_rows": 13
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "max",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\summary_metrics.csv",
+            "null_count": 1,
+            "reason": "expected structural null: per-target generation_runtime_seconds has n=0 for Task24 PGExplainer because runtime is separated into upfront training, per-target inference, and per-target evaluation.",
+            "total_rows": 13
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\validation_health_seed0.csv",
+            "null_count": 182,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 182
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\validation_health_seed1.csv",
+            "null_count": 182,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 182
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\validation_health_seed2.csv",
+            "null_count": 182,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 182
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\validation_health_seed3.csv",
+            "null_count": 182,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 182
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\validation_health_seed4.csv",
+            "null_count": 182,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 182
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\gcn\\pgexplainer\\validation_health_seed42.csv",
+            "null_count": 182,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 182
+          }
+        ],
+        "primary_rows": 167,
+        "stability_seed_rows": 835
+      },
+      "graphsage": {
+        "coverage": [
+          {
+            "backbone": "GraphSAGE",
+            "duplicates": 0,
+            "expected_targets": 167,
+            "extra": 0,
+            "failed": 0,
+            "missing": 0,
+            "observed_unique_targets": 167,
+            "seed": 42,
+            "success": 167
+          },
+          {
+            "backbone": "GraphSAGE",
+            "duplicates": 0,
+            "expected_targets": 167,
+            "extra": 0,
+            "failed": 0,
+            "missing": 0,
+            "observed_unique_targets": 167,
+            "seed": 0,
+            "success": 167
+          },
+          {
+            "backbone": "GraphSAGE",
+            "duplicates": 0,
+            "expected_targets": 167,
+            "extra": 0,
+            "failed": 0,
+            "missing": 0,
+            "observed_unique_targets": 167,
+            "seed": 1,
+            "success": 167
+          },
+          {
+            "backbone": "GraphSAGE",
+            "duplicates": 0,
+            "expected_targets": 167,
+            "extra": 0,
+            "failed": 0,
+            "missing": 0,
+            "observed_unique_targets": 167,
+            "seed": 2,
+            "success": 167
+          },
+          {
+            "backbone": "GraphSAGE",
+            "duplicates": 0,
+            "expected_targets": 167,
+            "extra": 0,
+            "failed": 0,
+            "missing": 0,
+            "observed_unique_targets": 167,
+            "seed": 3,
+            "success": 167
+          },
+          {
+            "backbone": "GraphSAGE",
+            "duplicates": 0,
+            "expected_targets": 167,
+            "extra": 0,
+            "failed": 0,
+            "missing": 0,
+            "observed_unique_targets": 167,
+            "seed": 4,
+            "success": 167
+          }
+        ],
+        "domain_violations": {},
+        "identity_checks": {
+          "one_minus_fid_minus": {
+            "applicable_rows": 1002,
+            "checked_rows": 1002,
+            "maximum_absolute_error": 0.0,
+            "pass": true,
+            "tolerance": 1e-09,
+            "violation_count": 0
+          },
+          "original_probability_zero_count": 0,
+          "remove_probability_delta": {
+            "applicable_rows": 1002,
+            "checked_rows": 1002,
+            "maximum_absolute_error": 0.0,
+            "pass": true,
+            "tolerance": 1e-09,
+            "violation_count": 0
+          },
+          "retain_probability_delta": {
+            "applicable_rows": 1002,
+            "checked_rows": 1002,
+            "maximum_absolute_error": 0.0,
+            "pass": true,
+            "tolerance": 1e-09,
+            "violation_count": 0
+          },
+          "retain_probability_ratio": {
+            "applicable_rows": 1002,
+            "checked_rows": 1002,
+            "maximum_absolute_error": 0.0,
+            "pass": true,
+            "tolerance": 1e-09,
+            "violation_count": 0
+          },
+          "sparsity": {
+            "applicable_rows": 1002,
+            "checked_rows": 1002,
+            "maximum_absolute_error": 0.0,
+            "pass": true,
+            "tolerance": 1e-09,
+            "violation_count": 0
+          }
+        },
+        "null_audit": [
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "generation_runtime_seconds",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\per_node_metrics.csv",
+            "null_count": 167,
+            "reason": "expected structural null: Task24 PGExplainer separates upfront training, per-target inference, and per-target evaluation; no per-target generation field is applicable.",
+            "total_rows": 167
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\per_node_metrics.csv",
+            "null_count": 167,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 167
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "generation_runtime_seconds",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\stability_seed_metrics.csv",
+            "null_count": 835,
+            "reason": "expected structural null: Task24 PGExplainer separates upfront training, per-target inference, and per-target evaluation; no per-target generation field is applicable.",
+            "total_rows": 835
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\stability_seed_metrics.csv",
+            "null_count": 835,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 835
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\stability_per_node_jaccard.csv",
+            "null_count": 167,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 167
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "mean",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\summary_metrics.csv",
+            "null_count": 1,
+            "reason": "expected structural null: per-target generation_runtime_seconds has n=0 for Task24 PGExplainer because runtime is separated into upfront training, per-target inference, and per-target evaluation.",
+            "total_rows": 13
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "std",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\summary_metrics.csv",
+            "null_count": 1,
+            "reason": "expected structural null: per-target generation_runtime_seconds has n=0 for Task24 PGExplainer because runtime is separated into upfront training, per-target inference, and per-target evaluation.",
+            "total_rows": 13
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "median",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\summary_metrics.csv",
+            "null_count": 1,
+            "reason": "expected structural null: per-target generation_runtime_seconds has n=0 for Task24 PGExplainer because runtime is separated into upfront training, per-target inference, and per-target evaluation.",
+            "total_rows": 13
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "min",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\summary_metrics.csv",
+            "null_count": 1,
+            "reason": "expected structural null: per-target generation_runtime_seconds has n=0 for Task24 PGExplainer because runtime is separated into upfront training, per-target inference, and per-target evaluation.",
+            "total_rows": 13
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "max",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\summary_metrics.csv",
+            "null_count": 1,
+            "reason": "expected structural null: per-target generation_runtime_seconds has n=0 for Task24 PGExplainer because runtime is separated into upfront training, per-target inference, and per-target evaluation.",
+            "total_rows": 13
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\validation_health_seed0.csv",
+            "null_count": 182,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 182
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\validation_health_seed1.csv",
+            "null_count": 182,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 182
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\validation_health_seed2.csv",
+            "null_count": 182,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 182
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\validation_health_seed3.csv",
+            "null_count": 182,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 182
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\validation_health_seed4.csv",
+            "null_count": 182,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 182
+          },
+          {
+            "classification": "EXPECTED_STRUCTURAL_NULL",
+            "column": "error",
+            "file": "results\\metrics\\shapeggen\\graphsage\\pgexplainer\\validation_health_seed42.csv",
+            "null_count": 182,
+            "reason": "expected structural null: success rows have no error message.",
+            "total_rows": 182
+          }
+        ],
+        "primary_rows": 167,
+        "stability_seed_rows": 835
+      }
+    },
+    "stability_audit": {
+      "gcn": {
+        "checkpoint_count": 5,
+        "expected_pair_rows": 1670,
+        "jaccard_distribution": {
+          "max": 1.0,
+          "mean": 0.8272893118090215,
+          "median": 0.8461538461538461,
+          "min": 0.3333333333333333,
+          "n": 1670,
+          "std": 0.12384815406670788
+        },
+        "jaccard_null_count": 0,
+        "node_mean_stability": {
+          "max": 1.0,
+          "mean": 0.8272893118090215,
+          "median": 0.8272727272727273,
+          "min": 0.5802868710237131,
+          "n": 167,
+          "std": 0.0850111782258031
+        },
+        "observed_pair_rows": 1670,
+        "target_count": 167
+      },
+      "graphsage": {
+        "checkpoint_count": 5,
+        "expected_pair_rows": 1670,
+        "jaccard_distribution": {
+          "max": 1.0,
+          "mean": 0.793581094316181,
+          "median": 0.8095238095238095,
+          "min": 0.09090909090909091,
+          "n": 1670,
+          "std": 0.1581431892550031
+        },
+        "jaccard_null_count": 0,
+        "node_mean_stability": {
+          "max": 1.0,
+          "mean": 0.793581094316181,
+          "median": 0.783938037889479,
+          "min": 0.4752813852813853,
+          "n": 167,
+          "std": 0.11849636466058473
+        },
+        "observed_pair_rows": 1670,
+        "target_count": 167
+      }
+    },
+    "summary_recomputation": {
+      "gcn": [
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GCN",
+          "metric": "edge_auroc",
+          "pass": true,
+          "recomputed_value": 0.3851838421498457,
+          "stored_value": 0.3851838421498457
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GCN",
+          "metric": "edge_ap",
+          "pass": true,
+          "recomputed_value": 0.1825448933534098,
+          "stored_value": 0.1825448933534098
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GCN",
+          "metric": "fid_plus",
+          "pass": true,
+          "recomputed_value": 0.041916167664670656,
+          "stored_value": 0.041916167664670656
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GCN",
+          "metric": "fid_minus",
+          "pass": true,
+          "recomputed_value": 0.20359281437125748,
+          "stored_value": 0.20359281437125748
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GCN",
+          "metric": "one_minus_fid_minus",
+          "pass": true,
+          "recomputed_value": 0.7964071856287425,
+          "stored_value": 0.7964071856287425
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GCN",
+          "metric": "sparsity",
+          "pass": true,
+          "recomputed_value": 0.7959276224059845,
+          "stored_value": 0.7959276224059845
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GCN",
+          "metric": "stability",
+          "pass": true,
+          "recomputed_value": 0.8272893118090215,
+          "stored_value": 0.8272893118090215
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GCN",
+          "metric": "training_runtime_seconds",
+          "pass": true,
+          "recomputed_value": 180.96507339999994,
+          "stored_value": 180.96507339999994
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GCN",
+          "metric": "inference_runtime_seconds_mean",
+          "pass": true,
+          "recomputed_value": 0.00709597185628335,
+          "stored_value": 0.00709597185628335
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GCN",
+          "metric": "evaluation_runtime_seconds_mean",
+          "pass": true,
+          "recomputed_value": 0.01437102155688478,
+          "stored_value": 0.01437102155688478
+        }
+      ],
+      "graphsage": [
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GraphSAGE",
+          "metric": "edge_auroc",
+          "pass": true,
+          "recomputed_value": 0.5306413762779716,
+          "stored_value": 0.5306413762779716
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GraphSAGE",
+          "metric": "edge_ap",
+          "pass": true,
+          "recomputed_value": 0.2850202602116743,
+          "stored_value": 0.2850202602116743
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GraphSAGE",
+          "metric": "fid_plus",
+          "pass": true,
+          "recomputed_value": 0.6227544910179641,
+          "stored_value": 0.6227544910179641
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GraphSAGE",
+          "metric": "fid_minus",
+          "pass": true,
+          "recomputed_value": 0.6107784431137725,
+          "stored_value": 0.6107784431137725
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GraphSAGE",
+          "metric": "one_minus_fid_minus",
+          "pass": true,
+          "recomputed_value": 0.38922155688622756,
+          "stored_value": 0.38922155688622756
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GraphSAGE",
+          "metric": "sparsity",
+          "pass": true,
+          "recomputed_value": 0.7959276224059845,
+          "stored_value": 0.7959276224059845
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GraphSAGE",
+          "metric": "stability",
+          "pass": true,
+          "recomputed_value": 0.793581094316181,
+          "stored_value": 0.793581094316181
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GraphSAGE",
+          "metric": "training_runtime_seconds",
+          "pass": true,
+          "recomputed_value": 110.94102299999986,
+          "stored_value": 110.94102299999986
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GraphSAGE",
+          "metric": "inference_runtime_seconds_mean",
+          "pass": true,
+          "recomputed_value": 0.003955912574846463,
+          "stored_value": 0.003955912574846463
+        },
+        {
+          "absolute_difference": 0.0,
+          "backbone": "GraphSAGE",
+          "metric": "evaluation_runtime_seconds_mean",
+          "pass": true,
+          "recomputed_value": 0.008128735329338777,
+          "stored_value": 0.008128735329338777
+        }
+      ],
+      "maximum_aggregate_difference": 0.0
+    },
+    "task25_started": false,
+    "validation": {
+      "git_diff_check": "passed",
+      "pytest": "119 passed, 3 warnings",
+      "ruff": "All checks passed"
+    },
+    "verdict": "PASS"
+  },
   "total_runtime_seconds": 2059.0712887,
   "validation": {
     "git_diff_check": "passed",
