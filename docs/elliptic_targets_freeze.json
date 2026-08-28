@@ -1,0 +1,224 @@
+{
+  "task": "Task26 Elliptic XAI handoff, parity, targets, and PG pools",
+  "created_at_local": "2026-08-28T14:32:01",
+  "no_experiment_rerun": true,
+  "no_final_explanations_run": true,
+  "positive_class_semantics": {
+    "semantic_positive_class": "ILLICIT transaction",
+    "positive_label_index": 1,
+    "licit_label_index": 0,
+    "unknown_label_index": 2
+  },
+  "dataset_semantics": {
+    "train_timesteps": "1-29",
+    "validation_timesteps": "30-39",
+    "test_timesteps": "40-49",
+    "unknown_nodes_remain_in_graph": true,
+    "unknown_nodes_excluded_as_targets": true
+  },
+  "provenance": {
+    "baseline_repo_path": "D:\\CS\\KLTN\\elliptic-gnn-xai",
+    "baseline_remote": "origin\thttps://github.com/DannyPhongcoderso1/elliptic-graphfraud-xai.git (fetch)\norigin\thttps://github.com/DannyPhongcoderso1/elliptic-graphfraud-xai.git (push)",
+    "baseline_commit": "95710a9852019104f90499cdba628c37f4483a2a",
+    "baseline_tags_at_head": "baseline-v1.0",
+    "baseline_status_short": "M README.md",
+    "xai_benchmark_commit": "4434789c3f099dbe75bb3c7456addf0512e183c5",
+    "xai_benchmark_branch": "main",
+    "source_files": {
+      "gcn_checkpoint": {
+        "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\artifacts\\checkpoints\\gcn_baseline.pt",
+        "size_bytes": 220129,
+        "sha256": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07"
+      },
+      "graphsage_checkpoint": {
+        "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\artifacts\\checkpoints\\graphsage_baseline.pt",
+        "size_bytes": 305513,
+        "sha256": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf"
+      },
+      "gcn_training_config": {
+        "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\config\\training_baseline_paper_gcn.yaml",
+        "size_bytes": 732,
+        "sha256": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368"
+      },
+      "graphsage_training_config": {
+        "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\config\\training_baseline_paper_sage.yaml",
+        "size_bytes": 756,
+        "sha256": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a"
+      },
+      "gcn_model_config": {
+        "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\config\\model_gcn.yaml",
+        "size_bytes": 141,
+        "sha256": "50d104a2120b1c23cf46e2df86778bf5fdbb344ec569cacdf854d10f14b0435e"
+      },
+      "graphsage_model_config": {
+        "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\config\\model_sage.yaml",
+        "size_bytes": 142,
+        "sha256": "00d5f066789632f9a7725f29dc972dd64c6cd2299f0f9cc9c3d06981d3d7018a"
+      },
+      "elliptic_processed_data": {
+        "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\datasets\\elliptic\\elliptic_data.pt",
+        "size_bytes": 146676895,
+        "sha256": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b"
+      }
+    }
+  },
+  "model_parity": {
+    "tolerance": 1e-06,
+    "gcn": {
+      "baseline_cached_true": true,
+      "compatible_cached_false": true,
+      "max_abs_logit_diff": 0.0,
+      "mean_abs_logit_diff": 0.0,
+      "prediction_mismatch_count": 0,
+      "prediction_count": 203769,
+      "passes": true
+    },
+    "graphsage": {
+      "wrapper": "same SAGEConv architecture with explicit edge_index input",
+      "max_abs_logit_diff": 0.0,
+      "mean_abs_logit_diff": 0.0,
+      "prediction_mismatch_count": 0,
+      "prediction_count": 203769,
+      "passes": true
+    },
+    "probability_parity": {
+      "gcn_max_abs_probability_diff": 0.0,
+      "graphsage_max_abs_probability_diff": 0.0
+    }
+  },
+  "perturbation_smoke": {
+    "original_edge_count": 468710,
+    "perturbed_edge_count": 445274,
+    "removed_edge_count": 23436,
+    "target_mask": "known-labeled temporal test nodes",
+    "gcn_compatible_cached_false": {
+      "max_abs_test_logit_diff": 114.30775451660156,
+      "mean_abs_test_logit_diff": 0.38554415106773376,
+      "prediction_change_count": 39,
+      "passes": true
+    },
+    "graphsage_wrapper": {
+      "max_abs_test_logit_diff": 58.29523468017578,
+      "mean_abs_test_logit_diff": 0.217808797955513,
+      "prediction_change_count": 11,
+      "passes": true
+    }
+  },
+  "targets": {
+    "selection": {
+      "seed": 42,
+      "final_test_cap": 200,
+      "pg_train_cap": 2000,
+      "pg_val_cap": 500,
+      "rule": "known-labeled temporal split nodes with positive 2-hop candidate-edge count; deterministic seeded sample if count exceeds cap",
+      "no_explanation_result_driven_sampling": true
+    },
+    "counts": {
+      "eligible_train": 26381,
+      "eligible_validation": 8999,
+      "eligible_test": 11184,
+      "final_test": 200,
+      "common_train": 2000,
+      "common_val": 500
+    },
+    "disjointness": {
+      "common_train_common_val": 0,
+      "common_train_final_test": 0,
+      "common_val_final_test": 0
+    },
+    "files": {
+      "final_test": {
+        "path": "configs\\targets\\elliptic_xai_common_test_targets.csv",
+        "count": 200,
+        "sha256": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0"
+      },
+      "gcn_train_eligible": {
+        "path": "configs\\targets\\elliptic_pg_gcn_train_eligible.csv",
+        "count": 26381,
+        "sha256": "bfc68def29d51673f898ff1e67fac65cce615d495e23b8c00ec6a339e3173095"
+      },
+      "gcn_val_eligible": {
+        "path": "configs\\targets\\elliptic_pg_gcn_val_eligible.csv",
+        "count": 8999,
+        "sha256": "460f1624d5889c2261e2dfc44ccd1331c1049ddd9f2c7bad0ee662c51d1f164f"
+      },
+      "graphsage_train_eligible": {
+        "path": "configs\\targets\\elliptic_pg_graphsage_train_eligible.csv",
+        "count": 26381,
+        "sha256": "bfc68def29d51673f898ff1e67fac65cce615d495e23b8c00ec6a339e3173095"
+      },
+      "graphsage_val_eligible": {
+        "path": "configs\\targets\\elliptic_pg_graphsage_val_eligible.csv",
+        "count": 8999,
+        "sha256": "460f1624d5889c2261e2dfc44ccd1331c1049ddd9f2c7bad0ee662c51d1f164f"
+      },
+      "common_train": {
+        "path": "configs\\targets\\elliptic_pg_common_train.csv",
+        "count": 2000,
+        "sha256": "36c2f9b3a81336d304556702b02b6524411f308ee75f2152d79101586f9c1a22"
+      },
+      "common_val": {
+        "path": "configs\\targets\\elliptic_pg_common_val.csv",
+        "count": 500,
+        "sha256": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6"
+      }
+    },
+    "candidate_edge_count_distribution": {
+      "n": 200,
+      "mean": 126.56,
+      "median": 28.0,
+      "min": 4,
+      "max": 1424
+    },
+    "final_label_distribution": {
+      "0": 190,
+      "1": 10
+    },
+    "final_gcn_prediction_distribution": {
+      "0": 196,
+      "1": 4
+    },
+    "final_graphsage_prediction_distribution": {
+      "0": 195,
+      "1": 5
+    }
+  },
+  "metric_protocol": {
+    "edge_auroc": "disabled for Elliptic because there is no GT explanatory edge mask",
+    "edge_ap": "disabled for Elliptic because there is no GT explanatory edge mask",
+    "enabled": [
+      "Fid+",
+      "Fid-",
+      "1-Fid-",
+      "remove_probability_delta",
+      "retain_probability",
+      "retain_probability_delta",
+      "retain_probability_ratio",
+      "Sparsity",
+      "Jaccard Stability",
+      "Runtime",
+      "success/failure rate",
+      "candidate-edge count distribution"
+    ],
+    "selected_edge_ratio": 0.2
+  },
+  "acceptance": {
+    "baseline_cross_repo_provenance_recorded": true,
+    "gcn_cached_false_copy_created_without_retraining": true,
+    "gcn_original_graph_parity_passes": true,
+    "graphsage_original_graph_parity_passes": true,
+    "perturbation_smoke_confirms_edge_changes_reach_message_passing": true,
+    "illicit_positive_class_semantics_frozen": true,
+    "no_edge_auroc_ap_in_elliptic_protocol": true,
+    "common_final_test_targets_frozen_before_xai": true,
+    "per_backbone_pg_eligibility_audited": true,
+    "common_pg_train_derived_prospectively": true,
+    "common_pg_val_derived_prospectively": true,
+    "both_backbones_will_use_identical_pg_train_val_node_ids": true,
+    "train_val_final_disjoint": true,
+    "unknown_labels_excluded_as_targets": true,
+    "target_config_hashes_recorded": true,
+    "no_explanation_result_driven_sampling": true
+  },
+  "stop_boundary": "No final Elliptic explanation may run before review."
+}
