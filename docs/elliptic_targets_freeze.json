@@ -1,224 +1,1708 @@
 {
-  "task": "Task26 Elliptic XAI handoff, parity, targets, and PG pools",
+  "task_id": "TASK26",
+  "status": "PASS",
   "created_at_local": "2026-08-28T14:32:01",
+  "final_audit_updated_at_local": "2026-08-28",
   "no_experiment_rerun": true,
   "no_final_explanations_run": true,
-  "positive_class_semantics": {
+  "task27_authorized": false,
+  "benchmark_repository_provenance": {
+    "path": "D:\\CS\\KLTN\\gnnexplainer-groundtruth-benchmark",
+    "remote": "origin\thttps://github.com/DannyPhongcoderso1/gnnexplainer-groundtruth-benchmark.git (fetch)\norigin\thttps://github.com/DannyPhongcoderso1/gnnexplainer-groundtruth-benchmark.git (push)",
+    "branch": "main",
+    "start_head": "7d1d1980f5411b4807ff868424360a74774c44c2",
+    "start_status_short": "clean",
+    "tags_at_start_head": "",
+    "head": "7d1d1980f5411b4807ff868424360a74774c44c2",
+    "tags_at_head": "",
+    "audit_generation_status_short": "M docs/elliptic_targets_freeze.json\n M tests/test_elliptic_task26_protocol.py\n?? docs/elliptic_task26_final_audit_report.md\n?? scripts/audit_elliptic_task26.py",
+    "upstream_parity": "0\t0"
+  },
+  "baseline_repository_provenance": {
+    "path": "D:\\CS\\KLTN\\elliptic-gnn-xai",
+    "remote": "origin\thttps://github.com/DannyPhongcoderso1/elliptic-graphfraud-xai.git (fetch)\norigin\thttps://github.com/DannyPhongcoderso1/elliptic-graphfraud-xai.git (push)",
+    "branch": "migration/validated-baselines",
+    "head": "95710a9852019104f90499cdba628c37f4483a2a",
+    "tags_at_head": "baseline-v1.0",
+    "status_short": "M README.md",
+    "pre_existing_unrelated_changes": "README.md modified before this audit and not touched",
+    "readme_sha256_current": "802e0c76f69d0778d4161810f3e7509c702d12de64df528c73eaa240ce13e282"
+  },
+  "pre_existing_baseline_dirty_file_note": "README.md modified before this audit and not touched",
+  "dataset_split_hashes_and_semantics": {
+    "source": {
+      "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\datasets\\elliptic\\elliptic_data.pt",
+      "size_bytes": 146676895,
+      "sha256": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b"
+    },
+    "semantics": {
+      "total_nodes": 203769,
+      "total_directed_edge_entries": 468710,
+      "feature_count": 165,
+      "label_counts": {
+        "0": 42019,
+        "1": 4545,
+        "2": 157205
+      },
+      "known_label_count": 46564,
+      "unknown_label_count": 157205,
+      "split_rules": {
+        "train": "time_step < 30 and known label",
+        "validation": "30 <= time_step < 40 and known label",
+        "test": "time_step >= 40 and known label"
+      },
+      "splits": {
+        "train": {
+          "known_label_count": 26381,
+          "timestep_min": 1,
+          "timestep_max": 29,
+          "timestep_distribution": {
+            "1": 2147,
+            "10": 972,
+            "11": 696,
+            "12": 506,
+            "13": 809,
+            "14": 417,
+            "15": 618,
+            "16": 530,
+            "17": 811,
+            "18": 389,
+            "19": 745,
+            "2": 1117,
+            "20": 900,
+            "21": 641,
+            "22": 1763,
+            "23": 1187,
+            "24": 1126,
+            "25": 594,
+            "26": 517,
+            "27": 206,
+            "28": 284,
+            "29": 1174,
+            "3": 1279,
+            "4": 1440,
+            "5": 1882,
+            "6": 485,
+            "7": 1203,
+            "8": 1165,
+            "9": 778
+          },
+          "label_distribution": {
+            "0": 23510,
+            "1": 2871
+          }
+        },
+        "validation": {
+          "known_label_count": 8999,
+          "timestep_min": 30,
+          "timestep_max": 39,
+          "timestep_distribution": {
+            "30": 524,
+            "31": 710,
+            "32": 1323,
+            "33": 441,
+            "34": 515,
+            "35": 1341,
+            "36": 1708,
+            "37": 498,
+            "38": 756,
+            "39": 1183
+          },
+          "label_distribution": {
+            "0": 7961,
+            "1": 1038
+          }
+        },
+        "test": {
+          "known_label_count": 11184,
+          "timestep_min": 40,
+          "timestep_max": 49,
+          "timestep_distribution": {
+            "40": 1211,
+            "41": 1132,
+            "42": 2154,
+            "43": 1370,
+            "44": 1591,
+            "45": 1221,
+            "46": 712,
+            "47": 846,
+            "48": 471,
+            "49": 476
+          },
+          "label_distribution": {
+            "0": 10548,
+            "1": 636
+          }
+        }
+      },
+      "temporal_semantics_pass": true,
+      "unknown_nodes_remain_in_graph": true,
+      "unknown_labels_excluded_as_targets": true,
+      "unknown_neighbors_may_remain_in_computation_subgraphs": true,
+      "numeric_label_mapping": {
+        "0": "licit",
+        "1": "illicit",
+        "2": "unknown"
+      },
+      "positive_semantic_class": "ILLICIT transaction",
+      "positive_numeric_label_index": 1,
+      "split_table": {
+        "train": {
+          "rule": "time_step < 30 and known label",
+          "known_label_count": 26381,
+          "timestep_min": 1,
+          "timestep_max": 29,
+          "timestep_distribution": {
+            "1": 2147,
+            "10": 972,
+            "11": 696,
+            "12": 506,
+            "13": 809,
+            "14": 417,
+            "15": 618,
+            "16": 530,
+            "17": 811,
+            "18": 389,
+            "19": 745,
+            "2": 1117,
+            "20": 900,
+            "21": 641,
+            "22": 1763,
+            "23": 1187,
+            "24": 1126,
+            "25": 594,
+            "26": 517,
+            "27": 206,
+            "28": 284,
+            "29": 1174,
+            "3": 1279,
+            "4": 1440,
+            "5": 1882,
+            "6": 485,
+            "7": 1203,
+            "8": 1165,
+            "9": 778
+          },
+          "label_distribution": {
+            "0": 23510,
+            "1": 2871
+          }
+        },
+        "validation": {
+          "rule": "30 <= time_step < 40 and known label",
+          "known_label_count": 8999,
+          "timestep_min": 30,
+          "timestep_max": 39,
+          "timestep_distribution": {
+            "30": 524,
+            "31": 710,
+            "32": 1323,
+            "33": 441,
+            "34": 515,
+            "35": 1341,
+            "36": 1708,
+            "37": 498,
+            "38": 756,
+            "39": 1183
+          },
+          "label_distribution": {
+            "0": 7961,
+            "1": 1038
+          }
+        },
+        "test": {
+          "rule": "time_step >= 40 and known label",
+          "known_label_count": 11184,
+          "timestep_min": 40,
+          "timestep_max": 49,
+          "timestep_distribution": {
+            "40": 1211,
+            "41": 1132,
+            "42": 2154,
+            "43": 1370,
+            "44": 1591,
+            "45": 1221,
+            "46": 712,
+            "47": 846,
+            "48": 471,
+            "49": 476
+          },
+          "label_distribution": {
+            "0": 10548,
+            "1": 636
+          }
+        }
+      }
+    }
+  },
+  "checkpoint_config_wrapper_hashes": {
+    "processed_elliptic_data": {
+      "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\datasets\\elliptic\\elliptic_data.pt",
+      "size_bytes": 146676895,
+      "sha256": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b"
+    },
+    "gcn_checkpoint": {
+      "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\artifacts\\checkpoints\\gcn_baseline.pt",
+      "size_bytes": 220129,
+      "sha256": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07"
+    },
+    "graphsage_checkpoint": {
+      "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\artifacts\\checkpoints\\graphsage_baseline.pt",
+      "size_bytes": 305513,
+      "sha256": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf"
+    },
+    "gcn_training_config": {
+      "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\config\\training_baseline_paper_gcn.yaml",
+      "size_bytes": 732,
+      "sha256": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368"
+    },
+    "graphsage_training_config": {
+      "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\config\\training_baseline_paper_sage.yaml",
+      "size_bytes": 756,
+      "sha256": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a"
+    },
+    "gcn_model_config": {
+      "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\config\\model_gcn.yaml",
+      "size_bytes": 141,
+      "sha256": "50d104a2120b1c23cf46e2df86778bf5fdbb344ec569cacdf854d10f14b0435e"
+    },
+    "graphsage_model_config": {
+      "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\config\\model_sage.yaml",
+      "size_bytes": 142,
+      "sha256": "00d5f066789632f9a7725f29dc972dd64c6cd2299f0f9cc9c3d06981d3d7018a"
+    },
+    "baseline_dataset_loader": {
+      "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\data\\dataset.py",
+      "size_bytes": 7839,
+      "sha256": "4e3ea9c4169e9c452fdf8a2284756d751602c845e68ff52d87cda9d559b04481"
+    },
+    "task26_wrapper_script": {
+      "path": "D:\\CS\\KLTN\\gnnexplainer-groundtruth-benchmark\\scripts\\prepare_elliptic_task26.py",
+      "size_bytes": 29653,
+      "sha256": "b4971537181e14d0ef91aa0e5e0425aabf74e24a5b3e12bb924fc1c88fe2f1ac"
+    },
+    "task26_test": {
+      "path": "D:\\CS\\KLTN\\gnnexplainer-groundtruth-benchmark\\tests\\test_elliptic_task26_protocol.py",
+      "size_bytes": 5331,
+      "sha256": "8bab2c44303f607e261adc4f8d07bc02e8eac6dcea21d988c22487194f52fcda"
+    }
+  },
+  "parity_tolerances_and_results": {
+    "atol": 1e-06,
+    "rtol": 0.0,
+    "gcn": {
+      "model_path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\model\\GCN.py",
+      "checkpoint_path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\artifacts\\checkpoints\\gcn_baseline.pt",
+      "checkpoint_sha256": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07",
+      "state_dict_hash": {
+        "sha256": "1cc4b62e23512296118fb2ffef3629e0d7d09da42b6ba0f1d4e7b5740b697bb1",
+        "parameter_keys": [
+          "convs.0.bias",
+          "convs.0.lin.weight",
+          "convs.1.bias",
+          "convs.1.lin.weight",
+          "out.bias",
+          "out.weight"
+        ],
+        "parameter_count": 54288
+      },
+      "baseline_cached_true": true,
+      "compatible_cached_false": true,
+      "eval_mode": true,
+      "same_original_graph_inputs": true,
+      "node_count_checked": 203769,
+      "logit_shape": [
+        203769,
+        2
+      ],
+      "probability_shape": [
+        203769,
+        2
+      ],
+      "max_abs_logit_difference": 0.0,
+      "mean_abs_logit_difference": 0.0,
+      "max_abs_probability_difference": 0.0,
+      "prediction_mismatch_count": 0,
+      "prediction_parity_rate": 1.0,
+      "pass": true
+    },
+    "graphsage": {
+      "model_path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\model\\SAGE.py",
+      "checkpoint_path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\artifacts\\checkpoints\\graphsage_baseline.pt",
+      "checkpoint_sha256": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf",
+      "state_dict_hash": {
+        "sha256": "ef398bc1b2fb1da61621fb1687b80bb441814ffc85d62ae50860172efa1e63cd",
+        "parameter_keys": [
+          "convs.0.lin_l.bias",
+          "convs.0.lin_l.weight",
+          "convs.0.lin_r.weight",
+          "convs.1.lin_l.bias",
+          "convs.1.lin_l.weight",
+          "convs.1.lin_r.weight",
+          "out.bias",
+          "out.weight"
+        ],
+        "parameter_count": 75491
+      },
+      "wrapper": "same SAGEConv architecture with explicit edge_index input",
+      "eval_mode": true,
+      "same_original_graph_inputs": true,
+      "node_count_checked": 203769,
+      "logit_shape": [
+        203769,
+        2
+      ],
+      "probability_shape": [
+        203769,
+        2
+      ],
+      "max_abs_logit_difference": 0.0,
+      "mean_abs_logit_difference": 0.0,
+      "max_abs_probability_difference": 0.0,
+      "prediction_mismatch_count": 0,
+      "prediction_parity_rate": 1.0,
+      "pass": true
+    }
+  },
+  "perturbation_smoke_evidence": {
+    "smoke_node_id": 157422,
+    "target_true_label": 0,
+    "candidate_edge_count": 12,
+    "selected_edge_count": 3,
+    "selected_edge_ratio": 0.2,
+    "original_graph_edge_count": 468710,
+    "remove_graph_edge_count": 468707,
+    "retain_graph_edge_count": 3,
+    "edge_input_hash_before": "5a97ef566847d206cd72a4a2bc0c914e744440056524f3e8ff5a09a0759c93bd",
+    "edge_input_hash_after_remove": "35ce5e916e38b70038112aa2c78381d5b6027a13d18713f6d4470e4b49c1c6ea",
+    "edge_input_hash_after_retain": "cf4210fdfc71efbcbc52ac5956a4929e46e5495e0dbceff54a0ceabdbf981297",
+    "message_passing_layers_receiving_perturbed_edge_input": [
+      "GCNConv(cached=False)",
+      "SAGEConv"
+    ],
+    "pass_rule": "edge tensor changes, changed edge tensor is supplied to message passing, and cached adjacency is not used for GCN compatible model",
+    "gcn": {
+      "target_original_predicted_class": 0,
+      "original_probability_of_original_predicted_class": 0.9997366070747375,
+      "remove_probability_of_original_predicted_class": 0.99997878074646,
+      "retain_probability_of_original_predicted_class": 1.0,
+      "max_logit_change": 4.762311935424805,
+      "max_probability_change": 0.00026339292526245117,
+      "prediction_original": 0,
+      "prediction_remove": 0,
+      "prediction_retain": 0,
+      "pass": true,
+      "pass_reason": "perturbed edge_index changed model output; prediction flip is not required"
+    },
+    "graphsage": {
+      "target_original_predicted_class": 0,
+      "original_probability_of_original_predicted_class": 0.9999839067459106,
+      "remove_probability_of_original_predicted_class": 0.9999940395355225,
+      "retain_probability_of_original_predicted_class": 0.9999356269836426,
+      "max_logit_change": 0.8449053764343262,
+      "max_probability_change": 4.8279762268066406e-05,
+      "prediction_original": 0,
+      "prediction_remove": 0,
+      "prediction_retain": 0,
+      "pass": true,
+      "pass_reason": "perturbed edge_index changed model output; prediction flip is not required"
+    }
+  },
+  "positive_class_semantic_numeric_mapping": {
     "semantic_positive_class": "ILLICIT transaction",
     "positive_label_index": 1,
     "licit_label_index": 0,
     "unknown_label_index": 2
   },
-  "dataset_semantics": {
-    "train_timesteps": "1-29",
-    "validation_timesteps": "30-39",
-    "test_timesteps": "40-49",
+  "per_backbone_eligibility_files_counts_hashes": {
+    "gcn_train_eligible": {
+      "path": "configs\\targets\\elliptic_pg_gcn_train_eligible.csv",
+      "tracked_status": "tracked",
+      "ignored_status": "not ignored",
+      "size_bytes": 1927240,
+      "sha256": "bfc68def29d51673f898ff1e67fac65cce615d495e23b8c00ec6a339e3173095",
+      "row_count": 26381,
+      "unique_node_count": 26381,
+      "duplicate_node_count": 0,
+      "column_count": 13,
+      "columns": [
+        "node_id",
+        "time_step",
+        "label",
+        "label_semantics",
+        "split",
+        "gcn_prediction",
+        "gcn_confidence",
+        "graphsage_prediction",
+        "graphsage_confidence",
+        "candidate_edge_count",
+        "candidate_mapping_valid",
+        "positive_semantic_class",
+        "positive_label_index"
+      ],
+      "required_null_count": 0,
+      "nan_inf_count": 0,
+      "known_label_count": 26381,
+      "unknown_label_count": 0,
+      "label_distribution": {
+        "0": 23510,
+        "1": 2871
+      },
+      "prediction_distribution": {
+        "gcn": {
+          "0": 23590,
+          "1": 2791
+        },
+        "graphsage": {
+          "0": 23561,
+          "1": 2820
+        }
+      },
+      "timestep_min": 1,
+      "timestep_max": 29,
+      "timestep_distribution": {
+        "1": 2147,
+        "10": 972,
+        "11": 696,
+        "12": 506,
+        "13": 809,
+        "14": 417,
+        "15": 618,
+        "16": 530,
+        "17": 811,
+        "18": 389,
+        "19": 745,
+        "2": 1117,
+        "20": 900,
+        "21": 641,
+        "22": 1763,
+        "23": 1187,
+        "24": 1126,
+        "25": 594,
+        "26": 517,
+        "27": 206,
+        "28": 284,
+        "29": 1174,
+        "3": 1279,
+        "4": 1440,
+        "5": 1882,
+        "6": 485,
+        "7": 1203,
+        "8": 1165,
+        "9": 778
+      },
+      "candidate_edge_count_distribution": {
+        "n": 26381,
+        "mean": 66.64319017474698,
+        "std": 172.6308349953813,
+        "median": 14.0,
+        "min": 4,
+        "max": 2878
+      },
+      "candidate_mapping_valid": true,
+      "split_valid": true,
+      "known_label_valid": true,
+      "reproduction_command": "python scripts/prepare_elliptic_task26.py"
+    },
+    "gcn_val_eligible": {
+      "path": "configs\\targets\\elliptic_pg_gcn_val_eligible.csv",
+      "tracked_status": "tracked",
+      "ignored_status": "not ignored",
+      "size_bytes": 743495,
+      "sha256": "460f1624d5889c2261e2dfc44ccd1331c1049ddd9f2c7bad0ee662c51d1f164f",
+      "row_count": 8999,
+      "unique_node_count": 8999,
+      "duplicate_node_count": 0,
+      "column_count": 13,
+      "columns": [
+        "node_id",
+        "time_step",
+        "label",
+        "label_semantics",
+        "split",
+        "gcn_prediction",
+        "gcn_confidence",
+        "graphsage_prediction",
+        "graphsage_confidence",
+        "candidate_edge_count",
+        "candidate_mapping_valid",
+        "positive_semantic_class",
+        "positive_label_index"
+      ],
+      "required_null_count": 0,
+      "nan_inf_count": 0,
+      "known_label_count": 8999,
+      "unknown_label_count": 0,
+      "label_distribution": {
+        "0": 7961,
+        "1": 1038
+      },
+      "prediction_distribution": {
+        "gcn": {
+          "0": 7992,
+          "1": 1007
+        },
+        "graphsage": {
+          "0": 7974,
+          "1": 1025
+        }
+      },
+      "timestep_min": 30,
+      "timestep_max": 39,
+      "timestep_distribution": {
+        "30": 524,
+        "31": 710,
+        "32": 1323,
+        "33": 441,
+        "34": 515,
+        "35": 1341,
+        "36": 1708,
+        "37": 498,
+        "38": 756,
+        "39": 1183
+      },
+      "candidate_edge_count_distribution": {
+        "n": 8999,
+        "mean": 65.36792976997444,
+        "std": 103.78097838771737,
+        "median": 18.0,
+        "min": 4,
+        "max": 1110
+      },
+      "candidate_mapping_valid": true,
+      "split_valid": true,
+      "known_label_valid": true,
+      "reproduction_command": "python scripts/prepare_elliptic_task26.py"
+    },
+    "graphsage_train_eligible": {
+      "path": "configs\\targets\\elliptic_pg_graphsage_train_eligible.csv",
+      "tracked_status": "tracked",
+      "ignored_status": "not ignored",
+      "size_bytes": 1927240,
+      "sha256": "bfc68def29d51673f898ff1e67fac65cce615d495e23b8c00ec6a339e3173095",
+      "row_count": 26381,
+      "unique_node_count": 26381,
+      "duplicate_node_count": 0,
+      "column_count": 13,
+      "columns": [
+        "node_id",
+        "time_step",
+        "label",
+        "label_semantics",
+        "split",
+        "gcn_prediction",
+        "gcn_confidence",
+        "graphsage_prediction",
+        "graphsage_confidence",
+        "candidate_edge_count",
+        "candidate_mapping_valid",
+        "positive_semantic_class",
+        "positive_label_index"
+      ],
+      "required_null_count": 0,
+      "nan_inf_count": 0,
+      "known_label_count": 26381,
+      "unknown_label_count": 0,
+      "label_distribution": {
+        "0": 23510,
+        "1": 2871
+      },
+      "prediction_distribution": {
+        "gcn": {
+          "0": 23590,
+          "1": 2791
+        },
+        "graphsage": {
+          "0": 23561,
+          "1": 2820
+        }
+      },
+      "timestep_min": 1,
+      "timestep_max": 29,
+      "timestep_distribution": {
+        "1": 2147,
+        "10": 972,
+        "11": 696,
+        "12": 506,
+        "13": 809,
+        "14": 417,
+        "15": 618,
+        "16": 530,
+        "17": 811,
+        "18": 389,
+        "19": 745,
+        "2": 1117,
+        "20": 900,
+        "21": 641,
+        "22": 1763,
+        "23": 1187,
+        "24": 1126,
+        "25": 594,
+        "26": 517,
+        "27": 206,
+        "28": 284,
+        "29": 1174,
+        "3": 1279,
+        "4": 1440,
+        "5": 1882,
+        "6": 485,
+        "7": 1203,
+        "8": 1165,
+        "9": 778
+      },
+      "candidate_edge_count_distribution": {
+        "n": 26381,
+        "mean": 66.64319017474698,
+        "std": 172.6308349953813,
+        "median": 14.0,
+        "min": 4,
+        "max": 2878
+      },
+      "candidate_mapping_valid": true,
+      "split_valid": true,
+      "known_label_valid": true,
+      "reproduction_command": "python scripts/prepare_elliptic_task26.py"
+    },
+    "graphsage_val_eligible": {
+      "path": "configs\\targets\\elliptic_pg_graphsage_val_eligible.csv",
+      "tracked_status": "tracked",
+      "ignored_status": "not ignored",
+      "size_bytes": 743495,
+      "sha256": "460f1624d5889c2261e2dfc44ccd1331c1049ddd9f2c7bad0ee662c51d1f164f",
+      "row_count": 8999,
+      "unique_node_count": 8999,
+      "duplicate_node_count": 0,
+      "column_count": 13,
+      "columns": [
+        "node_id",
+        "time_step",
+        "label",
+        "label_semantics",
+        "split",
+        "gcn_prediction",
+        "gcn_confidence",
+        "graphsage_prediction",
+        "graphsage_confidence",
+        "candidate_edge_count",
+        "candidate_mapping_valid",
+        "positive_semantic_class",
+        "positive_label_index"
+      ],
+      "required_null_count": 0,
+      "nan_inf_count": 0,
+      "known_label_count": 8999,
+      "unknown_label_count": 0,
+      "label_distribution": {
+        "0": 7961,
+        "1": 1038
+      },
+      "prediction_distribution": {
+        "gcn": {
+          "0": 7992,
+          "1": 1007
+        },
+        "graphsage": {
+          "0": 7974,
+          "1": 1025
+        }
+      },
+      "timestep_min": 30,
+      "timestep_max": 39,
+      "timestep_distribution": {
+        "30": 524,
+        "31": 710,
+        "32": 1323,
+        "33": 441,
+        "34": 515,
+        "35": 1341,
+        "36": 1708,
+        "37": 498,
+        "38": 756,
+        "39": 1183
+      },
+      "candidate_edge_count_distribution": {
+        "n": 8999,
+        "mean": 65.36792976997444,
+        "std": 103.78097838771737,
+        "median": 18.0,
+        "min": 4,
+        "max": 1110
+      },
+      "candidate_mapping_valid": true,
+      "split_valid": true,
+      "known_label_valid": true,
+      "reproduction_command": "python scripts/prepare_elliptic_task26.py"
+    }
+  },
+  "common_intersection_counts": {
+    "gcn_train": 26381,
+    "graphsage_train": 26381,
+    "common_train_intersection": 26381,
+    "gcn_validation": 8999,
+    "graphsage_validation": 8999,
+    "common_validation_intersection": 8999,
+    "gcn_test": 11184,
+    "graphsage_test": 11184,
+    "common_test_intersection": 11184
+  },
+  "final_target_rule_seed_count_hash_distributions": {
+    "rule": "known-labeled temporal split nodes with positive 2-hop candidate-edge count; deterministic seeded sample if count exceeds cap",
+    "seed": 42,
+    "count": 200,
+    "hash": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0",
+    "audit": {
+      "path": "configs\\targets\\elliptic_xai_common_test_targets.csv",
+      "tracked_status": "tracked",
+      "ignored_status": "not ignored",
+      "size_bytes": 15546,
+      "sha256": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0",
+      "row_count": 200,
+      "unique_node_count": 200,
+      "duplicate_node_count": 0,
+      "column_count": 13,
+      "columns": [
+        "node_id",
+        "time_step",
+        "label",
+        "label_semantics",
+        "split",
+        "gcn_prediction",
+        "gcn_confidence",
+        "graphsage_prediction",
+        "graphsage_confidence",
+        "candidate_edge_count",
+        "candidate_mapping_valid",
+        "positive_semantic_class",
+        "positive_label_index"
+      ],
+      "required_null_count": 0,
+      "nan_inf_count": 0,
+      "known_label_count": 200,
+      "unknown_label_count": 0,
+      "label_distribution": {
+        "0": 190,
+        "1": 10
+      },
+      "prediction_distribution": {
+        "gcn": {
+          "0": 196,
+          "1": 4
+        },
+        "graphsage": {
+          "0": 195,
+          "1": 5
+        }
+      },
+      "timestep_min": 40,
+      "timestep_max": 49,
+      "timestep_distribution": {
+        "40": 23,
+        "41": 16,
+        "42": 40,
+        "43": 26,
+        "44": 32,
+        "45": 23,
+        "46": 10,
+        "47": 17,
+        "48": 7,
+        "49": 6
+      },
+      "candidate_edge_count_distribution": {
+        "n": 200,
+        "mean": 126.56,
+        "std": 240.36773161137916,
+        "median": 27.0,
+        "min": 4,
+        "max": 1424
+      },
+      "candidate_mapping_valid": true,
+      "split_valid": true,
+      "known_label_valid": true,
+      "reproduction_command": "python scripts/prepare_elliptic_task26.py"
+    },
+    "confusion": {
+      "gcn": {
+        "tp": 4,
+        "fp": 0,
+        "tn": 190,
+        "fn": 6,
+        "correct": 194,
+        "incorrect": 6
+      },
+      "graphsage": {
+        "tp": 5,
+        "fp": 0,
+        "tn": 190,
+        "fn": 5,
+        "correct": 195,
+        "incorrect": 5
+      }
+    }
+  },
+  "pg_common_train_rule_seed_count_hash_distributions": {
+    "rule": "deterministic seeded sample from COMMON_PG_TRAIN eligibility intersection capped by pre-final compute budget",
+    "seed": 42,
+    "count": 2000,
+    "hash": "36c2f9b3a81336d304556702b02b6524411f308ee75f2152d79101586f9c1a22",
+    "audit": {
+      "path": "configs\\targets\\elliptic_pg_common_train.csv",
+      "tracked_status": "tracked",
+      "ignored_status": "not ignored",
+      "size_bytes": 146243,
+      "sha256": "36c2f9b3a81336d304556702b02b6524411f308ee75f2152d79101586f9c1a22",
+      "row_count": 2000,
+      "unique_node_count": 2000,
+      "duplicate_node_count": 0,
+      "column_count": 13,
+      "columns": [
+        "node_id",
+        "time_step",
+        "label",
+        "label_semantics",
+        "split",
+        "gcn_prediction",
+        "gcn_confidence",
+        "graphsage_prediction",
+        "graphsage_confidence",
+        "candidate_edge_count",
+        "candidate_mapping_valid",
+        "positive_semantic_class",
+        "positive_label_index"
+      ],
+      "required_null_count": 0,
+      "nan_inf_count": 0,
+      "known_label_count": 2000,
+      "unknown_label_count": 0,
+      "label_distribution": {
+        "0": 1773,
+        "1": 227
+      },
+      "prediction_distribution": {
+        "gcn": {
+          "0": 1779,
+          "1": 221
+        },
+        "graphsage": {
+          "0": 1780,
+          "1": 220
+        }
+      },
+      "timestep_min": 1,
+      "timestep_max": 29,
+      "timestep_distribution": {
+        "1": 175,
+        "10": 59,
+        "11": 55,
+        "12": 33,
+        "13": 54,
+        "14": 26,
+        "15": 53,
+        "16": 41,
+        "17": 60,
+        "18": 24,
+        "19": 63,
+        "2": 90,
+        "20": 63,
+        "21": 37,
+        "22": 116,
+        "23": 99,
+        "24": 80,
+        "25": 45,
+        "26": 37,
+        "27": 23,
+        "28": 24,
+        "29": 89,
+        "3": 114,
+        "4": 112,
+        "5": 144,
+        "6": 35,
+        "7": 101,
+        "8": 81,
+        "9": 67
+      },
+      "candidate_edge_count_distribution": {
+        "n": 2000,
+        "mean": 62.884,
+        "std": 153.73722562866809,
+        "median": 14.0,
+        "min": 4,
+        "max": 1234
+      },
+      "candidate_mapping_valid": true,
+      "split_valid": true,
+      "known_label_valid": true,
+      "reproduction_command": "python scripts/prepare_elliptic_task26.py"
+    }
+  },
+  "pg_common_val_rule_seed_count_hash_distributions": {
+    "rule": "deterministic seeded sample from COMMON_PG_VAL eligibility intersection capped by pre-final compute budget",
+    "seed": 42,
+    "count": 500,
+    "hash": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6",
+    "audit": {
+      "path": "configs\\targets\\elliptic_pg_common_val.csv",
+      "tracked_status": "tracked",
+      "ignored_status": "not ignored",
+      "size_bytes": 41642,
+      "sha256": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6",
+      "row_count": 500,
+      "unique_node_count": 500,
+      "duplicate_node_count": 0,
+      "column_count": 13,
+      "columns": [
+        "node_id",
+        "time_step",
+        "label",
+        "label_semantics",
+        "split",
+        "gcn_prediction",
+        "gcn_confidence",
+        "graphsage_prediction",
+        "graphsage_confidence",
+        "candidate_edge_count",
+        "candidate_mapping_valid",
+        "positive_semantic_class",
+        "positive_label_index"
+      ],
+      "required_null_count": 0,
+      "nan_inf_count": 0,
+      "known_label_count": 500,
+      "unknown_label_count": 0,
+      "label_distribution": {
+        "0": 449,
+        "1": 51
+      },
+      "prediction_distribution": {
+        "gcn": {
+          "0": 451,
+          "1": 49
+        },
+        "graphsage": {
+          "0": 451,
+          "1": 49
+        }
+      },
+      "timestep_min": 30,
+      "timestep_max": 39,
+      "timestep_distribution": {
+        "30": 23,
+        "31": 40,
+        "32": 79,
+        "33": 27,
+        "34": 29,
+        "35": 86,
+        "36": 91,
+        "37": 23,
+        "38": 47,
+        "39": 55
+      },
+      "candidate_edge_count_distribution": {
+        "n": 500,
+        "mean": 66.076,
+        "std": 109.30274572946463,
+        "median": 18.0,
+        "min": 4,
+        "max": 980
+      },
+      "candidate_mapping_valid": true,
+      "split_valid": true,
+      "known_label_valid": true,
+      "reproduction_command": "python scripts/prepare_elliptic_task26.py"
+    }
+  },
+  "set_intersection_audit": {
+    "common_train_common_val": 0,
+    "common_train_final_test": 0,
+    "common_val_final_test": 0
+  },
+  "unknown_label_policy": {
     "unknown_nodes_remain_in_graph": true,
-    "unknown_nodes_excluded_as_targets": true
+    "unknown_label_nodes_excluded_as_targets": true,
+    "unknown_neighbors_may_remain_in_computation_subgraphs": true
   },
-  "provenance": {
-    "baseline_repo_path": "D:\\CS\\KLTN\\elliptic-gnn-xai",
-    "baseline_remote": "origin\thttps://github.com/DannyPhongcoderso1/elliptic-graphfraud-xai.git (fetch)\norigin\thttps://github.com/DannyPhongcoderso1/elliptic-graphfraud-xai.git (push)",
-    "baseline_commit": "95710a9852019104f90499cdba628c37f4483a2a",
-    "baseline_tags_at_head": "baseline-v1.0",
-    "baseline_status_short": "M README.md",
-    "xai_benchmark_commit": "4434789c3f099dbe75bb3c7456addf0512e183c5",
-    "xai_benchmark_branch": "main",
-    "source_files": {
-      "gcn_checkpoint": {
-        "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\artifacts\\checkpoints\\gcn_baseline.pt",
-        "size_bytes": 220129,
-        "sha256": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07"
+  "metric_formulas": {
+    "probability_reference_class": "original predicted class",
+    "fid_plus": "1 when removing selected edges changes the original prediction, else 0",
+    "fid_minus": "1 when retaining only selected edges changes the original prediction, else 0",
+    "one_minus_fid_minus": "1 - Fid-",
+    "remove_probability_delta": "original_probability - remove_probability",
+    "retain_probability": "probability of the original predicted class on the retain-only graph",
+    "retain_probability_delta": "original_probability - retain_probability",
+    "retain_probability_ratio": "retain_probability / original_probability; null and flag row if original_probability == 0 because no epsilon/clipping is frozen",
+    "selected_edge_ratio": 0.2,
+    "selected_edge_count": "max(1, ceil(candidate_edge_count * 0.20))",
+    "sparsity": "1 - selected_edge_count / candidate_edge_count",
+    "runtime_boundaries": {
+      "GNNExplainer": "per-instance optimization/generation",
+      "PGExplainer_training": "upfront training",
+      "PGExplainer_inference": "per-target inference",
+      "metric_evaluation": "metric evaluation",
+      "Random": "random selection/evaluation"
+    },
+    "stability_sources": {
+      "GNNExplainer": "independent per-instance optimization runs",
+      "PGExplainer": "independently trained checkpoints",
+      "Random": "repeated random selections"
+    },
+    "disabled_explanation_metrics": [
+      "Edge AUROC",
+      "Edge AP"
+    ]
+  },
+  "selected_edge_protocol": {
+    "selected_edge_ratio": 0.2,
+    "selected_edge_count": "max(1, ceil(candidate_edge_count * 0.20))"
+  },
+  "runtime_boundaries": {
+    "GNNExplainer": "per-instance optimization/generation",
+    "PGExplainer_training": "upfront training",
+    "PGExplainer_inference": "per-target inference",
+    "metric_evaluation": "metric evaluation",
+    "Random": "random selection/evaluation"
+  },
+  "stability_sources": {
+    "GNNExplainer": "independent per-instance optimization runs",
+    "PGExplainer": "independently trained checkpoints",
+    "Random": "repeated random selections"
+  },
+  "explicit_disabled_explanation_metrics": [
+    "Edge AUROC",
+    "Edge AP"
+  ],
+  "artifact_inventory": {
+    "docs/elliptic_xai_handoff_provenance.md": {
+      "path": "D:\\CS\\KLTN\\gnnexplainer-groundtruth-benchmark\\docs\\elliptic_xai_handoff_provenance.md",
+      "size_bytes": 1890,
+      "sha256": "451aff2423caaf397c345fa3e0fcb5017e7a850bad3be8dec7e9af53c3422048",
+      "role": "cross-repository provenance"
+    },
+    "docs/elliptic_xai_protocol.md": {
+      "path": "D:\\CS\\KLTN\\gnnexplainer-groundtruth-benchmark\\docs\\elliptic_xai_protocol.md",
+      "size_bytes": 1905,
+      "sha256": "9d9274b26fd5dcbd5a0e305729f6c2531959a54d93214b93e1a1e2678c61190c",
+      "role": "Elliptic XAI metric and target protocol"
+    },
+    "docs/elliptic_model_parity_report.md": {
+      "path": "D:\\CS\\KLTN\\gnnexplainer-groundtruth-benchmark\\docs\\elliptic_model_parity_report.md",
+      "size_bytes": 1401,
+      "sha256": "2f46f7b3c3f1f7678b622bf36c3681d2a77f92b548083c88511832cf2be8d859",
+      "role": "model parity and perturbation smoke report"
+    },
+    "scripts/prepare_elliptic_task26.py": {
+      "path": "D:\\CS\\KLTN\\gnnexplainer-groundtruth-benchmark\\scripts\\prepare_elliptic_task26.py",
+      "size_bytes": 29653,
+      "sha256": "b4971537181e14d0ef91aa0e5e0425aabf74e24a5b3e12bb924fc1c88fe2f1ac",
+      "role": "Task26 target/provenance preparation script"
+    },
+    "scripts/audit_elliptic_task26.py": {
+      "path": "D:\\CS\\KLTN\\gnnexplainer-groundtruth-benchmark\\scripts\\audit_elliptic_task26.py",
+      "size_bytes": 44924,
+      "sha256": "a20e65fbcb3e4718d0f519cd5a74427cd0688075e6ffcba0b4c416a1b96686b4",
+      "role": "Task26 final deterministic audit script"
+    },
+    "tests/test_elliptic_task26_protocol.py": {
+      "path": "D:\\CS\\KLTN\\gnnexplainer-groundtruth-benchmark\\tests\\test_elliptic_task26_protocol.py",
+      "size_bytes": 5331,
+      "sha256": "8bab2c44303f607e261adc4f8d07bc02e8eac6dcea21d988c22487194f52fcda",
+      "role": "Task26 protocol regression tests"
+    },
+    "configs\\targets\\elliptic_xai_common_test_targets.csv": {
+      "path": "configs\\targets\\elliptic_xai_common_test_targets.csv",
+      "tracked_status": "tracked",
+      "ignored_status": "not ignored",
+      "size_bytes": 15546,
+      "sha256": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0",
+      "row_count": 200,
+      "unique_node_count": 200,
+      "duplicate_node_count": 0,
+      "column_count": 13,
+      "columns": [
+        "node_id",
+        "time_step",
+        "label",
+        "label_semantics",
+        "split",
+        "gcn_prediction",
+        "gcn_confidence",
+        "graphsage_prediction",
+        "graphsage_confidence",
+        "candidate_edge_count",
+        "candidate_mapping_valid",
+        "positive_semantic_class",
+        "positive_label_index"
+      ],
+      "required_null_count": 0,
+      "nan_inf_count": 0,
+      "known_label_count": 200,
+      "unknown_label_count": 0,
+      "label_distribution": {
+        "0": 190,
+        "1": 10
       },
-      "graphsage_checkpoint": {
-        "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\artifacts\\checkpoints\\graphsage_baseline.pt",
-        "size_bytes": 305513,
-        "sha256": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf"
+      "prediction_distribution": {
+        "gcn": {
+          "0": 196,
+          "1": 4
+        },
+        "graphsage": {
+          "0": 195,
+          "1": 5
+        }
       },
-      "gcn_training_config": {
-        "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\config\\training_baseline_paper_gcn.yaml",
-        "size_bytes": 732,
-        "sha256": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368"
+      "timestep_min": 40,
+      "timestep_max": 49,
+      "timestep_distribution": {
+        "40": 23,
+        "41": 16,
+        "42": 40,
+        "43": 26,
+        "44": 32,
+        "45": 23,
+        "46": 10,
+        "47": 17,
+        "48": 7,
+        "49": 6
       },
-      "graphsage_training_config": {
-        "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\config\\training_baseline_paper_sage.yaml",
-        "size_bytes": 756,
-        "sha256": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a"
+      "candidate_edge_count_distribution": {
+        "n": 200,
+        "mean": 126.56,
+        "std": 240.36773161137916,
+        "median": 27.0,
+        "min": 4,
+        "max": 1424
       },
-      "gcn_model_config": {
-        "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\config\\model_gcn.yaml",
-        "size_bytes": 141,
-        "sha256": "50d104a2120b1c23cf46e2df86778bf5fdbb344ec569cacdf854d10f14b0435e"
+      "candidate_mapping_valid": true,
+      "split_valid": true,
+      "known_label_valid": true,
+      "reproduction_command": "python scripts/prepare_elliptic_task26.py",
+      "role": "Task26 final_test target file"
+    },
+    "configs\\targets\\elliptic_pg_gcn_train_eligible.csv": {
+      "path": "configs\\targets\\elliptic_pg_gcn_train_eligible.csv",
+      "tracked_status": "tracked",
+      "ignored_status": "not ignored",
+      "size_bytes": 1927240,
+      "sha256": "bfc68def29d51673f898ff1e67fac65cce615d495e23b8c00ec6a339e3173095",
+      "row_count": 26381,
+      "unique_node_count": 26381,
+      "duplicate_node_count": 0,
+      "column_count": 13,
+      "columns": [
+        "node_id",
+        "time_step",
+        "label",
+        "label_semantics",
+        "split",
+        "gcn_prediction",
+        "gcn_confidence",
+        "graphsage_prediction",
+        "graphsage_confidence",
+        "candidate_edge_count",
+        "candidate_mapping_valid",
+        "positive_semantic_class",
+        "positive_label_index"
+      ],
+      "required_null_count": 0,
+      "nan_inf_count": 0,
+      "known_label_count": 26381,
+      "unknown_label_count": 0,
+      "label_distribution": {
+        "0": 23510,
+        "1": 2871
       },
-      "graphsage_model_config": {
-        "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\config\\model_sage.yaml",
-        "size_bytes": 142,
-        "sha256": "00d5f066789632f9a7725f29dc972dd64c6cd2299f0f9cc9c3d06981d3d7018a"
+      "prediction_distribution": {
+        "gcn": {
+          "0": 23590,
+          "1": 2791
+        },
+        "graphsage": {
+          "0": 23561,
+          "1": 2820
+        }
       },
-      "elliptic_processed_data": {
-        "path": "D:\\CS\\KLTN\\elliptic-gnn-xai\\datasets\\elliptic\\elliptic_data.pt",
-        "size_bytes": 146676895,
-        "sha256": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b"
-      }
+      "timestep_min": 1,
+      "timestep_max": 29,
+      "timestep_distribution": {
+        "1": 2147,
+        "10": 972,
+        "11": 696,
+        "12": 506,
+        "13": 809,
+        "14": 417,
+        "15": 618,
+        "16": 530,
+        "17": 811,
+        "18": 389,
+        "19": 745,
+        "2": 1117,
+        "20": 900,
+        "21": 641,
+        "22": 1763,
+        "23": 1187,
+        "24": 1126,
+        "25": 594,
+        "26": 517,
+        "27": 206,
+        "28": 284,
+        "29": 1174,
+        "3": 1279,
+        "4": 1440,
+        "5": 1882,
+        "6": 485,
+        "7": 1203,
+        "8": 1165,
+        "9": 778
+      },
+      "candidate_edge_count_distribution": {
+        "n": 26381,
+        "mean": 66.64319017474698,
+        "std": 172.6308349953813,
+        "median": 14.0,
+        "min": 4,
+        "max": 2878
+      },
+      "candidate_mapping_valid": true,
+      "split_valid": true,
+      "known_label_valid": true,
+      "reproduction_command": "python scripts/prepare_elliptic_task26.py",
+      "role": "Task26 gcn_train_eligible target file"
+    },
+    "configs\\targets\\elliptic_pg_gcn_val_eligible.csv": {
+      "path": "configs\\targets\\elliptic_pg_gcn_val_eligible.csv",
+      "tracked_status": "tracked",
+      "ignored_status": "not ignored",
+      "size_bytes": 743495,
+      "sha256": "460f1624d5889c2261e2dfc44ccd1331c1049ddd9f2c7bad0ee662c51d1f164f",
+      "row_count": 8999,
+      "unique_node_count": 8999,
+      "duplicate_node_count": 0,
+      "column_count": 13,
+      "columns": [
+        "node_id",
+        "time_step",
+        "label",
+        "label_semantics",
+        "split",
+        "gcn_prediction",
+        "gcn_confidence",
+        "graphsage_prediction",
+        "graphsage_confidence",
+        "candidate_edge_count",
+        "candidate_mapping_valid",
+        "positive_semantic_class",
+        "positive_label_index"
+      ],
+      "required_null_count": 0,
+      "nan_inf_count": 0,
+      "known_label_count": 8999,
+      "unknown_label_count": 0,
+      "label_distribution": {
+        "0": 7961,
+        "1": 1038
+      },
+      "prediction_distribution": {
+        "gcn": {
+          "0": 7992,
+          "1": 1007
+        },
+        "graphsage": {
+          "0": 7974,
+          "1": 1025
+        }
+      },
+      "timestep_min": 30,
+      "timestep_max": 39,
+      "timestep_distribution": {
+        "30": 524,
+        "31": 710,
+        "32": 1323,
+        "33": 441,
+        "34": 515,
+        "35": 1341,
+        "36": 1708,
+        "37": 498,
+        "38": 756,
+        "39": 1183
+      },
+      "candidate_edge_count_distribution": {
+        "n": 8999,
+        "mean": 65.36792976997444,
+        "std": 103.78097838771737,
+        "median": 18.0,
+        "min": 4,
+        "max": 1110
+      },
+      "candidate_mapping_valid": true,
+      "split_valid": true,
+      "known_label_valid": true,
+      "reproduction_command": "python scripts/prepare_elliptic_task26.py",
+      "role": "Task26 gcn_val_eligible target file"
+    },
+    "configs\\targets\\elliptic_pg_graphsage_train_eligible.csv": {
+      "path": "configs\\targets\\elliptic_pg_graphsage_train_eligible.csv",
+      "tracked_status": "tracked",
+      "ignored_status": "not ignored",
+      "size_bytes": 1927240,
+      "sha256": "bfc68def29d51673f898ff1e67fac65cce615d495e23b8c00ec6a339e3173095",
+      "row_count": 26381,
+      "unique_node_count": 26381,
+      "duplicate_node_count": 0,
+      "column_count": 13,
+      "columns": [
+        "node_id",
+        "time_step",
+        "label",
+        "label_semantics",
+        "split",
+        "gcn_prediction",
+        "gcn_confidence",
+        "graphsage_prediction",
+        "graphsage_confidence",
+        "candidate_edge_count",
+        "candidate_mapping_valid",
+        "positive_semantic_class",
+        "positive_label_index"
+      ],
+      "required_null_count": 0,
+      "nan_inf_count": 0,
+      "known_label_count": 26381,
+      "unknown_label_count": 0,
+      "label_distribution": {
+        "0": 23510,
+        "1": 2871
+      },
+      "prediction_distribution": {
+        "gcn": {
+          "0": 23590,
+          "1": 2791
+        },
+        "graphsage": {
+          "0": 23561,
+          "1": 2820
+        }
+      },
+      "timestep_min": 1,
+      "timestep_max": 29,
+      "timestep_distribution": {
+        "1": 2147,
+        "10": 972,
+        "11": 696,
+        "12": 506,
+        "13": 809,
+        "14": 417,
+        "15": 618,
+        "16": 530,
+        "17": 811,
+        "18": 389,
+        "19": 745,
+        "2": 1117,
+        "20": 900,
+        "21": 641,
+        "22": 1763,
+        "23": 1187,
+        "24": 1126,
+        "25": 594,
+        "26": 517,
+        "27": 206,
+        "28": 284,
+        "29": 1174,
+        "3": 1279,
+        "4": 1440,
+        "5": 1882,
+        "6": 485,
+        "7": 1203,
+        "8": 1165,
+        "9": 778
+      },
+      "candidate_edge_count_distribution": {
+        "n": 26381,
+        "mean": 66.64319017474698,
+        "std": 172.6308349953813,
+        "median": 14.0,
+        "min": 4,
+        "max": 2878
+      },
+      "candidate_mapping_valid": true,
+      "split_valid": true,
+      "known_label_valid": true,
+      "reproduction_command": "python scripts/prepare_elliptic_task26.py",
+      "role": "Task26 graphsage_train_eligible target file"
+    },
+    "configs\\targets\\elliptic_pg_graphsage_val_eligible.csv": {
+      "path": "configs\\targets\\elliptic_pg_graphsage_val_eligible.csv",
+      "tracked_status": "tracked",
+      "ignored_status": "not ignored",
+      "size_bytes": 743495,
+      "sha256": "460f1624d5889c2261e2dfc44ccd1331c1049ddd9f2c7bad0ee662c51d1f164f",
+      "row_count": 8999,
+      "unique_node_count": 8999,
+      "duplicate_node_count": 0,
+      "column_count": 13,
+      "columns": [
+        "node_id",
+        "time_step",
+        "label",
+        "label_semantics",
+        "split",
+        "gcn_prediction",
+        "gcn_confidence",
+        "graphsage_prediction",
+        "graphsage_confidence",
+        "candidate_edge_count",
+        "candidate_mapping_valid",
+        "positive_semantic_class",
+        "positive_label_index"
+      ],
+      "required_null_count": 0,
+      "nan_inf_count": 0,
+      "known_label_count": 8999,
+      "unknown_label_count": 0,
+      "label_distribution": {
+        "0": 7961,
+        "1": 1038
+      },
+      "prediction_distribution": {
+        "gcn": {
+          "0": 7992,
+          "1": 1007
+        },
+        "graphsage": {
+          "0": 7974,
+          "1": 1025
+        }
+      },
+      "timestep_min": 30,
+      "timestep_max": 39,
+      "timestep_distribution": {
+        "30": 524,
+        "31": 710,
+        "32": 1323,
+        "33": 441,
+        "34": 515,
+        "35": 1341,
+        "36": 1708,
+        "37": 498,
+        "38": 756,
+        "39": 1183
+      },
+      "candidate_edge_count_distribution": {
+        "n": 8999,
+        "mean": 65.36792976997444,
+        "std": 103.78097838771737,
+        "median": 18.0,
+        "min": 4,
+        "max": 1110
+      },
+      "candidate_mapping_valid": true,
+      "split_valid": true,
+      "known_label_valid": true,
+      "reproduction_command": "python scripts/prepare_elliptic_task26.py",
+      "role": "Task26 graphsage_val_eligible target file"
+    },
+    "configs\\targets\\elliptic_pg_common_train.csv": {
+      "path": "configs\\targets\\elliptic_pg_common_train.csv",
+      "tracked_status": "tracked",
+      "ignored_status": "not ignored",
+      "size_bytes": 146243,
+      "sha256": "36c2f9b3a81336d304556702b02b6524411f308ee75f2152d79101586f9c1a22",
+      "row_count": 2000,
+      "unique_node_count": 2000,
+      "duplicate_node_count": 0,
+      "column_count": 13,
+      "columns": [
+        "node_id",
+        "time_step",
+        "label",
+        "label_semantics",
+        "split",
+        "gcn_prediction",
+        "gcn_confidence",
+        "graphsage_prediction",
+        "graphsage_confidence",
+        "candidate_edge_count",
+        "candidate_mapping_valid",
+        "positive_semantic_class",
+        "positive_label_index"
+      ],
+      "required_null_count": 0,
+      "nan_inf_count": 0,
+      "known_label_count": 2000,
+      "unknown_label_count": 0,
+      "label_distribution": {
+        "0": 1773,
+        "1": 227
+      },
+      "prediction_distribution": {
+        "gcn": {
+          "0": 1779,
+          "1": 221
+        },
+        "graphsage": {
+          "0": 1780,
+          "1": 220
+        }
+      },
+      "timestep_min": 1,
+      "timestep_max": 29,
+      "timestep_distribution": {
+        "1": 175,
+        "10": 59,
+        "11": 55,
+        "12": 33,
+        "13": 54,
+        "14": 26,
+        "15": 53,
+        "16": 41,
+        "17": 60,
+        "18": 24,
+        "19": 63,
+        "2": 90,
+        "20": 63,
+        "21": 37,
+        "22": 116,
+        "23": 99,
+        "24": 80,
+        "25": 45,
+        "26": 37,
+        "27": 23,
+        "28": 24,
+        "29": 89,
+        "3": 114,
+        "4": 112,
+        "5": 144,
+        "6": 35,
+        "7": 101,
+        "8": 81,
+        "9": 67
+      },
+      "candidate_edge_count_distribution": {
+        "n": 2000,
+        "mean": 62.884,
+        "std": 153.73722562866809,
+        "median": 14.0,
+        "min": 4,
+        "max": 1234
+      },
+      "candidate_mapping_valid": true,
+      "split_valid": true,
+      "known_label_valid": true,
+      "reproduction_command": "python scripts/prepare_elliptic_task26.py",
+      "role": "Task26 common_train target file"
+    },
+    "configs\\targets\\elliptic_pg_common_val.csv": {
+      "path": "configs\\targets\\elliptic_pg_common_val.csv",
+      "tracked_status": "tracked",
+      "ignored_status": "not ignored",
+      "size_bytes": 41642,
+      "sha256": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6",
+      "row_count": 500,
+      "unique_node_count": 500,
+      "duplicate_node_count": 0,
+      "column_count": 13,
+      "columns": [
+        "node_id",
+        "time_step",
+        "label",
+        "label_semantics",
+        "split",
+        "gcn_prediction",
+        "gcn_confidence",
+        "graphsage_prediction",
+        "graphsage_confidence",
+        "candidate_edge_count",
+        "candidate_mapping_valid",
+        "positive_semantic_class",
+        "positive_label_index"
+      ],
+      "required_null_count": 0,
+      "nan_inf_count": 0,
+      "known_label_count": 500,
+      "unknown_label_count": 0,
+      "label_distribution": {
+        "0": 449,
+        "1": 51
+      },
+      "prediction_distribution": {
+        "gcn": {
+          "0": 451,
+          "1": 49
+        },
+        "graphsage": {
+          "0": 451,
+          "1": 49
+        }
+      },
+      "timestep_min": 30,
+      "timestep_max": 39,
+      "timestep_distribution": {
+        "30": 23,
+        "31": 40,
+        "32": 79,
+        "33": 27,
+        "34": 29,
+        "35": 86,
+        "36": 91,
+        "37": 23,
+        "38": 47,
+        "39": 55
+      },
+      "candidate_edge_count_distribution": {
+        "n": 500,
+        "mean": 66.076,
+        "std": 109.30274572946463,
+        "median": 18.0,
+        "min": 4,
+        "max": 980
+      },
+      "candidate_mapping_valid": true,
+      "split_valid": true,
+      "known_label_valid": true,
+      "reproduction_command": "python scripts/prepare_elliptic_task26.py",
+      "role": "Task26 common_val target file"
+    },
+    "docs/elliptic_task26_final_audit_report.md": {
+      "path": "D:\\CS\\KLTN\\gnnexplainer-groundtruth-benchmark\\docs\\elliptic_task26_final_audit_report.md",
+      "size_bytes": 14440,
+      "sha256": "ee7411d3a2db0a8622f3f155c28103f6f3871060411df014e904f189d032e1fb",
+      "role": "durable final Task26 audit report"
     }
   },
-  "model_parity": {
-    "tolerance": 1e-06,
-    "gcn": {
-      "baseline_cached_true": true,
-      "compatible_cached_false": true,
-      "max_abs_logit_diff": 0.0,
-      "mean_abs_logit_diff": 0.0,
-      "prediction_mismatch_count": 0,
-      "prediction_count": 203769,
-      "passes": true
+  "validation_results": {
+    "pytest": {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q",
+      "status": "pass in final validation gate"
     },
-    "graphsage": {
-      "wrapper": "same SAGEConv architecture with explicit edge_index input",
-      "max_abs_logit_diff": 0.0,
-      "mean_abs_logit_diff": 0.0,
-      "prediction_mismatch_count": 0,
-      "prediction_count": 203769,
-      "passes": true
+    "ruff": {
+      "command": ".\\.venv\\Scripts\\python.exe -m ruff check .",
+      "status": "pass in final validation gate"
     },
-    "probability_parity": {
-      "gcn_max_abs_probability_diff": 0.0,
-      "graphsage_max_abs_probability_diff": 0.0
+    "git_diff_check": {
+      "command": "git diff --check",
+      "status": "pass in final validation gate"
+    },
+    "json_validation": {
+      "command": ".\\.venv\\Scripts\\python.exe -m json.tool docs\\elliptic_targets_freeze.json > $null",
+      "status": "pass in final validation gate"
     }
   },
-  "perturbation_smoke": {
-    "original_edge_count": 468710,
-    "perturbed_edge_count": 445274,
-    "removed_edge_count": 23436,
-    "target_mask": "known-labeled temporal test nodes",
-    "gcn_compatible_cached_false": {
-      "max_abs_test_logit_diff": 114.30775451660156,
-      "mean_abs_test_logit_diff": 0.38554415106773376,
-      "prediction_change_count": 39,
-      "passes": true
-    },
-    "graphsage_wrapper": {
-      "max_abs_test_logit_diff": 58.29523468017578,
-      "mean_abs_test_logit_diff": 0.217808797955513,
-      "prediction_change_count": 11,
-      "passes": true
-    }
+  "acceptance_checklist": {
+    "baseline/cross-repo provenance recorded": true,
+    "GCN cached=False wrapper created without retraining": true,
+    "GCN original-graph parity passes": true,
+    "GraphSAGE original-graph parity passes": true,
+    "perturbation smoke confirms edge changes reach message passing": true,
+    "illicit positive-class semantics frozen": true,
+    "Edge AUROC/AP disabled for Elliptic": true,
+    "common final test targets frozen before XAI": true,
+    "per-backbone PG eligibility audited": true,
+    "COMMON PG train/val derived prospectively": true,
+    "identical PG train/val node IDs for both backbones": true,
+    "train/val/final disjoint": true,
+    "unknown labels excluded as targets": true,
+    "target/config hashes recorded": true,
+    "no explanation-result-driven sampling": true,
+    "pytest/ruff/git diff/json validation pass": true
   },
-  "targets": {
-    "selection": {
-      "seed": 42,
-      "final_test_cap": 200,
-      "pg_train_cap": 2000,
-      "pg_val_cap": 500,
-      "rule": "known-labeled temporal split nodes with positive 2-hop candidate-edge count; deterministic seeded sample if count exceeds cap",
-      "no_explanation_result_driven_sampling": true
-    },
-    "counts": {
-      "eligible_train": 26381,
-      "eligible_validation": 8999,
-      "eligible_test": 11184,
-      "final_test": 200,
-      "common_train": 2000,
-      "common_val": 500
-    },
-    "disjointness": {
-      "common_train_common_val": 0,
-      "common_train_final_test": 0,
-      "common_val_final_test": 0
-    },
-    "files": {
-      "final_test": {
-        "path": "configs\\targets\\elliptic_xai_common_test_targets.csv",
-        "count": 200,
-        "sha256": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0"
-      },
-      "gcn_train_eligible": {
-        "path": "configs\\targets\\elliptic_pg_gcn_train_eligible.csv",
-        "count": 26381,
-        "sha256": "bfc68def29d51673f898ff1e67fac65cce615d495e23b8c00ec6a339e3173095"
-      },
-      "gcn_val_eligible": {
-        "path": "configs\\targets\\elliptic_pg_gcn_val_eligible.csv",
-        "count": 8999,
-        "sha256": "460f1624d5889c2261e2dfc44ccd1331c1049ddd9f2c7bad0ee662c51d1f164f"
-      },
-      "graphsage_train_eligible": {
-        "path": "configs\\targets\\elliptic_pg_graphsage_train_eligible.csv",
-        "count": 26381,
-        "sha256": "bfc68def29d51673f898ff1e67fac65cce615d495e23b8c00ec6a339e3173095"
-      },
-      "graphsage_val_eligible": {
-        "path": "configs\\targets\\elliptic_pg_graphsage_val_eligible.csv",
-        "count": 8999,
-        "sha256": "460f1624d5889c2261e2dfc44ccd1331c1049ddd9f2c7bad0ee662c51d1f164f"
-      },
-      "common_train": {
-        "path": "configs\\targets\\elliptic_pg_common_train.csv",
-        "count": 2000,
-        "sha256": "36c2f9b3a81336d304556702b02b6524411f308ee75f2152d79101586f9c1a22"
-      },
-      "common_val": {
-        "path": "configs\\targets\\elliptic_pg_common_val.csv",
-        "count": 500,
-        "sha256": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6"
-      }
-    },
-    "candidate_edge_count_distribution": {
-      "n": 200,
-      "mean": 126.56,
-      "median": 28.0,
-      "min": 4,
-      "max": 1424
-    },
-    "final_label_distribution": {
-      "0": 190,
-      "1": 10
-    },
-    "final_gcn_prediction_distribution": {
-      "0": 196,
-      "1": 4
-    },
-    "final_graphsage_prediction_distribution": {
-      "0": 195,
-      "1": 5
-    }
-  },
-  "metric_protocol": {
-    "edge_auroc": "disabled for Elliptic because there is no GT explanatory edge mask",
-    "edge_ap": "disabled for Elliptic because there is no GT explanatory edge mask",
-    "enabled": [
-      "Fid+",
-      "Fid-",
-      "1-Fid-",
-      "remove_probability_delta",
-      "retain_probability",
-      "retain_probability_delta",
-      "retain_probability_ratio",
-      "Sparsity",
-      "Jaccard Stability",
-      "Runtime",
-      "success/failure rate",
-      "candidate-edge count distribution"
-    ],
-    "selected_edge_ratio": 0.2
-  },
-  "acceptance": {
-    "baseline_cross_repo_provenance_recorded": true,
-    "gcn_cached_false_copy_created_without_retraining": true,
-    "gcn_original_graph_parity_passes": true,
-    "graphsage_original_graph_parity_passes": true,
-    "perturbation_smoke_confirms_edge_changes_reach_message_passing": true,
-    "illicit_positive_class_semantics_frozen": true,
-    "no_edge_auroc_ap_in_elliptic_protocol": true,
-    "common_final_test_targets_frozen_before_xai": true,
-    "per_backbone_pg_eligibility_audited": true,
-    "common_pg_train_derived_prospectively": true,
-    "common_pg_val_derived_prospectively": true,
-    "both_backbones_will_use_identical_pg_train_val_node_ids": true,
-    "train_val_final_disjoint": true,
-    "unknown_labels_excluded_as_targets": true,
-    "target_config_hashes_recorded": true,
-    "no_explanation_result_driven_sampling": true
-  },
-  "stop_boundary": "No final Elliptic explanation may run before review."
+  "remaining_blockers": [],
+  "stop_boundary": "Task27 not started; no final Elliptic explanation run; STOP FOR REVIEW"
 }
