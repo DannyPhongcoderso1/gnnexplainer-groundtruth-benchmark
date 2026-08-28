@@ -1,0 +1,397 @@
+{
+  "acceptance": {
+    "cache_safe_perturbation_semantics_verified": true,
+    "exact_task26_common_final_targets_used": true,
+    "failures_explicit_not_silent": true,
+    "gcn_graphsage_weights_unchanged": true,
+    "no_auroc_ap_explanation_metrics": true,
+    "no_causal_cross_backbone_wording": true,
+    "primary_seed42_complete_both_backbones": true,
+    "runtime_semantics_recorded": true,
+    "stability_complete_on_prespecified_scope": true,
+    "stochastic_source_documented": true
+  },
+  "backbones": {
+    "GCN": {
+      "checkpoint_unchanged": true,
+      "model_weights_unchanged": true,
+      "output_files": {
+        "per_node_metrics": "results\\metrics\\elliptic\\gcn\\gnnexplainer\\per_node_metrics.csv",
+        "stability_pairwise_jaccard": "results\\metrics\\elliptic\\gcn\\gnnexplainer\\stability_pairwise_jaccard.csv",
+        "stability_per_node_jaccard": "results\\metrics\\elliptic\\gcn\\gnnexplainer\\stability_per_node_jaccard.csv",
+        "stability_seed_metrics": "results\\metrics\\elliptic\\gcn\\gnnexplainer\\stability_seed_metrics.csv",
+        "stability_summary": "results\\metrics\\elliptic\\gcn\\gnnexplainer\\stability_summary.csv",
+        "summary_metrics": "results\\metrics\\elliptic\\gcn\\gnnexplainer\\summary_metrics.csv"
+      },
+      "primary_failure_count": 0,
+      "primary_success_count": 200,
+      "primary_summary": [
+        {
+          "max": 1424.0,
+          "mean": 126.56,
+          "median": 27.0,
+          "metric": "candidate_edge_count",
+          "min": 4.0,
+          "n": 200,
+          "std": 240.97091381852016
+        },
+        {
+          "max": 285.0,
+          "mean": 25.68,
+          "median": 6.0,
+          "metric": "selected_edge_count",
+          "min": 1.0,
+          "n": 200,
+          "std": 48.15341479878576
+        },
+        {
+          "max": 1.0,
+          "mean": 0.055,
+          "median": 0.0,
+          "metric": "fid_plus",
+          "min": 0.0,
+          "n": 200,
+          "std": 0.22855235921889455
+        },
+        {
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "metric": "fid_minus",
+          "min": 0.0,
+          "n": 200,
+          "std": 0.0
+        },
+        {
+          "max": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "metric": "one_minus_fid_minus",
+          "min": 1.0,
+          "n": 200,
+          "std": 0.0
+        },
+        {
+          "max": 1.0,
+          "mean": 0.9870709735155105,
+          "median": 0.9999536275863647,
+          "metric": "original_probability",
+          "min": 0.5689427256584167,
+          "n": 200,
+          "std": 0.056152047996012575
+        },
+        {
+          "max": 1.0,
+          "mean": 0.9413917350734118,
+          "median": 0.9999973177909851,
+          "metric": "remove_probability",
+          "min": 0.0025128342676907778,
+          "n": 200,
+          "std": 0.20453875231645777
+        },
+        {
+          "max": 0.9766459874808788,
+          "mean": 0.04567923844209872,
+          "median": -1.8477439880371094e-06,
+          "metric": "remove_probability_delta",
+          "min": -0.21405702829360962,
+          "n": 200,
+          "std": 0.17766443833683518
+        },
+        {
+          "max": 1.0,
+          "mean": 0.9992089322209359,
+          "median": 1.0,
+          "metric": "retain_probability",
+          "min": 0.91168612241745,
+          "n": 200,
+          "std": 0.00665896654137908
+        },
+        {
+          "max": 0.07762867212295532,
+          "mean": -0.012137958705425262,
+          "median": -2.6702880859375e-05,
+          "metric": "retain_probability_delta",
+          "min": -0.43090540170669556,
+          "n": 200,
+          "std": 0.0564188048101744
+        },
+        {
+          "max": 1.7573792268949822,
+          "mean": 1.0171604318942629,
+          "median": 1.0000267035990529,
+          "metric": "retain_probability_ratio",
+          "min": 0.9215328906922711,
+          "n": 200,
+          "std": 0.08700544492107615
+        },
+        {
+          "max": 0.8,
+          "mean": 0.7753316951532506,
+          "median": 0.7948012575791601,
+          "metric": "sparsity",
+          "min": 0.6666666666666667,
+          "n": 200,
+          "std": 0.03521357789271849
+        },
+        {
+          "max": 0.6626376999993226,
+          "mean": 0.5245866109999769,
+          "median": 0.5233255499988445,
+          "metric": "generation_runtime_seconds",
+          "min": 0.5059815999993589,
+          "n": 200,
+          "std": 0.015002158411646208
+        },
+        {
+          "max": 0.1366998000012245,
+          "mean": 0.11370321150021483,
+          "median": 0.11156839999966905,
+          "metric": "evaluation_runtime_seconds",
+          "min": 0.1014597000030335,
+          "n": 200,
+          "std": 0.00833193685531084
+        }
+      ],
+      "stability_node_success_count": 200,
+      "stability_pairwise_rows": 2000,
+      "stability_seed_failure_count": 0,
+      "stability_seed_success_count": 1000,
+      "stability_summary": [
+        {
+          "max": 1.0,
+          "mean": 0.5011678974282419,
+          "median": 0.4224985241346514,
+          "metric": "mean_pairwise_jaccard",
+          "min": 0.09999999999999999,
+          "n": 200,
+          "std": 0.25646951140938545
+        }
+      ]
+    },
+    "GraphSAGE": {
+      "checkpoint_unchanged": true,
+      "model_weights_unchanged": true,
+      "output_files": {
+        "per_node_metrics": "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\per_node_metrics.csv",
+        "stability_pairwise_jaccard": "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\stability_pairwise_jaccard.csv",
+        "stability_per_node_jaccard": "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\stability_per_node_jaccard.csv",
+        "stability_seed_metrics": "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\stability_seed_metrics.csv",
+        "stability_summary": "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\stability_summary.csv",
+        "summary_metrics": "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\summary_metrics.csv"
+      },
+      "primary_failure_count": 0,
+      "primary_success_count": 200,
+      "primary_summary": [
+        {
+          "max": 1424.0,
+          "mean": 126.56,
+          "median": 27.0,
+          "metric": "candidate_edge_count",
+          "min": 4.0,
+          "n": 200,
+          "std": 240.97091381852016
+        },
+        {
+          "max": 285.0,
+          "mean": 25.68,
+          "median": 6.0,
+          "metric": "selected_edge_count",
+          "min": 1.0,
+          "n": 200,
+          "std": 48.15341479878576
+        },
+        {
+          "max": 1.0,
+          "mean": 0.035,
+          "median": 0.0,
+          "metric": "fid_plus",
+          "min": 0.0,
+          "n": 200,
+          "std": 0.18424093903932007
+        },
+        {
+          "max": 1.0,
+          "mean": 0.005,
+          "median": 0.0,
+          "metric": "fid_minus",
+          "min": 0.0,
+          "n": 200,
+          "std": 0.07071067811865475
+        },
+        {
+          "max": 1.0,
+          "mean": 0.995,
+          "median": 1.0,
+          "metric": "one_minus_fid_minus",
+          "min": 0.0,
+          "n": 200,
+          "std": 0.07071067811865475
+        },
+        {
+          "max": 1.0,
+          "mean": 0.9894060185551643,
+          "median": 0.9999889731407166,
+          "metric": "original_probability",
+          "min": 0.5912179946899414,
+          "n": 200,
+          "std": 0.04902371083298469
+        },
+        {
+          "max": 1.0,
+          "mean": 0.9452891731262207,
+          "median": 0.998378187417984,
+          "metric": "remove_probability",
+          "min": 0.06538275629281998,
+          "n": 200,
+          "std": 0.15761339652663092
+        },
+        {
+          "max": 0.8240213766694069,
+          "mean": 0.04411684542894363,
+          "median": 0.001286327838897705,
+          "metric": "remove_probability_delta",
+          "min": -0.011191070079803467,
+          "n": 200,
+          "std": 0.12087728654674301
+        },
+        {
+          "max": 1.0,
+          "mean": 0.9908213095366954,
+          "median": 0.9999915361404419,
+          "metric": "retain_probability",
+          "min": 0.43751391768455505,
+          "n": 200,
+          "std": 0.055641520880518394
+        },
+        {
+          "max": 0.4682483971118927,
+          "mean": -0.0014152909815311433,
+          "median": -3.5762786865234375e-07,
+          "metric": "retain_probability_delta",
+          "min": -0.3769378066062927,
+          "n": 200,
+          "std": 0.05582982597893757
+        },
+        {
+          "max": 1.6375614578578146,
+          "mean": 1.0033772078410885,
+          "median": 1.000000357628764,
+          "metric": "retain_probability_ratio",
+          "min": 0.4830339157827268,
+          "n": 200,
+          "std": 0.07446712378028074
+        },
+        {
+          "max": 0.8,
+          "mean": 0.7753316951532506,
+          "median": 0.7948012575791601,
+          "metric": "sparsity",
+          "min": 0.6666666666666667,
+          "n": 200,
+          "std": 0.03521357789271849
+        },
+        {
+          "max": 0.4024896999981138,
+          "mean": 0.3829761964999125,
+          "median": 0.3832723999985319,
+          "metric": "generation_runtime_seconds",
+          "min": 0.376372500002617,
+          "n": 200,
+          "std": 0.004034566701477329
+        },
+        {
+          "max": 0.13308649999817135,
+          "mean": 0.1039908604995071,
+          "median": 0.10043565000160015,
+          "metric": "evaluation_runtime_seconds",
+          "min": 0.08366810000006808,
+          "n": 200,
+          "std": 0.017604016887008824
+        }
+      ],
+      "stability_node_success_count": 200,
+      "stability_pairwise_rows": 2000,
+      "stability_seed_failure_count": 0,
+      "stability_seed_success_count": 1000,
+      "stability_summary": [
+        {
+          "max": 1.0,
+          "mean": 0.5747609353498806,
+          "median": 0.5313115542993592,
+          "metric": "mean_pairwise_jaccard",
+          "min": 0.16666666666666666,
+          "n": 200,
+          "std": 0.22739614705682615
+        }
+      ]
+    }
+  },
+  "environment": {
+    "cuda_available": true,
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch": "2.11.0+cu128",
+    "torch_cuda": "12.8"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "a68b933490ef6b94d92dd3b55f2bddc8bf139226"
+  },
+  "input_hashes": {
+    "dataset": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
+    "gcn_checkpoint": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07",
+    "graphsage_checkpoint": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf",
+    "target_file": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0",
+    "task26_freeze_file": "0919ab49b3cf53531b685f37256d57a43aa0bb87d6dbdf0b2799991698ab0a4c",
+    "task27_config": "f6f4e6ac97116782bf4b6047f50c92c117bbb12229d311a934cefbdb4b7313b3"
+  },
+  "inputs": {
+    "dataset_path": "D:/CS/KLTN/elliptic-gnn-xai/datasets/elliptic/elliptic_data.pt",
+    "dataset_sha256": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
+    "gcn_checkpoint_sha256": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07",
+    "graphsage_checkpoint_sha256": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf",
+    "target_count": 200,
+    "target_file": "configs/targets/elliptic_xai_common_test_targets.csv",
+    "target_sha256": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0"
+  },
+  "output_hashes": {
+    "results\\metrics\\elliptic\\gcn\\gnnexplainer\\per_node_metrics.csv": "cffb1f685f3455d44ce6a343d2d600a2dfe0796dc2ee85154cecd8634bc9f023",
+    "results\\metrics\\elliptic\\gcn\\gnnexplainer\\stability_pairwise_jaccard.csv": "e7dea22c28fc60b10c609672e6a3d1b6466188f9aec6dfb37273dfc3cb0e2e1d",
+    "results\\metrics\\elliptic\\gcn\\gnnexplainer\\stability_per_node_jaccard.csv": "d67422a268f020874a3da91fdaa41fde0983c0fec367c328e566338cd77a41f1",
+    "results\\metrics\\elliptic\\gcn\\gnnexplainer\\stability_seed_metrics.csv": "140ccba47e978bcff19fa657be91a236169ff76362ddea9d58f42e559a9765fe",
+    "results\\metrics\\elliptic\\gcn\\gnnexplainer\\stability_summary.csv": "1ab1048f7b5fd43dded3ecd2f78be53dc026938f59a921a9b787aa9b6a5a53b9",
+    "results\\metrics\\elliptic\\gcn\\gnnexplainer\\summary_metrics.csv": "9eb4d1f46d4908167e272c3d214d45281b29d01a8084148cfc54d93436ae01ef",
+    "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\per_node_metrics.csv": "a85cdc3574e3d2fead0e228afac7ee8a15aa439455b9da0465833c232666d142",
+    "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\stability_pairwise_jaccard.csv": "fe29e4fc3265062e1785f906406c2725613c3609401fa893f631d8a99320b3da",
+    "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\stability_per_node_jaccard.csv": "520bc721b0b9b17b53123474c679be6909a77a81d285a00538cfc91d56960fd9",
+    "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\stability_seed_metrics.csv": "9de12ec7cd206292a025c47c19e55be58c91e98bbe926f93f1c9bb99ae81512b",
+    "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\stability_summary.csv": "ad1dc8a6b511ebeab1e9fba0fb6a8995736e014e977b5f02abc84a8bd65a4506",
+    "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\summary_metrics.csv": "30e1df4657a7fe2dbc2a8acbdea36a146773421c2d7d819d421fc68414b13d32"
+  },
+  "protocol": {
+    "candidate_edge_scope": "2-hop computation subgraph around target node",
+    "disabled_explanation_metrics": [
+      "Edge AUROC",
+      "Edge AP"
+    ],
+    "explanation_type": "phenomenon",
+    "primary_seed": 42,
+    "probability_reference_class": "original predicted class",
+    "rounding_rule": "max(1, ceil(candidate_edge_count * 0.20))",
+    "selected_edge_ratio": 0.2,
+    "stability_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "stochastic_source": "independent per-instance explanation optimization runs"
+  },
+  "status": "success",
+  "task": "TASK27 Elliptic GNNExplainer",
+  "total_runtime_seconds": 1514.6692133999968
+}
