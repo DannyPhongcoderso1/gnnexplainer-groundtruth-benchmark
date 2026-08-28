@@ -336,9 +336,38 @@
     "torch": "2.11.0+cu128",
     "torch_cuda": "12.8"
   },
+  "frozen_input_audit": {
+    "dataset_sha256": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
+    "gcn_checkpoint_sha256": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07",
+    "graphsage_checkpoint_sha256": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf",
+    "target": {
+      "duplicate_count": 0,
+      "gcn_prediction_distribution": {
+        "0": 196,
+        "1": 4
+      },
+      "graphsage_prediction_distribution": {
+        "0": 195,
+        "1": 5
+      },
+      "label_distribution": {
+        "0": 190,
+        "1": 10
+      },
+      "path": "configs\\targets\\elliptic_xai_common_test_targets.csv",
+      "row_count": 200,
+      "same_node_identities_between_backbones": true,
+      "sha256": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0",
+      "unique_node_count": 200
+    },
+    "target_file_sha256": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0",
+    "task26_freeze_sha256": "0919ab49b3cf53531b685f37256d57a43aa0bb87d6dbdf0b2799991698ab0a4c",
+    "task27_config_sha256": "f6f4e6ac97116782bf4b6047f50c92c117bbb12229d311a934cefbdb4b7313b3"
+  },
   "git": {
     "branch": "main",
-    "commit": "a68b933490ef6b94d92dd3b55f2bddc8bf139226"
+    "execution_start_commit": "a68b933490ef6b94d92dd3b55f2bddc8bf139226",
+    "task27_initial_result_commit": "940ca4c51b24c845d3a94477f63280103825c1e4"
   },
   "input_hashes": {
     "dataset": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
@@ -356,6 +385,510 @@
     "target_count": 200,
     "target_file": "configs/targets/elliptic_xai_common_test_targets.csv",
     "target_sha256": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0"
+  },
+  "limitations": [
+    "Elliptic has transaction class labels but no ground-truth explanatory edge masks in this thesis.",
+    "Task27 explanations are model-importance outputs under the frozen protocol, not true transaction causes.",
+    "Cross-backbone differences are descriptive backbone-context observations, not causal backbone effects.",
+    "High 1-Fid- must be interpreted alongside remove-side and retain-side probability diagnostics."
+  ],
+  "metrics_csv_audit": {
+    "GCN": {
+      "files": {
+        "per_node_metrics": {
+          "column_count": 28,
+          "duplicates": 0,
+          "expected_rows": 200,
+          "missing_rows": 0,
+          "nan_inf": 0,
+          "path": "results\\metrics\\elliptic\\gcn\\gnnexplainer\\per_node_metrics.csv",
+          "required_nulls": 200,
+          "row_count": 200,
+          "schema": [
+            "node_id",
+            "label",
+            "prediction",
+            "confidence",
+            "candidate_edge_count",
+            "selected_edge_ratio",
+            "selected_edge_count",
+            "original_prediction",
+            "remove_prediction",
+            "retain_prediction",
+            "fid_plus",
+            "fid_minus",
+            "one_minus_fid_minus",
+            "original_probability",
+            "remove_probability",
+            "remove_probability_delta",
+            "retain_probability",
+            "retain_probability_delta",
+            "retain_probability_ratio",
+            "sparsity",
+            "generation_runtime_seconds",
+            "evaluation_runtime_seconds",
+            "seed",
+            "status",
+            "error",
+            "weights_unchanged",
+            "cache_safe_perturbation",
+            "explanation_source"
+          ],
+          "sha256": "cffb1f685f3455d44ce6a343d2d600a2dfe0796dc2ee85154cecd8634bc9f023"
+        },
+        "stability_pairwise_jaccard": {
+          "column_count": 7,
+          "duplicates": 0,
+          "expected_rows": 2000,
+          "missing_rows": 0,
+          "nan_inf": 0,
+          "path": "results\\metrics\\elliptic\\gcn\\gnnexplainer\\stability_pairwise_jaccard.csv",
+          "required_nulls": 0,
+          "row_count": 2000,
+          "schema": [
+            "node_id",
+            "seed_a",
+            "seed_b",
+            "selected_edge_count",
+            "intersection_count",
+            "union_count",
+            "jaccard"
+          ],
+          "sha256": "e7dea22c28fc60b10c609672e6a3d1b6466188f9aec6dfb37273dfc3cb0e2e1d"
+        },
+        "stability_per_node_jaccard": {
+          "column_count": 10,
+          "duplicates": 0,
+          "expected_rows": 200,
+          "missing_rows": 0,
+          "nan_inf": 0,
+          "path": "results\\metrics\\elliptic\\gcn\\gnnexplainer\\stability_per_node_jaccard.csv",
+          "required_nulls": 200,
+          "row_count": 200,
+          "schema": [
+            "node_id",
+            "mean_pairwise_jaccard",
+            "std_pairwise_jaccard",
+            "median_pairwise_jaccard",
+            "min_pairwise_jaccard",
+            "max_pairwise_jaccard",
+            "num_seeds",
+            "num_pairs",
+            "status",
+            "error"
+          ],
+          "sha256": "d67422a268f020874a3da91fdaa41fde0983c0fec367c328e566338cd77a41f1"
+        },
+        "stability_seed_metrics": {
+          "column_count": 28,
+          "duplicates": 0,
+          "expected_rows": 1000,
+          "missing_rows": 0,
+          "nan_inf": 0,
+          "path": "results\\metrics\\elliptic\\gcn\\gnnexplainer\\stability_seed_metrics.csv",
+          "required_nulls": 1000,
+          "row_count": 1000,
+          "schema": [
+            "node_id",
+            "label",
+            "prediction",
+            "confidence",
+            "candidate_edge_count",
+            "selected_edge_ratio",
+            "selected_edge_count",
+            "original_prediction",
+            "remove_prediction",
+            "retain_prediction",
+            "fid_plus",
+            "fid_minus",
+            "one_minus_fid_minus",
+            "original_probability",
+            "remove_probability",
+            "remove_probability_delta",
+            "retain_probability",
+            "retain_probability_delta",
+            "retain_probability_ratio",
+            "sparsity",
+            "generation_runtime_seconds",
+            "evaluation_runtime_seconds",
+            "seed",
+            "status",
+            "error",
+            "weights_unchanged",
+            "cache_safe_perturbation",
+            "explanation_source"
+          ],
+          "sha256": "140ccba47e978bcff19fa657be91a236169ff76362ddea9d58f42e559a9765fe"
+        },
+        "stability_summary": {
+          "column_count": 7,
+          "duplicates": 0,
+          "expected_rows": 1,
+          "missing_rows": 0,
+          "nan_inf": 0,
+          "path": "results\\metrics\\elliptic\\gcn\\gnnexplainer\\stability_summary.csv",
+          "required_nulls": 0,
+          "row_count": 1,
+          "schema": [
+            "metric",
+            "n",
+            "mean",
+            "std",
+            "median",
+            "min",
+            "max"
+          ],
+          "sha256": "1ab1048f7b5fd43dded3ecd2f78be53dc026938f59a921a9b787aa9b6a5a53b9"
+        },
+        "summary_metrics": {
+          "column_count": 7,
+          "duplicates": 0,
+          "expected_rows": 14,
+          "missing_rows": 0,
+          "nan_inf": 0,
+          "path": "results\\metrics\\elliptic\\gcn\\gnnexplainer\\summary_metrics.csv",
+          "required_nulls": 0,
+          "row_count": 14,
+          "schema": [
+            "metric",
+            "n",
+            "mean",
+            "std",
+            "median",
+            "min",
+            "max"
+          ],
+          "sha256": "9eb4d1f46d4908167e272c3d214d45281b29d01a8084148cfc54d93436ae01ef"
+        }
+      },
+      "metric_identity_checks": {
+        "checked_rows": 1200,
+        "maximum_absolute_error": 0.0,
+        "ratio_structural_null_count": 0,
+        "required_metric_null_nan_inf_count": 0,
+        "violation_count": 0,
+        "zero_denominator_count": 0
+      },
+      "runtime_decomposition": {
+        "boundaries": {
+          "evaluation": "metric computation and remove/retain perturbation evaluation",
+          "generation": "GNNExplainer per-instance optimization/generation"
+        },
+        "primary_evaluation": {
+          "boundary": "evaluation_runtime_seconds",
+          "max": 0.1366998000012245,
+          "mean": 0.11370321150021483,
+          "median": 0.11156839999966905,
+          "min": 0.1014597000030335,
+          "n": 200,
+          "std": 0.00833193685531084,
+          "sum": 22.740642300042964,
+          "unit": "seconds"
+        },
+        "primary_generation": {
+          "boundary": "generation_runtime_seconds",
+          "max": 0.6626376999993226,
+          "mean": 0.5245866109999769,
+          "median": 0.5233255499988445,
+          "min": 0.5059815999993589,
+          "n": 200,
+          "std": 0.015002158411646208,
+          "sum": 104.9173221999954,
+          "unit": "seconds"
+        },
+        "stability_evaluation": {
+          "boundary": "evaluation_runtime_seconds",
+          "max": 0.14469699999608565,
+          "mean": 0.11214198969994323,
+          "median": 0.10943384999700356,
+          "min": 0.09560290000081295,
+          "n": 1000,
+          "std": 0.011948575963072154,
+          "sum": 112.14198969994322,
+          "unit": "seconds"
+        },
+        "stability_generation": {
+          "boundary": "generation_runtime_seconds",
+          "max": 0.5485503999952925,
+          "mean": 0.5060560949001301,
+          "median": 0.5007574000010209,
+          "min": 0.4814349000007496,
+          "n": 1000,
+          "std": 0.015848393455532055,
+          "sum": 506.0560949001301,
+          "unit": "seconds"
+        }
+      },
+      "stability_pair_audit": {
+        "duplicate_unordered_pair_violations": 0,
+        "expected_pair_rows": 2000,
+        "nodes_with_wrong_pair_count": 0,
+        "out_of_range_violations": 0,
+        "pair_rows": 2000,
+        "per_node_rows": 200,
+        "seed_set": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "self_pair_violations": 0,
+        "stochastic_source": "independent per-instance explanation optimization runs",
+        "summary_unit": "per-node mean pairwise Jaccard",
+        "target_count": 200,
+        "uses_seed42_as_stability_seed": false,
+        "wrong_seed_violations": 0
+      }
+    },
+    "GraphSAGE": {
+      "files": {
+        "per_node_metrics": {
+          "column_count": 28,
+          "duplicates": 0,
+          "expected_rows": 200,
+          "missing_rows": 0,
+          "nan_inf": 0,
+          "path": "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\per_node_metrics.csv",
+          "required_nulls": 200,
+          "row_count": 200,
+          "schema": [
+            "node_id",
+            "label",
+            "prediction",
+            "confidence",
+            "candidate_edge_count",
+            "selected_edge_ratio",
+            "selected_edge_count",
+            "original_prediction",
+            "remove_prediction",
+            "retain_prediction",
+            "fid_plus",
+            "fid_minus",
+            "one_minus_fid_minus",
+            "original_probability",
+            "remove_probability",
+            "remove_probability_delta",
+            "retain_probability",
+            "retain_probability_delta",
+            "retain_probability_ratio",
+            "sparsity",
+            "generation_runtime_seconds",
+            "evaluation_runtime_seconds",
+            "seed",
+            "status",
+            "error",
+            "weights_unchanged",
+            "cache_safe_perturbation",
+            "explanation_source"
+          ],
+          "sha256": "a85cdc3574e3d2fead0e228afac7ee8a15aa439455b9da0465833c232666d142"
+        },
+        "stability_pairwise_jaccard": {
+          "column_count": 7,
+          "duplicates": 0,
+          "expected_rows": 2000,
+          "missing_rows": 0,
+          "nan_inf": 0,
+          "path": "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\stability_pairwise_jaccard.csv",
+          "required_nulls": 0,
+          "row_count": 2000,
+          "schema": [
+            "node_id",
+            "seed_a",
+            "seed_b",
+            "selected_edge_count",
+            "intersection_count",
+            "union_count",
+            "jaccard"
+          ],
+          "sha256": "fe29e4fc3265062e1785f906406c2725613c3609401fa893f631d8a99320b3da"
+        },
+        "stability_per_node_jaccard": {
+          "column_count": 10,
+          "duplicates": 0,
+          "expected_rows": 200,
+          "missing_rows": 0,
+          "nan_inf": 0,
+          "path": "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\stability_per_node_jaccard.csv",
+          "required_nulls": 200,
+          "row_count": 200,
+          "schema": [
+            "node_id",
+            "mean_pairwise_jaccard",
+            "std_pairwise_jaccard",
+            "median_pairwise_jaccard",
+            "min_pairwise_jaccard",
+            "max_pairwise_jaccard",
+            "num_seeds",
+            "num_pairs",
+            "status",
+            "error"
+          ],
+          "sha256": "520bc721b0b9b17b53123474c679be6909a77a81d285a00538cfc91d56960fd9"
+        },
+        "stability_seed_metrics": {
+          "column_count": 28,
+          "duplicates": 0,
+          "expected_rows": 1000,
+          "missing_rows": 0,
+          "nan_inf": 0,
+          "path": "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\stability_seed_metrics.csv",
+          "required_nulls": 1000,
+          "row_count": 1000,
+          "schema": [
+            "node_id",
+            "label",
+            "prediction",
+            "confidence",
+            "candidate_edge_count",
+            "selected_edge_ratio",
+            "selected_edge_count",
+            "original_prediction",
+            "remove_prediction",
+            "retain_prediction",
+            "fid_plus",
+            "fid_minus",
+            "one_minus_fid_minus",
+            "original_probability",
+            "remove_probability",
+            "remove_probability_delta",
+            "retain_probability",
+            "retain_probability_delta",
+            "retain_probability_ratio",
+            "sparsity",
+            "generation_runtime_seconds",
+            "evaluation_runtime_seconds",
+            "seed",
+            "status",
+            "error",
+            "weights_unchanged",
+            "cache_safe_perturbation",
+            "explanation_source"
+          ],
+          "sha256": "9de12ec7cd206292a025c47c19e55be58c91e98bbe926f93f1c9bb99ae81512b"
+        },
+        "stability_summary": {
+          "column_count": 7,
+          "duplicates": 0,
+          "expected_rows": 1,
+          "missing_rows": 0,
+          "nan_inf": 0,
+          "path": "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\stability_summary.csv",
+          "required_nulls": 0,
+          "row_count": 1,
+          "schema": [
+            "metric",
+            "n",
+            "mean",
+            "std",
+            "median",
+            "min",
+            "max"
+          ],
+          "sha256": "ad1dc8a6b511ebeab1e9fba0fb6a8995736e014e977b5f02abc84a8bd65a4506"
+        },
+        "summary_metrics": {
+          "column_count": 7,
+          "duplicates": 0,
+          "expected_rows": 14,
+          "missing_rows": 0,
+          "nan_inf": 0,
+          "path": "results\\metrics\\elliptic\\graphsage\\gnnexplainer\\summary_metrics.csv",
+          "required_nulls": 0,
+          "row_count": 14,
+          "schema": [
+            "metric",
+            "n",
+            "mean",
+            "std",
+            "median",
+            "min",
+            "max"
+          ],
+          "sha256": "30e1df4657a7fe2dbc2a8acbdea36a146773421c2d7d819d421fc68414b13d32"
+        }
+      },
+      "metric_identity_checks": {
+        "checked_rows": 1200,
+        "maximum_absolute_error": 0.0,
+        "ratio_structural_null_count": 0,
+        "required_metric_null_nan_inf_count": 0,
+        "violation_count": 0,
+        "zero_denominator_count": 0
+      },
+      "runtime_decomposition": {
+        "boundaries": {
+          "evaluation": "metric computation and remove/retain perturbation evaluation",
+          "generation": "GNNExplainer per-instance optimization/generation"
+        },
+        "primary_evaluation": {
+          "boundary": "evaluation_runtime_seconds",
+          "max": 0.13308649999817135,
+          "mean": 0.1039908604995071,
+          "median": 0.10043565000160015,
+          "min": 0.08366810000006808,
+          "n": 200,
+          "std": 0.017604016887008824,
+          "sum": 20.79817209990142,
+          "unit": "seconds"
+        },
+        "primary_generation": {
+          "boundary": "generation_runtime_seconds",
+          "max": 0.4024896999981138,
+          "mean": 0.3829761964999125,
+          "median": 0.3832723999985319,
+          "min": 0.376372500002617,
+          "n": 200,
+          "std": 0.004034566701477329,
+          "sum": 76.5952392999825,
+          "unit": "seconds"
+        },
+        "stability_evaluation": {
+          "boundary": "evaluation_runtime_seconds",
+          "max": 0.13938049999705981,
+          "mean": 0.10631232499999169,
+          "median": 0.10211585000070045,
+          "min": 0.08395680000103312,
+          "n": 1000,
+          "std": 0.01847790786794916,
+          "sum": 106.31232499999169,
+          "unit": "seconds"
+        },
+        "stability_generation": {
+          "boundary": "generation_runtime_seconds",
+          "max": 0.39783360000001267,
+          "mean": 0.3842057445001774,
+          "median": 0.3844633000007889,
+          "min": 0.37608250000630505,
+          "n": 1000,
+          "std": 0.004287472986735795,
+          "sum": 384.2057445001774,
+          "unit": "seconds"
+        }
+      },
+      "stability_pair_audit": {
+        "duplicate_unordered_pair_violations": 0,
+        "expected_pair_rows": 2000,
+        "nodes_with_wrong_pair_count": 0,
+        "out_of_range_violations": 0,
+        "pair_rows": 2000,
+        "per_node_rows": 200,
+        "seed_set": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "self_pair_violations": 0,
+        "stochastic_source": "independent per-instance explanation optimization runs",
+        "summary_unit": "per-node mean pairwise Jaccard",
+        "target_count": 200,
+        "uses_seed42_as_stability_seed": false,
+        "wrong_seed_violations": 0
+      }
+    }
   },
   "output_hashes": {
     "results\\metrics\\elliptic\\gcn\\gnnexplainer\\per_node_metrics.csv": "cffb1f685f3455d44ce6a343d2d600a2dfe0796dc2ee85154cecd8634bc9f023",
@@ -378,6 +911,32 @@
       "Edge AP"
     ],
     "explanation_type": "phenomenon",
+    "optimization_target": {
+      "by_backbone": {
+        "GCN": {
+          "checked_rows": 1200,
+          "target_class_per_node_source": "gcn_prediction in Task26 target CSV",
+          "target_ground_truth_matches": 1164,
+          "target_ground_truth_mismatches": 36,
+          "target_prediction_matches": 1200,
+          "target_prediction_mismatches": 0
+        },
+        "GraphSAGE": {
+          "checked_rows": 1200,
+          "target_class_per_node_source": "graphsage_prediction in Task26 target CSV",
+          "target_ground_truth_matches": 1170,
+          "target_ground_truth_mismatches": 30,
+          "target_prediction_matches": 1200,
+          "target_prediction_mismatches": 0
+        }
+      },
+      "code_path": "scripts/run_elliptic_gnnexplainer.py::prediction_vector -> run_explainer -> Explainer(... target=target_vector, index=node_id)",
+      "conclusion": "PASS: phenomenon target equals original frozen model prediction and is not chosen from ground-truth transaction label.",
+      "explanation_type": "phenomenon",
+      "target_dtype": "torch.int64 / long class-index tensor from argmax",
+      "target_shape": "[num_nodes] = [203769]",
+      "target_source": "prediction_vector(model, data) from frozen explanation-compatible model logits"
+    },
     "primary_seed": 42,
     "probability_reference_class": "original predicted class",
     "rounding_rule": "max(1, ceil(candidate_edge_count * 0.20))",
@@ -391,7 +950,208 @@
     ],
     "stochastic_source": "independent per-instance explanation optimization runs"
   },
+  "raw_continuous_edge_score_audit": {
+    "aggregate": {
+      "GCN": {
+        "actual_raw_runs": 1200,
+        "candidate_edge_count_distribution": {
+          "max": 1424.0,
+          "mean": 126.56,
+          "median": 27.0,
+          "min": 4.0,
+          "n": 1200,
+          "std": 240.46794747214832,
+          "sum": 151872.0
+        },
+        "candidate_score_mismatches": 0,
+        "duplicate_count": 0,
+        "expected_raw_runs": 1200,
+        "failed_count": 0,
+        "full_score_edge_index_mismatches": 0,
+        "missing_count": 0,
+        "nan_inf_violations": 0,
+        "primary_count": 200,
+        "selected_count_violations": 0,
+        "selected_edge_count_distribution": {
+          "max": 285.0,
+          "mean": 25.68,
+          "median": 6.0,
+          "min": 1.0,
+          "n": 1200,
+          "std": 48.05290662241344,
+          "sum": 30816.0
+        },
+        "selected_outside_candidate_violations": 0,
+        "sparsity_distribution": {
+          "max": 0.8,
+          "mean": 0.7753316951532506,
+          "median": 0.7948012575791601,
+          "min": 0.6666666666666667,
+          "n": 1200,
+          "std": 0.03514007838053787,
+          "sum": 930.3980341838961
+        },
+        "stability_count": 1000
+      },
+      "GraphSAGE": {
+        "actual_raw_runs": 1200,
+        "candidate_edge_count_distribution": {
+          "max": 1424.0,
+          "mean": 126.56,
+          "median": 27.0,
+          "min": 4.0,
+          "n": 1200,
+          "std": 240.46794747214832,
+          "sum": 151872.0
+        },
+        "candidate_score_mismatches": 0,
+        "duplicate_count": 0,
+        "expected_raw_runs": 1200,
+        "failed_count": 0,
+        "full_score_edge_index_mismatches": 0,
+        "missing_count": 0,
+        "nan_inf_violations": 0,
+        "primary_count": 200,
+        "selected_count_violations": 0,
+        "selected_edge_count_distribution": {
+          "max": 285.0,
+          "mean": 25.68,
+          "median": 6.0,
+          "min": 1.0,
+          "n": 1200,
+          "std": 48.05290662241344,
+          "sum": 30816.0
+        },
+        "selected_outside_candidate_violations": 0,
+        "sparsity_distribution": {
+          "max": 0.8,
+          "mean": 0.7753316951532506,
+          "median": 0.7948012575791601,
+          "min": 0.6666666666666667,
+          "n": 1200,
+          "std": 0.03514007838053787,
+          "sum": 930.3980341838961
+        },
+        "stability_count": 1000
+      }
+    },
+    "candidate_edge_id_storage": "candidate_edge_ids_sha256 stores the deterministic candidate edge ID list hash per run",
+    "inventory_path": "docs\\elliptic_gnnexplainer_raw_artifact_inventory.json",
+    "inventory_sha256": "c6d09709725f90f2c73d5e624b6a76019f4ac22cd66c1367ec3a35e9c5eb00ba"
+  },
+  "remaining_blockers": [],
+  "runtime_decomposition": {
+    "aggregate": {
+      "batch_wall_clock_total_seconds": 1514.6692133999968,
+      "note": "Difference is wall-clock total minus summed recorded generation/evaluation timers; exact serialization/I/O/aggregation overhead is not separately timed.",
+      "sum_recorded_stage_runtimes_seconds": 1333.7675300001647,
+      "unattributed_difference_seconds": 180.9016833998321
+    },
+    "by_backbone": {
+      "GCN": {
+        "boundaries": {
+          "evaluation": "metric computation and remove/retain perturbation evaluation",
+          "generation": "GNNExplainer per-instance optimization/generation"
+        },
+        "primary_evaluation": {
+          "boundary": "evaluation_runtime_seconds",
+          "max": 0.1366998000012245,
+          "mean": 0.11370321150021483,
+          "median": 0.11156839999966905,
+          "min": 0.1014597000030335,
+          "n": 200,
+          "std": 0.00833193685531084,
+          "sum": 22.740642300042964,
+          "unit": "seconds"
+        },
+        "primary_generation": {
+          "boundary": "generation_runtime_seconds",
+          "max": 0.6626376999993226,
+          "mean": 0.5245866109999769,
+          "median": 0.5233255499988445,
+          "min": 0.5059815999993589,
+          "n": 200,
+          "std": 0.015002158411646208,
+          "sum": 104.9173221999954,
+          "unit": "seconds"
+        },
+        "stability_evaluation": {
+          "boundary": "evaluation_runtime_seconds",
+          "max": 0.14469699999608565,
+          "mean": 0.11214198969994323,
+          "median": 0.10943384999700356,
+          "min": 0.09560290000081295,
+          "n": 1000,
+          "std": 0.011948575963072154,
+          "sum": 112.14198969994322,
+          "unit": "seconds"
+        },
+        "stability_generation": {
+          "boundary": "generation_runtime_seconds",
+          "max": 0.5485503999952925,
+          "mean": 0.5060560949001301,
+          "median": 0.5007574000010209,
+          "min": 0.4814349000007496,
+          "n": 1000,
+          "std": 0.015848393455532055,
+          "sum": 506.0560949001301,
+          "unit": "seconds"
+        }
+      },
+      "GraphSAGE": {
+        "boundaries": {
+          "evaluation": "metric computation and remove/retain perturbation evaluation",
+          "generation": "GNNExplainer per-instance optimization/generation"
+        },
+        "primary_evaluation": {
+          "boundary": "evaluation_runtime_seconds",
+          "max": 0.13308649999817135,
+          "mean": 0.1039908604995071,
+          "median": 0.10043565000160015,
+          "min": 0.08366810000006808,
+          "n": 200,
+          "std": 0.017604016887008824,
+          "sum": 20.79817209990142,
+          "unit": "seconds"
+        },
+        "primary_generation": {
+          "boundary": "generation_runtime_seconds",
+          "max": 0.4024896999981138,
+          "mean": 0.3829761964999125,
+          "median": 0.3832723999985319,
+          "min": 0.376372500002617,
+          "n": 200,
+          "std": 0.004034566701477329,
+          "sum": 76.5952392999825,
+          "unit": "seconds"
+        },
+        "stability_evaluation": {
+          "boundary": "evaluation_runtime_seconds",
+          "max": 0.13938049999705981,
+          "mean": 0.10631232499999169,
+          "median": 0.10211585000070045,
+          "min": 0.08395680000103312,
+          "n": 1000,
+          "std": 0.01847790786794916,
+          "sum": 106.31232499999169,
+          "unit": "seconds"
+        },
+        "stability_generation": {
+          "boundary": "generation_runtime_seconds",
+          "max": 0.39783360000001267,
+          "mean": 0.3842057445001774,
+          "median": 0.3844633000007889,
+          "min": 0.37608250000630505,
+          "n": 1000,
+          "std": 0.004287472986735795,
+          "sum": 384.2057445001774,
+          "unit": "seconds"
+        }
+      }
+    }
+  },
   "status": "success",
+  "stop_boundary": "Task28 not started; no rerun; STOP FOR REVIEW",
   "task": "TASK27 Elliptic GNNExplainer",
   "total_runtime_seconds": 1514.6692133999968
 }
