@@ -1,14 +1,18 @@
 {
   "acceptance": {
+    "all_required_metrics_complete": true,
     "coverage_complete_without_failures_or_duplicates": true,
     "fid_count_checks_match": true,
     "frozen_input_hashes_match": true,
     "metric_formula_checks_pass": true,
+    "nan_inf_counts_zero": true,
     "raw_artifacts_complete_and_aligned": true,
     "reported_values_recomputed": true,
+    "runtime_alias_checks_pass": true,
     "stability_pair_counts_valid": true,
     "target_candidate_gt_mapping_valid": true,
-    "task24_pgexplainer_not_started": true
+    "task24_pgexplainer_not_started": true,
+    "unexpected_required_nulls_zero": true
   },
   "backbone_audit": {
     "gcn": {
@@ -53,6 +57,381 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 167,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "label",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "confidence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "candidate_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "positive_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "negative_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "ground_truth_edge_prevalence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "selected_edge_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "selected_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "edge_auroc",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "edge_ap",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "original_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "remove_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "fid_plus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "fid_minus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "one_minus_fid_minus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "original_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "remove_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "remove_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_probability_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "fidelity_legacy",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "sparsity",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "generation_runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "evaluation_runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "explanation_source",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "seed",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "status",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "error",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 167,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                  "required_applicable": false,
+                  "row_count": 167
+                }
+              ],
+              "expected_null_columns": {
+                "error": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded."
+              },
+              "expected_structural_null_cells": 167,
+              "total_inf_cells": 0,
+              "total_null_cells": 167,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\gcn\\gnnexplainer\\per_node_metrics.csv",
             "role": "metric_csv",
             "row_count": 167,
@@ -78,6 +457,128 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 167,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "mean_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "std_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "median_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "min_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "max_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "num_seeds",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "num_pairs",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "status",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "error",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 167,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                  "required_applicable": false,
+                  "row_count": 167
+                }
+              ],
+              "expected_null_columns": {
+                "error": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded."
+              },
+              "expected_structural_null_cells": 167,
+              "total_inf_cells": 0,
+              "total_null_cells": 167,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\gcn\\gnnexplainer\\stability_per_node_jaccard.csv",
             "role": "metric_csv",
             "row_count": 167,
@@ -100,6 +601,93 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 0,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "seed_a",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "seed_b",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "selected_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "intersection_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "union_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                }
+              ],
+              "expected_null_columns": {},
+              "expected_structural_null_cells": 0,
+              "total_inf_cells": 0,
+              "total_null_cells": 0,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\gcn\\gnnexplainer\\stability_pairwise_jaccard.csv",
             "role": "metric_csv",
             "row_count": 1670,
@@ -148,6 +736,381 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 835,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "label",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "confidence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "candidate_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "positive_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "negative_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "ground_truth_edge_prevalence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "selected_edge_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "selected_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "edge_auroc",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "edge_ap",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "original_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "remove_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "retain_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "fid_plus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "fid_minus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "one_minus_fid_minus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "original_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "remove_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "remove_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "retain_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "retain_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "retain_probability_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "fidelity_legacy",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "sparsity",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "generation_runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "evaluation_runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "explanation_source",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "seed",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "status",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "error",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 835,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                  "required_applicable": false,
+                  "row_count": 835
+                }
+              ],
+              "expected_null_columns": {
+                "error": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded."
+              },
+              "expected_structural_null_cells": 835,
+              "total_inf_cells": 0,
+              "total_null_cells": 835,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\gcn\\gnnexplainer\\stability_seed_metrics.csv",
             "role": "metric_csv",
             "row_count": 835,
@@ -200,6 +1163,382 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 334,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "label",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "confidence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "candidate_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "positive_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "negative_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "ground_truth_edge_prevalence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "selected_edge_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "selected_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "edge_auroc",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "edge_ap",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "original_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "remove_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "fid_plus",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "fid_minus",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "one_minus_fid_minus",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "original_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "remove_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "remove_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_probability_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "fidelity_legacy",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "sparsity",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "generation_runtime_seconds",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 167,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: Random has no explanation-generation stage; runtime_seconds/evaluation_runtime_seconds measure random edge selection plus evaluation.",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "evaluation_runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "explanation_source",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "seed",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "status",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "error",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 167,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                  "required_applicable": false,
+                  "row_count": 167
+                }
+              ],
+              "expected_null_columns": {
+                "error": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                "generation_runtime_seconds": "EXPECTED_STRUCTURAL_NULL: Random has no explanation-generation stage; runtime_seconds/evaluation_runtime_seconds measure random edge selection plus evaluation."
+              },
+              "expected_structural_null_cells": 334,
+              "total_inf_cells": 0,
+              "total_null_cells": 334,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\gcn\\random\\random_node_level_metrics.csv",
             "role": "metric_csv",
             "row_count": 167,
@@ -248,6 +1587,382 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 3340,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "label",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "confidence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "candidate_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "positive_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "negative_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "ground_truth_edge_prevalence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "selected_edge_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "selected_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "edge_auroc",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "edge_ap",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "original_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "remove_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "retain_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "fid_plus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "fid_minus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "one_minus_fid_minus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "original_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "remove_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "remove_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "retain_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "retain_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "retain_probability_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "fidelity_legacy",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "sparsity",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "generation_runtime_seconds",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 1670,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: Random has no explanation-generation stage; runtime_seconds/evaluation_runtime_seconds measure random edge selection plus evaluation.",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "evaluation_runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "explanation_source",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "seed",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "status",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "error",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 1670,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                  "required_applicable": false,
+                  "row_count": 1670
+                }
+              ],
+              "expected_null_columns": {
+                "error": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                "generation_runtime_seconds": "EXPECTED_STRUCTURAL_NULL: Random has no explanation-generation stage; runtime_seconds/evaluation_runtime_seconds measure random edge selection plus evaluation."
+              },
+              "expected_structural_null_cells": 3340,
+              "total_inf_cells": 0,
+              "total_null_cells": 3340,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\gcn\\random\\random_seed_level_metrics.csv",
             "role": "metric_csv",
             "row_count": 1670,
@@ -282,6 +1997,128 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 167,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "mean_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "std_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "median_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "min_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "max_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "num_seeds",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "num_pairs",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "status",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "error",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 167,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                  "required_applicable": false,
+                  "row_count": 167
+                }
+              ],
+              "expected_null_columns": {
+                "error": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded."
+              },
+              "expected_structural_null_cells": 167,
+              "total_inf_cells": 0,
+              "total_null_cells": 167,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\gcn\\random\\random_stability_per_node_jaccard.csv",
             "role": "metric_csv",
             "row_count": 167,
@@ -304,6 +2141,93 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 0,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 7515
+                },
+                {
+                  "column": "seed_a",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 7515
+                },
+                {
+                  "column": "seed_b",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 7515
+                },
+                {
+                  "column": "selected_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 7515
+                },
+                {
+                  "column": "intersection_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 7515
+                },
+                {
+                  "column": "union_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 7515
+                },
+                {
+                  "column": "jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 7515
+                }
+              ],
+              "expected_null_columns": {},
+              "expected_structural_null_cells": 0,
+              "total_inf_cells": 0,
+              "total_null_cells": 0,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\gcn\\random\\random_stability_pairwise_jaccard.csv",
             "role": "metric_csv",
             "row_count": 7515,
@@ -436,16 +2360,68 @@
       },
       "metric_semantics_violations": {
         "gnn_primary": {
-          "metric_formula_violations": {}
+          "checked_row_count": 167,
+          "identity_violation_count": 0,
+          "maximum_absolute_error_by_formula": {
+            "one_minus_fid_minus": 0.0,
+            "remove_probability_delta": 0.0,
+            "retain_probability_delta": 0.0,
+            "retain_probability_ratio": 0.0,
+            "sparsity": 0.0
+          },
+          "maximum_absolute_identity_error": 0.0,
+          "metric_formula_violations": {},
+          "original_probability_zero_count": 0,
+          "ratio_structural_null_count": 0,
+          "required_metric_null_nan_inf_row_count": 0
         },
         "gnn_stability_seed": {
-          "metric_formula_violations": {}
+          "checked_row_count": 835,
+          "identity_violation_count": 0,
+          "maximum_absolute_error_by_formula": {
+            "one_minus_fid_minus": 0.0,
+            "remove_probability_delta": 0.0,
+            "retain_probability_delta": 0.0,
+            "retain_probability_ratio": 0.0,
+            "sparsity": 0.0
+          },
+          "maximum_absolute_identity_error": 0.0,
+          "metric_formula_violations": {},
+          "original_probability_zero_count": 0,
+          "ratio_structural_null_count": 0,
+          "required_metric_null_nan_inf_row_count": 0
         },
         "random_node": {
-          "metric_formula_violations": {}
+          "checked_row_count": 167,
+          "identity_violation_count": 0,
+          "maximum_absolute_error_by_formula": {
+            "one_minus_fid_minus": 5.551115123125783e-17,
+            "remove_probability_delta": 9.020562075079397e-17,
+            "retain_probability_delta": 6.938893903907228e-17,
+            "retain_probability_ratio": 0.0,
+            "sparsity": 0.0
+          },
+          "maximum_absolute_identity_error": 9.020562075079397e-17,
+          "metric_formula_violations": {},
+          "original_probability_zero_count": 0,
+          "ratio_structural_null_count": 0,
+          "required_metric_null_nan_inf_row_count": 0
         },
         "random_seed": {
-          "metric_formula_violations": {}
+          "checked_row_count": 1670,
+          "identity_violation_count": 0,
+          "maximum_absolute_error_by_formula": {
+            "one_minus_fid_minus": 0.0,
+            "remove_probability_delta": 0.0,
+            "retain_probability_delta": 0.0,
+            "retain_probability_ratio": 0.0,
+            "sparsity": 0.0
+          },
+          "maximum_absolute_identity_error": 0.0,
+          "metric_formula_violations": {},
+          "original_probability_zero_count": 0,
+          "ratio_structural_null_count": 0,
+          "required_metric_null_nan_inf_row_count": 0
         }
       },
       "quality_summary": {
@@ -896,6 +2872,26 @@
           }
         }
       },
+      "runtime_alias_checks": {
+        "gnn_primary_runtime_equals_generation": {
+          "alias_violation_count": 0,
+          "checked_rows": 167,
+          "maximum_absolute_difference": 0.0,
+          "method": "gnnexplainer"
+        },
+        "random_node_runtime_equals_evaluation": {
+          "alias_violation_count": 0,
+          "checked_rows": 167,
+          "maximum_absolute_difference": 0.0,
+          "method": "random"
+        },
+        "random_seed_runtime_equals_evaluation": {
+          "alias_violation_count": 0,
+          "checked_rows": 1670,
+          "maximum_absolute_difference": 0.0,
+          "method": "random"
+        }
+      },
       "stability": {
         "gnnexplainer": {
           "actual_pair_rows": 1670,
@@ -983,6 +2979,381 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 167,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "label",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "confidence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "candidate_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "positive_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "negative_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "ground_truth_edge_prevalence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "selected_edge_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "selected_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "edge_auroc",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "edge_ap",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "original_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "remove_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "fid_plus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "fid_minus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "one_minus_fid_minus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "original_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "remove_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "remove_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_probability_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "fidelity_legacy",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "sparsity",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "generation_runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "evaluation_runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "explanation_source",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "seed",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "status",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "error",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 167,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                  "required_applicable": false,
+                  "row_count": 167
+                }
+              ],
+              "expected_null_columns": {
+                "error": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded."
+              },
+              "expected_structural_null_cells": 167,
+              "total_inf_cells": 0,
+              "total_null_cells": 167,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\graphsage\\gnnexplainer\\per_node_metrics.csv",
             "role": "metric_csv",
             "row_count": 167,
@@ -1008,6 +3379,128 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 167,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "mean_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "std_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "median_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "min_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "max_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "num_seeds",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "num_pairs",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "status",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "error",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 167,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                  "required_applicable": false,
+                  "row_count": 167
+                }
+              ],
+              "expected_null_columns": {
+                "error": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded."
+              },
+              "expected_structural_null_cells": 167,
+              "total_inf_cells": 0,
+              "total_null_cells": 167,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\graphsage\\gnnexplainer\\stability_per_node_jaccard.csv",
             "role": "metric_csv",
             "row_count": 167,
@@ -1030,6 +3523,93 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 0,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "seed_a",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "seed_b",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "selected_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "intersection_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "union_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                }
+              ],
+              "expected_null_columns": {},
+              "expected_structural_null_cells": 0,
+              "total_inf_cells": 0,
+              "total_null_cells": 0,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\graphsage\\gnnexplainer\\stability_pairwise_jaccard.csv",
             "role": "metric_csv",
             "row_count": 1670,
@@ -1078,6 +3658,381 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 835,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "label",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "confidence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "candidate_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "positive_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "negative_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "ground_truth_edge_prevalence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "selected_edge_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "selected_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "edge_auroc",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "edge_ap",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "original_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "remove_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "retain_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "fid_plus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "fid_minus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "one_minus_fid_minus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "original_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "remove_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "remove_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "retain_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "retain_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "retain_probability_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "fidelity_legacy",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "sparsity",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "generation_runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "evaluation_runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "explanation_source",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 835
+                },
+                {
+                  "column": "seed",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "status",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 835
+                },
+                {
+                  "column": "error",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 835,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                  "required_applicable": false,
+                  "row_count": 835
+                }
+              ],
+              "expected_null_columns": {
+                "error": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded."
+              },
+              "expected_structural_null_cells": 835,
+              "total_inf_cells": 0,
+              "total_null_cells": 835,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\graphsage\\gnnexplainer\\stability_seed_metrics.csv",
             "role": "metric_csv",
             "row_count": 835,
@@ -1130,6 +4085,382 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 334,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "label",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "confidence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "candidate_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "positive_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "negative_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "ground_truth_edge_prevalence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "selected_edge_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "selected_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "edge_auroc",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "edge_ap",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "original_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "remove_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "fid_plus",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "fid_minus",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "one_minus_fid_minus",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "original_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "remove_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "remove_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "retain_probability_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "fidelity_legacy",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "sparsity",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "generation_runtime_seconds",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 167,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: Random has no explanation-generation stage; runtime_seconds/evaluation_runtime_seconds measure random edge selection plus evaluation.",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "evaluation_runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "explanation_source",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 167
+                },
+                {
+                  "column": "seed",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "status",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "error",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 167,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                  "required_applicable": false,
+                  "row_count": 167
+                }
+              ],
+              "expected_null_columns": {
+                "error": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                "generation_runtime_seconds": "EXPECTED_STRUCTURAL_NULL: Random has no explanation-generation stage; runtime_seconds/evaluation_runtime_seconds measure random edge selection plus evaluation."
+              },
+              "expected_structural_null_cells": 334,
+              "total_inf_cells": 0,
+              "total_null_cells": 334,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\graphsage\\random\\random_node_level_metrics.csv",
             "role": "metric_csv",
             "row_count": 167,
@@ -1178,6 +4509,382 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 3340,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "label",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "confidence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "candidate_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "positive_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "negative_gt_edges",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "ground_truth_edge_prevalence",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "selected_edge_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "selected_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "edge_auroc",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "edge_ap",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "original_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "remove_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "retain_prediction",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "fid_plus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "fid_minus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "one_minus_fid_minus",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "original_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "remove_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "remove_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "retain_probability",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "retain_probability_delta",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "retain_probability_ratio",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "fidelity_legacy",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "sparsity",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "generation_runtime_seconds",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 1670,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: Random has no explanation-generation stage; runtime_seconds/evaluation_runtime_seconds measure random edge selection plus evaluation.",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "evaluation_runtime_seconds",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "explanation_source",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": false,
+                  "row_count": 1670
+                },
+                {
+                  "column": "seed",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "status",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 1670
+                },
+                {
+                  "column": "error",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 1670,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                  "required_applicable": false,
+                  "row_count": 1670
+                }
+              ],
+              "expected_null_columns": {
+                "error": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                "generation_runtime_seconds": "EXPECTED_STRUCTURAL_NULL: Random has no explanation-generation stage; runtime_seconds/evaluation_runtime_seconds measure random edge selection plus evaluation."
+              },
+              "expected_structural_null_cells": 3340,
+              "total_inf_cells": 0,
+              "total_null_cells": 3340,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\graphsage\\random\\random_seed_level_metrics.csv",
             "role": "metric_csv",
             "row_count": 1670,
@@ -1212,6 +4919,128 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 167,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "mean_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "std_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "median_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "min_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "max_pairwise_jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "num_seeds",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "num_pairs",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "status",
+                  "dtype": "string",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 167
+                },
+                {
+                  "column": "error",
+                  "dtype": "empty",
+                  "expected_null": true,
+                  "inf_count": 0,
+                  "null_classification": "EXPECTED_STRUCTURAL_NULL",
+                  "null_count": 167,
+                  "reason": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.",
+                  "required_applicable": false,
+                  "row_count": 167
+                }
+              ],
+              "expected_null_columns": {
+                "error": "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded."
+              },
+              "expected_structural_null_cells": 167,
+              "total_inf_cells": 0,
+              "total_null_cells": 167,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\graphsage\\random\\random_stability_per_node_jaccard.csv",
             "role": "metric_csv",
             "row_count": 167,
@@ -1234,6 +5063,93 @@
             "duplicate_node_seed_count": 0,
             "missing_value_count": 0,
             "nan_inf_count": 0,
+            "null_audit": {
+              "columns": [
+                {
+                  "column": "node_id",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 7515
+                },
+                {
+                  "column": "seed_a",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 7515
+                },
+                {
+                  "column": "seed_b",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 7515
+                },
+                {
+                  "column": "selected_edge_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 7515
+                },
+                {
+                  "column": "intersection_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 7515
+                },
+                {
+                  "column": "union_count",
+                  "dtype": "int",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 7515
+                },
+                {
+                  "column": "jaccard",
+                  "dtype": "float",
+                  "expected_null": false,
+                  "inf_count": 0,
+                  "null_classification": "NONE",
+                  "null_count": 0,
+                  "reason": "",
+                  "required_applicable": true,
+                  "row_count": 7515
+                }
+              ],
+              "expected_null_columns": {},
+              "expected_structural_null_cells": 0,
+              "total_inf_cells": 0,
+              "total_null_cells": 0,
+              "unexpected_null_columns": [],
+              "unexpected_required_null_cells": 0
+            },
             "path": "results\\metrics\\shapeggen\\graphsage\\random\\random_stability_pairwise_jaccard.csv",
             "role": "metric_csv",
             "row_count": 7515,
@@ -1366,16 +5282,68 @@
       },
       "metric_semantics_violations": {
         "gnn_primary": {
-          "metric_formula_violations": {}
+          "checked_row_count": 167,
+          "identity_violation_count": 0,
+          "maximum_absolute_error_by_formula": {
+            "one_minus_fid_minus": 0.0,
+            "remove_probability_delta": 0.0,
+            "retain_probability_delta": 0.0,
+            "retain_probability_ratio": 0.0,
+            "sparsity": 0.0
+          },
+          "maximum_absolute_identity_error": 0.0,
+          "metric_formula_violations": {},
+          "original_probability_zero_count": 0,
+          "ratio_structural_null_count": 0,
+          "required_metric_null_nan_inf_row_count": 0
         },
         "gnn_stability_seed": {
-          "metric_formula_violations": {}
+          "checked_row_count": 835,
+          "identity_violation_count": 0,
+          "maximum_absolute_error_by_formula": {
+            "one_minus_fid_minus": 0.0,
+            "remove_probability_delta": 0.0,
+            "retain_probability_delta": 0.0,
+            "retain_probability_ratio": 0.0,
+            "sparsity": 0.0
+          },
+          "maximum_absolute_identity_error": 0.0,
+          "metric_formula_violations": {},
+          "original_probability_zero_count": 0,
+          "ratio_structural_null_count": 0,
+          "required_metric_null_nan_inf_row_count": 0
         },
         "random_node": {
-          "metric_formula_violations": {}
+          "checked_row_count": 167,
+          "identity_violation_count": 0,
+          "maximum_absolute_error_by_formula": {
+            "one_minus_fid_minus": 5.551115123125783e-17,
+            "remove_probability_delta": 1.1102230246251565e-16,
+            "retain_probability_delta": 1.1102230246251565e-16,
+            "retain_probability_ratio": 0.0,
+            "sparsity": 0.0
+          },
+          "maximum_absolute_identity_error": 1.1102230246251565e-16,
+          "metric_formula_violations": {},
+          "original_probability_zero_count": 0,
+          "ratio_structural_null_count": 0,
+          "required_metric_null_nan_inf_row_count": 0
         },
         "random_seed": {
-          "metric_formula_violations": {}
+          "checked_row_count": 1670,
+          "identity_violation_count": 0,
+          "maximum_absolute_error_by_formula": {
+            "one_minus_fid_minus": 0.0,
+            "remove_probability_delta": 0.0,
+            "retain_probability_delta": 0.0,
+            "retain_probability_ratio": 0.0,
+            "sparsity": 0.0
+          },
+          "maximum_absolute_identity_error": 0.0,
+          "metric_formula_violations": {},
+          "original_probability_zero_count": 0,
+          "ratio_structural_null_count": 0,
+          "required_metric_null_nan_inf_row_count": 0
         }
       },
       "quality_summary": {
@@ -1824,6 +5792,26 @@
             "std": 0.0040386239805481425,
             "total": 23.68619349983055
           }
+        }
+      },
+      "runtime_alias_checks": {
+        "gnn_primary_runtime_equals_generation": {
+          "alias_violation_count": 0,
+          "checked_rows": 167,
+          "maximum_absolute_difference": 0.0,
+          "method": "gnnexplainer"
+        },
+        "random_node_runtime_equals_evaluation": {
+          "alias_violation_count": 0,
+          "checked_rows": 167,
+          "maximum_absolute_difference": 0.0,
+          "method": "random"
+        },
+        "random_seed_runtime_equals_evaluation": {
+          "alias_violation_count": 0,
+          "checked_rows": 1670,
+          "maximum_absolute_difference": 0.0,
+          "method": "random"
         }
       },
       "stability": {
@@ -2295,14 +6283,14 @@
   },
   "git": {
     "branch": "main",
-    "commit": "70df56bdaffd7a76f98f668b69247be502a763d1",
+    "commit": "cbaffbf25b6def2499a909b60bfb3c1036efe5af",
     "tags_at_head": null
   },
   "initial_state": {
     "branch": "main",
     "git_status_short_before_audit": "clean; captured before audit edits with git status --short",
-    "head": "70df56bdaffd7a76f98f668b69247be502a763d1",
-    "log_oneline_decorate_5": "70df56bd (HEAD -> main, origin/main) Run ShapeGGen GNNExplainer and Random baselines\n9ed9a61d Add full thesis progress summary\nbed705d0 Freeze ShapeGGen backbones and targets\nc71ef33b (tag: shapeggen-dataset-v1) Replace local ShapeGGen generator with official GraphXAI implementation\ne7d75336 Freeze ShapeGGen protocol dataset and ground truth"
+    "head": "cbaffbf25b6def2499a909b60bfb3c1036efe5af",
+    "log_oneline_decorate_5": "cbaffbf2 (HEAD -> main, origin/main) Complete ShapeGGen Task23 audit and freeze\n70df56bd Run ShapeGGen GNNExplainer and Random baselines\n9ed9a61d Add full thesis progress summary\nbed705d0 Freeze ShapeGGen backbones and targets\nc71ef33b (tag: shapeggen-dataset-v1) Replace local ShapeGGen generator with official GraphXAI implementation"
   },
   "metric_semantics": {
     "edge_auroc_edge_ap": "candidate_edge_scores_and_labels receives continuous edge scores and candidate_edge_mask, then compute_edge_ground_truth_metrics computes AUROC/AP over the full candidate-edge set without thresholding.",
@@ -2394,7 +6382,7 @@
   "task": "TASK23 AUDIT + COMPLETION ONLY",
   "task24_authorized": false,
   "validation_results": {
-    "git_diff_check": "pass",
+    "git_diff_check": "passed",
     "pytest": "115 passed, 3 warnings",
     "ruff": "All checks passed"
   },

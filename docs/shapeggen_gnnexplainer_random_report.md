@@ -28,7 +28,7 @@ This document audits Task23 only. It does not rerun experiments, tune final targ
 
 ## Git And Environment Provenance
 
-- git_commit: `70df56bdaffd7a76f98f668b69247be502a763d1`
+- git_commit: `cbaffbf25b6def2499a909b60bfb3c1036efe5af`
 - git_branch: `main`
 - tags_at_head: `none`
 - python: `3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]`
@@ -236,7 +236,11 @@ Random raw seed rows are preserved. The primary Random quality table first avera
 
 ## Runtime Audit
 
-GNNExplainer runtime is per-target explanation optimization/generation time. Random runtime is random edge selection plus metric evaluation time.
+GNNExplainer runtime is per-target explanation optimization/generation time. `runtime_seconds` is an alias of `generation_runtime_seconds`. `evaluation_runtime_seconds` is measured separately and is not included in `runtime_seconds`.
+
+Random runtime is random edge selection plus metric evaluation. `runtime_seconds` is an alias of `evaluation_runtime_seconds` because Random has no explanation-generation stage. Therefore `generation_runtime_seconds` is structurally not applicable for Random.
+
+Raw Random totals across 1,670 seed rows describe total measured Random work. The 167-row node-level seed-mean runtime distribution is a sampling-unit summary and is not a total-compute measurement.
 
 | Backbone | Run | Field | n | mean | std | median | min | max | total |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|
@@ -259,28 +263,90 @@ GNNExplainer runtime is per-target explanation optimization/generation time. Ran
 | GraphSAGE | Random edge selection plus metric evaluation per seed row | generation_runtime_seconds | 0 | NA | NA | NA | NA | NA | NA |
 | GraphSAGE | Random edge selection plus metric evaluation per seed row | evaluation_runtime_seconds | 1670 | 0.014183 | 0.004039 | 0.014603 | 0.006019 | 0.038441 | 23.686193 |
 
+### Runtime Alias Checks
+
+| Backbone | Check | Checked rows | Violations | Max absolute difference |
+|---|---|---:|---:|---:|
+| GCN | gnn_primary_runtime_equals_generation | 167 | 0 | 0.000000 |
+| GCN | random_node_runtime_equals_evaluation | 167 | 0 | 0.000000 |
+| GCN | random_seed_runtime_equals_evaluation | 1670 | 0 | 0.000000 |
+| GraphSAGE | gnn_primary_runtime_equals_generation | 167 | 0 | 0.000000 |
+| GraphSAGE | random_node_runtime_equals_evaluation | 167 | 0 | 0.000000 |
+| GraphSAGE | random_seed_runtime_equals_evaluation | 1670 | 0 | 0.000000 |
+
+## Metric Identity Checks
+
+Checked identities: `one_minus_fid_minus == 1 - fid_minus`, `remove_probability_delta == original_probability - remove_probability`, `retain_probability_delta == original_probability - retain_probability`, `retain_probability_ratio == retain_probability / original_probability` when applicable, and `sparsity == 1 - selected_edge_count / candidate_edge_count`.
+
+| Backbone | Artifact | Checked rows | Violations | Max absolute error | Original prob zero | Ratio structural null | Required metric null/NaN/Inf rows |
+|---|---|---:|---:|---:|---:|---:|---:|
+| GCN | gnn_primary | 167 | 0 | 0.000000 | 0 | 0 | 0 |
+| GCN | gnn_stability_seed | 835 | 0 | 0.000000 | 0 | 0 | 0 |
+| GCN | random_seed | 1670 | 0 | 0.000000 | 0 | 0 | 0 |
+| GCN | random_node | 167 | 0 | 0.000000 | 0 | 0 | 0 |
+| GraphSAGE | gnn_primary | 167 | 0 | 0.000000 | 0 | 0 | 0 |
+| GraphSAGE | gnn_stability_seed | 835 | 0 | 0.000000 | 0 | 0 | 0 |
+| GraphSAGE | random_seed | 1670 | 0 | 0.000000 | 0 | 0 | 0 |
+| GraphSAGE | random_node | 167 | 0 | 0.000000 | 0 | 0 | 0 |
+
+For Random node-level rows, `retain_probability_ratio` is the per-node mean of seed-level ratios by aggregation protocol, so the raw formula is verified on seed-level rows and not re-derived from node-mean probabilities.
+
+## Null And Missing Audit
+
+Nulls are audited by column. Expected structural nulls are documented below; unexpected required nulls are blockers and must remain zero.
+
+| Backbone | Artifact | Total null cells | Expected structural null cells | Unexpected required null cells | Inf cells | Expected null columns | Unexpected null columns |
+|---|---|---:|---:|---:|---:|---|---|
+| GCN | gnn_primary | 167 | 167 | 0 | 0 | error | NONE |
+| GCN | gnn_stability_seed | 835 | 835 | 0 | 0 | error | NONE |
+| GCN | gnn_stability_pairwise | 0 | 0 | 0 | 0 | NONE | NONE |
+| GCN | gnn_stability_node | 167 | 167 | 0 | 0 | error | NONE |
+| GCN | random_seed | 3340 | 3340 | 0 | 0 | generation_runtime_seconds, error | NONE |
+| GCN | random_node | 334 | 334 | 0 | 0 | generation_runtime_seconds, error | NONE |
+| GCN | random_stability_pairwise | 0 | 0 | 0 | 0 | NONE | NONE |
+| GCN | random_stability_node | 167 | 167 | 0 | 0 | error | NONE |
+| GraphSAGE | gnn_primary | 167 | 167 | 0 | 0 | error | NONE |
+| GraphSAGE | gnn_stability_seed | 835 | 835 | 0 | 0 | error | NONE |
+| GraphSAGE | gnn_stability_pairwise | 0 | 0 | 0 | 0 | NONE | NONE |
+| GraphSAGE | gnn_stability_node | 167 | 167 | 0 | 0 | error | NONE |
+| GraphSAGE | random_seed | 3340 | 3340 | 0 | 0 | generation_runtime_seconds, error | NONE |
+| GraphSAGE | random_node | 334 | 334 | 0 | 0 | generation_runtime_seconds, error | NONE |
+| GraphSAGE | random_stability_pairwise | 0 | 0 | 0 | 0 | NONE | NONE |
+| GraphSAGE | random_stability_node | 167 | 167 | 0 | 0 | error | NONE |
+
+### Expected Structural Null Reasons
+
+- gnn_primary.error: EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.
+- gnn_stability_seed.error: EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.
+- gnn_stability_node.error: EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.
+- random_seed.generation_runtime_seconds: EXPECTED_STRUCTURAL_NULL: Random has no explanation-generation stage; runtime_seconds/evaluation_runtime_seconds measure random edge selection plus evaluation.
+- random_seed.error: EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.
+- random_node.generation_runtime_seconds: EXPECTED_STRUCTURAL_NULL: Random has no explanation-generation stage; runtime_seconds/evaluation_runtime_seconds measure random edge selection plus evaluation.
+- random_node.error: EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.
+- random_stability_node.error: EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded.
+
 ## Artifact Inventory
 
-| Backbone | Family | Path | Role | Rows/Runs | Columns/File count | SHA256/Manifest | Missing/Violations |
+| Backbone | Family | Path | Role | Rows/Runs | Columns/File count | SHA256/Manifest | Null/Violation Status |
 |---|---|---|---|---:|---:|---|---|
-| GCN | gnn_primary | `results\metrics\shapeggen\gcn\gnnexplainer\per_node_metrics.csv` | metric_csv | 167 | 33 | `ff6e1136daeec2c193289e7c3c988709ad37551d3c54a07d8c29b6903de4dc06` | missing=167, nan_inf=0, duplicates=0 |
-| GCN | gnn_stability_seed | `results\metrics\shapeggen\gcn\gnnexplainer\stability_seed_metrics.csv` | metric_csv | 835 | 33 | `59f2ed269ef2912e1cf3164ad56a56c51020dbfc59aea07cb7a1d61658ce3c79` | missing=835, nan_inf=0, duplicates=0 |
-| GCN | gnn_stability_pairwise | `results\metrics\shapeggen\gcn\gnnexplainer\stability_pairwise_jaccard.csv` | metric_csv | 1670 | 7 | `6c7887386621a699dfc29db78a7e2d53ab564249333e9730c92ca94b3114d432` | missing=0, nan_inf=0, duplicates=0 |
-| GCN | gnn_stability_node | `results\metrics\shapeggen\gcn\gnnexplainer\stability_per_node_jaccard.csv` | metric_csv | 167 | 10 | `51da556a098048d6a5087fd9ed23e54c8ab3557964f2c445cd96790c297ee7bc` | missing=167, nan_inf=0, duplicates=0 |
-| GCN | random_seed | `results\metrics\shapeggen\gcn\random\random_seed_level_metrics.csv` | metric_csv | 1670 | 33 | `060baf55fd9ee15c18be026ea28868349ff9109d9a0dd08d14d3e93343f98794` | missing=3340, nan_inf=0, duplicates=0 |
-| GCN | random_node | `results\metrics\shapeggen\gcn\random\random_node_level_metrics.csv` | metric_csv | 167 | 33 | `0f1ad5f9f5e5884483eefc594a07b32e77e5a7e283f226c2c6ae94eb80bacfa6` | missing=334, nan_inf=0, duplicates=0 |
-| GCN | random_stability_pairwise | `results\metrics\shapeggen\gcn\random\random_stability_pairwise_jaccard.csv` | metric_csv | 7515 | 7 | `a385eb15828a00e835d1f8842c04b434e2e918e7b28d33521ff577e4ef20d5dc` | missing=0, nan_inf=0, duplicates=0 |
-| GCN | random_stability_node | `results\metrics\shapeggen\gcn\random\random_stability_per_node_jaccard.csv` | metric_csv | 167 | 10 | `5521d8107735f744a5cdfdbb5a2a91c188b87ec0e24d2c5bf5368a798dbc0032` | missing=167, nan_inf=0, duplicates=0 |
+| GCN | gnn_primary | `results\metrics\shapeggen\gcn\gnnexplainer\per_node_metrics.csv` | metric_csv | 167 | 33 | `ff6e1136daeec2c193289e7c3c988709ad37551d3c54a07d8c29b6903de4dc06` | total_null=167, expected_structural_null=167, unexpected_required_null=0, nan_inf=0, duplicates=0 |
+| GCN | gnn_stability_seed | `results\metrics\shapeggen\gcn\gnnexplainer\stability_seed_metrics.csv` | metric_csv | 835 | 33 | `59f2ed269ef2912e1cf3164ad56a56c51020dbfc59aea07cb7a1d61658ce3c79` | total_null=835, expected_structural_null=835, unexpected_required_null=0, nan_inf=0, duplicates=0 |
+| GCN | gnn_stability_pairwise | `results\metrics\shapeggen\gcn\gnnexplainer\stability_pairwise_jaccard.csv` | metric_csv | 1670 | 7 | `6c7887386621a699dfc29db78a7e2d53ab564249333e9730c92ca94b3114d432` | total_null=0, expected_structural_null=0, unexpected_required_null=0, nan_inf=0, duplicates=0 |
+| GCN | gnn_stability_node | `results\metrics\shapeggen\gcn\gnnexplainer\stability_per_node_jaccard.csv` | metric_csv | 167 | 10 | `51da556a098048d6a5087fd9ed23e54c8ab3557964f2c445cd96790c297ee7bc` | total_null=167, expected_structural_null=167, unexpected_required_null=0, nan_inf=0, duplicates=0 |
+| GCN | random_seed | `results\metrics\shapeggen\gcn\random\random_seed_level_metrics.csv` | metric_csv | 1670 | 33 | `060baf55fd9ee15c18be026ea28868349ff9109d9a0dd08d14d3e93343f98794` | total_null=3340, expected_structural_null=3340, unexpected_required_null=0, nan_inf=0, duplicates=0 |
+| GCN | random_node | `results\metrics\shapeggen\gcn\random\random_node_level_metrics.csv` | metric_csv | 167 | 33 | `0f1ad5f9f5e5884483eefc594a07b32e77e5a7e283f226c2c6ae94eb80bacfa6` | total_null=334, expected_structural_null=334, unexpected_required_null=0, nan_inf=0, duplicates=0 |
+| GCN | random_stability_pairwise | `results\metrics\shapeggen\gcn\random\random_stability_pairwise_jaccard.csv` | metric_csv | 7515 | 7 | `a385eb15828a00e835d1f8842c04b434e2e918e7b28d33521ff577e4ef20d5dc` | total_null=0, expected_structural_null=0, unexpected_required_null=0, nan_inf=0, duplicates=0 |
+| GCN | random_stability_node | `results\metrics\shapeggen\gcn\random\random_stability_per_node_jaccard.csv` | metric_csv | 167 | 10 | `5521d8107735f744a5cdfdbb5a2a91c188b87ec0e24d2c5bf5368a798dbc0032` | total_null=167, expected_structural_null=167, unexpected_required_null=0, nan_inf=0, duplicates=0 |
 | GCN | gnnexplainer | `results\explanations\shapeggen\gcn\gnnexplainer` | gcn_gnnexplainer_raw_explanations | 1002/1002 | 6012 | `748c5bb57dc8d5199aa9957233bdea7262e91d30c775a84d48e91e3ba1a1c207` | missing_dirs=0, missing_files={}, score_len=0, edge_mask_size=0, selected_count=0 |
 | GCN | random | `results\explanations\shapeggen\gcn\random` | gcn_random_raw_explanations | 1670/1670 | 10020 | `aefe3607dde5a99d0dbcc84c3c7c2f7def3f8be2a3c092821bcb8bbafd100c1c` | missing_dirs=0, missing_files={}, score_len=0, edge_mask_size=0, selected_count=0 |
-| GraphSAGE | gnn_primary | `results\metrics\shapeggen\graphsage\gnnexplainer\per_node_metrics.csv` | metric_csv | 167 | 33 | `153c372a076241b80baabf9a684e4dec47b39e38b18bb5e93caa32bfaccd11c8` | missing=167, nan_inf=0, duplicates=0 |
-| GraphSAGE | gnn_stability_seed | `results\metrics\shapeggen\graphsage\gnnexplainer\stability_seed_metrics.csv` | metric_csv | 835 | 33 | `dd42fe250fb09c3cfc82d3c93a30d8d5b868e77646d2022f39c0caf8801c3fd9` | missing=835, nan_inf=0, duplicates=0 |
-| GraphSAGE | gnn_stability_pairwise | `results\metrics\shapeggen\graphsage\gnnexplainer\stability_pairwise_jaccard.csv` | metric_csv | 1670 | 7 | `ab0fa97e0b17e8620d0faed6dc04f624d693bd891eb16d8904277ae13d08127f` | missing=0, nan_inf=0, duplicates=0 |
-| GraphSAGE | gnn_stability_node | `results\metrics\shapeggen\graphsage\gnnexplainer\stability_per_node_jaccard.csv` | metric_csv | 167 | 10 | `f63e61a91b9eff44ae806259b54ac19e77dbc8eb14e5ba86de60ab16d133da63` | missing=167, nan_inf=0, duplicates=0 |
-| GraphSAGE | random_seed | `results\metrics\shapeggen\graphsage\random\random_seed_level_metrics.csv` | metric_csv | 1670 | 33 | `994ebd3972ac5a28406435cd984ce9bae631df4ae2f508306f5280697f6494c1` | missing=3340, nan_inf=0, duplicates=0 |
-| GraphSAGE | random_node | `results\metrics\shapeggen\graphsage\random\random_node_level_metrics.csv` | metric_csv | 167 | 33 | `de8beb38b327e9af42499d419560a3433af0b0f4672d063af4b714cd1d635032` | missing=334, nan_inf=0, duplicates=0 |
-| GraphSAGE | random_stability_pairwise | `results\metrics\shapeggen\graphsage\random\random_stability_pairwise_jaccard.csv` | metric_csv | 7515 | 7 | `a385eb15828a00e835d1f8842c04b434e2e918e7b28d33521ff577e4ef20d5dc` | missing=0, nan_inf=0, duplicates=0 |
-| GraphSAGE | random_stability_node | `results\metrics\shapeggen\graphsage\random\random_stability_per_node_jaccard.csv` | metric_csv | 167 | 10 | `5521d8107735f744a5cdfdbb5a2a91c188b87ec0e24d2c5bf5368a798dbc0032` | missing=167, nan_inf=0, duplicates=0 |
+| GraphSAGE | gnn_primary | `results\metrics\shapeggen\graphsage\gnnexplainer\per_node_metrics.csv` | metric_csv | 167 | 33 | `153c372a076241b80baabf9a684e4dec47b39e38b18bb5e93caa32bfaccd11c8` | total_null=167, expected_structural_null=167, unexpected_required_null=0, nan_inf=0, duplicates=0 |
+| GraphSAGE | gnn_stability_seed | `results\metrics\shapeggen\graphsage\gnnexplainer\stability_seed_metrics.csv` | metric_csv | 835 | 33 | `dd42fe250fb09c3cfc82d3c93a30d8d5b868e77646d2022f39c0caf8801c3fd9` | total_null=835, expected_structural_null=835, unexpected_required_null=0, nan_inf=0, duplicates=0 |
+| GraphSAGE | gnn_stability_pairwise | `results\metrics\shapeggen\graphsage\gnnexplainer\stability_pairwise_jaccard.csv` | metric_csv | 1670 | 7 | `ab0fa97e0b17e8620d0faed6dc04f624d693bd891eb16d8904277ae13d08127f` | total_null=0, expected_structural_null=0, unexpected_required_null=0, nan_inf=0, duplicates=0 |
+| GraphSAGE | gnn_stability_node | `results\metrics\shapeggen\graphsage\gnnexplainer\stability_per_node_jaccard.csv` | metric_csv | 167 | 10 | `f63e61a91b9eff44ae806259b54ac19e77dbc8eb14e5ba86de60ab16d133da63` | total_null=167, expected_structural_null=167, unexpected_required_null=0, nan_inf=0, duplicates=0 |
+| GraphSAGE | random_seed | `results\metrics\shapeggen\graphsage\random\random_seed_level_metrics.csv` | metric_csv | 1670 | 33 | `994ebd3972ac5a28406435cd984ce9bae631df4ae2f508306f5280697f6494c1` | total_null=3340, expected_structural_null=3340, unexpected_required_null=0, nan_inf=0, duplicates=0 |
+| GraphSAGE | random_node | `results\metrics\shapeggen\graphsage\random\random_node_level_metrics.csv` | metric_csv | 167 | 33 | `de8beb38b327e9af42499d419560a3433af0b0f4672d063af4b714cd1d635032` | total_null=334, expected_structural_null=334, unexpected_required_null=0, nan_inf=0, duplicates=0 |
+| GraphSAGE | random_stability_pairwise | `results\metrics\shapeggen\graphsage\random\random_stability_pairwise_jaccard.csv` | metric_csv | 7515 | 7 | `a385eb15828a00e835d1f8842c04b434e2e918e7b28d33521ff577e4ef20d5dc` | total_null=0, expected_structural_null=0, unexpected_required_null=0, nan_inf=0, duplicates=0 |
+| GraphSAGE | random_stability_node | `results\metrics\shapeggen\graphsage\random\random_stability_per_node_jaccard.csv` | metric_csv | 167 | 10 | `5521d8107735f744a5cdfdbb5a2a91c188b87ec0e24d2c5bf5368a798dbc0032` | total_null=167, expected_structural_null=167, unexpected_required_null=0, nan_inf=0, duplicates=0 |
 | GraphSAGE | gnnexplainer | `results\explanations\shapeggen\graphsage\gnnexplainer` | graphsage_gnnexplainer_raw_explanations | 1002/1002 | 6012 | `c329079628a07a5106368617eed766c4cfe95d9fa2c3745a762de964e72278cb` | missing_dirs=0, missing_files={}, score_len=0, edge_mask_size=0, selected_count=0 |
 | GraphSAGE | random | `results\explanations\shapeggen\graphsage\random` | graphsage_random_raw_explanations | 1670/1670 | 10020 | `7c2d372a4ce685543e7306c9b2098a4d9eafc464edb77cae2608a574245c7fac` | missing_dirs=0, missing_files={}, score_len=0, edge_mask_size=0, selected_count=0 |
 
@@ -288,19 +354,23 @@ GNNExplainer runtime is per-target explanation optimization/generation time. Ran
 
 - pytest: 115 passed, 3 warnings
 - Ruff: All checks passed
-- git diff --check: pass
+- git diff --check: passed
 
 ## Acceptance Checklist
 
-- frozen_input_hashes_match: True
-- target_candidate_gt_mapping_valid: True
-- coverage_complete_without_failures_or_duplicates: True
-- raw_artifacts_complete_and_aligned: True
-- metric_formula_checks_pass: True
-- stability_pair_counts_valid: True
-- reported_values_recomputed: True
-- fid_count_checks_match: True
-- task24_pgexplainer_not_started: True
+- frozen_input_hashes_match: True - dataset, target, checkpoint, and recorded config hashes match.
+- target_candidate_gt_mapping_valid: True - 167 targets, 0 duplicates, violations=NONE.
+- coverage_complete_without_failures_or_duplicates: True - GCN and GraphSAGE quality/stability/random expected rows all succeeded with failed=0, missing=0, duplicated=0.
+- raw_artifacts_complete_and_aligned: True - 1002 GNNExplainer raw run directories and 1670 Random raw run directories per backbone are present with no selected-count or candidate violations.
+- metric_formula_checks_pass: True - all checked identity violation counts are zero within tolerance 1e-9.
+- all_required_metrics_complete: True - required metric null/NaN/Inf row count is zero for applicable quality rows.
+- unexpected_required_nulls_zero: True - column-level null audit reports unexpected_required_null_cells=0 for every CSV.
+- nan_inf_counts_zero: True - column-level audit reports total_inf_cells=0 for every CSV.
+- runtime_alias_checks_pass: True - GNN runtime equals generation runtime, Random runtime equals evaluation/runtime boundary, with zero alias violations.
+- stability_pair_counts_valid: True - GNNExplainer has 1670 pair rows per backbone and Random has 7515 pair rows per backbone, with no duplicate/self/out-of-range pairs.
+- reported_values_recomputed: True - Task23 comparison values recompute to the previously reported rounded values.
+- fid_count_checks_match: True - GNNExplainer Fid+ and Fid- count checks match recorded evidence.
+- task24_pgexplainer_not_started: True - audit scope explicitly leaves Task24/PGExplainer unauthorized.
 
 ## Remaining Blockers
 

@@ -39,6 +39,27 @@ QUALITY_METRICS = [
     "generation_runtime_seconds",
     "evaluation_runtime_seconds",
 ]
+QUALITY_REQUIRED_FIELDS = [
+    "node_id",
+    "seed",
+    "candidate_edge_count",
+    "selected_edge_count",
+    "edge_auroc",
+    "edge_ap",
+    "fid_plus",
+    "fid_minus",
+    "one_minus_fid_minus",
+    "original_probability",
+    "remove_probability",
+    "retain_probability",
+    "remove_probability_delta",
+    "retain_probability_delta",
+    "retain_probability_ratio",
+    "sparsity",
+    "runtime_seconds",
+    "evaluation_runtime_seconds",
+]
+GNN_REQUIRED_EXTRA_FIELDS = ["generation_runtime_seconds"]
 COMPARISON_METRICS = [
     "edge_auroc",
     "edge_ap",
@@ -200,6 +221,132 @@ def count_missing_nonfinite(rows: list[dict[str, Any]]) -> dict[str, Any]:
     return {"missing_value_count": missing, "nan_inf_count": nan_inf}
 
 
+def infer_dtype(values: list[str]) -> str:
+    non_null = [value for value in values if value not in (None, "")]
+    if not non_null:
+        return "empty"
+    if all(str(value).lstrip("-").isdigit() for value in non_null):
+        return "int"
+    try:
+        for value in non_null:
+            float(value)
+    except (TypeError, ValueError):
+        return "string"
+    return "float"
+
+
+def expected_structural_null_reason(family: str, column: str) -> str | None:
+    if column == "error":
+        return "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded."
+    if column == "failure_reason":
+        return "EXPECTED_STRUCTURAL_NULL: empty when status is success and no failure was recorded."
+    if family.startswith("random") and column == "generation_runtime_seconds":
+        return (
+            "EXPECTED_STRUCTURAL_NULL: Random has no explanation-generation stage; "
+            "runtime_seconds/evaluation_runtime_seconds measure random edge selection "
+            "plus evaluation."
+        )
+    return None
+
+
+def required_columns_for_family(family: str, columns: list[str]) -> set[str]:
+    if "pairwise" in family:
+        return set(columns)
+    if "stability_node" in family:
+        return {
+            "node_id",
+            "mean_pairwise_jaccard",
+            "std_pairwise_jaccard",
+            "median_pairwise_jaccard",
+            "min_pairwise_jaccard",
+            "max_pairwise_jaccard",
+            "num_seeds",
+            "num_pairs",
+            "status",
+        }
+    if family in {"gnn_primary", "gnn_stability_seed"}:
+        return set(QUALITY_REQUIRED_FIELDS + GNN_REQUIRED_EXTRA_FIELDS + ["status"])
+    if family in {"random_seed", "random_node"}:
+        return set(QUALITY_REQUIRED_FIELDS + ["status"])
+    return set(columns)
+
+
+def column_null_audit(rows: list[dict[str, str]], family: str) -> dict[str, Any]:
+    if not rows:
+        return {
+            "columns": [],
+            "expected_structural_null_cells": 0,
+            "unexpected_required_null_cells": 0,
+            "total_null_cells": 0,
+            "total_inf_cells": 0,
+            "unexpected_null_columns": [],
+            "expected_null_columns": [],
+        }
+    columns = list(rows[0].keys())
+    required = required_columns_for_family(family, columns)
+    column_rows = []
+    total_null = 0
+    total_inf = 0
+    expected_structural = 0
+    unexpected_required = 0
+    unexpected_columns = set()
+    expected_columns: dict[str, str] = {}
+    for column in columns:
+        values = [row.get(column, "") for row in rows]
+        null_count = sum(1 for value in values if value in (None, ""))
+        inf_count = 0
+        for value in values:
+            if value in (None, ""):
+                continue
+            try:
+                numeric = float(value)
+            except (TypeError, ValueError):
+                continue
+            if not math.isfinite(numeric):
+                inf_count += 1
+        reason = expected_structural_null_reason(family, column)
+        is_required = column in required
+        is_expected_null = reason is not None
+        unexpected_count = null_count if null_count and is_required and not is_expected_null else 0
+        expected_count = null_count if null_count and is_expected_null else 0
+        total_null += null_count
+        total_inf += inf_count
+        unexpected_required += unexpected_count
+        expected_structural += expected_count
+        if unexpected_count:
+            unexpected_columns.add(column)
+        if expected_count:
+            expected_columns[column] = reason or ""
+        column_rows.append(
+            {
+                "column": column,
+                "dtype": infer_dtype(values),
+                "row_count": len(rows),
+                "null_count": null_count,
+                "inf_count": inf_count,
+                "required_applicable": is_required,
+                "expected_null": is_expected_null,
+                "reason": reason or "",
+                "null_classification": (
+                    "EXPECTED_STRUCTURAL_NULL"
+                    if expected_count
+                    else "UNEXPECTED_REQUIRED_NULL"
+                    if unexpected_count
+                    else "NONE"
+                ),
+            }
+        )
+    return {
+        "columns": column_rows,
+        "expected_structural_null_cells": expected_structural,
+        "unexpected_required_null_cells": unexpected_required,
+        "total_null_cells": total_null,
+        "total_inf_cells": total_inf,
+        "unexpected_null_columns": sorted(unexpected_columns),
+        "expected_null_columns": expected_columns,
+    }
+
+
 def audit_inputs(config: dict[str, Any], task_config_path: Path) -> dict[str, Any]:
     paths = {
         "dataset": Path(config["dataset_path"]),
@@ -304,9 +451,21 @@ def audit_targets_and_candidate_gt(config: dict[str, Any]) -> dict[str, Any]:
 
 def audit_metrics_for_rows(rows: list[dict[str, str]]) -> dict[str, Any]:
     violations = Counter()
+    checked_rows = 0
+    max_errors = {
+        "remove_probability_delta": 0.0,
+        "retain_probability_delta": 0.0,
+        "one_minus_fid_minus": 0.0,
+        "retain_probability_ratio": 0.0,
+        "sparsity": 0.0,
+    }
+    original_zero_count = 0
+    ratio_structural_null_count = 0
+    required_metric_null_nan_inf = 0
     for row in rows:
         if row["status"] != "success":
             continue
+        checked_rows += 1
         original = float(row["original_probability"])
         remove = float(row["remove_probability"])
         retain = float(row["retain_probability"])
@@ -318,17 +477,37 @@ def audit_metrics_for_rows(rows: list[dict[str, str]]) -> dict[str, Any]:
         candidate = float(row["candidate_edge_count"])
         sparsity = float(row["sparsity"])
         ratio = row.get("retain_probability_ratio")
-        if abs(remove_delta - (original - remove)) > 1e-9:
+        remove_error = abs(remove_delta - (original - remove))
+        retain_error = abs(retain_delta - (original - retain))
+        one_minus_error = abs(one_minus - (1.0 - fid_minus))
+        sparsity_error = abs(sparsity - (1.0 - selected / candidate))
+        max_errors["remove_probability_delta"] = max(
+            max_errors["remove_probability_delta"], remove_error
+        )
+        max_errors["retain_probability_delta"] = max(
+            max_errors["retain_probability_delta"], retain_error
+        )
+        max_errors["one_minus_fid_minus"] = max(max_errors["one_minus_fid_minus"], one_minus_error)
+        max_errors["sparsity"] = max(max_errors["sparsity"], sparsity_error)
+        if remove_error > 1e-9:
             violations["remove_probability_delta_formula"] += 1
-        if abs(retain_delta - (original - retain)) > 1e-9:
+        if retain_error > 1e-9:
             violations["retain_probability_delta_formula"] += 1
-        if abs(one_minus - (1.0 - fid_minus)) > 1e-9:
+        if one_minus_error > 1e-9:
             violations["one_minus_fid_minus_formula"] += 1
-        if abs(sparsity - (1.0 - selected / candidate)) > 1e-9:
+        if sparsity_error > 1e-9:
             violations["sparsity_formula"] += 1
         ratio_is_aggregated_random_node_mean = row.get("seed") == "node_mean"
+        if original == 0.0:
+            original_zero_count += 1
+            if ratio in (None, ""):
+                ratio_structural_null_count += 1
         if original != 0.0 and ratio not in (None, "") and not ratio_is_aggregated_random_node_mean:
-            if abs(float(ratio) - (retain / original)) > 1e-9:
+            ratio_error = abs(float(ratio) - (retain / original))
+            max_errors["retain_probability_ratio"] = max(
+                max_errors["retain_probability_ratio"], ratio_error
+            )
+            if ratio_error > 1e-9:
                 violations["retain_probability_ratio_formula"] += 1
         if not all(
             finite(row[field])
@@ -346,10 +525,20 @@ def audit_metrics_for_rows(rows: list[dict[str, str]]) -> dict[str, Any]:
             ]
         ):
             violations["quality_metric_nonfinite"] += 1
-    return {"metric_formula_violations": dict(violations)}
+            required_metric_null_nan_inf += 1
+    return {
+        "checked_row_count": checked_rows,
+        "metric_formula_violations": dict(violations),
+        "identity_violation_count": sum(violations.values()),
+        "maximum_absolute_identity_error": max(max_errors.values()) if max_errors else 0.0,
+        "maximum_absolute_error_by_formula": max_errors,
+        "original_probability_zero_count": original_zero_count,
+        "ratio_structural_null_count": ratio_structural_null_count,
+        "required_metric_null_nan_inf_row_count": required_metric_null_nan_inf,
+    }
 
 
-def count_csv_rows(path: Path) -> dict[str, Any]:
+def count_csv_rows(path: Path, family: str) -> dict[str, Any]:
     rows = read_csv(path)
     fieldnames = list(rows[0].keys()) if rows else []
     seed_values = sorted({row.get("seed", "") for row in rows})
@@ -373,6 +562,7 @@ def count_csv_rows(path: Path) -> dict[str, Any]:
             "seed_coverage": seed_values,
             "target_node_count": len(set(node_values)),
             "duplicate_node_seed_count": duplicate_rows,
+            "null_audit": column_null_audit(rows, family),
         }
     )
     return details
@@ -502,43 +692,51 @@ def audit_quality_and_coverage(config: dict[str, Any]) -> dict[str, Any]:
             "artifact_inventory": {
                 "metric_files": {
                     "gnn_primary": count_csv_rows(
-                        Path(f"results/metrics/shapeggen/{backbone}/gnnexplainer/per_node_metrics.csv")
+                        Path(f"results/metrics/shapeggen/{backbone}/gnnexplainer/per_node_metrics.csv"),
+                        "gnn_primary",
                     ),
                     "gnn_stability_seed": count_csv_rows(
                         Path(
                             f"results/metrics/shapeggen/{backbone}/gnnexplainer/"
                             "stability_seed_metrics.csv"
-                        )
+                        ),
+                        "gnn_stability_seed",
                     ),
                     "gnn_stability_pairwise": count_csv_rows(
                         Path(
                             f"results/metrics/shapeggen/{backbone}/gnnexplainer/"
                             "stability_pairwise_jaccard.csv"
-                        )
+                        ),
+                        "gnn_stability_pairwise",
                     ),
                     "gnn_stability_node": count_csv_rows(
                         Path(
                             f"results/metrics/shapeggen/{backbone}/gnnexplainer/"
                             "stability_per_node_jaccard.csv"
-                        )
+                        ),
+                        "gnn_stability_node",
                     ),
                     "random_seed": count_csv_rows(
-                        Path(f"results/metrics/shapeggen/{backbone}/random/random_seed_level_metrics.csv")
+                        Path(f"results/metrics/shapeggen/{backbone}/random/random_seed_level_metrics.csv"),
+                        "random_seed",
                     ),
                     "random_node": count_csv_rows(
-                        Path(f"results/metrics/shapeggen/{backbone}/random/random_node_level_metrics.csv")
+                        Path(f"results/metrics/shapeggen/{backbone}/random/random_node_level_metrics.csv"),
+                        "random_node",
                     ),
                     "random_stability_pairwise": count_csv_rows(
                         Path(
                             f"results/metrics/shapeggen/{backbone}/random/"
                             "random_stability_pairwise_jaccard.csv"
-                        )
+                        ),
+                        "random_stability_pairwise",
                     ),
                     "random_stability_node": count_csv_rows(
                         Path(
                             f"results/metrics/shapeggen/{backbone}/random/"
                             "random_stability_per_node_jaccard.csv"
-                        )
+                        ),
+                        "random_stability_node",
                     ),
                 },
                 "raw_artifacts": {
@@ -592,6 +790,20 @@ def audit_quality_and_coverage(config: dict[str, Any]) -> dict[str, Any]:
                 "gnn_primary": runtime_summary(gnn_primary),
                 "random_node_level": runtime_summary(random_node),
                 "random_seed_level": runtime_summary(random_seed),
+            },
+            "runtime_alias_checks": {
+                "gnn_primary_runtime_equals_generation": runtime_alias_check(
+                    gnn_primary,
+                    "gnnexplainer",
+                ),
+                "random_node_runtime_equals_evaluation": runtime_alias_check(
+                    random_node,
+                    "random",
+                ),
+                "random_seed_runtime_equals_evaluation": runtime_alias_check(
+                    random_seed,
+                    "random",
+                ),
             },
         }
     return output
@@ -679,6 +891,38 @@ def runtime_summary(rows: list[dict[str, str]]) -> dict[str, Any]:
         summary["total"] = sum(values) if values else None
         output[field] = summary
     return output
+
+
+def runtime_alias_check(rows: list[dict[str, str]], method: str) -> dict[str, Any]:
+    alias_violation_count = 0
+    maximum_absolute_difference = 0.0
+    checked_rows = 0
+    for row in rows:
+        if row.get("status") != "success":
+            continue
+        runtime = row.get("runtime_seconds")
+        generation = row.get("generation_runtime_seconds")
+        evaluation = row.get("evaluation_runtime_seconds")
+        if method == "gnnexplainer":
+            if finite(runtime) and finite(generation):
+                checked_rows += 1
+                diff = abs(float(runtime) - float(generation))
+                maximum_absolute_difference = max(maximum_absolute_difference, diff)
+                if diff > 1e-9:
+                    alias_violation_count += 1
+        elif method == "random":
+            if finite(runtime) and finite(evaluation):
+                checked_rows += 1
+                diff = abs(float(runtime) - float(evaluation))
+                maximum_absolute_difference = max(maximum_absolute_difference, diff)
+                if diff > 1e-9:
+                    alias_violation_count += 1
+    return {
+        "method": method,
+        "checked_rows": checked_rows,
+        "alias_violation_count": alias_violation_count,
+        "maximum_absolute_difference": maximum_absolute_difference,
+    }
 
 
 def recompute_comparison(audit: dict[str, Any]) -> list[dict[str, Any]]:
@@ -868,6 +1112,19 @@ def acceptance(audit: dict[str, Any]) -> dict[str, bool]:
     for values in backbone.values():
         for item in values["coverage"].values():
             coverage_failures.extend([item["failed"], item["missing"], item["duplicated"]])
+    unexpected_required_nulls = []
+    inf_counts = []
+    runtime_alias_violations = []
+    required_metric_nonfinite_rows = []
+    for values in backbone.values():
+        for item in values["artifact_inventory"]["metric_files"].values():
+            null_audit = item["null_audit"]
+            unexpected_required_nulls.append(null_audit["unexpected_required_null_cells"])
+            inf_counts.append(null_audit["total_inf_cells"])
+        for item in values["metric_semantics_violations"].values():
+            required_metric_nonfinite_rows.append(item["required_metric_null_nan_inf_row_count"])
+        for item in values["runtime_alias_checks"].values():
+            runtime_alias_violations.append(item["alias_violation_count"])
     return {
         "frozen_input_hashes_match": all(
             item["matches_expected"] for item in audit["frozen_input_verification"].values()
@@ -881,6 +1138,10 @@ def acceptance(audit: dict[str, Any]) -> dict[str, bool]:
         "coverage_complete_without_failures_or_duplicates": sum(coverage_failures) == 0,
         "raw_artifacts_complete_and_aligned": sum(raw_violations) == 0,
         "metric_formula_checks_pass": sum(formula_violations) == 0,
+        "all_required_metrics_complete": sum(required_metric_nonfinite_rows) == 0,
+        "unexpected_required_nulls_zero": sum(unexpected_required_nulls) == 0,
+        "nan_inf_counts_zero": sum(inf_counts) == 0,
+        "runtime_alias_checks_pass": sum(runtime_alias_violations) == 0,
         "stability_pair_counts_valid": all(
             values["stability"]["gnnexplainer"]["actual_pair_rows"] == 1670
             and values["stability"]["random"]["actual_pair_rows"] == 7515
@@ -964,6 +1225,14 @@ def build_report(audit: dict[str, Any]) -> str:
             "## Runtime Audit",
             "",
             runtime_section(audit),
+            "",
+            "## Metric Identity Checks",
+            "",
+            metric_identity_section(audit),
+            "",
+            "## Null And Missing Audit",
+            "",
+            null_missing_section(audit),
             "",
             "## Artifact Inventory",
             "",
@@ -1170,7 +1439,18 @@ def stability_section(audit: dict[str, Any]) -> str:
 def runtime_section(audit: dict[str, Any]) -> str:
     lines = [
         "GNNExplainer runtime is per-target explanation optimization/generation time. "
-        "Random runtime is random edge selection plus metric evaluation time.",
+        "`runtime_seconds` is an alias of `generation_runtime_seconds`. "
+        "`evaluation_runtime_seconds` is measured separately and is not included in "
+        "`runtime_seconds`.",
+        "",
+        "Random runtime is random edge selection plus metric evaluation. "
+        "`runtime_seconds` is an alias of `evaluation_runtime_seconds` because Random "
+        "has no explanation-generation stage. Therefore `generation_runtime_seconds` "
+        "is structurally not applicable for Random.",
+        "",
+        "Raw Random totals across 1,670 seed rows describe total measured Random work. "
+        "The 167-row node-level seed-mean runtime distribution is a sampling-unit "
+        "summary and is not a total-compute measurement.",
         "",
         "| Backbone | Run | Field | n | mean | std | median | min | max | total |",
     ]
@@ -1189,6 +1469,95 @@ def runtime_section(audit: dict[str, Any]) -> str:
                     f"{fmt(row['mean'])} | {fmt(row['std'])} | {fmt(row['median'])} | "
                     f"{fmt(row['min'])} | {fmt(row['max'])} | {fmt(row['total'])} |"
                 )
+    lines.extend(["", "### Runtime Alias Checks", "", runtime_alias_table(audit)])
+    return "\n".join(lines)
+
+
+def runtime_alias_table(audit: dict[str, Any]) -> str:
+    lines = [
+        "| Backbone | Check | Checked rows | Violations | Max absolute difference |",
+        "|---|---|---:|---:|---:|",
+    ]
+    for backbone in BACKBONES:
+        label = "GCN" if backbone == "gcn" else "GraphSAGE"
+        for name, row in audit["backbone_audit"][backbone]["runtime_alias_checks"].items():
+            lines.append(
+                f"| {label} | {name} | {row['checked_rows']} | "
+                f"{row['alias_violation_count']} | "
+                f"{fmt(row['maximum_absolute_difference'])} |"
+            )
+    return "\n".join(lines)
+
+
+def metric_identity_section(audit: dict[str, Any]) -> str:
+    lines = [
+        "Checked identities: `one_minus_fid_minus == 1 - fid_minus`, "
+        "`remove_probability_delta == original_probability - remove_probability`, "
+        "`retain_probability_delta == original_probability - retain_probability`, "
+        "`retain_probability_ratio == retain_probability / original_probability` "
+        "when applicable, and `sparsity == 1 - selected_edge_count / candidate_edge_count`.",
+        "",
+        "| Backbone | Artifact | Checked rows | Violations | Max absolute error | "
+        "Original prob zero | Ratio structural null | Required metric null/NaN/Inf rows |",
+        "|---|---|---:|---:|---:|---:|---:|---:|",
+    ]
+    for backbone in BACKBONES:
+        label = "GCN" if backbone == "gcn" else "GraphSAGE"
+        checks = audit["backbone_audit"][backbone]["metric_semantics_violations"]
+        for family, row in checks.items():
+            lines.append(
+                f"| {label} | {family} | {row['checked_row_count']} | "
+                f"{row['identity_violation_count']} | "
+                f"{fmt(row['maximum_absolute_identity_error'])} | "
+                f"{row['original_probability_zero_count']} | "
+                f"{row['ratio_structural_null_count']} | "
+                f"{row['required_metric_null_nan_inf_row_count']} |"
+            )
+    lines.append("")
+    lines.append(
+        "For Random node-level rows, `retain_probability_ratio` is the per-node mean "
+        "of seed-level ratios by aggregation protocol, so the raw formula is verified "
+        "on seed-level rows and not re-derived from node-mean probabilities."
+    )
+    return "\n".join(lines)
+
+
+def null_missing_section(audit: dict[str, Any]) -> str:
+    lines = [
+        "Nulls are audited by column. Expected structural nulls are documented below; "
+        "unexpected required nulls are blockers and must remain zero.",
+        "",
+        "| Backbone | Artifact | Total null cells | Expected structural null cells | "
+        "Unexpected required null cells | Inf cells | Expected null columns | "
+        "Unexpected null columns |",
+        "|---|---|---:|---:|---:|---:|---|---|",
+    ]
+    for backbone in BACKBONES:
+        label = "GCN" if backbone == "gcn" else "GraphSAGE"
+        metric_files = audit["backbone_audit"][backbone]["artifact_inventory"]["metric_files"]
+        for family, row in metric_files.items():
+            nulls = row["null_audit"]
+            expected_columns = ", ".join(nulls["expected_null_columns"].keys()) or "NONE"
+            unexpected_columns = ", ".join(nulls["unexpected_null_columns"]) or "NONE"
+            lines.append(
+                f"| {label} | {family} | {nulls['total_null_cells']} | "
+                f"{nulls['expected_structural_null_cells']} | "
+                f"{nulls['unexpected_required_null_cells']} | {nulls['total_inf_cells']} | "
+                f"{expected_columns} | {unexpected_columns} |"
+            )
+    lines.extend(["", "### Expected Structural Null Reasons", ""])
+    seen = set()
+    for backbone in BACKBONES:
+        metric_files = audit["backbone_audit"][backbone]["artifact_inventory"]["metric_files"]
+        for family, row in metric_files.items():
+            for column, reason in row["null_audit"]["expected_null_columns"].items():
+                key = (family, column, reason)
+                if key in seen:
+                    continue
+                seen.add(key)
+                lines.append(f"- {family}.{column}: {reason}")
+    if len(lines) >= 2 and lines[-1] == "":
+        lines.append("- NONE")
     return "\n".join(lines)
 
 
@@ -1196,7 +1565,7 @@ def artifact_inventory_section(audit: dict[str, Any]) -> str:
     lines = [
         (
             "| Backbone | Family | Path | Role | Rows/Runs | Columns/File count | "
-            "SHA256/Manifest | Missing/Violations |"
+            "SHA256/Manifest | Null/Violation Status |"
         ),
         "|---|---|---|---|---:|---:|---|---|",
     ]
@@ -1204,10 +1573,14 @@ def artifact_inventory_section(audit: dict[str, Any]) -> str:
         label = "GCN" if backbone == "gcn" else "GraphSAGE"
         inventory = audit["backbone_audit"][backbone]["artifact_inventory"]
         for family, row in inventory["metric_files"].items():
+            nulls = row["null_audit"]
             lines.append(
                 f"| {label} | {family} | `{row['path']}` | {row['role']} | "
                 f"{row['row_count']} | {len(row['column_names'])} | `{row['sha256']}` | "
-                f"missing={row['missing_value_count']}, nan_inf={row['nan_inf_count']}, "
+                f"total_null={nulls['total_null_cells']}, "
+                f"expected_structural_null={nulls['expected_structural_null_cells']}, "
+                f"unexpected_required_null={nulls['unexpected_required_null_cells']}, "
+                f"nan_inf={row['nan_inf_count']}, "
                 f"duplicates={row['duplicate_node_seed_count']} |"
             )
         for family, row in inventory["raw_artifacts"].items():
@@ -1235,7 +1608,59 @@ def validation_section(audit: dict[str, Any]) -> str:
 
 
 def acceptance_section(audit: dict[str, Any]) -> str:
-    return "\n".join(f"- {name}: {value}" for name, value in audit["acceptance"].items())
+    evidence = acceptance_evidence(audit)
+    return "\n".join(
+        f"- {name}: {audit['acceptance'][name]} - {evidence.get(name, 'see audit JSON')}"
+        for name in audit["acceptance"]
+    )
+
+
+def acceptance_evidence(audit: dict[str, Any]) -> dict[str, str]:
+    target = audit["candidate_gt_audit"]
+    return {
+        "frozen_input_hashes_match": (
+            "dataset, target, checkpoint, and recorded config hashes match."
+        ),
+        "target_candidate_gt_mapping_valid": (
+            f"{target['target_count']} targets, {target['duplicate_target_count']} duplicates, "
+            f"violations={target['violations'] or 'NONE'}."
+        ),
+        "coverage_complete_without_failures_or_duplicates": (
+            "GCN and GraphSAGE quality/stability/random expected rows all succeeded with "
+            "failed=0, missing=0, duplicated=0."
+        ),
+        "raw_artifacts_complete_and_aligned": (
+            "1002 GNNExplainer raw run directories and 1670 Random raw run directories per "
+            "backbone are present with no selected-count or candidate violations."
+        ),
+        "metric_formula_checks_pass": (
+            "all checked identity violation counts are zero within tolerance 1e-9."
+        ),
+        "all_required_metrics_complete": (
+            "required metric null/NaN/Inf row count is zero for applicable quality rows."
+        ),
+        "unexpected_required_nulls_zero": (
+            "column-level null audit reports unexpected_required_null_cells=0 for every CSV."
+        ),
+        "nan_inf_counts_zero": "column-level audit reports total_inf_cells=0 for every CSV.",
+        "runtime_alias_checks_pass": (
+            "GNN runtime equals generation runtime, Random runtime equals evaluation/runtime "
+            "boundary, with zero alias violations."
+        ),
+        "stability_pair_counts_valid": (
+            "GNNExplainer has 1670 pair rows per backbone and Random has 7515 pair rows per "
+            "backbone, with no duplicate/self/out-of-range pairs."
+        ),
+        "reported_values_recomputed": (
+            "Task23 comparison values recompute to the previously reported rounded values."
+        ),
+        "fid_count_checks_match": (
+            "GNNExplainer Fid+ and Fid- count checks match recorded evidence."
+        ),
+        "task24_pgexplainer_not_started": (
+            "audit scope explicitly leaves Task24/PGExplainer unauthorized."
+        ),
+    }
 
 
 def fmt(value: Any) -> str:
