@@ -192,9 +192,18 @@ def test_task28_config_identity_is_seed_isolated() -> None:
     seed42 = config_identity(data, pg_config, SPECS["gcn"], 42, hashes)
     seed0 = config_identity(data, pg_config, SPECS["gcn"], 0, hashes)
     sage42 = config_identity(data, pg_config, SPECS["graphsage"], 42, hashes)
+    debug42 = config_identity(
+        data,
+        pg_config,
+        SPECS["gcn"],
+        42,
+        hashes,
+        {"allow_debug_limits": True, "train_count": 2, "validation_count": 1},
+    )
 
     assert seed42 != seed0
     assert seed42 != sage42
+    assert seed42 != debug42
 
 
 def test_task28_interrupted_resume_matches_uninterrupted_tiny_fixture(

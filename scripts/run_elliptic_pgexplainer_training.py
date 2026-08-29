@@ -207,7 +207,14 @@ def git_value(*args: str) -> str:
         return ""
 
 
-def config_identity(config: dict[str, Any], pg_config: dict[str, Any], spec: BackboneSpec, seed: int, hashes: dict[str, str]) -> str:
+def config_identity(
+    config: dict[str, Any],
+    pg_config: dict[str, Any],
+    spec: BackboneSpec,
+    seed: int,
+    hashes: dict[str, str],
+    run_scope: dict[str, Any] | None = None,
+) -> str:
     payload = {
         "task": "TASK28_ELLIPTIC_PGEXPLAINER_TRAINING",
         "backbone": spec.slug,
@@ -221,6 +228,11 @@ def config_identity(config: dict[str, Any], pg_config: dict[str, Any], spec: Bac
         "selected_edge_ratio": float(config["selected_edge_ratio"]),
         "target_semantics": config["target_semantics"],
         "checkpoint_selection": config["checkpoint_selection"],
+        "run_scope": run_scope or {
+            "allow_debug_limits": False,
+            "train_count": int(config["common_train_count"]),
+            "validation_count": int(config["common_val_count"]),
+        },
     }
     return hashlib.sha256(json.dumps(payload, sort_keys=True).encode("utf-8")).hexdigest()
 
@@ -420,7 +432,12 @@ def train_one(args: argparse.Namespace) -> dict[str, Any]:
         train_targets = train_targets[: args.debug_train_limit] if args.debug_train_limit else train_targets
         val_targets = val_targets[: args.debug_val_limit] if args.debug_val_limit else val_targets
     device = resolve_device(args.device)
-    identity = config_identity(config, pg_config, spec, int(args.seed), hashes)
+    run_scope = {
+        "allow_debug_limits": bool(args.allow_debug_limits),
+        "train_count": len(train_targets),
+        "validation_count": len(val_targets),
+    }
+    identity = config_identity(config, pg_config, spec, int(args.seed), hashes, run_scope)
     directory = run_dir(config, spec, int(args.seed))
     complete_marker = directory / "COMPLETE.json"
     if complete_marker.exists():
