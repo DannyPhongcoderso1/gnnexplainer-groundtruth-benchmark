@@ -1,0 +1,1357 @@
+{
+  "backbones": {
+    "gcn": {
+      "backbone": "GCN",
+      "backbone_immutability": {
+        "after": {
+          "all_parameters_finite": true,
+          "non_finite_tensor_count": 0,
+          "parameter_elements_checked": 54288,
+          "parameter_tensors_checked": 6
+        },
+        "before": {
+          "all_parameters_finite": true,
+          "non_finite_tensor_count": 0,
+          "parameter_elements_checked": 54288,
+          "parameter_tensors_checked": 6
+        },
+        "changed_tensor_count": 0,
+        "compared_tensor_count": 6,
+        "gradient_present_tensor_count": 0,
+        "maximum_absolute_difference": 0.0,
+        "model_hash_after": "045f71314906c8b895705cb2cc0f5fed334cc1daf004ef1b1e690751540a917a",
+        "model_hash_before": "045f71314906c8b895705cb2cc0f5fed334cc1daf004ef1b1e690751540a917a",
+        "pass": true,
+        "requires_grad_states": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "unchanged_tensor_count": 6
+      },
+      "gpu_memory": {
+        "measurement_end_boundary": "after measured step 10 and CUDA synchronization",
+        "measurement_reset_boundary": "after PGExplainer materialization and before warm-up/measured train calls",
+        "measurement_start_boundary": "before warm-up step 1",
+        "peak_allocated_cuda_memory_bytes": 2933682176,
+        "peak_reserved_cuda_memory_bytes": 3722444800
+      },
+      "gpu_temperature": {
+        "measured": true,
+        "temperature_after": 54,
+        "temperature_before": 47,
+        "temperature_maximum_during_pilot": 54,
+        "unavailable_reason": null
+      },
+      "new_train_node_ids": [
+        54,
+        61,
+        67,
+        108,
+        139,
+        224,
+        240,
+        265
+      ],
+      "new_validation_node_ids": [
+        120862,
+        120990,
+        121148
+      ],
+      "old_train_node_ids": [
+        54,
+        61,
+        67,
+        108,
+        139,
+        224,
+        240,
+        265
+      ],
+      "old_validation_node_ids": [
+        120862,
+        120990,
+        121148
+      ],
+      "optimizer_isolation": {
+        "after_training": {
+          "backbone_parameter_ids": [
+            2043305472432,
+            2043305472912,
+            2043305473712,
+            2043305787792,
+            2043305790112,
+            2043307224560
+          ],
+          "cross_backbone_shared_trainable_parameter_id_count": 0,
+          "optimizer_backbone_shared_parameter_id_count": 0,
+          "optimizer_parameter_group_count": 1,
+          "optimizer_parameter_tensor_count": 4,
+          "optimizer_pgexplainer_shared_parameter_id_count": 4,
+          "optimizer_references_all_pgexplainer_trainable_parameters": true,
+          "optimizer_state_tensor_count": 12,
+          "pgexplainer_parameter_ids": [
+            2043276945328,
+            2043302447296,
+            2043303475744,
+            2043303922816
+          ]
+        },
+        "before_training": {
+          "backbone_parameter_ids": [
+            2043305472432,
+            2043305472912,
+            2043305473712,
+            2043305787792,
+            2043305790112,
+            2043307224560
+          ],
+          "cross_backbone_shared_trainable_parameter_id_count": 0,
+          "optimizer_backbone_shared_parameter_id_count": 0,
+          "optimizer_parameter_group_count": 1,
+          "optimizer_parameter_tensor_count": 4,
+          "optimizer_pgexplainer_shared_parameter_id_count": 4,
+          "optimizer_references_all_pgexplainer_trainable_parameters": true,
+          "optimizer_state_tensor_count": 0,
+          "pgexplainer_parameter_ids": [
+            2043276945328,
+            2043302447296,
+            2043303475744,
+            2043303922816
+          ]
+        },
+        "pass": true
+      },
+      "pgexplainer_parameter_update": {
+        "after": {
+          "all_parameters_finite": true,
+          "non_finite_tensor_count": 0,
+          "parameter_elements_checked": 17409,
+          "parameter_tensors_checked": 4
+        },
+        "before": {
+          "all_parameters_finite": true,
+          "non_finite_tensor_count": 0,
+          "parameter_elements_checked": 17409,
+          "parameter_tensors_checked": 4
+        },
+        "changed_tensor_count": 4,
+        "compared_tensor_count": 4,
+        "maximum_absolute_difference": 0.02450045384466648,
+        "pass": true,
+        "unchanged_tensor_count": 0
+      },
+      "pilot_checkpoint": "results\\metrics\\elliptic\\task28_step03_evidence_expansion\\checkpoints\\evidence_expansion_gcn_seed42.pt",
+      "pilot_checkpoint_sha256": "1558ca5de3eb0922c9bb46bf3d30c5a858206e1198c89abf996465441953cc78",
+      "reload_parity": {
+        "absolute_tolerance": 1e-07,
+        "compared_output_mask_count": 3,
+        "config_identity_matches": true,
+        "deterministic_inference_audit": {
+          "backbone_eval_mode": true,
+          "edge_index_device": "cuda:0",
+          "edge_index_dtype": "torch.int64",
+          "explainer_eval_mode": true,
+          "identical_edge_order_hash": true,
+          "identical_input_tensor_hash": true,
+          "identical_node_indices": true,
+          "identical_optimizer_independent_inference_state": true,
+          "identical_parameter_state": true,
+          "identical_target_tensor_hash": true,
+          "input_device": "cuda:0",
+          "input_dtype": "torch.float32",
+          "no_intended_stochastic_mask_sampling": true,
+          "output_mask_dtype_device_rows": [
+            {
+              "first_dtype": "torch.float32",
+              "first_shape": [
+                468710
+              ],
+              "node_id": 120862,
+              "second_dtype": "torch.float32",
+              "second_shape": [
+                468710
+              ]
+            },
+            {
+              "first_dtype": "torch.float32",
+              "first_shape": [
+                468710
+              ],
+              "node_id": 120990,
+              "second_dtype": "torch.float32",
+              "second_shape": [
+                468710
+              ]
+            },
+            {
+              "first_dtype": "torch.float32",
+              "first_shape": [
+                468710
+              ],
+              "node_id": 121148,
+              "second_dtype": "torch.float32",
+              "second_shape": [
+                468710
+              ]
+            }
+          ],
+          "target_device": "cuda:0",
+          "target_dtype": "torch.int64"
+        },
+        "epoch_matches": true,
+        "input_hashes_match": true,
+        "maximum_absolute_mask_difference": 5.960464477539063e-08,
+        "optimizer_comparison": {
+          "absolute_tolerance": 0.0,
+          "compared_tensor_count": 12,
+          "maximum_absolute_difference": 0.0,
+          "mismatch_tensor_count": 0,
+          "pass": true,
+          "relative_tolerance": 0.0
+        },
+        "original_pre_review_absolute_tolerance": 1e-08,
+        "original_pre_review_relative_tolerance": 1e-08,
+        "parameter_comparison": {
+          "absolute_tolerance": 0.0,
+          "compared_tensor_count": 4,
+          "maximum_absolute_difference": 0.0,
+          "mismatch_tensor_count": 0,
+          "pass": true,
+          "relative_tolerance": 0.0
+        },
+        "pass": true,
+        "relative_tolerance": 1e-07,
+        "rng_state_present": true,
+        "seed_matches": true
+      },
+      "resume_parity": {
+        "absolute_tolerance": 1e-07,
+        "backbone": "GCN",
+        "checkpoint_identity": "8c0297106517607045d941b06ba1424d3e6264522842a703d12e379f91fcca20",
+        "checkpoint_path": "results\\metrics\\elliptic\\task28_step03_evidence_expansion\\resume_parity\\gcn\\checkpoints\\epoch_002.pt",
+        "checkpoint_reload_algorithm_state_exact": {
+          "absolute_tolerance": 0.0,
+          "compared_tensor_count": 4,
+          "maximum_absolute_difference": 0.0,
+          "mismatch_tensor_count": 0,
+          "pass": true,
+          "relative_tolerance": 0.0
+        },
+        "checkpoint_reload_optimizer_state_exact": {
+          "absolute_tolerance": 0.0,
+          "compared_tensor_count": 12,
+          "maximum_absolute_difference": 0.0,
+          "mismatch_tensor_count": 0,
+          "pass": true,
+          "relative_tolerance": 0.0
+        },
+        "fixture_type": "cuda_numerical_equivalence",
+        "interruption_point": 2,
+        "loss_records_compared": 4,
+        "maximum_absolute_loss_difference": 0.0,
+        "node_order": [
+          54,
+          61,
+          67,
+          54
+        ],
+        "optimizer_restoration_status": true,
+        "optimizer_tensor_comparison": {
+          "absolute_tolerance": 1e-07,
+          "compared_tensor_count": 12,
+          "maximum_absolute_difference": 8.940696716308594e-08,
+          "mismatch_tensor_count": 0,
+          "pass": true,
+          "relative_tolerance": 1e-07
+        },
+        "output_mask_comparison": {
+          "absolute_tolerance": 1e-07,
+          "compared_output_mask_count": 1,
+          "maximum_absolute_mask_difference": 0.0,
+          "pass": true,
+          "relative_tolerance": 1e-07
+        },
+        "pass": true,
+        "pgexplainer_tensor_comparison": {
+          "absolute_tolerance": 1e-07,
+          "compared_tensor_count": 4,
+          "maximum_absolute_difference": 7.450580596923828e-09,
+          "mismatch_tensor_count": 0,
+          "pass": true,
+          "relative_tolerance": 1e-07
+        },
+        "relative_tolerance": 1e-07,
+        "resumed_end_point": 4,
+        "resumed_start_point": 2,
+        "rng_restoration_status": true,
+        "same_initial_state": true,
+        "same_number_of_completed_optimizer_updates": true,
+        "same_target_vector": true,
+        "seed": 4242,
+        "uninterrupted_end_step": 4,
+        "uninterrupted_start_step": 0
+      },
+      "seed": 42,
+      "target_evidence": {
+        "train": {
+          "checked_node_count": 8,
+          "ground_truth_used_as_target_source": false,
+          "pilot_node_ids": [
+            54,
+            61,
+            67,
+            108,
+            139,
+            224,
+            240,
+            265
+          ],
+          "pool_path": "configs\\targets\\elliptic_pg_common_train.csv",
+          "pool_sha256": "36c2f9b3a81336d304556702b02b6524411f308ee75f2152d79101586f9c1a22",
+          "rows": [
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 54,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 61,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 67,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 108,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 139,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 224,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 240,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 265,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            }
+          ],
+          "scope": "train",
+          "target_ground_truth_match_count": 8,
+          "target_ground_truth_mismatch_count": 0,
+          "target_prediction_match_count": 8,
+          "target_prediction_mismatch_count": 0,
+          "target_source_code_path": [
+            "scripts/prepare_elliptic_task26.py::logits(model, data)",
+            "scripts/pilot_elliptic_pgexplainer_step03_evidence_expansion.py::frozen_predictions = logits(...).argmax(dim=1).detach()",
+            "scripts/pilot_elliptic_pgexplainer_step03_evidence_expansion.py::algorithm.train(..., target=frozen_predictions, index=node_id)"
+          ]
+        },
+        "validation": {
+          "checked_node_count": 3,
+          "ground_truth_used_as_target_source": false,
+          "pilot_node_ids": [
+            120862,
+            120990,
+            121148
+          ],
+          "pool_path": "configs\\targets\\elliptic_pg_common_val.csv",
+          "pool_sha256": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6",
+          "rows": [
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 120862,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 120990,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 1,
+              "label": 0,
+              "node_id": 121148,
+              "pgexplainer_target": 1,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": false
+            }
+          ],
+          "scope": "validation",
+          "target_ground_truth_match_count": 2,
+          "target_ground_truth_mismatch_count": 1,
+          "target_prediction_match_count": 3,
+          "target_prediction_mismatch_count": 0,
+          "target_source_code_path": [
+            "scripts/prepare_elliptic_task26.py::logits(model, data)",
+            "scripts/pilot_elliptic_pgexplainer_step03_evidence_expansion.py::frozen_predictions = logits(...).argmax(dim=1).detach()",
+            "scripts/pilot_elliptic_pgexplainer_step03_evidence_expansion.py::algorithm.train(..., target=frozen_predictions, index=node_id)"
+          ]
+        }
+      },
+      "timing": {
+        "cuda_synchronized_immediately_after_operation": true,
+        "cuda_synchronized_immediately_before_timer": true,
+        "estimated_hours_for_6_checkpoints_per_backbone": 20.291414000093937,
+        "estimated_hours_for_all_12_checkpoints": 40.582828000187874,
+        "estimated_hours_per_checkpoint": 3.3819023333489895,
+        "estimated_training_seconds": 12174.848400056362,
+        "estimated_training_seconds_formula": "mean_measured_train_step_seconds * 2000 train nodes * 30 epochs",
+        "evidence_expansion_train_step_runtime_seconds": {
+          "max": 0.22534499999892432,
+          "mean": 0.20291414000093938,
+          "median": 0.19934974999341648,
+          "min": 0.18448170000920072,
+          "n": 10,
+          "std": 0.015391095200226714
+        },
+        "excluded_overhead": [
+          "validation",
+          "checkpoint serialization",
+          "reload checks",
+          "data/setup overhead",
+          "thermal throttling",
+          "operator interruption"
+        ],
+        "mean_difference_seconds": 0.0690648700008751,
+        "measured_loss_summary": {
+          "max": 12.224117279052734,
+          "mean": 2.7993543326854704,
+          "median": 1.0251248478889465,
+          "min": 0.6683598756790161,
+          "n": 10,
+          "std": 3.6616778780530885
+        },
+        "measured_step_count": 10,
+        "original_pilot_train_step_runtime_seconds": {
+          "max": 0.1390559999999823,
+          "mean": 0.13384927000006427,
+          "median": 0.13337629999841738,
+          "min": 0.13055160000294563,
+          "n": 10,
+          "std": 0.0027510564170347687
+        },
+        "step_definition": "one PGExplainer.algorithm.train call for one target node",
+        "timer_type": "time.perf_counter",
+        "warmup_excluded_from_statistics": true,
+        "warmup_losses": [
+          0.8044343590736389,
+          14.91234016418457
+        ],
+        "warmup_seconds": 0.5827114999992773,
+        "warmup_step_count": 2
+      },
+      "train_identity_mismatch_count": 0,
+      "validation_identity_mismatch_count": 0,
+      "validation_masks": [
+        {
+          "edge_mask_count": 468710,
+          "edge_mask_finite": true,
+          "edge_mask_std": 0.001984936185181141,
+          "node_id": 120862
+        },
+        {
+          "edge_mask_count": 468710,
+          "edge_mask_finite": true,
+          "edge_mask_std": 8.546979790580167e-10,
+          "node_id": 120990
+        },
+        {
+          "edge_mask_count": 468710,
+          "edge_mask_finite": true,
+          "edge_mask_std": 0.0015310599701479077,
+          "node_id": 121148
+        }
+      ]
+    },
+    "graphsage": {
+      "backbone": "GraphSAGE",
+      "backbone_immutability": {
+        "after": {
+          "all_parameters_finite": true,
+          "non_finite_tensor_count": 0,
+          "parameter_elements_checked": 75491,
+          "parameter_tensors_checked": 8
+        },
+        "before": {
+          "all_parameters_finite": true,
+          "non_finite_tensor_count": 0,
+          "parameter_elements_checked": 75491,
+          "parameter_tensors_checked": 8
+        },
+        "changed_tensor_count": 0,
+        "compared_tensor_count": 8,
+        "gradient_present_tensor_count": 0,
+        "maximum_absolute_difference": 0.0,
+        "model_hash_after": "53ad895bb8dfe2d9359e87b6aa986559dac0193143ef54514fac838b02b7fea8",
+        "model_hash_before": "53ad895bb8dfe2d9359e87b6aa986559dac0193143ef54514fac838b02b7fea8",
+        "pass": true,
+        "requires_grad_states": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "unchanged_tensor_count": 8
+      },
+      "gpu_memory": {
+        "measurement_end_boundary": "after measured step 10 and CUDA synchronization",
+        "measurement_reset_boundary": "after PGExplainer materialization and before warm-up/measured train calls",
+        "measurement_start_boundary": "before warm-up step 1",
+        "peak_allocated_cuda_memory_bytes": 2549965312,
+        "peak_reserved_cuda_memory_bytes": 4305453056
+      },
+      "gpu_temperature": {
+        "measured": true,
+        "temperature_after": 52,
+        "temperature_before": 54,
+        "temperature_maximum_during_pilot": 55,
+        "unavailable_reason": null
+      },
+      "new_train_node_ids": [
+        54,
+        61,
+        67,
+        108,
+        139,
+        224,
+        240,
+        265
+      ],
+      "new_validation_node_ids": [
+        120862,
+        120990,
+        121148
+      ],
+      "old_train_node_ids": [
+        54,
+        61,
+        67,
+        108,
+        139,
+        224,
+        240,
+        265
+      ],
+      "old_validation_node_ids": [
+        120862,
+        120990,
+        121148
+      ],
+      "optimizer_isolation": {
+        "after_training": {
+          "backbone_parameter_ids": [
+            2043307117056,
+            2043307117376,
+            2043307117616,
+            2043307117856,
+            2043307118016,
+            2043307118656,
+            2043307118736,
+            2043307120976
+          ],
+          "cross_backbone_shared_trainable_parameter_id_count": 0,
+          "optimizer_backbone_shared_parameter_id_count": 0,
+          "optimizer_parameter_group_count": 1,
+          "optimizer_parameter_tensor_count": 4,
+          "optimizer_pgexplainer_shared_parameter_id_count": 4,
+          "optimizer_references_all_pgexplainer_trainable_parameters": true,
+          "optimizer_state_tensor_count": 12,
+          "pgexplainer_parameter_ids": [
+            2043304092976,
+            2043307120656,
+            2043307120816,
+            2043307121056
+          ]
+        },
+        "before_training": {
+          "backbone_parameter_ids": [
+            2043307117056,
+            2043307117376,
+            2043307117616,
+            2043307117856,
+            2043307118016,
+            2043307118656,
+            2043307118736,
+            2043307120976
+          ],
+          "cross_backbone_shared_trainable_parameter_id_count": 0,
+          "optimizer_backbone_shared_parameter_id_count": 0,
+          "optimizer_parameter_group_count": 1,
+          "optimizer_parameter_tensor_count": 4,
+          "optimizer_pgexplainer_shared_parameter_id_count": 4,
+          "optimizer_references_all_pgexplainer_trainable_parameters": true,
+          "optimizer_state_tensor_count": 0,
+          "pgexplainer_parameter_ids": [
+            2043304092976,
+            2043307120656,
+            2043307120816,
+            2043307121056
+          ]
+        },
+        "pass": true
+      },
+      "pgexplainer_parameter_update": {
+        "after": {
+          "all_parameters_finite": true,
+          "non_finite_tensor_count": 0,
+          "parameter_elements_checked": 19905,
+          "parameter_tensors_checked": 4
+        },
+        "before": {
+          "all_parameters_finite": true,
+          "non_finite_tensor_count": 0,
+          "parameter_elements_checked": 19905,
+          "parameter_tensors_checked": 4
+        },
+        "changed_tensor_count": 4,
+        "compared_tensor_count": 4,
+        "maximum_absolute_difference": 0.026271604001522064,
+        "pass": true,
+        "unchanged_tensor_count": 0
+      },
+      "pilot_checkpoint": "results\\metrics\\elliptic\\task28_step03_evidence_expansion\\checkpoints\\evidence_expansion_graphsage_seed42.pt",
+      "pilot_checkpoint_sha256": "cbac3129b2c547697aea13d5389416f789b83b19bbbb4bbab70332a0fdb228c7",
+      "reload_parity": {
+        "absolute_tolerance": 1e-07,
+        "compared_output_mask_count": 3,
+        "config_identity_matches": true,
+        "deterministic_inference_audit": {
+          "backbone_eval_mode": true,
+          "edge_index_device": "cuda:0",
+          "edge_index_dtype": "torch.int64",
+          "explainer_eval_mode": true,
+          "identical_edge_order_hash": true,
+          "identical_input_tensor_hash": true,
+          "identical_node_indices": true,
+          "identical_optimizer_independent_inference_state": true,
+          "identical_parameter_state": true,
+          "identical_target_tensor_hash": true,
+          "input_device": "cuda:0",
+          "input_dtype": "torch.float32",
+          "no_intended_stochastic_mask_sampling": true,
+          "output_mask_dtype_device_rows": [
+            {
+              "first_dtype": "torch.float32",
+              "first_shape": [
+                468710
+              ],
+              "node_id": 120862,
+              "second_dtype": "torch.float32",
+              "second_shape": [
+                468710
+              ]
+            },
+            {
+              "first_dtype": "torch.float32",
+              "first_shape": [
+                468710
+              ],
+              "node_id": 120990,
+              "second_dtype": "torch.float32",
+              "second_shape": [
+                468710
+              ]
+            },
+            {
+              "first_dtype": "torch.float32",
+              "first_shape": [
+                468710
+              ],
+              "node_id": 121148,
+              "second_dtype": "torch.float32",
+              "second_shape": [
+                468710
+              ]
+            }
+          ],
+          "target_device": "cuda:0",
+          "target_dtype": "torch.int64"
+        },
+        "epoch_matches": true,
+        "input_hashes_match": true,
+        "maximum_absolute_mask_difference": 5.960464477539063e-08,
+        "optimizer_comparison": {
+          "absolute_tolerance": 0.0,
+          "compared_tensor_count": 12,
+          "maximum_absolute_difference": 0.0,
+          "mismatch_tensor_count": 0,
+          "pass": true,
+          "relative_tolerance": 0.0
+        },
+        "original_pre_review_absolute_tolerance": 1e-08,
+        "original_pre_review_relative_tolerance": 1e-08,
+        "parameter_comparison": {
+          "absolute_tolerance": 0.0,
+          "compared_tensor_count": 4,
+          "maximum_absolute_difference": 0.0,
+          "mismatch_tensor_count": 0,
+          "pass": true,
+          "relative_tolerance": 0.0
+        },
+        "pass": true,
+        "relative_tolerance": 1e-07,
+        "rng_state_present": true,
+        "seed_matches": true
+      },
+      "resume_parity": {
+        "absolute_tolerance": 1e-07,
+        "backbone": "GraphSAGE",
+        "checkpoint_identity": "525b589dd08afd4684a4359a3d148cdf444daab961ef86014a19956a597b25c9",
+        "checkpoint_path": "results\\metrics\\elliptic\\task28_step03_evidence_expansion\\resume_parity\\graphsage\\checkpoints\\epoch_002.pt",
+        "checkpoint_reload_algorithm_state_exact": {
+          "absolute_tolerance": 0.0,
+          "compared_tensor_count": 4,
+          "maximum_absolute_difference": 0.0,
+          "mismatch_tensor_count": 0,
+          "pass": true,
+          "relative_tolerance": 0.0
+        },
+        "checkpoint_reload_optimizer_state_exact": {
+          "absolute_tolerance": 0.0,
+          "compared_tensor_count": 12,
+          "maximum_absolute_difference": 0.0,
+          "mismatch_tensor_count": 0,
+          "pass": true,
+          "relative_tolerance": 0.0
+        },
+        "fixture_type": "cuda_numerical_equivalence",
+        "interruption_point": 2,
+        "loss_records_compared": 4,
+        "maximum_absolute_loss_difference": 0.0,
+        "node_order": [
+          54,
+          61,
+          67,
+          54
+        ],
+        "optimizer_restoration_status": true,
+        "optimizer_tensor_comparison": {
+          "absolute_tolerance": 1e-07,
+          "compared_tensor_count": 12,
+          "maximum_absolute_difference": 1.4901161193847656e-08,
+          "mismatch_tensor_count": 0,
+          "pass": true,
+          "relative_tolerance": 1e-07
+        },
+        "output_mask_comparison": {
+          "absolute_tolerance": 1e-07,
+          "compared_output_mask_count": 1,
+          "maximum_absolute_mask_difference": 1.4901161193847656e-08,
+          "pass": true,
+          "relative_tolerance": 1e-07
+        },
+        "pass": true,
+        "pgexplainer_tensor_comparison": {
+          "absolute_tolerance": 1e-07,
+          "compared_tensor_count": 4,
+          "maximum_absolute_difference": 4.0978193283081055e-08,
+          "mismatch_tensor_count": 0,
+          "pass": true,
+          "relative_tolerance": 1e-07
+        },
+        "relative_tolerance": 1e-07,
+        "resumed_end_point": 4,
+        "resumed_start_point": 2,
+        "rng_restoration_status": true,
+        "same_initial_state": true,
+        "same_number_of_completed_optimizer_updates": true,
+        "same_target_vector": true,
+        "seed": 4242,
+        "uninterrupted_end_step": 4,
+        "uninterrupted_start_step": 0
+      },
+      "seed": 42,
+      "target_evidence": {
+        "train": {
+          "checked_node_count": 8,
+          "ground_truth_used_as_target_source": false,
+          "pilot_node_ids": [
+            54,
+            61,
+            67,
+            108,
+            139,
+            224,
+            240,
+            265
+          ],
+          "pool_path": "configs\\targets\\elliptic_pg_common_train.csv",
+          "pool_sha256": "36c2f9b3a81336d304556702b02b6524411f308ee75f2152d79101586f9c1a22",
+          "rows": [
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 54,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 61,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 67,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 108,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 139,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 224,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 240,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 265,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            }
+          ],
+          "scope": "train",
+          "target_ground_truth_match_count": 8,
+          "target_ground_truth_mismatch_count": 0,
+          "target_prediction_match_count": 8,
+          "target_prediction_mismatch_count": 0,
+          "target_source_code_path": [
+            "scripts/prepare_elliptic_task26.py::logits(model, data)",
+            "scripts/pilot_elliptic_pgexplainer_step03_evidence_expansion.py::frozen_predictions = logits(...).argmax(dim=1).detach()",
+            "scripts/pilot_elliptic_pgexplainer_step03_evidence_expansion.py::algorithm.train(..., target=frozen_predictions, index=node_id)"
+          ]
+        },
+        "validation": {
+          "checked_node_count": 3,
+          "ground_truth_used_as_target_source": false,
+          "pilot_node_ids": [
+            120862,
+            120990,
+            121148
+          ],
+          "pool_path": "configs\\targets\\elliptic_pg_common_val.csv",
+          "pool_sha256": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6",
+          "rows": [
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 120862,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 0,
+              "label": 0,
+              "node_id": 120990,
+              "pgexplainer_target": 0,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": true
+            },
+            {
+              "frozen_prediction": 1,
+              "label": 0,
+              "node_id": 121148,
+              "pgexplainer_target": 1,
+              "target_matches_frozen_prediction": true,
+              "target_matches_ground_truth": false
+            }
+          ],
+          "scope": "validation",
+          "target_ground_truth_match_count": 2,
+          "target_ground_truth_mismatch_count": 1,
+          "target_prediction_match_count": 3,
+          "target_prediction_mismatch_count": 0,
+          "target_source_code_path": [
+            "scripts/prepare_elliptic_task26.py::logits(model, data)",
+            "scripts/pilot_elliptic_pgexplainer_step03_evidence_expansion.py::frozen_predictions = logits(...).argmax(dim=1).detach()",
+            "scripts/pilot_elliptic_pgexplainer_step03_evidence_expansion.py::algorithm.train(..., target=frozen_predictions, index=node_id)"
+          ]
+        }
+      },
+      "timing": {
+        "cuda_synchronized_immediately_after_operation": true,
+        "cuda_synchronized_immediately_before_timer": true,
+        "estimated_hours_for_6_checkpoints_per_backbone": 18.041337999748066,
+        "estimated_hours_for_all_12_checkpoints": 36.08267599949613,
+        "estimated_hours_per_checkpoint": 3.006889666624678,
+        "estimated_training_seconds": 10824.80279984884,
+        "estimated_training_seconds_formula": "mean_measured_train_step_seconds * 2000 train nodes * 30 epochs",
+        "evidence_expansion_train_step_runtime_seconds": {
+          "max": 0.20326850000128616,
+          "mean": 0.18041337999748067,
+          "median": 0.18212684999161866,
+          "min": 0.15897500001301523,
+          "n": 10,
+          "std": 0.013584288089085426
+        },
+        "excluded_overhead": [
+          "validation",
+          "checkpoint serialization",
+          "reload checks",
+          "data/setup overhead",
+          "thermal throttling",
+          "operator interruption"
+        ],
+        "mean_difference_seconds": 0.06649063999757346,
+        "measured_loss_summary": {
+          "max": 9.4401273727417,
+          "mean": 1.7433168079704047,
+          "median": 0.7683198153972626,
+          "min": 0.03161325678229332,
+          "n": 10,
+          "std": 2.7894941982972736
+        },
+        "measured_step_count": 10,
+        "original_pilot_train_step_runtime_seconds": {
+          "max": 0.11736630000086734,
+          "mean": 0.11392273999990721,
+          "median": 0.11369540000123379,
+          "min": 0.11245419999977457,
+          "n": 10,
+          "std": 0.0013758370216877854
+        },
+        "step_definition": "one PGExplainer.algorithm.train call for one target node",
+        "timer_type": "time.perf_counter",
+        "warmup_excluded_from_statistics": true,
+        "warmup_losses": [
+          0.7934229373931885,
+          13.692159652709961
+        ],
+        "warmup_seconds": 0.38270159999956377,
+        "warmup_step_count": 2
+      },
+      "train_identity_mismatch_count": 0,
+      "validation_identity_mismatch_count": 0,
+      "validation_masks": [
+        {
+          "edge_mask_count": 468710,
+          "edge_mask_finite": true,
+          "edge_mask_std": 0.0018571624532341957,
+          "node_id": 120862
+        },
+        {
+          "edge_mask_count": 468710,
+          "edge_mask_finite": true,
+          "edge_mask_std": 3.753528898445151e-18,
+          "node_id": 120990
+        },
+        {
+          "edge_mask_count": 468710,
+          "edge_mask_finite": true,
+          "edge_mask_std": 0.0008053158526308835,
+          "node_id": 121148
+        }
+      ]
+    }
+  },
+  "cpu_resume_fixture": {
+    "absolute_tolerance": 0.0,
+    "checkpoint_loaded_optimizer_state_exact": {
+      "absolute_tolerance": 0.0,
+      "compared_tensor_count": 12,
+      "maximum_absolute_difference": 0.0,
+      "mismatch_tensor_count": 0,
+      "pass": true,
+      "relative_tolerance": 0.0
+    },
+    "checkpoint_loaded_pg_parameters_exact": {
+      "absolute_tolerance": 0.0,
+      "compared_tensor_count": 4,
+      "maximum_absolute_difference": 0.0,
+      "mismatch_tensor_count": 0,
+      "pass": true,
+      "relative_tolerance": 0.0
+    },
+    "checkpoint_path": "results\\metrics\\elliptic\\task28_step03_evidence_expansion\\cpu_resume_fixture\\checkpoints\\epoch_002.pt",
+    "completed_step_count": 4,
+    "final_optimizer_state_comparison": {
+      "absolute_tolerance": 0.0,
+      "compared_tensor_count": 12,
+      "maximum_absolute_difference": 0.0,
+      "mismatch_tensor_count": 0,
+      "pass": true,
+      "relative_tolerance": 0.0
+    },
+    "final_pg_parameter_comparison": {
+      "absolute_tolerance": 0.0,
+      "compared_tensor_count": 4,
+      "maximum_absolute_difference": 0.0,
+      "mismatch_tensor_count": 0,
+      "pass": true,
+      "relative_tolerance": 0.0
+    },
+    "fixture_type": "cpu_deterministic_correctness",
+    "initial_state_exact": true,
+    "interruption_point": 2,
+    "loss_records_compared": 4,
+    "maximum_absolute_loss_difference": 0.0,
+    "node_order": [
+      0,
+      1,
+      2,
+      0
+    ],
+    "pass": true,
+    "relative_tolerance": 0.0,
+    "resumed_start_point": 2,
+    "rng_restoration_status": true,
+    "seed": 909
+  },
+  "environment": {
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch": "2.11.0+cu128",
+    "torch_cuda": "12.8",
+    "torch_geometric": "2.8.0.post1"
+  },
+  "exact_pilot_node_identities": {
+    "gcn": {
+      "new_train": [
+        54,
+        61,
+        67,
+        108,
+        139,
+        224,
+        240,
+        265
+      ],
+      "new_validation": [
+        120862,
+        120990,
+        121148
+      ],
+      "old_train": [
+        54,
+        61,
+        67,
+        108,
+        139,
+        224,
+        240,
+        265
+      ],
+      "old_validation": [
+        120862,
+        120990,
+        121148
+      ],
+      "train_mismatches": 0,
+      "validation_mismatches": 0
+    },
+    "graphsage": {
+      "new_train": [
+        54,
+        61,
+        67,
+        108,
+        139,
+        224,
+        240,
+        265
+      ],
+      "new_validation": [
+        120862,
+        120990,
+        121148
+      ],
+      "old_train": [
+        54,
+        61,
+        67,
+        108,
+        139,
+        224,
+        240,
+        265
+      ],
+      "old_validation": [
+        120862,
+        120990,
+        121148
+      ],
+      "train_mismatches": 0,
+      "validation_mismatches": 0
+    }
+  },
+  "frozen_input_config_hashes": {
+    "common_train": "36c2f9b3a81336d304556702b02b6524411f308ee75f2152d79101586f9c1a22",
+    "common_val": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6",
+    "dataset": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
+    "gcn_checkpoint": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07",
+    "graphsage_checkpoint": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf",
+    "pgexplainer_config": "60aef2f1ff6d8e6114797e3c3f0d6006b72bce18058a33322b04ee68649de571",
+    "task_config": "ea9cd9898e17df21f13c9c706ede9444374990ff86f6113d51cf5ea1d0308fba"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "33d658d0c10c9a24960d8a540bebd51c33816b5e",
+    "upstream_parity": "0\t0"
+  },
+  "limitations": [
+    "Timing is a train-step extrapolation, not a full-run wall-clock guarantee.",
+    "Final-target CSV is read only for metadata hash and ID disjointness audit."
+  ],
+  "new_instrumentation_script": {
+    "path": "scripts\\pilot_elliptic_pgexplainer_step03_evidence_expansion.py",
+    "sha256": "2a9f44262cb4457d8a5639fd9e60aae2b994ed27752344c56411480591c1e334"
+  },
+  "original_pilot_artifacts": {
+    "manifest": {
+      "path": "docs\\elliptic_pgexplainer_step03_pilot_manifest.json",
+      "sha256": "fb35b56969e0229c34ef64cf319303988fe00bc5f993c1d0e57bfb338e95c45b"
+    },
+    "report": {
+      "path": "docs\\elliptic_pgexplainer_step03_pilot_report.md",
+      "sha256": "db93a711a4a6dc1560223038129ee26245409d1b02b7f0a34afb49789dd86783"
+    },
+    "script": {
+      "path": "scripts\\pilot_elliptic_pgexplainer_step03.py",
+      "sha256": "e7b7d01fa5f7f3107a96966f5dee952c7d4b30dc824a61b3cfc1a6bc1bb7e2d2"
+    }
+  },
+  "path_isolation": {
+    "canonical_completion_marker_created": false,
+    "canonical_epoch_30_checkpoint_created": false,
+    "canonical_paths_checked": [
+      {
+        "completion_marker_exists": false,
+        "epoch_030_checkpoint_exists": false,
+        "run_dir": "artifacts\\explainers\\elliptic_pg_gcn_seed42_run"
+      },
+      {
+        "completion_marker_exists": false,
+        "epoch_030_checkpoint_exists": false,
+        "run_dir": "artifacts\\explainers\\elliptic_pg_gcn_seed0_run"
+      },
+      {
+        "completion_marker_exists": false,
+        "epoch_030_checkpoint_exists": false,
+        "run_dir": "artifacts\\explainers\\elliptic_pg_gcn_seed1_run"
+      },
+      {
+        "completion_marker_exists": false,
+        "epoch_030_checkpoint_exists": false,
+        "run_dir": "artifacts\\explainers\\elliptic_pg_gcn_seed2_run"
+      },
+      {
+        "completion_marker_exists": false,
+        "epoch_030_checkpoint_exists": false,
+        "run_dir": "artifacts\\explainers\\elliptic_pg_gcn_seed3_run"
+      },
+      {
+        "completion_marker_exists": false,
+        "epoch_030_checkpoint_exists": false,
+        "run_dir": "artifacts\\explainers\\elliptic_pg_gcn_seed4_run"
+      },
+      {
+        "completion_marker_exists": false,
+        "epoch_030_checkpoint_exists": false,
+        "run_dir": "artifacts\\explainers\\elliptic_pg_graphsage_seed42_run"
+      },
+      {
+        "completion_marker_exists": false,
+        "epoch_030_checkpoint_exists": false,
+        "run_dir": "artifacts\\explainers\\elliptic_pg_graphsage_seed0_run"
+      },
+      {
+        "completion_marker_exists": false,
+        "epoch_030_checkpoint_exists": false,
+        "run_dir": "artifacts\\explainers\\elliptic_pg_graphsage_seed1_run"
+      },
+      {
+        "completion_marker_exists": false,
+        "epoch_030_checkpoint_exists": false,
+        "run_dir": "artifacts\\explainers\\elliptic_pg_graphsage_seed2_run"
+      },
+      {
+        "completion_marker_exists": false,
+        "epoch_030_checkpoint_exists": false,
+        "run_dir": "artifacts\\explainers\\elliptic_pg_graphsage_seed3_run"
+      },
+      {
+        "completion_marker_exists": false,
+        "epoch_030_checkpoint_exists": false,
+        "run_dir": "artifacts\\explainers\\elliptic_pg_graphsage_seed4_run"
+      }
+    ],
+    "pilot_checkpoint_cannot_satisfy_full_run_config_identity": true,
+    "pilot_outputs_root": "results\\metrics\\elliptic\\task28_step03_evidence_expansion"
+  },
+  "pg_config_hash": "45bde423b3240e9f5fc659530206b98fa3ff5de27bdbc421e3bafc38f909b0e0",
+  "pool_and_leakage": {
+    "all_train_ids_belong_to_frozen_train_pool": true,
+    "all_validation_ids_belong_to_frozen_validation_pool": true,
+    "final_target_metadata": {
+      "final_target_explanations_accessed": false,
+      "final_target_ids_used_for_disjointness_check": true,
+      "final_target_metadata_hash_audited": true,
+      "final_target_metrics_accessed": false,
+      "final_target_model_outputs_accessed": false,
+      "membership_count": 200,
+      "path": "configs\\targets\\elliptic_xai_common_test_targets.csv",
+      "sha256": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0"
+    },
+    "out_of_pool_id_count": 0,
+    "pilot_final_target_intersection": 0,
+    "train_pool": {
+      "membership_count": 2000,
+      "path": "configs/targets/elliptic_pg_common_train.csv",
+      "sha256": "36c2f9b3a81336d304556702b02b6524411f308ee75f2152d79101586f9c1a22"
+    },
+    "train_validation_pilot_overlap": 0,
+    "validation_pool": {
+      "membership_count": 500,
+      "path": "configs/targets/elliptic_pg_common_val.csv",
+      "sha256": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6"
+    }
+  },
+  "remaining_blockers": [
+    "Cross-task protocol transparency audit required before Step04."
+  ],
+  "reviewed_tolerance_amendment": {
+    "amendment_occurred_after_review_of_first_run": true,
+    "justification": "bounded float32 CUDA numerical comparison",
+    "not_claimed_as_original_preregistered_value": true,
+    "optimizer_state_parity_requirement": "exact; maximum_absolute_difference must be 0",
+    "original_cuda_bitwise_resume_parity_failure": {
+      "gcn": {
+        "loss": 0.0,
+        "optimizer_state": 3.725290298461914e-08,
+        "pg_parameter": 7.450580596923828e-09
+      },
+      "graphsage": {
+        "loss": 0.0,
+        "optimizer_state": 5.960464477539063e-08,
+        "pg_parameter": 1.6763806343078613e-08
+      }
+    },
+    "original_pre_review_observed_output_mask_max_differences": {
+      "gcn": 4.470348358154297e-08,
+      "graphsage": 2.9802322387695312e-08
+    },
+    "original_pre_review_output_mask_atol": 1e-08,
+    "original_pre_review_output_mask_rtol": 1e-08,
+    "original_pre_review_verdict": "BLOCKED",
+    "parameter_state_parity_requirement": "exact; maximum_absolute_difference must be 0",
+    "policy_approved_after_previous_cuda_result": true,
+    "reviewed_amended_output_mask_atol": 1e-07,
+    "reviewed_amended_output_mask_rtol": 1e-07,
+    "reviewed_cpu_exact_cuda_numerical_policy": true,
+    "reviewed_cuda_resume_atol": 1e-07,
+    "reviewed_cuda_resume_rtol": 1e-07
+  },
+  "runtime_seconds": 12.318290099996375,
+  "scope": {
+    "backbones": [
+      "GCN",
+      "GraphSAGE"
+    ],
+    "full_training_started": false,
+    "measured_train_steps": 10,
+    "seed": 42,
+    "step04_started": false,
+    "task29_started": false,
+    "warmup_steps": 2
+  },
+  "status": "PASS",
+  "stop_boundary": "STOP FOR REVIEW; Step04 not started; full training not started; final evaluation not started; Task29 not started.",
+  "task": "TASK28 STEP03 MINIMAL PILOT EVIDENCE EXPANSION",
+  "task_config_hash": "ea9cd9898e17df21f13c9c706ede9444374990ff86f6113d51cf5ea1d0308fba",
+  "validation_results": {
+    "baseline_repo_status_short": "M README.md",
+    "git_diff_check": "pass",
+    "json_validation": "pass",
+    "pytest": "160 passed, 3 warnings in 64.39s",
+    "ruff": "pass: python -m ruff check ."
+  }
+}

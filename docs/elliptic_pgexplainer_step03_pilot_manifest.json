@@ -1,0 +1,196 @@
+{
+  "acceptance": {
+    "backbone_weights_unchanged": true,
+    "edge_masks_finite": true,
+    "edge_masks_non_degenerate": true,
+    "final_targets_not_accessed": true,
+    "optimizer_isolation": true,
+    "pgexplainer_parameters_changed": true,
+    "reload_parity": true,
+    "resume_fixture_parity": true,
+    "target_matches_frozen_prediction": true
+  },
+  "backbones": {
+    "gcn": {
+      "backbone": "GCN",
+      "backbone_hash_after": "045f71314906c8b895705cb2cc0f5fed334cc1daf004ef1b1e690751540a917a",
+      "backbone_hash_before": "045f71314906c8b895705cb2cc0f5fed334cc1daf004ef1b1e690751540a917a",
+      "backbone_weights_unchanged": true,
+      "edge_mask_finite": true,
+      "edge_mask_non_degenerate": true,
+      "estimated_30_epoch_seconds_for_2000_train_nodes": 8030.956200003857,
+      "loss_summary": {
+        "max": 6.800759792327881,
+        "mean": 2.0438439309597016,
+        "median": 0.9878632724285126,
+        "min": 0.6792033910751343,
+        "n": 10,
+        "std": 2.1818679669609837
+      },
+      "optimizer_isolation": true,
+      "peak_gpu_memory_bytes": 2933682176,
+      "pgexplainer_parameter_digest_after": "f0b158627645bb901d343308d6acdb4e6a0bfbb1912b13cc3473c95acd619f64",
+      "pgexplainer_parameter_digest_before": "0433e65d7ed04e063a93288f178f98d6c30cf591ffd53ece3893415b9ab50266",
+      "pgexplainer_parameters_changed": true,
+      "pilot_checkpoint": "results\\metrics\\elliptic\\task28_pilot\\checkpoints\\pilot_gcn_seed42.pt",
+      "pilot_checkpoint_sha256": "303593b76cd7ca53a87227a2a408a591fd8bf3d0fce8faafa372fb85d1b42491",
+      "pilot_train_nodes": [
+        54,
+        61,
+        67,
+        108,
+        139,
+        224,
+        240,
+        265
+      ],
+      "pilot_val_nodes": [
+        120862,
+        120990,
+        121148
+      ],
+      "reload_ok": true,
+      "target_matches_frozen_prediction": true,
+      "train_step_runtime_seconds": {
+        "max": 0.1390559999999823,
+        "mean": 0.13384927000006427,
+        "median": 0.13337629999841738,
+        "min": 0.13055160000294563,
+        "n": 10,
+        "std": 0.0027510564170347687
+      },
+      "validation_rows": [
+        {
+          "edge_mask_count": 468710,
+          "edge_mask_finite": true,
+          "edge_mask_std": 0.0019913751166313887,
+          "node_id": 120862
+        },
+        {
+          "edge_mask_count": 468710,
+          "edge_mask_finite": true,
+          "edge_mask_std": 2.8456811906885093e-10,
+          "node_id": 120990
+        },
+        {
+          "edge_mask_count": 468710,
+          "edge_mask_finite": true,
+          "edge_mask_std": 0.0014435775810852647,
+          "node_id": 121148
+        }
+      ],
+      "validation_runtime_seconds": 0.15350730000136537
+    },
+    "graphsage": {
+      "backbone": "GraphSAGE",
+      "backbone_hash_after": "53ad895bb8dfe2d9359e87b6aa986559dac0193143ef54514fac838b02b7fea8",
+      "backbone_hash_before": "53ad895bb8dfe2d9359e87b6aa986559dac0193143ef54514fac838b02b7fea8",
+      "backbone_weights_unchanged": true,
+      "edge_mask_finite": true,
+      "edge_mask_non_degenerate": true,
+      "estimated_30_epoch_seconds_for_2000_train_nodes": 6835.3643999944325,
+      "loss_summary": {
+        "max": 4.820656776428223,
+        "mean": 1.2021389111876488,
+        "median": 0.8074410557746887,
+        "min": 0.03274737298488617,
+        "n": 10,
+        "std": 1.4084773697610449
+      },
+      "optimizer_isolation": true,
+      "peak_gpu_memory_bytes": 2549965312,
+      "pgexplainer_parameter_digest_after": "77daddc84345d1c1ce93466c0f1300f5b39e223e6a799f17b54d55f52a739c3a",
+      "pgexplainer_parameter_digest_before": "198e28a7a18faf8bba52a06b8849e893473bf37b3b307ffc7200b3d1ff285513",
+      "pgexplainer_parameters_changed": true,
+      "pilot_checkpoint": "results\\metrics\\elliptic\\task28_pilot\\checkpoints\\pilot_graphsage_seed42.pt",
+      "pilot_checkpoint_sha256": "695cc42f80c138418d0cccda61058e46fa3e258305deb2fc5e9838e05b8c37b7",
+      "pilot_train_nodes": [
+        54,
+        61,
+        67,
+        108,
+        139,
+        224,
+        240,
+        265
+      ],
+      "pilot_val_nodes": [
+        120862,
+        120990,
+        121148
+      ],
+      "reload_ok": true,
+      "target_matches_frozen_prediction": true,
+      "train_step_runtime_seconds": {
+        "max": 0.11736630000086734,
+        "mean": 0.11392273999990721,
+        "median": 0.11369540000123379,
+        "min": 0.11245419999977457,
+        "n": 10,
+        "std": 0.0013758370216877854
+      },
+      "validation_rows": [
+        {
+          "edge_mask_count": 468710,
+          "edge_mask_finite": true,
+          "edge_mask_std": 0.0018714601173996925,
+          "node_id": 120862
+        },
+        {
+          "edge_mask_count": 468710,
+          "edge_mask_finite": true,
+          "edge_mask_std": 1.9106115218353877e-17,
+          "node_id": 120990
+        },
+        {
+          "edge_mask_count": 468710,
+          "edge_mask_finite": true,
+          "edge_mask_std": 0.0008507127640768886,
+          "node_id": 121148
+        }
+      ],
+      "validation_runtime_seconds": 0.1448937000022852
+    }
+  },
+  "environment": {
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch": "2.11.0+cu128",
+    "torch_cuda": "12.8",
+    "torch_geometric": "2.8.0.post1"
+  },
+  "final_targets_accessed": false,
+  "full_training_started": false,
+  "git": {
+    "branch": "main",
+    "commit": "33d658d0c10c9a24960d8a540bebd51c33816b5e"
+  },
+  "input_hashes": {
+    "common_train": "36c2f9b3a81336d304556702b02b6524411f308ee75f2152d79101586f9c1a22",
+    "common_val": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6",
+    "dataset": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
+    "gcn_checkpoint": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07",
+    "graphsage_checkpoint": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf",
+    "pgexplainer_config": "60aef2f1ff6d8e6114797e3c3f0d6006b72bce18058a33322b04ee68649de571",
+    "task_config": "ea9cd9898e17df21f13c9c706ede9444374990ff86f6113d51cf5ea1d0308fba"
+  },
+  "pg_config_hash": "45bde423b3240e9f5fc659530206b98fa3ff5de27bdbc421e3bafc38f909b0e0",
+  "pilot_scope": {
+    "measured_train_steps": 10,
+    "train_nodes_per_backbone": 8,
+    "validation_nodes_per_backbone": 3,
+    "warmup_steps": 2
+  },
+  "recommendation": "freeze implementation for Step04 compute plan",
+  "resume_fixture": {
+    "epoch_resumed_from": 1,
+    "uninterrupted_resumed_parity": true
+  },
+  "runtime_seconds": 5.844290299999557,
+  "status": "PASS",
+  "stop_boundary": "STOP FOR REVIEW; Step04 not started",
+  "task": "Task28 Step03 PGExplainer pilot and parity",
+  "task_config_hash": "ea9cd9898e17df21f13c9c706ede9444374990ff86f6113d51cf5ea1d0308fba"
+}
