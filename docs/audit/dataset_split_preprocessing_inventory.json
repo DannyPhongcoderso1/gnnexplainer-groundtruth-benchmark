@@ -1,0 +1,746 @@
+{
+  "amendment_history": {
+    "expansion": "Added deterministic Elliptic edge-boundary, time-transition, receptive-field, symmetrization, feature provenance, and target-pool pending-audit evidence.",
+    "external_review_verdict": "BLOCKED FOR DETERMINISTIC EVIDENCE EXPANSION",
+    "original_audit02_inventory_sha256_before_expansion": "099e42b9f3d5a355da255a95a92f320325c594a0b12a476e0873552be5c9c876",
+    "original_audit02_report_sha256_before_expansion": "47a3406ef1006c81be49f019167aa04adbd74a4c938e6c7797da5be6b7228b00",
+    "original_audit02_verdict": "PASS WITH DOCUMENTED UNKNOWN ELLIPTIC FEATURE-PREPROCESSING PROVENANCE"
+  },
+  "audit": "Audit02 dataset split preprocessing inventory",
+  "created_at": "2026-09-03",
+  "datasets": {
+    "ba_house": {
+      "artifact_path": "artifacts/data/ba_house.pt",
+      "artifact_sha256": "4daeb6b5ca55ee1663fa79aa6be5a7fe1ebb86159aa9d60045aceb16fe271a94",
+      "features": {
+        "constant_columns": 10,
+        "feature_count": 10,
+        "finite": true,
+        "inf_count": 0,
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "nan_count": 0,
+        "normalization_or_fit_scope": "none; constant one features generated before split",
+        "shape": [
+          500,
+          10
+        ],
+        "std": 0.0
+      },
+      "generator": {
+        "ba_attachment_parameter": 5,
+        "background_graph": "Barabasi-Albert",
+        "background_nodes": 300,
+        "constant_node_features": true,
+        "feature_dim": 10,
+        "motif": "house",
+        "num_motifs": 40,
+        "seed": 42,
+        "source": "configs/dataset/ba_house.yaml and src/gnnexplainer_benchmark/data/ba_house.py",
+        "type": "PyG ExplainerDataset"
+      },
+      "graph": {
+        "connected_components": 1,
+        "degree_distribution_unique_undirected": {
+          "max": 71.0,
+          "mean": 6.796,
+          "median": 5.0,
+          "min": 2.0,
+          "n": 500
+        },
+        "directed_edge_entries": 3398,
+        "directed_edges_with_reverse_counterpart": 3398,
+        "duplicate_directed_entries": 0,
+        "isolated_nodes": 0,
+        "largest_component_nodes": 500,
+        "num_nodes": 500,
+        "self_loops": 0,
+        "unique_directed_edges": 3398,
+        "unique_undirected_relations": 1699
+      },
+      "ground_truth": {
+        "edge_mask_shape": [
+          3398
+        ],
+        "edge_positive_entries": 480,
+        "node_mask_shape": [
+          500
+        ],
+        "node_positive_entries": 200
+      },
+      "labels": {
+        "0": 300,
+        "1": 80,
+        "2": 80,
+        "3": 40
+      },
+      "metadata_path": "artifacts/data/ba_house_metadata.json",
+      "metadata_sha256": "16049b8e1831db4c1428da48cbcdbb254569ed1d136c042e0ffaafcd11fdca4d",
+      "splits": {
+        "covered_by_any_mask": 500,
+        "overlaps": {
+          "train_test": 0,
+          "train_validation": 0,
+          "validation_test": 0
+        },
+        "ratio": {
+          "test": 0.2,
+          "train": 0.6,
+          "validation": 0.2
+        },
+        "rule": "stratified_disjoint random split by label",
+        "seed": 42,
+        "test": {
+          "class_distribution": {
+            "0": 60,
+            "1": 16,
+            "2": 16,
+            "3": 8
+          },
+          "count": 100
+        },
+        "train": {
+          "class_distribution": {
+            "0": 180,
+            "1": 48,
+            "2": 48,
+            "3": 24
+          },
+          "count": 300
+        },
+        "validation": {
+          "class_distribution": {
+            "0": 60,
+            "1": 16,
+            "2": 16,
+            "3": 8
+          },
+          "count": 100
+        }
+      },
+      "target_files": {
+        "final_2x2": {
+          "duplicates": 0,
+          "path": "configs/targets/ba_house_2x2_targets.csv",
+          "rows": 12,
+          "sha256": "2b1fa0cb70a4aaa107dfbfe864042ddb488372a6bcfd9ea6fd4c04bd1894526f",
+          "split_distribution": {
+            "test": 12
+          },
+          "unique_nodes": 12
+        },
+        "pg_common_train": {
+          "duplicates": 0,
+          "path": "configs/targets/ba_house_pg_common_train_targets.csv",
+          "rows": 48,
+          "sha256": "05e4574515fb7a03b846adb677295c940eb7af380216c15dfedf65bb9430bc3c",
+          "split_distribution": {
+            "train": 48
+          },
+          "unique_nodes": 48
+        },
+        "pg_common_validation": {
+          "duplicates": 0,
+          "path": "configs/targets/ba_house_pg_common_val_targets.csv",
+          "rows": 16,
+          "sha256": "57fc6135495d9a6f8c7b8c1c3babcddd6b76187ebb353ed6fd8c289771980776",
+          "split_distribution": {
+            "validation": 16
+          },
+          "unique_nodes": 16
+        }
+      },
+      "target_overlaps": {
+        "final_train": 0,
+        "final_validation": 0,
+        "train_validation": 0
+      }
+    },
+    "elliptic": {
+      "artifact_path": "D:/CS/KLTN/elliptic-gnn-xai/datasets/elliptic/elliptic_data.pt",
+      "artifact_sha256": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
+      "backbone_training_graph_trace": {
+        "gcn": {
+          "cached_setting": "baseline GCNConv(cached=True); XAI-compatible wrapper uses cached=False",
+          "edge_index_passed": "full graph edge_index",
+          "edges_passed_to_forward": 468710,
+          "loss_mask": "train_mask during Optuna trial, train_mask OR val_mask for final checkpoint",
+          "model_layers": 2,
+          "nodes_passed_to_forward": 203769,
+          "self_loop_behavior": "PyG GCNConv default add_self_loops behavior unless overridden",
+          "test_access_during_training": "test metric logged/evaluated but objective_source asserted as validation",
+          "train_forward_includes_boundary_edges": true,
+          "train_forward_includes_validation_test_unknown_features": true,
+          "validation_model_selection_access": "validation labels used only for objective selection"
+        },
+        "graphsage": {
+          "cached_setting": "not applicable to SAGEConv",
+          "edge_index_passed": "full graph edge_index",
+          "edges_passed_to_forward": 468710,
+          "loss_mask": "train_mask during Optuna trial, train_mask OR val_mask for final checkpoint",
+          "model_layers": 2,
+          "nodes_passed_to_forward": 203769,
+          "self_loop_behavior": "SAGEConv aggregates neighbor messages and root node transform by layer design",
+          "test_access_during_training": "test metric logged/evaluated but objective_source asserted as validation",
+          "train_forward_includes_boundary_edges": true,
+          "train_forward_includes_validation_test_unknown_features": true,
+          "validation_model_selection_access": "validation labels used only for objective selection"
+        }
+      },
+      "edge_boundary_matrix": {
+        "boundary_counts_unique_relations": {
+          "test_unknown": 18288,
+          "train_test": 0,
+          "train_unknown": 35158,
+          "train_validation": 0,
+          "validation_test": 0,
+          "validation_unknown": 12507,
+          "within_train": 20151
+        },
+        "canonical_unique_relation_endpoint_matrix_upper_triangular": {
+          "TEST_KNOWN": {
+            "TEST_KNOWN": 9445,
+            "TRAIN_KNOWN": 0,
+            "UNKNOWN": 18288,
+            "VAL_KNOWN": 0
+          },
+          "TRAIN_KNOWN": {
+            "TEST_KNOWN": 0,
+            "TRAIN_KNOWN": 20151,
+            "UNKNOWN": 35158,
+            "VAL_KNOWN": 0
+          },
+          "UNKNOWN": {
+            "TEST_KNOWN": 0,
+            "TRAIN_KNOWN": 0,
+            "UNKNOWN": 131778,
+            "VAL_KNOWN": 0
+          },
+          "VAL_KNOWN": {
+            "TEST_KNOWN": 0,
+            "TRAIN_KNOWN": 0,
+            "UNKNOWN": 12507,
+            "VAL_KNOWN": 7028
+          }
+        },
+        "canonical_unique_relation_matrix_total": 234355,
+        "canonical_unique_undirected_relations": 234355,
+        "canonicalization_rule": "sort endpoint ids within each non-self-loop edge and de-duplicate",
+        "node_group_counts": {
+          "TEST_KNOWN": 11184,
+          "TRAIN_KNOWN": 26381,
+          "UNKNOWN": 157205,
+          "VAL_KNOWN": 8999
+        },
+        "stored_directed_edge_entries": 468710,
+        "stored_directed_endpoint_matrix": {
+          "TEST_KNOWN": {
+            "TEST_KNOWN": 18890,
+            "TRAIN_KNOWN": 0,
+            "UNKNOWN": 18288,
+            "VAL_KNOWN": 0
+          },
+          "TRAIN_KNOWN": {
+            "TEST_KNOWN": 0,
+            "TRAIN_KNOWN": 40302,
+            "UNKNOWN": 35158,
+            "VAL_KNOWN": 0
+          },
+          "UNKNOWN": {
+            "TEST_KNOWN": 18288,
+            "TRAIN_KNOWN": 35158,
+            "UNKNOWN": 263556,
+            "VAL_KNOWN": 12507
+          },
+          "VAL_KNOWN": {
+            "TEST_KNOWN": 0,
+            "TRAIN_KNOWN": 0,
+            "UNKNOWN": 12507,
+            "VAL_KNOWN": 14056
+          }
+        },
+        "stored_directed_matrix_total": 468710,
+        "unknown_period_group_counts": {
+          "UNKNOWN_TEST_PERIOD": 35463,
+          "UNKNOWN_TRAIN_PERIOD": 94423,
+          "UNKNOWN_VAL_PERIOD": 27319
+        }
+      },
+      "elliptic_temporal_exposure": {
+        "definitions": {
+          "future_feature_exposure": "train-node representation can receive feature information from nodes in future validation/test periods",
+          "future_label_leakage": "validation/test/future labels used in train loss, target construction, or model selection",
+          "future_topology_exposure": "train-node representation can depend on connectivity involving future nodes",
+          "inductive_hidden_future_isolation": "future nodes and edges absent from the training computation graph"
+        },
+        "future_feature_exposure_observed": false,
+        "future_label_leakage_observed": false,
+        "future_topology_exposure_observed": false,
+        "inductive_hidden_future_isolation_proven": false,
+        "note": "The full graph object is passed to the model, but the frozen Elliptic graph has zero cross-time relations, so train-period nodes have no observed 1-3 hop future-period receptive-field exposure.",
+        "training_mode": "transductive_full_graph_temporal_supervision"
+      },
+      "feature_provenance": {
+        "interpretation": "The project uses the benchmark-provided feature table as frozen input and does not fit an additional project-level scaler or imputer.",
+        "repository_confirmed": {
+          "repository_scaler_or_imputer_fit": false,
+          "time_step_dropped_from_model_input": true,
+          "time_step_stored_separately": true
+        },
+        "source_confirmed": {
+          "aggregated_one_hop_features": 72,
+          "features_are_standardized_except_id_class_time": "SOURCE_CONFIRMED_BY_KAGGLE_DESCRIPTION",
+          "initial_feature_count_including_time_step": 166,
+          "local_transaction_features": 94
+        },
+        "unknown": {
+          "external_raw_feature_scaling_fit_scope": "UNKNOWN",
+          "whether_aggregate_features_cross_time_boundaries": "UNKNOWN_FROM_PRIMARY_SOURCE"
+        }
+      },
+      "features": {
+        "constant_columns": 0,
+        "feature_count": 165,
+        "finite": true,
+        "inf_count": 0,
+        "max": 289.2043762207031,
+        "mean": 7.842269611479935e-10,
+        "min": -13.093358039855957,
+        "nan_count": 0,
+        "shape": [
+          203769,
+          165
+        ],
+        "std": 1.0
+      },
+      "graph": {
+        "connected_components": 49,
+        "degree_distribution_unique_undirected": {
+          "max": 473.0,
+          "mean": 2.3002026804862368,
+          "median": 2.0,
+          "min": 1.0,
+          "n": 203769
+        },
+        "directed_edge_entries": 468710,
+        "directed_edges_with_reverse_counterpart": 468710,
+        "duplicate_directed_entries": 0,
+        "isolated_nodes": 0,
+        "largest_component_nodes": 7880,
+        "num_nodes": 203769,
+        "self_loops": 0,
+        "unique_directed_edges": 468710,
+        "unique_undirected_relations": 234355
+      },
+      "known_unknown": {
+        "known_label_count": 46564,
+        "unknown_label_count": 157205,
+        "unknown_nodes_in_any_supervised_mask": 0
+      },
+      "labels": {
+        "0": 42019,
+        "1": 4545,
+        "2": 157205
+      },
+      "metadata_path": "docs/elliptic_targets_freeze.json",
+      "metadata_sha256": "0919ab49b3cf53531b685f37256d57a43aa0bb87d6dbdf0b2799991698ab0a4c",
+      "pending_audit04": {
+        "audit02_verified_only": [
+          "file existence",
+          "hash",
+          "row count",
+          "node uniqueness",
+          "split membership",
+          "pairwise overlap"
+        ],
+        "exact_pg_pool_eligibility_filter_sampling_flow": "PENDING_AUDIT04",
+        "exact_target_eligibility_filter_sampling_flow": "PENDING_AUDIT04"
+      },
+      "preprocessing_code": {
+        "external_raw_feature_scaling_scope": "UNKNOWN",
+        "label_mapping": {
+          "raw_1": 1,
+          "raw_2": 0,
+          "unknown": 2
+        },
+        "model_feature_step": "txId and time_step are read; time_step is stored separately then dropped from model input in to_torch_data",
+        "raw_files_required": [
+          "elliptic_txs_features.csv",
+          "elliptic_txs_edgelist.csv",
+          "elliptic_txs_classes.csv"
+        ],
+        "repository_scaler_or_imputer": "none found",
+        "source": "D:/CS/KLTN/elliptic-gnn-xai/data/dataset.py and scripts/preprocess_elliptic.py"
+      },
+      "receptive_field_exposure": {
+        "cumulative_within_k_hop_counts": {
+          "1": {
+            "fraction_any_future": 0.0
+          },
+          "2": {
+            "fraction_any_future": 0.0
+          },
+          "3": {
+            "fraction_any_future": 0.0
+          }
+        },
+        "definition": "exact hop frontier and cumulative reachable-within-k-hop over canonical undirected relations",
+        "exact_shortest_frontier_counts": {
+          "1": {
+            "fraction_any_future": 0.0
+          },
+          "2": {
+            "fraction_any_future": 0.0
+          },
+          "3": {
+            "fraction_any_future": 0.0
+          }
+        },
+        "future_groups_counted": [
+          "TEST_KNOWN",
+          "UNKNOWN_TEST_PERIOD",
+          "UNKNOWN_VAL_PERIOD",
+          "VAL_KNOWN"
+        ],
+        "max_hops_checked": 3,
+        "train_nodes_checked": 26381
+      },
+      "splits": {
+        "covered_by_any_mask": 46564,
+        "overlaps": {
+          "train_test": 0,
+          "train_validation": 0,
+          "validation_test": 0
+        },
+        "rule": "temporal split on known-label nodes: train time_step < 30; validation 30 <= time_step < 40; test time_step >= 40",
+        "test": {
+          "class_distribution": {
+            "0": 10548,
+            "1": 636
+          },
+          "count": 11184,
+          "time_step_max": 49,
+          "time_step_min": 40
+        },
+        "train": {
+          "class_distribution": {
+            "0": 23510,
+            "1": 2871
+          },
+          "count": 26381,
+          "time_step_max": 29,
+          "time_step_min": 1
+        },
+        "validation": {
+          "class_distribution": {
+            "0": 7961,
+            "1": 1038
+          },
+          "count": 8999,
+          "time_step_max": 39,
+          "time_step_min": 30
+        }
+      },
+      "symmetrization_provenance": {
+        "benefit": "Both incoming and outgoing transaction neighbors can contribute to message passing.",
+        "chronology": "INHERITED_BASELINE_IMPLEMENTATION",
+        "later_to_earlier_information_flow_possible": true,
+        "rationale": {
+          "source": "INFERENCE",
+          "text": "Symmetrization supports undirected neighborhood aggregation in GCN and GraphSAGE over the transaction graph."
+        },
+        "raw_edge_audit": {
+          "code_path": "D:/CS/KLTN/elliptic-gnn-xai/data/dataset.py BCDataset._load_elliptic(directed=False)",
+          "raw_directed_rows": 234355,
+          "raw_direction_comparison": "READ_LOCAL_RAW_CSV",
+          "raw_duplicate_rows_removed_by_set": 0,
+          "raw_reverse_directed_pairs_originally_present_count": 0,
+          "raw_valid_non_self_loop_unique_directed_pairs": 234355,
+          "reverse_pairs_added_by_undirected_preprocessing": 234355,
+          "stored_canonical_unique_relations": 234355,
+          "stored_directed_pairs": 468710,
+          "stored_equals_raw_plus_reverse_after_dedup": true,
+          "symmetrization_code_symbol": "edges_rev plus pandas.concat followed by drop_duplicates"
+        },
+        "raw_relationship_semantics": "directed Bitcoin payment-flow edges per upstream Elliptic source",
+        "repository_symmetrizes": true,
+        "trade_off": "Raw transaction direction information is reduced in the stored message-passing graph."
+      },
+      "target_files": {
+        "final_test": {
+          "duplicates": 0,
+          "path": "configs/targets/elliptic_xai_common_test_targets.csv",
+          "rows": 200,
+          "sha256": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0",
+          "split_distribution": {
+            "test": 200
+          },
+          "unique_nodes": 200
+        },
+        "pg_common_train": {
+          "duplicates": 0,
+          "path": "configs/targets/elliptic_pg_common_train.csv",
+          "rows": 2000,
+          "sha256": "36c2f9b3a81336d304556702b02b6524411f308ee75f2152d79101586f9c1a22",
+          "split_distribution": {
+            "train": 2000
+          },
+          "unique_nodes": 2000
+        },
+        "pg_common_validation": {
+          "duplicates": 0,
+          "path": "configs/targets/elliptic_pg_common_val.csv",
+          "rows": 500,
+          "sha256": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6",
+          "split_distribution": {
+            "validation": 500
+          },
+          "unique_nodes": 500
+        }
+      },
+      "target_overlaps": {
+        "final_train": 0,
+        "final_validation": 0,
+        "train_validation": 0
+      },
+      "time_transition_summary": {
+        "absolute_time_gap": {
+          "maximum": 0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0,
+          "quantiles": {
+            "q25": 0.0,
+            "q50": 0.0,
+            "q75": 0.0,
+            "q90": 0.0
+          }
+        },
+        "canonical_unique_relations_checked": 234355,
+        "cross_time_relations": 0,
+        "relations_connecting_train_period_to_test_period": 0,
+        "relations_crossing_train_validation_boundary_29_to_30_plus": 0,
+        "relations_crossing_validation_test_boundary_39_to_40_plus": 0,
+        "same_time_relations": 234355,
+        "stored_directed_entries": {
+          "direction_interpretation": "Stored graph is symmetrized, so earlier_to_later and later_to_earlier entries are stored message-passing directions, not necessarily raw transaction directions.",
+          "earlier_to_later": 0,
+          "later_to_earlier": 0,
+          "same_time": 468710,
+          "total": 468710
+        }
+      }
+    },
+    "shapeggen": {
+      "artifact_path": "artifacts/data/shapeggen.pt",
+      "artifact_sha256": "9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e",
+      "features": {
+        "constant_columns": 0,
+        "feature_count": 10,
+        "finite": true,
+        "inf_count": 0,
+        "max": 5.381997108459473,
+        "mean": 0.043581582605838776,
+        "min": -5.707192420959473,
+        "nan_count": 0,
+        "normalization_or_fit_scope": "generated structured features from GraphXAI before local split; no repository scaler/imputer fit found",
+        "shape": [
+          1298,
+          10
+        ],
+        "std": 1.3379576206207275
+      },
+      "generator": {
+        "class_sep": 0.5,
+        "make_explanations": true,
+        "model_layers": 3,
+        "n_clusters_per_class": 2,
+        "n_features": 10,
+        "n_informative": 6,
+        "num_subgraphs": 100,
+        "prob_connection": 0.09,
+        "seed": 912,
+        "shape": "house",
+        "source": "configs/dataset/shapeggen.yaml and official GraphXAI ShapeGGen",
+        "subgraph_size": 13,
+        "upstream_commit": "a11e65ffbc4df737f35522a8accf2283a8aeaa37",
+        "verify": true
+      },
+      "graph": {
+        "connected_components": 1,
+        "degree_distribution_unique_undirected": {
+          "max": 15.0,
+          "mean": 3.4807395993836674,
+          "median": 3.0,
+          "min": 1.0,
+          "n": 1298
+        },
+        "directed_edge_entries": 4518,
+        "directed_edges_with_reverse_counterpart": 4518,
+        "duplicate_directed_entries": 0,
+        "isolated_nodes": 0,
+        "largest_component_nodes": 1298,
+        "num_nodes": 1298,
+        "self_loops": 0,
+        "unique_directed_edges": 4518,
+        "unique_undirected_relations": 2259
+      },
+      "ground_truth": {
+        "candidate_edge_entries": 156266,
+        "candidate_edge_mask_shape": [
+          1298,
+          4518
+        ],
+        "edge_mask_shape": [
+          1298,
+          4518
+        ],
+        "edge_positive_entries": 28316,
+        "feature_mask_indices": [
+          0,
+          1,
+          3,
+          6,
+          8,
+          9
+        ],
+        "feature_mask_positive": 6,
+        "node_mask_shape": [
+          1298,
+          1298
+        ],
+        "node_positive_entries": 10470
+      },
+      "labels": {
+        "0": 502,
+        "1": 796
+      },
+      "metadata_path": "artifacts/data/shapeggen_manifest.json",
+      "metadata_sha256": "2d87e19e9b61198fbd4ee64e6da75487eb1e3ad283ab646f6f0e00e0c46914fb",
+      "splits": {
+        "covered_by_any_mask": 1298,
+        "overlaps": {
+          "train_test": 0,
+          "train_validation": 0,
+          "validation_test": 0
+        },
+        "ratio": {
+          "test": 0.2,
+          "train": 0.6,
+          "validation": 0.2
+        },
+        "rule": "local stratified_disjoint random split by label",
+        "seed": 912,
+        "test": {
+          "class_distribution": {
+            "0": 101,
+            "1": 160
+          },
+          "count": 261
+        },
+        "train": {
+          "class_distribution": {
+            "0": 301,
+            "1": 477
+          },
+          "count": 778
+        },
+        "validation": {
+          "class_distribution": {
+            "0": 100,
+            "1": 159
+          },
+          "count": 259
+        }
+      },
+      "target_files": {
+        "final_2x2": {
+          "duplicates": 0,
+          "path": "configs/targets/shapeggen_2x2_targets.csv",
+          "rows": 167,
+          "sha256": "bd128dec7810421d592debe8177f3cb46d6c7d9b01fd3f562b8b13971517b41d",
+          "split_distribution": {
+            "test": 167
+          },
+          "unique_nodes": 167
+        },
+        "pg_common_train": {
+          "duplicates": 0,
+          "path": "configs/targets/shapeggen_pg_common_train.csv",
+          "rows": 539,
+          "sha256": "c05a5be38a64b629c8bb837b1fb3408d8a008726713e70f0318aee3499746b70",
+          "split_distribution": {
+            "train": 539
+          },
+          "unique_nodes": 539
+        },
+        "pg_common_validation": {
+          "duplicates": 0,
+          "path": "configs/targets/shapeggen_pg_common_val.csv",
+          "rows": 182,
+          "sha256": "b988e40c2af234724b07802ec31d0831ef039a3ef4de3bfee1b80051b49cdc5d",
+          "split_distribution": {
+            "validation": 182
+          },
+          "unique_nodes": 182
+        }
+      },
+      "target_overlaps": {
+        "final_train": 0,
+        "final_validation": 0,
+        "train_validation": 0
+      }
+    }
+  },
+  "experiment_rerun": false,
+  "repo_head": "67a2e80c46c1bacda8df7ba7ec0fd336b1bae651",
+  "split_rationale": {
+    "ba_house": {
+      "actual_source": "project-defined local split in configs/dataset/ba_house.yaml",
+      "benefit": "Reproducible class-balanced train/validation/test masks.",
+      "chronology": "ORIGINALLY_PRE_SPECIFIED",
+      "rationale": {
+        "source": "INFERENCE",
+        "text": "A deterministic stratified split preserves class proportions in a controlled synthetic benchmark."
+      },
+      "split_design": "stratified 60/20/20 node split",
+      "trade_off": "Random transductive split is not a temporal or deployment-style evaluation."
+    },
+    "elliptic": {
+      "actual_source": "inherited baseline implementation in data/dataset.py",
+      "benefit": "Avoids random mixing of known labels across chronological periods.",
+      "chronology": "INHERITED_BASELINE_IMPLEMENTATION",
+      "rationale": {
+        "source": "INFERENCE_WITH_EXTERNAL_SOURCE_SUPPORT",
+        "text": "Temporal ordering is appropriate for transaction graphs because time steps encode chronological blockchain activity and concept drift is possible."
+      },
+      "split_design": "temporal known-label split: <30, 30-39, >=40",
+      "trade_off": "This is temporal supervision over a full graph object, not a strict hidden-future inductive protocol."
+    },
+    "shapeggen": {
+      "actual_source": "project-defined local adapter in configs/dataset/shapeggen.yaml",
+      "benefit": "Keeps generator provenance separate from local train/validation/test masks.",
+      "chronology": "ORIGINALLY_PRE_SPECIFIED",
+      "rationale": {
+        "source": "INFERENCE",
+        "text": "The synthetic graph and labels are generated first, then a deterministic stratified split is attached for local backbone training."
+      },
+      "split_design": "stratified 60/20/20 node split after official ShapeGGen generation",
+      "trade_off": "Target-pool eligibility counts are later-stage filters, not raw split counts."
+    }
+  },
+  "stop_condition_scan": {
+    "elliptic_future_feature_exposure_observed": false,
+    "elliptic_future_label_leakage_observed": false,
+    "elliptic_future_topology_exposure_observed": false,
+    "feature_leakage_observed": "NOT_OBSERVED_IN_REPOSITORY_PREPROCESSING_CODE",
+    "inconsistent_dataset_hashes_observed": false,
+    "unexpected_overlap": false,
+    "unknowns": [
+      "Elliptic external raw feature scaling/fitting provenance before the repository reads CSV files is UNKNOWN.",
+      "Exact target/pool eligibility construction is PENDING_AUDIT04."
+    ],
+    "untraceable_split_creation": false
+  }
+}
