@@ -3,12 +3,14 @@ from __future__ import annotations
 import json
 import subprocess
 import sys
+from copy import deepcopy
 from pathlib import Path
 
 import pytest
 import torch
 import yaml
 
+import scripts.run_elliptic_pgexplainer_training as runner
 from scripts.run_elliptic_pgexplainer_training import (
     ALLOWED_SEEDS,
     SPECS,
@@ -182,6 +184,8 @@ def test_task28_config_identity_is_seed_isolated() -> None:
     data = config()
     pg_config = yaml.safe_load((ROOT / data["pgexplainer_config"]).read_text(encoding="utf-8"))
     hashes = {
+        "task_config": "task-config-bytes",
+        "pgexplainer_config": "pg-config-bytes",
         "dataset": data["dataset_sha256"],
         "common_train": data["common_train_sha256"],
         "common_val": data["common_val_sha256"],
@@ -260,3 +264,223 @@ def test_task28_completion_marker_path_is_backbone_seed_scoped() -> None:
     assert "elliptic_pg_gcn_seed42_run" in str(gcn_path)
     assert "elliptic_pg_graphsage_seed42_run" in str(sage_path)
     assert not (ROOT / gcn_path / "COMPLETE.json").exists()
+
+
+@pytest.fixture
+def identity_inputs():
+    data = config()
+    pg = yaml.safe_load((ROOT / data["pgexplainer_config"]).read_text(encoding="utf-8"))
+    hashes = {
+        "task_config": "task",
+        "pgexplainer_config": "pg",
+        **{key: data[key + "_sha256"] for key in (
+            "dataset", "common_train", "common_val", "gcn_checkpoint", "graphsage_checkpoint"
+        )},
+    }
+    return data, pg, SPECS["gcn"], 42, hashes
+
+
+@pytest.mark.parametrize("field", [
+    "runner", "wrapper", "pg_training", "candidate_mapping", "seeding", "pyg_pgexplainer",
+    "task_config", "pgexplainer_config", "dataset", "common_train", "common_val",
+    "gcn_checkpoint", "git_commit", "python", "torch", "pyg", "cuda_runtime", "device_type",
+])
+def test_integrity_resume_binds_hard_fields(tmp_path, identity_inputs, field):
+    args = deepcopy(identity_inputs)
+    hard = runner.hard_compatibility(torch.device("cpu"))
+    identity = config_identity(*args, compatibility=hard)
+    atomic_torch_save(tmp_path / "checkpoints/epoch_001.pt", {
+        "config_identity": identity, "epoch_completed": 1,
+    })
+    assert latest_epoch_state(tmp_path, identity)[0] == 1
+    if field in hard["source_sha256"]:
+        hard["source_sha256"][field] = "changed"
+    elif field in hard:
+        hard[field] = "changed"
+    else:
+        args[4][field] = "changed"
+    changed = config_identity(*args, compatibility=hard)
+    assert changed != identity
+    with pytest.raises(RuntimeError, match="Incompatible resume"):
+        latest_epoch_state(tmp_path, changed)
+
+
+def test_integrity_full_config_and_gpu_provenance(identity_inputs, monkeypatch):
+    hard = runner.hard_compatibility(torch.device("cpu"))
+    original = config_identity(*identity_inputs, compatibility=hard)
+    changed = deepcopy(identity_inputs)
+    changed[0]["forbid_final_target_input_during_training"] = False
+    assert config_identity(*changed, compatibility=hard) != original
+    changed = deepcopy(identity_inputs)
+    changed[1]["explainer"]["learning_rate"] *= 2
+    assert config_identity(*changed, compatibility=hard) != original
+    monkeypatch.setattr(torch.cuda, "get_device_name", lambda *_: "Different GPU")
+    assert runner.hard_compatibility(torch.device("cpu")) == hard
+    assert config_identity(*identity_inputs, compatibility=hard) == original
+
+
+@pytest.fixture
+def completed_fixture(tmp_path):
+    data = config()
+    data["artifacts_root"] = str(tmp_path / "artifacts")
+    data["gcn_checkpoint"] = str(tmp_path / "backbone.pt")
+    backbone = torch.nn.Linear(2, 2).requires_grad_(False)
+    before = deepcopy(backbone.state_dict())
+    atomic_torch_save(Path(data["gcn_checkpoint"]), {"out.weight": backbone.weight.detach()})
+    pg = yaml.safe_load((ROOT / data["pgexplainer_config"]).read_text(encoding="utf-8"))
+    hashes = {"gcn_checkpoint": runner.sha256(Path(data["gcn_checkpoint"]))}
+    hard = runner.hard_compatibility(torch.device("cpu"))
+    # One tiny CPU Adam update, not an Elliptic epoch or explanation run.
+    with torch.random.fork_rng(devices=[]):
+        torch.manual_seed(123)
+        algorithm = runner.build_pgexplainer_from_config(pg)
+        loss = algorithm.mlp(torch.ones(1, 6)).square().mean()
+        loss.backward()
+        algorithm.optimizer.step()
+    expected = runner.completion_metadata(data, pg, SPECS["gcn"], 42, "identity", hashes, [], [])
+    payload = {
+        **expected,
+        "hard_compatibility": hard,
+        "algorithm_state_dict": deepcopy(algorithm.state_dict()),
+        "optimizer_state_dict": deepcopy(algorithm.optimizer.state_dict()),
+    }
+    artifact = runner.final_artifact_path(data, SPECS["gcn"], 42)
+    atomic_torch_save(artifact, payload)
+    digest = runner.verify_canonical_artifact(artifact, expected, SPECS["gcn"], pre_save=payload)
+    manifest = {
+        "status": "success", "artifact_path": str(artifact), "artifact_sha256": digest,
+        **{key: expected[key] for key in (
+            "config_identity", "backbone", "seed", "epochs_completed", "hashes"
+        )},
+    }
+    runner.publish_completion(data, SPECS["gcn"], 42, expected, manifest)
+    runner.exact_state(backbone.state_dict(), before, "backbone unchanged")
+    return data, expected, payload, manifest, artifact
+
+
+def test_integrity_completed_fast_path_and_exact_reload(completed_fixture):
+    data, expected, payload, _, artifact = completed_fixture
+    state = torch.get_rng_state().clone()
+    result = runner.verify_completed_run(data, SPECS["gcn"], 42, expected)
+    assert result["status"] == "already_complete"
+    assert torch.equal(state, torch.get_rng_state())
+    loaded = torch.load(artifact, weights_only=False)
+    runner.exact_state(loaded, payload, "saved/reloaded")
+    assert loaded["epochs_completed"] == 30
+    assert loaded["algorithm_current_epoch"] == 29
+
+
+@pytest.mark.parametrize("failure", [
+    "missing", "hash", "corrupt", "keys", "shape", "nan", "inf", "backbone", "seed",
+    "config", "epoch", "algorithm_epoch", "optimizer", "optimizer_shape",
+    "marker_parse", "manifest_parse", "manifest_seed", "marker_identity", "checkpoint_hash",
+])
+def test_integrity_completed_rejects_invalid_artifact(completed_fixture, failure):
+    data, expected, payload, manifest, artifact = completed_fixture
+    marker_path = runner.run_dir(data, SPECS["gcn"], 42) / "COMPLETE.json"
+    marker = runner.read_integrity_json(marker_path)
+    if failure == "missing":
+        artifact.unlink()
+    elif failure in {"hash", "corrupt"}:
+        artifact.write_bytes(b"not a torch artifact")
+    elif failure == "marker_parse":
+        marker_path.write_text("{broken", encoding="utf-8")
+    elif failure == "manifest_parse":
+        runner.manifest_path(data, SPECS["gcn"], 42).write_text("{broken", encoding="utf-8")
+    elif failure == "manifest_seed":
+        manifest["seed"] = 0
+        runner.atomic_write_json(runner.manifest_path(data, SPECS["gcn"], 42), manifest)
+    elif failure == "marker_identity":
+        marker["config_identity"] = "other"
+        runner.atomic_write_json(marker_path, marker)
+    else:
+        state = payload["algorithm_state_dict"]
+        first = next(iter(state))
+        if failure == "keys":
+            state["unexpected"] = state.pop(first)
+        elif failure == "shape":
+            state[first] = torch.zeros(1)
+        elif failure in {"nan", "inf"}:
+            state[first].view(-1)[0] = float(failure)
+        elif failure == "backbone":
+            payload["backbone"] = "GraphSAGE"
+        elif failure == "seed":
+            payload["seed"] = 0
+        elif failure == "config":
+            payload["config_identity"] = "other"
+        elif failure == "checkpoint_hash":
+            payload["hashes"] = {"gcn_checkpoint": "other"}
+        elif failure == "epoch":
+            payload["epochs_completed"] = 29
+        elif failure == "algorithm_epoch":
+            payload["algorithm_current_epoch"] = 28
+        elif failure == "optimizer":
+            payload["optimizer_state_dict"]["state"] = {}
+        elif failure == "optimizer_shape":
+            payload["optimizer_state_dict"]["state"][0]["exp_avg"] = torch.ones(1)
+        atomic_torch_save(artifact, payload)
+    if failure not in {
+        "missing", "hash", "marker_parse", "manifest_parse", "manifest_seed", "marker_identity",
+    }:
+        # Re-sign the bytes to reach structural validation, not just the hash guard.
+        marker["artifact_sha256"] = runner.sha256(artifact)
+        manifest["artifact_sha256"] = marker["artifact_sha256"]
+        runner.atomic_write_json(marker_path, marker)
+        runner.atomic_write_json(runner.manifest_path(data, SPECS["gcn"], 42), manifest)
+    with pytest.raises(RuntimeError, match="Integrity failure"):
+        runner.verify_completed_run(data, SPECS["gcn"], 42, expected)
+
+
+def test_integrity_marker_written_last_and_failed_reload_stays_incomplete(
+    completed_fixture, monkeypatch,
+):
+    data, expected, payload, manifest, artifact = completed_fixture
+    marker_path = runner.run_dir(data, SPECS["gcn"], 42) / "COMPLETE.json"
+    marker_path.unlink()
+    events = []
+    original = runner.atomic_write_json
+
+    def record(path, value):
+        events.append(path.name)
+        original(path, value)
+
+    monkeypatch.setattr(runner, "atomic_write_json", record)
+    runner.publish_completion(data, SPECS["gcn"], 42, expected, manifest)
+    assert events == [runner.manifest_path(data, SPECS["gcn"], 42).name, "COMPLETE.json"]
+    marker_path.unlink()
+    artifact.write_bytes(b"broken")
+    events.clear()
+    with pytest.raises(RuntimeError, match="Integrity failure"):
+        runner.publish_completion(data, SPECS["gcn"], 42, expected, manifest)
+    assert not marker_path.exists()
+    assert not events
+    atomic_torch_save(artifact, payload)
+    mutated = deepcopy(payload)
+    next(iter(mutated["algorithm_state_dict"].values())).add_(1)
+    atomic_torch_save(artifact, mutated)
+    with pytest.raises(RuntimeError, match="unequal tensor"):
+        runner.verify_canonical_artifact(artifact, expected, SPECS["gcn"], pre_save=payload)
+    assert not marker_path.exists()
+
+
+def test_integrity_latest_incompatible_never_falls_back(tmp_path):
+    for epoch, identity in [(1, "matching"), (2, "incompatible")]:
+        atomic_torch_save(tmp_path / "checkpoints" / f"epoch_{epoch:03d}.pt", {
+            "epoch_completed": epoch, "config_identity": identity,
+        })
+    with pytest.raises(RuntimeError, match="Incompatible resume"):
+        latest_epoch_state(tmp_path, "matching")
+
+
+def test_integrity_manifest_write_failure_never_publishes_marker(completed_fixture, monkeypatch):
+    data, expected, _, manifest, _ = completed_fixture
+    marker_path = runner.run_dir(data, SPECS["gcn"], 42) / "COMPLETE.json"
+    marker_path.unlink()
+
+    def fail_write(path, value):
+        raise OSError("simulated manifest write failure")
+
+    monkeypatch.setattr(runner, "atomic_write_json", fail_write)
+    with pytest.raises(OSError, match="simulated manifest"):
+        runner.publish_completion(data, SPECS["gcn"], 42, expected, manifest)
+    assert not marker_path.exists()

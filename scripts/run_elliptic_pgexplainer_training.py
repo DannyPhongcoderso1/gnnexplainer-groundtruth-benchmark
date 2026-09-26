@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import inspect
 import json
 import os
 import platform
@@ -28,14 +29,13 @@ SCRIPTS_ROOT = REPO_ROOT / "scripts"
 if str(SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_ROOT))
 
-from prepare_elliptic_task26 import ROOT, build_models, load_data, logits, sha256
+from prepare_elliptic_task26 import BASELINE, ROOT, build_models, load_data, logits, sha256
 
 from gnnexplainer_benchmark.explain.subgraph_mapping import computation_subgraph_edge_mask
 from gnnexplainer_benchmark.explainers.pgexplainer_smoke import model_parameter_hash
 from gnnexplainer_benchmark.explainers.pgexplainer_training import (
     build_pgexplainer_from_config,
     materialize_pgexplainer,
-    verify_pgexplainer_reload,
     wrap_pgexplainer,
 )
 from gnnexplainer_benchmark.utils.reproducibility import seed_everything
@@ -214,8 +214,14 @@ def config_identity(
     seed: int,
     hashes: dict[str, str],
     run_scope: dict[str, Any] | None = None,
+    compatibility: dict[str, Any] | None = None,
 ) -> str:
     payload = {
+        "identity_version": 2,
+        "compatibility": compatibility if compatibility is not None else hard_compatibility(),
+        "task_config_sha256": hashes["task_config"],
+        "full_training_config": config,
+        "pg_config_sha256": hashes["pgexplainer_config"],
         "task": "TASK28_ELLIPTIC_PGEXPLAINER_TRAINING",
         "backbone": spec.slug,
         "seed": seed,
@@ -235,6 +241,172 @@ def config_identity(
         },
     }
     return hashlib.sha256(json.dumps(payload, sort_keys=True).encode("utf-8")).hexdigest()
+
+
+def hard_compatibility(device: torch.device | None = None) -> dict[str, Any]:
+    # File bytes avoid a self-referential embedded runner hash. GPU name is provenance only.
+    sources = {
+        "runner": Path(__file__),
+        "wrapper": Path(inspect.getfile(build_models)),
+        "pg_training": Path(inspect.getfile(build_pgexplainer_from_config)),
+        "backbone_hash": Path(inspect.getfile(model_parameter_hash)),
+        "candidate_mapping": Path(inspect.getfile(computation_subgraph_edge_mask)),
+        "seeding": Path(inspect.getfile(seed_everything)),
+        "gcn_model_construction_config": BASELINE / "config" / "training_baseline_paper_gcn.yaml",
+        "sage_model_construction_config": BASELINE / "config" / "training_baseline_paper_sage.yaml",
+    }
+    from torch_geometric.explain.algorithm import PGExplainer
+
+    sources["pyg_pgexplainer"] = Path(inspect.getfile(PGExplainer))
+    return {
+        "source_sha256": {key: sha256(path) for key, path in sources.items()},
+        "git_commit": git_value("rev-parse", "HEAD"),
+        "python": platform.python_version(),
+        "torch": str(torch.__version__),
+        "pyg": torch_geometric.__version__,
+        "numpy": np.__version__,
+        "cuda_runtime": torch.version.cuda,
+        "device_type": device.type if device is not None else "unspecified",
+    }
+
+
+def exact_state(actual: Any, expected: Any, label: str) -> None:
+    if isinstance(expected, torch.Tensor):
+        if not isinstance(actual, torch.Tensor) or actual.shape != expected.shape or actual.dtype != expected.dtype:
+            raise RuntimeError(f"Integrity failure: {label} tensor schema")
+        if not torch.isfinite(actual).all() or not torch.equal(actual.cpu(), expected.detach().cpu()):
+            raise RuntimeError(f"Integrity failure: {label} non-finite or unequal tensor")
+    elif isinstance(expected, dict):
+        if not isinstance(actual, dict) or actual.keys() != expected.keys():
+            raise RuntimeError(f"Integrity failure: {label} keys")
+        for key in expected:
+            exact_state(actual[key], expected[key], f"{label}.{key}")
+    elif isinstance(expected, (list, tuple)):
+        if not isinstance(actual, type(expected)) or len(actual) != len(expected):
+            raise RuntimeError(f"Integrity failure: {label} sequence")
+        for index, (a, b) in enumerate(zip(actual, expected, strict=True)):
+            exact_state(a, b, f"{label}.{index}")
+    elif actual != expected:
+        raise RuntimeError(f"Integrity failure: {label} value")
+
+
+def completion_metadata(config, pg_config, spec, seed, identity, hashes, train_targets, val_targets):
+    return {
+        "config_identity": identity,
+        "backbone": spec.name,
+        "seed": seed,
+        "epochs_completed": int(config["epochs"]),
+        "algorithm_current_epoch": int(config["epochs"]) - 1,
+        "training_config": config,
+        "explainer_config": pg_config,
+        "hashes": hashes,
+        "train_node_ids": [target.node_id for target in train_targets],
+        "validation_node_ids": [target.node_id for target in val_targets],
+    }
+
+
+def verify_canonical_artifact(path, expected, spec, expected_hash=None, pre_save=None):
+    if not path.is_file():
+        raise RuntimeError(f"Integrity failure: canonical artifact missing: {path}")
+    digest = sha256(path)
+    if expected_hash is not None and digest != expected_hash:
+        raise RuntimeError("Integrity failure: canonical artifact SHA256 mismatch")
+    try:
+        payload = torch.load(path, map_location="cpu", weights_only=False)
+    except Exception as exc:
+        raise RuntimeError("Integrity failure: canonical artifact cannot be loaded") from exc
+    if not isinstance(payload, dict):
+        raise RuntimeError("Integrity failure: canonical artifact must be a mapping")
+    if expected["epochs_completed"] != 30:
+        raise RuntimeError("Integrity failure: canonical completion requires epoch 30")
+    for key, value in expected.items():
+        exact_state(payload.get(key), value, key)
+
+    # Validate the actual PG MLP schema without a backbone forward or changing caller RNG.
+    checkpoint = torch.load(Path(expected["training_config"][spec.checkpoint_key]), map_location="cpu", weights_only=False)
+    weights = checkpoint.get("model_state_dict") or checkpoint.get("state_dict") or checkpoint
+    embedding_dim = int(weights["out.weight"].shape[1])
+    with torch.random.fork_rng(devices=[]):
+        algorithm = build_pgexplainer_from_config(expected["explainer_config"])
+        with torch.no_grad():
+            algorithm.mlp(torch.zeros(1, 3 * embedding_dim))
+    state = payload.get("algorithm_state_dict")
+    template = algorithm.state_dict()
+    if not isinstance(state, dict) or state.keys() != template.keys():
+        raise RuntimeError("Integrity failure: PG state_dict keys")
+    for key, value in template.items():
+        item = state[key]
+        if not isinstance(item, torch.Tensor) or item.shape != value.shape or item.dtype != value.dtype:
+            raise RuntimeError(f"Integrity failure: PG parameter shape/dtype: {key}")
+        if not torch.isfinite(item).all():
+            raise RuntimeError(f"Integrity failure: non-finite PG parameter: {key}")
+    optimizer = payload.get("optimizer_state_dict")
+    template_optimizer = algorithm.optimizer.state_dict()
+    if not isinstance(optimizer, dict) or optimizer.keys() != template_optimizer.keys():
+        raise RuntimeError("Integrity failure: optimizer schema")
+    exact_state(optimizer["param_groups"], template_optimizer["param_groups"], "optimizer.param_groups")
+    ids = [p for group in optimizer["param_groups"] for p in group["params"]]
+    if set(optimizer["state"]) != set(ids):
+        raise RuntimeError("Integrity failure: optimizer parameter IDs")
+    for pid, parameter in zip(ids, algorithm.parameters(), strict=True):
+        item = optimizer["state"][pid]
+        if set(item) != {"step", "exp_avg", "exp_avg_sq"}:
+            raise RuntimeError("Integrity failure: Adam state keys")
+        for key, value in item.items():
+            shape = torch.Size([]) if key == "step" else parameter.shape
+            if not isinstance(value, torch.Tensor) or value.shape != shape or not torch.isfinite(value).all():
+                raise RuntimeError(f"Integrity failure: Adam tensor {key}")
+        if item["step"].item() <= 0:
+            raise RuntimeError("Integrity failure: Adam step must be positive")
+    algorithm.load_state_dict(state, strict=True)
+    algorithm.optimizer.load_state_dict(optimizer)
+    if pre_save is not None:
+        exact_state(payload, pre_save, "final reload")
+    if sha256(path) != digest:
+        raise RuntimeError("Integrity failure: artifact changed during verification")
+    return digest
+
+
+def read_integrity_json(path):
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(value, dict):
+            raise ValueError("not an object")
+        return value
+    except (OSError, ValueError) as exc:
+        raise RuntimeError(f"Integrity failure: cannot parse {path}") from exc
+
+
+def verify_completed_run(config, spec, seed, expected):
+    marker_path = run_dir(config, spec, seed) / "COMPLETE.json"
+    marker = read_integrity_json(marker_path)
+    manifest = read_integrity_json(manifest_path(config, spec, seed))
+    for key in ("config_identity", "backbone", "seed", "epochs_completed"):
+        exact_state(marker.get(key), expected[key], f"COMPLETE.{key}")
+        exact_state(manifest.get(key), expected[key], f"manifest.{key}")
+    exact_state(marker.get("status"), "complete", "COMPLETE.status")
+    exact_state(manifest.get("status"), "success", "manifest.status")
+    exact_state(manifest.get("hashes"), expected["hashes"], "manifest.hashes")
+    artifact = final_artifact_path(config, spec, seed)
+    exact_state(manifest.get("artifact_path"), str(artifact), "manifest.artifact_path")
+    digest = marker.get("artifact_sha256")
+    if not isinstance(digest, str) or len(digest) != 64:
+        raise RuntimeError("Integrity failure: missing artifact hash")
+    exact_state(manifest.get("artifact_sha256"), digest, "manifest.artifact_sha256")
+    verify_canonical_artifact(artifact, expected, spec, expected_hash=digest)
+    return {"status": "already_complete", "complete_marker": str(marker_path), "config_identity": expected["config_identity"]}
+
+
+def publish_completion(config, spec, seed, expected, manifest):
+    # The marker is the last commit point; any failure leaves the run incomplete.
+    verify_canonical_artifact(final_artifact_path(config, spec, seed), expected, spec,
+                              expected_hash=manifest["artifact_sha256"])
+    atomic_write_json(manifest_path(config, spec, seed), manifest)
+    atomic_write_json(run_dir(config, spec, seed) / "COMPLETE.json", {
+        "status": "complete",
+        **{key: expected[key] for key in ("config_identity", "backbone", "seed", "epochs_completed")},
+        "artifact_sha256": manifest["artifact_sha256"],
+    })
 
 
 def config_hash(payload: dict[str, Any]) -> str:
@@ -437,14 +609,14 @@ def train_one(args: argparse.Namespace) -> dict[str, Any]:
         "train_count": len(train_targets),
         "validation_count": len(val_targets),
     }
-    identity = config_identity(config, pg_config, spec, int(args.seed), hashes, run_scope)
+    compatibility = hard_compatibility(device)
+    identity = config_identity(config, pg_config, spec, int(args.seed), hashes, run_scope, compatibility)
+    expected_completion = completion_metadata(config, pg_config, spec, int(args.seed), identity,
+                                              hashes, train_targets, val_targets)
     directory = run_dir(config, spec, int(args.seed))
     complete_marker = directory / "COMPLETE.json"
     if complete_marker.exists():
-        complete = json.loads(complete_marker.read_text(encoding="utf-8"))
-        if complete.get("config_identity") == identity:
-            return {"status": "already_complete", "complete_marker": str(complete_marker), "config_identity": identity}
-        raise RuntimeError("Completed run exists with incompatible config identity")
+        return verify_completed_run(config, spec, int(args.seed), expected_completion)
     if args.reset_incomplete:
         reset_incomplete_run(directory)
     if args.dry_run:
@@ -530,6 +702,7 @@ def train_one(args: argparse.Namespace) -> dict[str, Any]:
             "task": "TASK28 Elliptic PGExplainer training state",
             "config_identity": identity,
             "epoch_completed": epoch + 1,
+            "hard_compatibility": compatibility,
             "algorithm_state_dict": algorithm.state_dict(),
             "optimizer_state_dict": algorithm.optimizer.state_dict(),
             "algorithm_current_epoch": algorithm._curr_epoch,
@@ -580,33 +753,17 @@ def train_one(args: argparse.Namespace) -> dict[str, Any]:
     if model_hash_before != model_parameter_hash(model):
         raise RuntimeError(f"{spec.name} backbone weights changed during training")
     artifact = final_artifact_path(config, spec, int(args.seed))
-    atomic_torch_save(
-        artifact,
-        {
-            "task": "TASK28 Elliptic PGExplainer",
-            "algorithm_state_dict": algorithm.state_dict(),
-            "optimizer_state_dict": algorithm.optimizer.state_dict(),
-            "algorithm_current_epoch": algorithm._curr_epoch,
-            "explainer_config": pg_config,
-            "training_config": config,
-            "config_identity": identity,
-            "seed": int(args.seed),
-            "backbone": spec.name,
-            "train_node_ids": [target.node_id for target in train_targets],
-            "validation_node_ids": [target.node_id for target in val_targets],
-            "hashes": hashes,
-        },
-    )
-    reload_ok = verify_pgexplainer_reload(
-        artifact,
-        pg_config,
-        model,
-        data.x,
-        data.edge_index,
-        train_targets[0].node_id,
-    )
-    if not reload_ok:
-        raise RuntimeError("PGExplainer checkpoint reload check failed")
+    final_payload = {
+        **expected_completion,
+        "hard_compatibility": compatibility,
+        "task": "TASK28 Elliptic PGExplainer",
+        "algorithm_state_dict": algorithm.state_dict(),
+        "optimizer_state_dict": algorithm.optimizer.state_dict(),
+        "algorithm_current_epoch": algorithm._curr_epoch,
+    }
+    atomic_torch_save(artifact, final_payload)
+    artifact_hash = verify_canonical_artifact(artifact, expected_completion, spec, pre_save=final_payload)
+    reload_ok = True
     manifest = {
         "task": "TASK28 Elliptic PGExplainer training",
         "status": "success",
@@ -615,7 +772,8 @@ def train_one(args: argparse.Namespace) -> dict[str, Any]:
         "epochs_completed": total_epochs,
         "checkpoint_selection": config["checkpoint_selection"],
         "artifact_path": str(artifact),
-        "artifact_sha256": sha256(artifact),
+        "artifact_sha256": artifact_hash,
+        "hard_compatibility": compatibility,
         "manifest_path": str(manifest_path(config, spec, int(args.seed))),
         "state_run_dir": str(directory),
         "config_identity": identity,
@@ -646,8 +804,7 @@ def train_one(args: argparse.Namespace) -> dict[str, Any]:
         "post_test_tuning": False,
         "final_targets_accessed": False,
     }
-    atomic_write_json(manifest_path(config, spec, int(args.seed)), manifest)
-    atomic_write_json(complete_marker, {"status": "complete", "config_identity": identity, "artifact_sha256": manifest["artifact_sha256"]})
+    publish_completion(config, spec, int(args.seed), expected_completion, manifest)
     append_jsonl(jsonl_log, {"event": "complete", "config_identity": identity, "artifact_sha256": manifest["artifact_sha256"]})
     return manifest
 
