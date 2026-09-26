@@ -1,0 +1,448 @@
+{
+  "schema_version": 1,
+  "task": "TASK28_STEP04",
+  "repository": "D:/CS/KLTN/gnnexplainer-groundtruth-benchmark",
+  "branch": "main",
+  "implementation_commit": "2a522211f3a1323a63a736b2cd36f711687b835f",
+  "execution_commit_resolution": "First first-parent commit after implementation_commit that adds docs/elliptic_pgexplainer_step04_compute_plan.json; require its parent equals implementation_commit and current HEAD equals that commit. Never resolve from latest HEAD alone.",
+  "primary_training_authorized": true,
+  "stability_training_authorized": false,
+  "final_evaluation_authorized": false,
+  "epochs": 30,
+  "train_count": 2000,
+  "validation_count": 500,
+  "final_count": 200,
+  "backbones": [
+    "gcn",
+    "graphsage"
+  ],
+  "seeds": [
+    42,
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "selected_edge_ratio": 0.2,
+  "rounding_rule": "max(1, ceil(candidate_edge_count * 0.20))",
+  "target_semantics": "frozen_backbone_original_predicted_class",
+  "checkpoint_selection": "fixed_final_epoch_30",
+  "file_sha256": {
+    "scripts/run_elliptic_pgexplainer_training.py": "b726fb435731da7bd1de4fcbf2526681c5eb1b46de28116b015ff7fabc037d06",
+    "configs/evaluation/elliptic_pgexplainer_training.yaml": "ea9cd9898e17df21f13c9c706ede9444374990ff86f6113d51cf5ea1d0308fba",
+    "configs/explainer/pgexplainer.yaml": "60aef2f1ff6d8e6114797e3c3f0d6006b72bce18058a33322b04ee68649de571",
+    "D:/CS/KLTN/elliptic-gnn-xai/datasets/elliptic/elliptic_data.pt": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
+    "D:/CS/KLTN/elliptic-gnn-xai/artifacts/checkpoints/gcn_baseline.pt": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07",
+    "D:/CS/KLTN/elliptic-gnn-xai/artifacts/checkpoints/graphsage_baseline.pt": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf",
+    "configs/targets/elliptic_pg_common_train.csv": "36c2f9b3a81336d304556702b02b6524411f308ee75f2152d79101586f9c1a22",
+    "configs/targets/elliptic_pg_common_val.csv": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6",
+    "configs/targets/elliptic_xai_common_test_targets.csv": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0"
+  },
+  "hard_compatibility_without_git": {
+    "source_sha256": {
+      "runner": "b726fb435731da7bd1de4fcbf2526681c5eb1b46de28116b015ff7fabc037d06",
+      "wrapper": "b4971537181e14d0ef91aa0e5e0425aabf74e24a5b3e12bb924fc1c88fe2f1ac",
+      "pg_training": "5c946c395a2da61799cbcbd22aa77966fff56e11955f59995aaa678244ccaa3c",
+      "backbone_hash": "015a3b0b3156b92e8cd1bde0a9d0caa7087b9dadb20d178f5dc1d7d8bdbc3658",
+      "candidate_mapping": "ab5d7809fe235c1d5a5c1e083e4c77d5a19acfadd0d70eb38d2ba396972c7bc5",
+      "seeding": "ae5af1fbae8a7fde198517cedb17b06abad9c19ac8d34c86f43ee1ccc3c3b64c",
+      "gcn_model_construction_config": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368",
+      "sage_model_construction_config": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a",
+      "pyg_pgexplainer": "2cc94d72a4aab443fe233600ed78b1e85a00a2072b2d4684500c43572cf67b27"
+    },
+    "python": "3.11.9",
+    "torch": "2.11.0+cu128",
+    "pyg": "2.8.0.post1",
+    "numpy": "2.4.6",
+    "cuda_runtime": "12.8",
+    "device_type": "cuda"
+  },
+  "gpu_provenance": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "pilot_evidence": "docs/elliptic_pgexplainer_step03_evidence_expansion_manifest.json",
+  "runtime_estimate": {
+    "formula": "mean_step_seconds * 2000 * 30",
+    "mean_step_seconds": {
+      "gcn": 0.20291414000093938,
+      "graphsage": 0.18041337999748067
+    },
+    "training_hours_per_checkpoint": {
+      "gcn": 3.3819023333489895,
+      "graphsage": 3.006889666624678
+    },
+    "primary_training_hours": 6.388791999973668,
+    "all_12_training_hours": 38.332751999842,
+    "planning_hours_with_50_percent_margin": 57.499127999763,
+    "excluded": [
+      "500-node validation",
+      "setup and frozen predictions",
+      "serialization and integrity reload",
+      "thermal throttling",
+      "interruptions and repeated partial epochs"
+    ],
+    "margin_is_measured": false
+  },
+  "disk_estimate": {
+    "pilot_checkpoint_bytes": {
+      "gcn": 225989,
+      "graphsage": 256085
+    },
+    "assumed_mib_per_checkpoint_file": 2,
+    "files_per_run_including_atomic_temp": 32,
+    "logs_and_metadata_mib_per_run": 10,
+    "total_12_runs_mib": 888,
+    "required_free_bytes": 2147483648,
+    "observed_free_bytes": 850019545088,
+    "qualification": "Conservative planning allowance, not measured canonical epoch30 size; graph/backbone not copied into each PG state."
+  },
+  "runs": [
+    {
+      "backbone": "gcn",
+      "seed": 42,
+      "stage": "primary",
+      "command": "Invoke-FrozenRun -Backbone gcn -Seed 42",
+      "argv": [
+        "scripts/run_elliptic_pgexplainer_training.py",
+        "--config",
+        "configs/evaluation/elliptic_pgexplainer_training.yaml",
+        "--backbone",
+        "gcn",
+        "--seed",
+        "42",
+        "--device",
+        "cuda"
+      ],
+      "run_dir": "artifacts/explainers/elliptic_pg_gcn_seed42_run",
+      "epoch_checkpoints": "artifacts/explainers/elliptic_pg_gcn_seed42_run/checkpoints/epoch_001.pt through epoch_030.pt",
+      "artifact": "artifacts/explainers/elliptic_pg_gcn_seed42.pt",
+      "manifest": "artifacts/explainers/elliptic_pg_gcn_seed42_manifest.json",
+      "complete": "artifacts/explainers/elliptic_pg_gcn_seed42_run/COMPLETE.json",
+      "logs": [
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed42.csv",
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed42.jsonl",
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed42.txt",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_gcn_seed42.console.log",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_gcn_seed42.exits.jsonl"
+      ]
+    },
+    {
+      "backbone": "graphsage",
+      "seed": 42,
+      "stage": "primary",
+      "command": "Invoke-FrozenRun -Backbone graphsage -Seed 42",
+      "argv": [
+        "scripts/run_elliptic_pgexplainer_training.py",
+        "--config",
+        "configs/evaluation/elliptic_pgexplainer_training.yaml",
+        "--backbone",
+        "graphsage",
+        "--seed",
+        "42",
+        "--device",
+        "cuda"
+      ],
+      "run_dir": "artifacts/explainers/elliptic_pg_graphsage_seed42_run",
+      "epoch_checkpoints": "artifacts/explainers/elliptic_pg_graphsage_seed42_run/checkpoints/epoch_001.pt through epoch_030.pt",
+      "artifact": "artifacts/explainers/elliptic_pg_graphsage_seed42.pt",
+      "manifest": "artifacts/explainers/elliptic_pg_graphsage_seed42_manifest.json",
+      "complete": "artifacts/explainers/elliptic_pg_graphsage_seed42_run/COMPLETE.json",
+      "logs": [
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed42.csv",
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed42.jsonl",
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed42.txt",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_graphsage_seed42.console.log",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_graphsage_seed42.exits.jsonl"
+      ]
+    },
+    {
+      "backbone": "gcn",
+      "seed": 0,
+      "stage": "stability_not_authorized",
+      "command": "Invoke-FrozenRun -Backbone gcn -Seed 0",
+      "argv": [
+        "scripts/run_elliptic_pgexplainer_training.py",
+        "--config",
+        "configs/evaluation/elliptic_pgexplainer_training.yaml",
+        "--backbone",
+        "gcn",
+        "--seed",
+        "0",
+        "--device",
+        "cuda"
+      ],
+      "run_dir": "artifacts/explainers/elliptic_pg_gcn_seed0_run",
+      "epoch_checkpoints": "artifacts/explainers/elliptic_pg_gcn_seed0_run/checkpoints/epoch_001.pt through epoch_030.pt",
+      "artifact": "artifacts/explainers/elliptic_pg_gcn_seed0.pt",
+      "manifest": "artifacts/explainers/elliptic_pg_gcn_seed0_manifest.json",
+      "complete": "artifacts/explainers/elliptic_pg_gcn_seed0_run/COMPLETE.json",
+      "logs": [
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed0.csv",
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed0.jsonl",
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed0.txt",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_gcn_seed0.console.log",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_gcn_seed0.exits.jsonl"
+      ]
+    },
+    {
+      "backbone": "graphsage",
+      "seed": 0,
+      "stage": "stability_not_authorized",
+      "command": "Invoke-FrozenRun -Backbone graphsage -Seed 0",
+      "argv": [
+        "scripts/run_elliptic_pgexplainer_training.py",
+        "--config",
+        "configs/evaluation/elliptic_pgexplainer_training.yaml",
+        "--backbone",
+        "graphsage",
+        "--seed",
+        "0",
+        "--device",
+        "cuda"
+      ],
+      "run_dir": "artifacts/explainers/elliptic_pg_graphsage_seed0_run",
+      "epoch_checkpoints": "artifacts/explainers/elliptic_pg_graphsage_seed0_run/checkpoints/epoch_001.pt through epoch_030.pt",
+      "artifact": "artifacts/explainers/elliptic_pg_graphsage_seed0.pt",
+      "manifest": "artifacts/explainers/elliptic_pg_graphsage_seed0_manifest.json",
+      "complete": "artifacts/explainers/elliptic_pg_graphsage_seed0_run/COMPLETE.json",
+      "logs": [
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed0.csv",
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed0.jsonl",
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed0.txt",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_graphsage_seed0.console.log",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_graphsage_seed0.exits.jsonl"
+      ]
+    },
+    {
+      "backbone": "gcn",
+      "seed": 1,
+      "stage": "stability_not_authorized",
+      "command": "Invoke-FrozenRun -Backbone gcn -Seed 1",
+      "argv": [
+        "scripts/run_elliptic_pgexplainer_training.py",
+        "--config",
+        "configs/evaluation/elliptic_pgexplainer_training.yaml",
+        "--backbone",
+        "gcn",
+        "--seed",
+        "1",
+        "--device",
+        "cuda"
+      ],
+      "run_dir": "artifacts/explainers/elliptic_pg_gcn_seed1_run",
+      "epoch_checkpoints": "artifacts/explainers/elliptic_pg_gcn_seed1_run/checkpoints/epoch_001.pt through epoch_030.pt",
+      "artifact": "artifacts/explainers/elliptic_pg_gcn_seed1.pt",
+      "manifest": "artifacts/explainers/elliptic_pg_gcn_seed1_manifest.json",
+      "complete": "artifacts/explainers/elliptic_pg_gcn_seed1_run/COMPLETE.json",
+      "logs": [
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed1.csv",
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed1.jsonl",
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed1.txt",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_gcn_seed1.console.log",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_gcn_seed1.exits.jsonl"
+      ]
+    },
+    {
+      "backbone": "graphsage",
+      "seed": 1,
+      "stage": "stability_not_authorized",
+      "command": "Invoke-FrozenRun -Backbone graphsage -Seed 1",
+      "argv": [
+        "scripts/run_elliptic_pgexplainer_training.py",
+        "--config",
+        "configs/evaluation/elliptic_pgexplainer_training.yaml",
+        "--backbone",
+        "graphsage",
+        "--seed",
+        "1",
+        "--device",
+        "cuda"
+      ],
+      "run_dir": "artifacts/explainers/elliptic_pg_graphsage_seed1_run",
+      "epoch_checkpoints": "artifacts/explainers/elliptic_pg_graphsage_seed1_run/checkpoints/epoch_001.pt through epoch_030.pt",
+      "artifact": "artifacts/explainers/elliptic_pg_graphsage_seed1.pt",
+      "manifest": "artifacts/explainers/elliptic_pg_graphsage_seed1_manifest.json",
+      "complete": "artifacts/explainers/elliptic_pg_graphsage_seed1_run/COMPLETE.json",
+      "logs": [
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed1.csv",
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed1.jsonl",
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed1.txt",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_graphsage_seed1.console.log",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_graphsage_seed1.exits.jsonl"
+      ]
+    },
+    {
+      "backbone": "gcn",
+      "seed": 2,
+      "stage": "stability_not_authorized",
+      "command": "Invoke-FrozenRun -Backbone gcn -Seed 2",
+      "argv": [
+        "scripts/run_elliptic_pgexplainer_training.py",
+        "--config",
+        "configs/evaluation/elliptic_pgexplainer_training.yaml",
+        "--backbone",
+        "gcn",
+        "--seed",
+        "2",
+        "--device",
+        "cuda"
+      ],
+      "run_dir": "artifacts/explainers/elliptic_pg_gcn_seed2_run",
+      "epoch_checkpoints": "artifacts/explainers/elliptic_pg_gcn_seed2_run/checkpoints/epoch_001.pt through epoch_030.pt",
+      "artifact": "artifacts/explainers/elliptic_pg_gcn_seed2.pt",
+      "manifest": "artifacts/explainers/elliptic_pg_gcn_seed2_manifest.json",
+      "complete": "artifacts/explainers/elliptic_pg_gcn_seed2_run/COMPLETE.json",
+      "logs": [
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed2.csv",
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed2.jsonl",
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed2.txt",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_gcn_seed2.console.log",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_gcn_seed2.exits.jsonl"
+      ]
+    },
+    {
+      "backbone": "graphsage",
+      "seed": 2,
+      "stage": "stability_not_authorized",
+      "command": "Invoke-FrozenRun -Backbone graphsage -Seed 2",
+      "argv": [
+        "scripts/run_elliptic_pgexplainer_training.py",
+        "--config",
+        "configs/evaluation/elliptic_pgexplainer_training.yaml",
+        "--backbone",
+        "graphsage",
+        "--seed",
+        "2",
+        "--device",
+        "cuda"
+      ],
+      "run_dir": "artifacts/explainers/elliptic_pg_graphsage_seed2_run",
+      "epoch_checkpoints": "artifacts/explainers/elliptic_pg_graphsage_seed2_run/checkpoints/epoch_001.pt through epoch_030.pt",
+      "artifact": "artifacts/explainers/elliptic_pg_graphsage_seed2.pt",
+      "manifest": "artifacts/explainers/elliptic_pg_graphsage_seed2_manifest.json",
+      "complete": "artifacts/explainers/elliptic_pg_graphsage_seed2_run/COMPLETE.json",
+      "logs": [
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed2.csv",
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed2.jsonl",
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed2.txt",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_graphsage_seed2.console.log",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_graphsage_seed2.exits.jsonl"
+      ]
+    },
+    {
+      "backbone": "gcn",
+      "seed": 3,
+      "stage": "stability_not_authorized",
+      "command": "Invoke-FrozenRun -Backbone gcn -Seed 3",
+      "argv": [
+        "scripts/run_elliptic_pgexplainer_training.py",
+        "--config",
+        "configs/evaluation/elliptic_pgexplainer_training.yaml",
+        "--backbone",
+        "gcn",
+        "--seed",
+        "3",
+        "--device",
+        "cuda"
+      ],
+      "run_dir": "artifacts/explainers/elliptic_pg_gcn_seed3_run",
+      "epoch_checkpoints": "artifacts/explainers/elliptic_pg_gcn_seed3_run/checkpoints/epoch_001.pt through epoch_030.pt",
+      "artifact": "artifacts/explainers/elliptic_pg_gcn_seed3.pt",
+      "manifest": "artifacts/explainers/elliptic_pg_gcn_seed3_manifest.json",
+      "complete": "artifacts/explainers/elliptic_pg_gcn_seed3_run/COMPLETE.json",
+      "logs": [
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed3.csv",
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed3.jsonl",
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed3.txt",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_gcn_seed3.console.log",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_gcn_seed3.exits.jsonl"
+      ]
+    },
+    {
+      "backbone": "graphsage",
+      "seed": 3,
+      "stage": "stability_not_authorized",
+      "command": "Invoke-FrozenRun -Backbone graphsage -Seed 3",
+      "argv": [
+        "scripts/run_elliptic_pgexplainer_training.py",
+        "--config",
+        "configs/evaluation/elliptic_pgexplainer_training.yaml",
+        "--backbone",
+        "graphsage",
+        "--seed",
+        "3",
+        "--device",
+        "cuda"
+      ],
+      "run_dir": "artifacts/explainers/elliptic_pg_graphsage_seed3_run",
+      "epoch_checkpoints": "artifacts/explainers/elliptic_pg_graphsage_seed3_run/checkpoints/epoch_001.pt through epoch_030.pt",
+      "artifact": "artifacts/explainers/elliptic_pg_graphsage_seed3.pt",
+      "manifest": "artifacts/explainers/elliptic_pg_graphsage_seed3_manifest.json",
+      "complete": "artifacts/explainers/elliptic_pg_graphsage_seed3_run/COMPLETE.json",
+      "logs": [
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed3.csv",
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed3.jsonl",
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed3.txt",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_graphsage_seed3.console.log",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_graphsage_seed3.exits.jsonl"
+      ]
+    },
+    {
+      "backbone": "gcn",
+      "seed": 4,
+      "stage": "stability_not_authorized",
+      "command": "Invoke-FrozenRun -Backbone gcn -Seed 4",
+      "argv": [
+        "scripts/run_elliptic_pgexplainer_training.py",
+        "--config",
+        "configs/evaluation/elliptic_pgexplainer_training.yaml",
+        "--backbone",
+        "gcn",
+        "--seed",
+        "4",
+        "--device",
+        "cuda"
+      ],
+      "run_dir": "artifacts/explainers/elliptic_pg_gcn_seed4_run",
+      "epoch_checkpoints": "artifacts/explainers/elliptic_pg_gcn_seed4_run/checkpoints/epoch_001.pt through epoch_030.pt",
+      "artifact": "artifacts/explainers/elliptic_pg_gcn_seed4.pt",
+      "manifest": "artifacts/explainers/elliptic_pg_gcn_seed4_manifest.json",
+      "complete": "artifacts/explainers/elliptic_pg_gcn_seed4_run/COMPLETE.json",
+      "logs": [
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed4.csv",
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed4.jsonl",
+        "results/metrics/elliptic/gcn/pgexplainer/training_seed4.txt",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_gcn_seed4.console.log",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_gcn_seed4.exits.jsonl"
+      ]
+    },
+    {
+      "backbone": "graphsage",
+      "seed": 4,
+      "stage": "stability_not_authorized",
+      "command": "Invoke-FrozenRun -Backbone graphsage -Seed 4",
+      "argv": [
+        "scripts/run_elliptic_pgexplainer_training.py",
+        "--config",
+        "configs/evaluation/elliptic_pgexplainer_training.yaml",
+        "--backbone",
+        "graphsage",
+        "--seed",
+        "4",
+        "--device",
+        "cuda"
+      ],
+      "run_dir": "artifacts/explainers/elliptic_pg_graphsage_seed4_run",
+      "epoch_checkpoints": "artifacts/explainers/elliptic_pg_graphsage_seed4_run/checkpoints/epoch_001.pt through epoch_030.pt",
+      "artifact": "artifacts/explainers/elliptic_pg_graphsage_seed4.pt",
+      "manifest": "artifacts/explainers/elliptic_pg_graphsage_seed4_manifest.json",
+      "complete": "artifacts/explainers/elliptic_pg_graphsage_seed4_run/COMPLETE.json",
+      "logs": [
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed4.csv",
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed4.jsonl",
+        "results/metrics/elliptic/graphsage/pgexplainer/training_seed4.txt",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_graphsage_seed4.console.log",
+        "results/metrics/elliptic/task28_operator/elliptic_pg_graphsage_seed4.exits.jsonl"
+      ]
+    }
+  ]
+}
