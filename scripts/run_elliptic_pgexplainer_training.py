@@ -243,8 +243,20 @@ def config_identity(
     return hashlib.sha256(json.dumps(payload, sort_keys=True).encode("utf-8")).hexdigest()
 
 
+def canonical_text_sha256(path: Path) -> str:
+    """Hash designated UTF-8 source/config text, changing only CRLF/CR to LF."""
+    if path.suffix.lower() not in {".py", ".yaml", ".yml", ".json", ".toml", ".ini", ".cfg", ".txt"}:
+        raise ValueError(f"Not a designated text source/config file: {path}")
+    content = path.read_bytes()
+    content.decode("utf-8", errors="strict")
+    if b"\x00" in content:
+        raise ValueError(f"NUL byte in text source/config file: {path}")
+    canonical = content.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(canonical).hexdigest()
+
+
 def hard_compatibility(device: torch.device | None = None) -> dict[str, Any]:
-    # File bytes avoid a self-referential embedded runner hash. GPU name is provenance only.
+    # Text identity ignores only newline encoding; binary artifact hashes remain raw.
     sources = {
         "runner": Path(__file__),
         "wrapper": Path(inspect.getfile(build_models)),
@@ -259,7 +271,8 @@ def hard_compatibility(device: torch.device | None = None) -> dict[str, Any]:
 
     sources["pyg_pgexplainer"] = Path(inspect.getfile(PGExplainer))
     return {
-        "source_sha256": {key: sha256(path) for key, path in sources.items()},
+        "source_hash_policy": "utf8-crlf-cr-to-lf-v1",
+        "source_sha256": {key: canonical_text_sha256(path) for key, path in sources.items()},
         "git_commit": git_value("rev-parse", "HEAD"),
         "python": platform.python_version(),
         "torch": str(torch.__version__),
