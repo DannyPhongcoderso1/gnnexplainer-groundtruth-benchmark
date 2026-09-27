@@ -3,8 +3,8 @@
   "task": "TASK28_STEP04",
   "repository": "D:/CS/KLTN/gnnexplainer-groundtruth-benchmark",
   "branch": "main",
-  "implementation_commit": "2a522211f3a1323a63a736b2cd36f711687b835f",
-  "execution_commit_resolution": "First first-parent commit after implementation_commit that adds docs/elliptic_pgexplainer_step04_compute_plan.json; require its parent equals implementation_commit and current HEAD equals that commit. Never resolve from latest HEAD alone.",
+  "implementation_commit": "79e89912b1e730208623dcbb26b5bcf6c32b2f14",
+  "execution_commit_resolution": "First first-parent commit after implementation_commit that updates docs/elliptic_pgexplainer_step04_compute_plan.json; require its parent equals implementation_commit and current HEAD equals that commit. Never resolve from latest HEAD alone.",
   "primary_training_authorized": true,
   "stability_training_authorized": false,
   "final_evaluation_authorized": false,
@@ -29,7 +29,7 @@
   "target_semantics": "frozen_backbone_original_predicted_class",
   "checkpoint_selection": "fixed_final_epoch_30",
   "file_sha256": {
-    "scripts/run_elliptic_pgexplainer_training.py": "b726fb435731da7bd1de4fcbf2526681c5eb1b46de28116b015ff7fabc037d06",
+    "scripts/run_elliptic_pgexplainer_training.py": "6bf2c80265554ffc5187ee16efdf23cd4a8aee8435426dba0fc3e187e024b6f8",
     "configs/evaluation/elliptic_pgexplainer_training.yaml": "ea9cd9898e17df21f13c9c706ede9444374990ff86f6113d51cf5ea1d0308fba",
     "configs/explainer/pgexplainer.yaml": "60aef2f1ff6d8e6114797e3c3f0d6006b72bce18058a33322b04ee68649de571",
     "D:/CS/KLTN/elliptic-gnn-xai/datasets/elliptic/elliptic_data.pt": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
@@ -40,12 +40,13 @@
     "configs/targets/elliptic_xai_common_test_targets.csv": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0"
   },
   "hard_compatibility_without_git": {
+    "source_hash_policy": "utf8-crlf-cr-to-lf-v1",
     "source_sha256": {
-      "runner": "b726fb435731da7bd1de4fcbf2526681c5eb1b46de28116b015ff7fabc037d06",
+      "runner": "6bf2c80265554ffc5187ee16efdf23cd4a8aee8435426dba0fc3e187e024b6f8",
       "wrapper": "b4971537181e14d0ef91aa0e5e0425aabf74e24a5b3e12bb924fc1c88fe2f1ac",
       "pg_training": "5c946c395a2da61799cbcbd22aa77966fff56e11955f59995aaa678244ccaa3c",
       "backbone_hash": "015a3b0b3156b92e8cd1bde0a9d0caa7087b9dadb20d178f5dc1d7d8bdbc3658",
-      "candidate_mapping": "ab5d7809fe235c1d5a5c1e083e4c77d5a19acfadd0d70eb38d2ba396972c7bc5",
+      "candidate_mapping": "8a39548748d7c97d3b29288683837687267dd7d2f03ed02dc4a48876e44b1391",
       "seeding": "ae5af1fbae8a7fde198517cedb17b06abad9c19ac8d34c86f43ee1ccc3c3b64c",
       "gcn_model_construction_config": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368",
       "sage_model_construction_config": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a",

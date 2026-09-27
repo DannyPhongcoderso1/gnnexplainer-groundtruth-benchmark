@@ -1,12 +1,20 @@
 # Elliptic PGExplainer Step04 Compute Plan
 
+## Canonical Source Hash Amendment
+
+2026-09-27: HARD `source_sha256` now uses explicit UTF-8 text hashing with CRLF and lone CR converted to LF before SHA256. No other bytes, whitespace, BOM, encoding, or source syntax are normalized. The HARD record includes `source_hash_policy=utf8-crlf-cr-to-lf-v1`; Git HEAD, Python/Torch/PyG/NumPy/CUDA/device remain HARD. Old raw-source resume identities are not silently migrated or accepted.
+
+`file_sha256` remains a raw-byte transport/input table, including binary artifacts and task/config/pool bytes. Only its runner entry changes because this patch changes runner source. Candidate-mapping source content is untouched. Baseline configuration transfer hashes are stored separately as `baseline_config_raw_sha256` in the Kaggle plan, never inferred from canonical HARD hashes. B2 artifact hashes remain raw and exact.
+
+The reviewed source patch is published as `79e89912b1e730208623dcbb26b5bcf6c32b2f14`. This separate, immediate-child plan commit re-freezes execution using the existing deterministic resolution rule. Published `61c554bef5f462610ff8c2765ac8488d72b9e48d` is the historical pre-patch reference only. The clean-tree/HEAD checks remain in force. No Step05 authorization is granted by this amendment. Earlier local authorization descriptions below are historical, not approval to execute the amended tree or Kaggle training. The external Kaggle plan must pin the literal published execution SHA and retain all training/evaluation authorizations as false.
+
 ## Scope And Freeze
 
 Step03 is PASS and the B1/B2 readiness re-audit is READY FOR STEP04. This plan creates operator commands only. No training, pilot rerun, final-target inference or evaluation is performed here. Objective, data, checkpoints, seeds, pools, epochs and hyperparameters are unchanged.
 
 Machine-readable source: `docs/elliptic_pgexplainer_step04_compute_plan.json`. Operator functions: `docs/elliptic_pgexplainer_step04_runbook.ps1`. Repository: `D:/CS/KLTN/gnnexplainer-groundtruth-benchmark`, branch `main`, Python `.venv/Scripts/python.exe`.
 
-Implementation commit: `2a522211f3a1323a63a736b2cd36f711687b835f`. Execution commit is the first first-parent child of that commit introducing this plan JSON. The runbook resolves that exact commit from Git history and requires both its parent to equal the implementation commit and current HEAD to equal the execution commit. This avoids embedding a commit hash inside its own commit. It does NOT accept arbitrary newer HEADs. After committing, print the literal frozen execution SHA with `git rev-parse HEAD` and retain it with operator logs. Source hashes in the JSON bind the implementation independently of commit metadata.
+Implementation commit: `79e89912b1e730208623dcbb26b5bcf6c32b2f14`. Execution commit is the first first-parent child of that commit updating this plan JSON. The runbook resolves that exact commit from Git history and requires both its parent to equal the implementation commit and current HEAD to equal the execution commit. This avoids embedding a commit hash inside its own commit. It does NOT accept arbitrary newer HEADs. After committing, print the literal frozen execution SHA with `git rev-parse HEAD` and retain it with operator logs. Source hashes in the JSON bind the implementation independently of commit metadata.
 
 Git HEAD is HARD resume identity: do not commit, checkout, pull, upgrade dependencies or edit configuration between training and resume. Any later documentation/authorization commit requires a reviewed execution-identity plan before continuing. Do not bypass the guard to make an old checkpoint resume.
 
