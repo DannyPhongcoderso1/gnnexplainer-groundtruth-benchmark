@@ -3,7 +3,15 @@
   "task": "TASK28_STEP04",
   "repository": "D:/CS/KLTN/gnnexplainer-groundtruth-benchmark",
   "branch": "main",
-  "implementation_commit": "79e89912b1e730208623dcbb26b5bcf6c32b2f14",
+  "implementation_commit": "7158eb79d79dcda6a12f62917b042d98cdcfcaae",
+  "logging_amendment": {
+    "classification": "logging-only observability instrumentation",
+    "scientific_semantics_changed": false,
+    "previous_implementation_commit": "79e89912b1e730208623dcbb26b5bcf6c32b2f14",
+    "previous_execution_commit": "2e61f0408e725c98df04aad8dbc640ea5be2f355",
+    "previous_runner_sha256": "6bf2c80265554ffc5187ee16efdf23cd4a8aee8435426dba0fc3e187e024b6f8",
+    "report": "docs/audit/task28_live_progress_logging.md"
+  },
   "execution_commit_resolution": "First first-parent commit after implementation_commit that updates docs/elliptic_pgexplainer_step04_compute_plan.json; require its parent equals implementation_commit and current HEAD equals that commit. Never resolve from latest HEAD alone.",
   "primary_training_authorized": true,
   "stability_training_authorized": false,
@@ -29,7 +37,7 @@
   "target_semantics": "frozen_backbone_original_predicted_class",
   "checkpoint_selection": "fixed_final_epoch_30",
   "file_sha256": {
-    "scripts/run_elliptic_pgexplainer_training.py": "6bf2c80265554ffc5187ee16efdf23cd4a8aee8435426dba0fc3e187e024b6f8",
+    "scripts/run_elliptic_pgexplainer_training.py": "7a6cc924b374a59ce33bf35d50d481c5b0fa7d473f6e4b52d8ca5d3603f8cd58",
     "configs/evaluation/elliptic_pgexplainer_training.yaml": "ea9cd9898e17df21f13c9c706ede9444374990ff86f6113d51cf5ea1d0308fba",
     "configs/explainer/pgexplainer.yaml": "60aef2f1ff6d8e6114797e3c3f0d6006b72bce18058a33322b04ee68649de571",
     "D:/CS/KLTN/elliptic-gnn-xai/datasets/elliptic/elliptic_data.pt": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
@@ -42,7 +50,7 @@
   "hard_compatibility_without_git": {
     "source_hash_policy": "utf8-crlf-cr-to-lf-v1",
     "source_sha256": {
-      "runner": "6bf2c80265554ffc5187ee16efdf23cd4a8aee8435426dba0fc3e187e024b6f8",
+      "runner": "7a6cc924b374a59ce33bf35d50d481c5b0fa7d473f6e4b52d8ca5d3603f8cd58",
       "wrapper": "b4971537181e14d0ef91aa0e5e0425aabf74e24a5b3e12bb924fc1c88fe2f1ac",
       "pg_training": "5c946c395a2da61799cbcbd22aa77966fff56e11955f59995aaa678244ccaa3c",
       "backbone_hash": "015a3b0b3156b92e8cd1bde0a9d0caa7087b9dadb20d178f5dc1d7d8bdbc3658",
