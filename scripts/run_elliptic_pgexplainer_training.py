@@ -162,6 +162,30 @@ def append_text(path: Path, message: str) -> None:
         handle.write(message.rstrip() + "\n")
 
 
+def progress(backbone: str, seed: int, phase: str, **fields: Any) -> None:
+    """Observe completed work only; never inspect tensors or update experiment state."""
+    text = " ".join(f"{key}={json.dumps(value, default=str, separators=(',', ':'))}"
+                    for key, value in fields.items())
+    try:
+        print(f"[TASK28][{backbone}][seed{seed}][{phase}] {text}", flush=True)
+    except OSError:
+        # A disconnected console must not alter checkpoint or training decisions.
+        pass
+
+
+def progress_result(backbone: str, seed: int, phase: str, row: dict,
+                    index: int, total: int, elapsed_sec: float) -> None:
+    """Contract for future Step08/09 callers, not an evaluation implementation."""
+    keys = {
+        "FINAL_EVAL": ("fid_plus", "fid_minus", "one_minus_fid_minus", "remove_delta",
+                       "retain_delta", "retain_probability_ratio", "sparsity"),
+        "STABILITY": ("jaccard", "jaccard_mean"),
+    }[phase]
+    progress(backbone, seed, phase, node_id=row["node_id"], progress=f"{index}/{total}",
+             **{key: row[key] for key in keys if key in row},
+             status=row.get("status"), elapsed_sec=elapsed_sec)
+
+
 def read_pool(path: Path, spec: BackboneSpec) -> list[PoolTarget]:
     with path.open("r", encoding="utf-8", newline="") as handle:
         rows = list(csv.DictReader(handle))
@@ -526,8 +550,11 @@ def validate_pg_mask_health(
     frozen_predictions: torch.Tensor,
     val_targets: list[PoolTarget],
     limit: int | None,
+    progress_backbone: str = "unknown",
+    progress_seed: int = 42,
 ) -> tuple[list[dict[str, Any]], float]:
     rows = []
+    progress(progress_backbone, progress_seed, "VALIDATION", event="START", targets=len(val_targets[:limit]))
     start = perf_counter()
     for target in val_targets[:limit]:
         explanation = explainer(
@@ -549,6 +576,8 @@ def validate_pg_mask_health(
                 "error": "",
             }
         )
+        progress(progress_backbone, progress_seed, "VALIDATION", progress=f"{len(rows)}/{len(val_targets[:limit])}",
+                 **rows[-1], elapsed_sec=perf_counter() - start)
     return rows, perf_counter() - start
 
 
@@ -749,6 +778,9 @@ def train_one(args: argparse.Namespace) -> dict[str, Any]:
             f"{spec.name} seed {args.seed} epoch {epoch + 1}/{total_epochs} loss={row['mean_loss']:.6f} train_s={epoch_training_seconds:.3f}",
         )
         write_epoch_csv(Path(config["metrics_root"]) / spec.slug / "pgexplainer" / f"training_seed{args.seed}.csv", epoch_rows)
+        progress(spec.name, args.seed, "TRAIN", epoch=f"{epoch + 1}/{total_epochs}",
+                 loss=row["mean_loss"], runtime_seconds=row["runtime_seconds"],
+                 checkpoint=directory / "checkpoints" / f"epoch_{epoch + 1:03d}.pt")
         if args.stop_after_epoch is not None and epoch + 1 >= args.stop_after_epoch:
             return {"status": "stopped_after_epoch", "epoch_completed": epoch + 1, "config_identity": identity}
 
@@ -759,6 +791,8 @@ def train_one(args: argparse.Namespace) -> dict[str, Any]:
         frozen_predictions=frozen_predictions,
         val_targets=val_targets,
         limit=None,
+        progress_backbone=spec.name,
+        progress_seed=args.seed,
     )
     runtime_validation_total += validation_seconds
     if any(row["status"] != "success" or not row["edge_mask_finite"] for row in validation_rows):
@@ -766,6 +800,7 @@ def train_one(args: argparse.Namespace) -> dict[str, Any]:
     if model_hash_before != model_parameter_hash(model):
         raise RuntimeError(f"{spec.name} backbone weights changed during training")
     artifact = final_artifact_path(config, spec, int(args.seed))
+    progress(spec.name, args.seed, "PUBLICATION", event="START", artifact=artifact)
     final_payload = {
         **expected_completion,
         "hard_compatibility": compatibility,
@@ -819,12 +854,23 @@ def train_one(args: argparse.Namespace) -> dict[str, Any]:
     }
     publish_completion(config, spec, int(args.seed), expected_completion, manifest)
     append_jsonl(jsonl_log, {"event": "complete", "config_identity": identity, "artifact_sha256": manifest["artifact_sha256"]})
+    progress(spec.name, args.seed, "PUBLICATION", event="DONE", artifact=artifact)
     return manifest
 
 
 def main() -> None:
     args = parse_args()
-    result = train_one(args)
+    try:
+        result = train_one(args)
+    except Exception as exc:
+        progress(SPECS[args.backbone].name, args.seed, "FAILED", error=str(exc))
+        raise
+    if result.get("status") == "success":
+        progress(SPECS[args.backbone].name, args.seed, "COMPLETE",
+                 status=result["status"], artifact=result.get("artifact_path"))
+    elif result.get("status") == "already_complete":
+        progress(SPECS[args.backbone].name, args.seed, "COMPLETE",
+                 status=result["status"], complete_marker=result["complete_marker"])
     print(json.dumps(result, indent=2, sort_keys=True, default=str))
 
 

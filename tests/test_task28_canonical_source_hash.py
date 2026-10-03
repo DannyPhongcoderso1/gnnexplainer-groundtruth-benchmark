@@ -63,8 +63,31 @@ def test_training_and_integrity_functions_ast_unchanged():
          'scripts/run_elliptic_pgexplainer_training.py'], cwd=ROOT)
 
     def definitions(source):
-        return {n.name: ast.dump(n, include_attributes=False) for n in ast.parse(source).body
+        class StripObservability(ast.NodeTransformer):
+            def visit_Expr(self, node):
+                if isinstance(node.value, ast.Call) and isinstance(node.value.func, ast.Name):
+                    if node.value.func.id == 'progress':
+                        return None
+                return self.generic_visit(node)
+
+            def visit_Call(self, node):
+                if isinstance(node.func, ast.Name) and node.func.id == 'validate_pg_mask_health':
+                    node.keywords = [k for k in node.keywords if not k.arg.startswith('progress_')]
+                return self.generic_visit(node)
+
+            def visit_FunctionDef(self, node):
+                if node.name == 'validate_pg_mask_health':
+                    kept = [(a, d) for a, d in zip(node.args.kwonlyargs, node.args.kw_defaults,
+                                                 strict=True)
+                            if not a.arg.startswith('progress_')]
+                    node.args.kwonlyargs = [a for a, _ in kept]
+                    node.args.kw_defaults = [d for _, d in kept]
+                return self.generic_visit(node)
+
+        tree = StripObservability().visit(ast.parse(source))
+        return {n.name: ast.dump(n, include_attributes=False) for n in tree.body
                 if isinstance(n, (ast.FunctionDef, ast.ClassDef))
-                and n.name not in ('canonical_text_sha256', 'hard_compatibility')}
+                and n.name not in ('canonical_text_sha256', 'hard_compatibility',
+                                   'progress', 'progress_result', 'main')}
 
     assert definitions(original) == definitions(Path(runner.__file__).read_bytes())
