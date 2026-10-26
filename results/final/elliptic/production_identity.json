@@ -1,0 +1,468 @@
+{
+  "schema": "thesis-evidence-projection-v1",
+  "source_artifact": "docs/audit/task28_pg_elliptic_production_checkpoint_manifest.json",
+  "source_sha256": "af14b74d005cfa3b7a4385bfe4bd7f3f15022bca1fdc49cd23aeaf1950f88848",
+  "retained_fields": [
+    "schema",
+    "production",
+    "no_candidate_verdicts",
+    "validation_pool_SHA256",
+    "scope_hops",
+    "top_ratio",
+    "k_rule",
+    "backbone_specific_not_fixed_method_comparison"
+  ],
+  "path_normalization": "$BENCHMARK_ROOT/$ELLIPTIC_BASELINE_ROOT; private approval record redacted",
+  "measurement": {
+    "schema": "TASK28_BACKBONE_SPECIFIC_PRODUCTION_RECEIPT_V1",
+    "production": {
+      "GraphSAGE": {
+        "production_name": "ELLIPTIC_SAGE_HIST_FULL30_RAW_FROZEN",
+        "backbone": "GraphSAGE",
+        "variant": "OTHER_ORIGINAL_PYG_HARD_CE_SUM",
+        "order_branch": "HISTORICAL_AUTHENTIC_ORDER",
+        "update": 60000,
+        "equivalent_epoch_fraction": 30.0,
+        "train_target_count_per_epoch": 2000,
+        "checkpoint_path": "$BENCHMARK_ROOT/results/elliptic_pg_graphsage_seed42.zip",
+        "SHA256": "ef9e81c399283834aba6bc4d45b72e25e334f00674f1e389ba5003a77eb6e827",
+        "MLP_state_hash": "f4690fc3f0cc563b3487803a4fb871dc7eca0d69cf15c402579837a5f779c00a",
+        "inference_rule": "RAW_LOGIT_RANKING float32; historical full30 checkpoint + raw-logit ranking correction; NOT canonical PGExplainer",
+        "method_configuration": {
+          "CandidateID": "SAGE_HIST_FULL30_RAW",
+          "backbone": "GraphSAGE",
+          "variant": "OTHER_ORIGINAL_PYG_HARD_CE_SUM",
+          "order": "HISTORICAL_AUTHENTIC_ORDER",
+          "update": 60000,
+          "epoch_fraction": 30.0,
+          "epoch_last_update": 29,
+          "epoch_next_update": null,
+          "temperature_last_update": 2.0620284957192414,
+          "temperature_next_update": null,
+          "temperature_semantics": "historical final executed epoch29; temperature not used in deterministic RAW inference",
+          "seed": 42,
+          "checkpoint_path": "$BENCHMARK_ROOT/results/elliptic_pg_graphsage_seed42.zip",
+          "SHA256": "ef9e81c399283834aba6bc4d45b72e25e334f00674f1e389ba5003a77eb6e827",
+          "MLP_hash": "f4690fc3f0cc563b3487803a4fb871dc7eca0d69cf15c402579837a5f779c00a",
+          "MLP_architecture": [
+            309,
+            64,
+            1
+          ],
+          "loss": "hard multiclass CE; frozen original predicted class",
+          "edge_size": 0.05,
+          "size_reduction": "SUM",
+          "edge_ent": 1.0,
+          "LR": 0.003,
+          "Concrete_bias": 0.01,
+          "inference_rule": "RAW_LOGIT_RANKING float32; historical full30 checkpoint + raw-logit ranking correction; NOT canonical PGExplainer",
+          "scope_hops": 2,
+          "top_ratio": 0.2,
+          "source_report": "$BENCHMARK_ROOT/docs/audit/task28_pg_elliptic_historical_full30_numerical_inference_rescue.json",
+          "source_receipt_key": "GraphSAGE",
+          "source_snapshot_receipt": {
+            "CheckpointHash": "ef9e81c399283834aba6bc4d45b72e25e334f00674f1e389ba5003a77eb6e827",
+            "checkpoint_path": "$BENCHMARK_ROOT/results/elliptic_pg_graphsage_seed42.zip",
+            "MLPBeforeHash": "f4690fc3f0cc563b3487803a4fb871dc7eca0d69cf15c402579837a5f779c00a",
+            "OptimizerConstructed": false,
+            "OptimizerSteps": 0,
+            "backward_calls": 0,
+            "method": "OTHER_ORIGINAL_PYG_HARD_CE_SUM",
+            "identity_PASS": true,
+            "MLPAfterHash": "f4690fc3f0cc563b3487803a4fb871dc7eca0d69cf15c402579837a5f779c00a",
+            "Status": "PASS",
+            "repeat_probe_count": 50
+          },
+          "training_provenance_status": "AUTHENTICATED_BY_HISTORICAL_IDENTITY_AND_RESCUE_AUDITS",
+          "IdentityStatus": "PASS",
+          "family": "HISTORICAL_FULL30_RAW",
+          "target_sequence_provenance": {
+            "variant": "OTHER_ORIGINAL_PYG_HARD_CE_SUM",
+            "loss": "hard multiclass CE to frozen backbone original predicted class",
+            "edge_size": 0.05,
+            "size_reduction": "SUM",
+            "edge_ent": 1.0,
+            "optimizer": "Adam",
+            "lr": 0.003,
+            "temperature_schedule": "5*(2/5)**(epoch/30), epoch0..29",
+            "temperatures": [
+              5.0,
+              4.849593505016997,
+              4.703711432780607,
+              4.562217682777404,
+              4.424980248574198,
+              4.291871094662786,
+              4.162766037009366,
+              4.037544627197192,
+              3.9160900400543546,
+              3.7982889646618694,
+              3.684031498640387,
+              3.5732110456168904,
+              3.4657242157757318,
+              3.3614707294012227,
+              3.260353323321783,
+              3.1622776601683795,
+              3.0671522403625833,
+              2.9748883167521427,
+              2.8853998118144277,
+              2.798603237350502,
+              2.7144176165949068,
+              2.632764408668475,
+              2.5535674353037097,
+              2.476752809774356,
+              2.4022488679628626,
+              2.329986101501426,
+              2.2598970929242372,
+              2.1919164527704345,
+              2.125980758579079,
+              2.0620284957192414
+            ],
+            "training_epochs": 30,
+            "optimizer_updates": 60000,
+            "seed": 42,
+            "target_order": "same ascending2000 each epoch",
+            "train_target_count": 2000,
+            "validation_target_count": 500,
+            "MLP_input": "concat(source embedding,destination embedding,target-node embedding); last message-passing embedding",
+            "MLP_architecture": [
+              309,
+              64,
+              1
+            ],
+            "MLP_activation": "ReLU",
+            "Concrete_bias": 0.01,
+            "top_ratio": 0.2,
+            "inference_rule": "sigmoid(raw), hard2hop positions; other edges zero; NO centering/temperature/Concrete",
+            "authentic_method_receipts": {
+              "config": {
+                "explainer": {
+                  "algorithm": "PyG PGExplainer",
+                  "implementation": "torch_geometric",
+                  "explanation_type": "phenomenon",
+                  "explanation_level": "node",
+                  "task_level": "node",
+                  "return_type": "raw",
+                  "edge_mask_type": "object",
+                  "node_mask_type": null,
+                  "epochs": 30,
+                  "learning_rate": 0.003,
+                  "seed": 42,
+                  "regularization": {
+                    "edge_size": 0.05,
+                    "edge_ent": 1.0
+                  },
+                  "temperature": {
+                    "start": 5.0,
+                    "end": 2.0
+                  },
+                  "implementation_coefficients": {
+                    "bias": {
+                      "value": 0.01,
+                      "source": "installed PyG 2.8.0.post1 PGExplainer source"
+                    }
+                  },
+                  "target_semantics": {
+                    "target_for_pgexplainer": "frozen_model_prediction",
+                    "ground_truth_label_is_default_target": false
+                  },
+                  "checkpoint_selection": {
+                    "strategy": "fixed_final_epoch",
+                    "final_epoch": 30
+                  },
+                  "stability": {
+                    "seeds": [
+                      0,
+                      1,
+                      2,
+                      3,
+                      4
+                    ]
+                  }
+                }
+              },
+              "training_config": {
+                "artifacts_root": "artifacts/explainers",
+                "candidate_edge_scope": "2-hop computation subgraph around target node",
+                "checkpoint_selection": "fixed_final_epoch_30",
+                "common_train_count": 2000,
+                "common_train_file": "configs/targets/elliptic_pg_common_train.csv",
+                "common_train_sha256": "36c2f9b3a81336d304556702b02b6524411f308ee75f2152d79101586f9c1a22",
+                "common_val_count": 500,
+                "common_val_file": "configs/targets/elliptic_pg_common_val.csv",
+                "common_val_sha256": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6",
+                "dataset_path": "/kaggle/working/elliptic-gnn-xai/datasets/elliptic/elliptic_data.pt",
+                "dataset_sha256": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
+                "disabled_explanation_metrics": [
+                  "Edge AUROC",
+                  "Edge AP"
+                ],
+                "edge_ranking_metric_scope": "disabled_for_elliptic_no_ground_truth_explanation_edges",
+                "epochs": 30,
+                "forbid_final_target_input_during_training": true,
+                "gcn_checkpoint": "/kaggle/working/elliptic-gnn-xai/artifacts/checkpoints/gcn_baseline.pt",
+                "gcn_checkpoint_sha256": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07",
+                "graphsage_checkpoint": "/kaggle/working/elliptic-gnn-xai/artifacts/checkpoints/graphsage_baseline.pt",
+                "graphsage_checkpoint_sha256": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf",
+                "kaggle_execution_adapter_sha256": {
+                  "task28_kaggle_dual_gpu_run.sh": "414e9bb06fce9fb8677a50c81f0b46d8d253482f70d7c9b4a098f2ca4884d2f1",
+                  "task28_kaggle_preflight.py": "93b4bd5d8eb424e11bd8ac0129c34cc3ac95030b10f2882300a317d0c13bae46",
+                  "task28_kaggle_setup.sh": "0dea5b2c61db013878987ac721ff445aaae7d93f00c4613cd0441cc84cad5f74",
+                  "task28_kaggle_smoke.py": "e0592797c97bac402fd5f56f489fc99e1205802956978c8b393447fb25b5bb0c"
+                },
+                "metrics_root": "results/metrics/elliptic",
+                "pgexplainer_config": "configs/explainer/pgexplainer.yaml",
+                "pgexplainer_config_sha256": "60aef2f1ff6d8e6114797e3c3f0d6006b72bce18058a33322b04ee68649de571",
+                "post_test_tuning": false,
+                "primary_seed": 42,
+                "rounding_rule": "max(1, ceil(candidate_edge_count * 0.20))",
+                "selected_edge_ratio": 0.2,
+                "stability_seeds": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "stochastic_source": "independently trained PGExplainer checkpoints",
+                "target_semantics": "frozen_backbone_original_predicted_class"
+              },
+              "hard_compatibility": {
+                "source_hash_policy": "utf8-crlf-cr-to-lf-v1",
+                "source_sha256": {
+                  "runner": "7a6cc924b374a59ce33bf35d50d481c5b0fa7d473f6e4b52d8ca5d3603f8cd58",
+                  "wrapper": "b4971537181e14d0ef91aa0e5e0425aabf74e24a5b3e12bb924fc1c88fe2f1ac",
+                  "pg_training": "5c946c395a2da61799cbcbd22aa77966fff56e11955f59995aaa678244ccaa3c",
+                  "backbone_hash": "015a3b0b3156b92e8cd1bde0a9d0caa7087b9dadb20d178f5dc1d7d8bdbc3658",
+                  "candidate_mapping": "8a39548748d7c97d3b29288683837687267dd7d2f03ed02dc4a48876e44b1391",
+                  "seeding": "ae5af1fbae8a7fde198517cedb17b06abad9c19ac8d34c86f43ee1ccc3c3b64c",
+                  "gcn_model_construction_config": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368",
+                  "sage_model_construction_config": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a",
+                  "pyg_pgexplainer": "2cc94d72a4aab443fe233600ed78b1e85a00a2072b2d4684500c43572cf67b27"
+                },
+                "git_commit": "6034c13bfab601bef823c07194c70574cd49ec41",
+                "python": "3.11.9",
+                "torch": "2.11.0+cu128",
+                "pyg": "2.8.0.post1",
+                "numpy": "2.4.6",
+                "cuda_runtime": "12.8",
+                "device_type": "cuda"
+              },
+              "historical_report": "$BENCHMARK_ROOT/docs/audit/task28_step05_primary_seed42_audit.json"
+            },
+            "identity_complete": true,
+            "original_runner_description": "ORIGINAL_PYG_HARD_CE_SUM (pre-amendment V1 descriptive lineage; not V3/V4)",
+            "version_label_proven": false,
+            "version_classification": "OTHER_ORIGINAL_PYG_HARD_CE_SUM",
+            "version_label_note": "Checkpoint/config has no literal V1/V2/V3/V4 tag. Original/pre-amendment describes provenance; V1 lineage phrase in runner is descriptive only, not an authenticated version tag. No relabeling as V3/V4."
+          }
+        },
+        "thesis_wording": "historical full30 PGExplainer with raw-logit ranking correction",
+        "validation500_metrics": {
+          "delta_remove": 0.010700460836291312,
+          "remove_flip": 0.01,
+          "retain_ratio": 0.9609376146838707,
+          "retain_preserved": 0.98
+        },
+        "ranking_diagnostics": {
+          "target_count": 500,
+          "raw_nontrivial_fraction": 1.0,
+          "mean_Jaccard": 1.0,
+          "median_Jaccard": 1.0,
+          "exact_agreement": 1.0,
+          "tie_affected_count": 0,
+          "resolution_loss_count": 0,
+          "raw_boundary_tie_count": 0,
+          "boundary_tie_count": 0,
+          "finite": true,
+          "selected_ratio": 0.22963941963830736,
+          "raw_statistics": {
+            "mean": -262.1923376312256,
+            "median": -260.79696366882325,
+            "std": 41.89181329113245,
+            "min": -366.83112446594237,
+            "max": -187.21264459228516,
+            "P80_minus_P20": 60.635114608764646,
+            "unique_fraction": 0.9999666633110428,
+            "exact_zero_count": 0.0,
+            "exact_zero_fraction": 0.0
+          },
+          "score_statistics": {
+            "mean": -262.1923376312256,
+            "median": -260.79696366882325,
+            "std": 41.89181329113245,
+            "min": -366.83112446594237,
+            "max": -187.21264459228516,
+            "P80_minus_P20": 60.635114608764646,
+            "unique_fraction": 0.9999666633110428,
+            "exact_zero_count": 0.0,
+            "exact_zero_fraction": 0.0
+          },
+          "hard_quality": {
+            "delta_remove": 0.010700460836291312,
+            "remove_flip": 0.01,
+            "retain_ratio": 0.9609376146838707,
+            "retain_preserved": 0.98
+          }
+        },
+        "Random_differences": {
+          "delta_remove": 0.0024984306022524834,
+          "remove_flip": 0.0038000000000000004,
+          "retain_ratio": 0.00011326691598134708,
+          "retain_preserved": 0.0040000000000000036
+        },
+        "eligibility_gates": {
+          "Identity": true,
+          "Preservation": true,
+          "Finite": true,
+          "Determinism": true,
+          "RawHealth": true,
+          "ResolutionHealth": true,
+          "QualityVsRandom": true,
+          "ELIGIBLE": true
+        },
+        "selection_rationale": {
+          "eligible": [
+            "SAGE_V3_A_500_FRESH2000",
+            "SAGE_V3_A_500_TRUE3",
+            "SAGE_V3_B_500_FRESH2000",
+            "SAGE_V3_B_500_TRUE3",
+            "SAGE_V3_A_1000_FRESH2000",
+            "SAGE_V3_A_1000_TRUE3",
+            "SAGE_V3_B_1000_FRESH2000",
+            "SAGE_V3_B_1000_TRUE3",
+            "SAGE_V3_A_1500_TRUE3",
+            "SAGE_V3_B_1500_TRUE3",
+            "SAGE_HIST_FULL30_RAW"
+          ],
+          "stages": [
+            {
+              "rule": "resolution_loss_count",
+              "best": 0,
+              "remaining": [
+                "SAGE_HIST_FULL30_RAW"
+              ]
+            },
+            {
+              "rule": "tie_affected_count",
+              "best": 0,
+              "remaining": [
+                "SAGE_HIST_FULL30_RAW"
+              ]
+            },
+            {
+              "rule": "mean_Jaccard",
+              "best": 1.0,
+              "remaining": [
+                "SAGE_HIST_FULL30_RAW"
+              ]
+            },
+            {
+              "rule": "hard_quality_nondominated",
+              "remaining": [
+                "SAGE_HIST_FULL30_RAW"
+              ]
+            },
+            {
+              "rule": "earlier_update",
+              "best": 60000,
+              "remaining": [
+                "SAGE_HIST_FULL30_RAW"
+              ]
+            },
+            {
+              "rule": "A_FRESH_SORTED_tiebreak",
+              "remaining": [
+                "SAGE_HIST_FULL30_RAW"
+              ]
+            }
+          ]
+        },
+        "exact_candidate_set_considered": [
+          {
+            "CandidateID": "SAGE_V3_A_500_FRESH2000",
+            "SHA256": "5c52ec0019d6c6bc71e48da7631583fb1344cc3ccbb235f3177ea0a1875c6ccd",
+            "ELIGIBLE": true
+          },
+          {
+            "CandidateID": "SAGE_V3_A_500_TRUE3",
+            "SHA256": "ae24465860f1d6fc88b8bfe4b52722925f9459b04513d9b2e3992fb086e3d6d8",
+            "ELIGIBLE": true
+          },
+          {
+            "CandidateID": "SAGE_V3_B_500_FRESH2000",
+            "SHA256": "b3de8a051950f70c80074c9d3ea4727f9170efbfdf97e6c90d71a4a82ea453b5",
+            "ELIGIBLE": true
+          },
+          {
+            "CandidateID": "SAGE_V3_B_500_TRUE3",
+            "SHA256": "54dd325cbf094f7fb3901341951c7812650029f2359c996e5258a83f63c412c8",
+            "ELIGIBLE": true
+          },
+          {
+            "CandidateID": "SAGE_V3_A_1000_FRESH2000",
+            "SHA256": "f76d169b7b122468c7605397087bad008cbbaa2abaefe63ff195d1f503564b2f",
+            "ELIGIBLE": true
+          },
+          {
+            "CandidateID": "SAGE_V3_A_1000_TRUE3",
+            "SHA256": "30757f1dbed327e094c0ef53206060c4d2fb64f412c306c44a706e1335145095",
+            "ELIGIBLE": true
+          },
+          {
+            "CandidateID": "SAGE_V3_B_1000_FRESH2000",
+            "SHA256": "5e828a21c17c89a96570f858130c84f4290b2ccc667bb179350de36271d53a9b",
+            "ELIGIBLE": true
+          },
+          {
+            "CandidateID": "SAGE_V3_B_1000_TRUE3",
+            "SHA256": "79c69ccf1b388e2d4e724c348be3f54935b769fb6b8035fdd9a27ff3bdb0c8c7",
+            "ELIGIBLE": true
+          },
+          {
+            "CandidateID": "SAGE_V3_A_1500_TRUE3",
+            "SHA256": "4a1a8733ad89a89a4c1782d9167347932af95284301f1de7effca90d8ffdfa2d",
+            "ELIGIBLE": true
+          },
+          {
+            "CandidateID": "SAGE_V3_B_1500_TRUE3",
+            "SHA256": "04c64162cd666ceb0c27ecf7ded7bfd949752507dce3a32d7206278352e0b6db",
+            "ELIGIBLE": true
+          },
+          {
+            "CandidateID": "SAGE_V3_A_2000_TRUE3",
+            "SHA256": "d148bc0bf466c5b6784af4be0a5924cf8554090d07dcc7b224b88643c1da0d0d",
+            "ELIGIBLE": false
+          },
+          {
+            "CandidateID": "SAGE_V3_B_2000_TRUE3",
+            "SHA256": "90101fbf599340f2a8642ad96414a122c754bd4beaa56ee528767720f5efb409",
+            "ELIGIBLE": false
+          },
+          {
+            "CandidateID": "SAGE_HIST_FULL30_RAW",
+            "SHA256": "ef9e81c399283834aba6bc4d45b72e25e334f00674f1e389ba5003a77eb6e827",
+            "ELIGIBLE": true
+          }
+        ],
+        "training_budget_receipt": {
+          "train_targets_per_epoch": 2000,
+          "persisted_optimizer_step": 60000,
+          "equivalent_epoch_fraction": 30.0,
+          "state_parsing_only": true,
+          "no_optimizer_constructed": true
+        },
+        "PRODUCTION_CHECKPOINT_FROZEN": true,
+        "final200_eligibility": "SAGE_FINAL200_ELIGIBLE_FOR_SEPARATE_TASK",
+        "final200_execution_authorized": false
+      }
+    },
+    "no_candidate_verdicts": {
+      "GCN": "GCN_NO_VALIDATION_SUPPORTED_PRODUCTION_CANDIDATE"
+    },
+    "validation_pool_SHA256": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6",
+    "scope_hops": 2,
+    "top_ratio": 0.2,
+    "k_rule": "max(1,ceil(.2*N))",
+    "backbone_specific_not_fixed_method_comparison": true
+  }
+}

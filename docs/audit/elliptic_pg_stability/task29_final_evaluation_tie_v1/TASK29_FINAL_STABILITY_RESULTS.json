@@ -1,0 +1,51 @@
+{
+  "evaluation_policy_identity": "666142fcf71bf44552e5c1c1c9bd1fc60b4e6cdd1ce8a7c2f949d850b70df743",
+  "verdict": "TASK29_FINAL_STABILITY_COMPLETE_WITH_INTERPRETIVE_LIMITATIONS",
+  "original_scientific_protocol_identity": "e126d23ccccc8fd078ae2a8faa5e2913b8a2ddf9619d35857b25c0855392f6de",
+  "results": [
+    {
+      "evaluation_policy_identity": "666142fcf71bf44552e5c1c1c9bd1fc60b4e6cdd1ce8a7c2f949d850b70df743",
+      "backbone": "gcn",
+      "seeds": "0-4",
+      "targets": 200,
+      "edge_budget": "top20% RAW float32; exact ties ID ascending",
+      "mean_jaccard": 0.7673343721215786,
+      "sample_sd": 0.19424935482987352,
+      "ddof": 1,
+      "median": 0.7860613655350497,
+      "q1": 0.6,
+      "q3": 1.0,
+      "min": 0.3609523809523809,
+      "max": 1.0,
+      "status": "VERIFIED_WITH_INTERPRETIVE_LIMITATIONS"
+    },
+    {
+      "evaluation_policy_identity": "666142fcf71bf44552e5c1c1c9bd1fc60b4e6cdd1ce8a7c2f949d850b70df743",
+      "backbone": "graphsage",
+      "seeds": "0-4",
+      "targets": 200,
+      "edge_budget": "top20% RAW float32; exact ties ID ascending",
+      "mean_jaccard": 0.7910240383286583,
+      "sample_sd": 0.17500849391566597,
+      "ddof": 1,
+      "median": 0.8199934057689888,
+      "q1": 0.6768203092361127,
+      "q3": 0.9770619076869077,
+      "min": 0.36666666666666664,
+      "max": 1.0,
+      "status": "VERIFIED_WITH_INTERPRETIVE_LIMITATIONS"
+    }
+  ],
+  "aggregation": "10 unordered seed-pair Jaccards per target; equal200-target mean; sample SD ddof1 across200 target means",
+  "sample_sd_statistical_unit": "target-level mean pairwise Jaccard, not seed pairs or backbone models",
+  "quartiles": "numpy.quantile linear interpolation",
+  "post_observation_addendum": true,
+  "integrity_receipt_sha256": "3c0140c0b6ce15145babf52ec86373c0e8167a75bb57cfa23d5191fb58e177ac",
+  "limitations": [
+    "Post-observation exact-tie addendum",
+    "Sigmoid saturation; RAW ranking case study",
+    "GCN diagnostic",
+    "Single frozen backbone per architecture",
+    "Not untouched holdout; no Fidelity/causal conclusion"
+  ]
+}

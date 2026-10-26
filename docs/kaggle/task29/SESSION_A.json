@@ -1,0 +1,65 @@
+{
+  "boundary_stop_grace_seconds": 600,
+  "external_persistence": {
+    "enabled": false,
+    "explicit_upload_authorized": false
+  },
+  "finalization_margin_seconds": 3600,
+  "heartbeat_seconds": 30,
+  "historical_seconds": {
+    "gcn": 8998.261014752998,
+    "graphsage": 9211.966367751998
+  },
+  "matrix": [
+    {
+      "backbone": "graphsage",
+      "physical_gpu": 0,
+      "run_key": "graphsage/seed_0",
+      "seed": 0,
+      "session": "A"
+    },
+    {
+      "backbone": "graphsage",
+      "physical_gpu": 0,
+      "run_key": "graphsage/seed_1",
+      "seed": 1,
+      "session": "A"
+    },
+    {
+      "backbone": "graphsage",
+      "physical_gpu": 0,
+      "run_key": "graphsage/seed_2",
+      "seed": 2,
+      "session": "A"
+    },
+    {
+      "backbone": "gcn",
+      "physical_gpu": 1,
+      "run_key": "gcn/seed_0",
+      "seed": 0,
+      "session": "A"
+    },
+    {
+      "backbone": "gcn",
+      "physical_gpu": 1,
+      "run_key": "gcn/seed_1",
+      "seed": 1,
+      "session": "A"
+    },
+    {
+      "backbone": "gcn",
+      "physical_gpu": 1,
+      "run_key": "gcn/seed_2",
+      "seed": 2,
+      "session": "A"
+    }
+  ],
+  "mode_default": "PREFLIGHT_ONLY",
+  "resource_interval_seconds": 30,
+  "schema": 1,
+  "session": "A",
+  "session_limit_seconds": 43200,
+  "slowdown_factor": 1.25,
+  "stale_heartbeat_seconds": 600,
+  "target_heartbeat_interval": 50
+}

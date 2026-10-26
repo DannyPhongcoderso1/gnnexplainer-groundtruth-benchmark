@@ -1,0 +1,55 @@
+{
+  "artifacts": [
+    {
+      "name": "TASK29_ELLIPTIC_FROZEN_INPUTS.zip",
+      "path": "D:/CS/KLTN/gnnexplainer-groundtruth-benchmark/docs/kaggle/task29/dist/release_002/TASK29_ELLIPTIC_FROZEN_INPUTS.zip",
+      "sha256": "d94354dec5301ea8b7c286c2dda3a12ec75bab71b93a19422a10112e870a8799",
+      "size_bytes": 44361978
+    },
+    {
+      "name": "TASK29_KAGGLE_CODE_BUNDLE.zip",
+      "path": "D:/CS/KLTN/gnnexplainer-groundtruth-benchmark/docs/kaggle/task29/dist/release_002/TASK29_KAGGLE_CODE_BUNDLE.zip",
+      "sha256": "95661d2e4faecf83e7590e98c448e3ad5d4725396f02623fa2a95e842890067e",
+      "size_bytes": 379280
+    },
+    {
+      "name": "TASK29_SESSION_A.ipynb",
+      "path": "D:/CS/KLTN/gnnexplainer-groundtruth-benchmark/docs/kaggle/task29/dist/release_002/TASK29_SESSION_A.ipynb",
+      "sha256": "e5749d3cdd7d8cd3d417a937a1c93c5aa7b57af44a29d276053a378fde878eec",
+      "size_bytes": 4862
+    },
+    {
+      "name": "TASK29_SESSION_B.ipynb",
+      "path": "D:/CS/KLTN/gnnexplainer-groundtruth-benchmark/docs/kaggle/task29/dist/release_002/TASK29_SESSION_B.ipynb",
+      "sha256": "02e29607ae82acf637230578a364a6aaa286bd559a5c09bdcb3d877d26e647e8",
+      "size_bytes": 4862
+    }
+  ],
+  "authorization": {
+    "full_train_authorized": false,
+    "mode": "PREFLIGHT_ONLY",
+    "step03_smoke_authorized": false
+  },
+  "final_manifest": {
+    "path": "D:/CS/KLTN/gnnexplainer-groundtruth-benchmark/docs/audit/elliptic_pg_stability/TASK29_RELEASE_002_MANIFEST.json",
+    "sha256": "46d6125040e7f763c5f3d6658436159e860e4d189253c4a34a05c1362a503d6d"
+  },
+  "promoted_at_utc": "2026-10-13T23:09:10Z",
+  "release_id": "release_002",
+  "release_path": "D:/CS/KLTN/gnnexplainer-groundtruth-benchmark/docs/kaggle/task29/dist/release_002",
+  "review_archive": {
+    "path": "D:/CS/KLTN/gnnexplainer-groundtruth-benchmark/docs/audit/elliptic_pg_stability/TASK29_STEP02_2_REVIEW_FOR_CHATGPT.zip",
+    "sha256": "ee567e4ae07ee2d2c0c0e3948a44ab14acbc84252b3398f775e38f5e8f0ed621",
+    "size_bytes": 208895
+  },
+  "runbook": {
+    "path": "D:/CS/KLTN/gnnexplainer-groundtruth-benchmark/docs/audit/elliptic_pg_stability/TASK29_KAGGLE_RUNBOOK_RELEASE_002.md",
+    "sha256": "ba5621c1d0b8a15bb06d0599c94c07f074f75ef7733b0705984485aba3df54b6"
+  },
+  "schema": 1,
+  "verdict": "READY_FOR_KAGGLE_STEP03_SMOKE_TEST",
+  "verification_receipt": {
+    "path": "D:/CS/KLTN/gnnexplainer-groundtruth-benchmark/docs/audit/elliptic_pg_stability/TASK29_STEP02_2_VERIFICATION_RECEIPT.json",
+    "sha256": "b8930a46d1e4a60654b038ed78cc1f235c91c3d73a331cd833bbed5cbee0102b"
+  }
+}

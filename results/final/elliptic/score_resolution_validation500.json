@@ -1,0 +1,315 @@
+{
+  "schema": "thesis-evidence-projection-v1",
+  "source_artifact": "docs/audit/task28_pg_elliptic_historical_full30_numerical_inference_rescue.json",
+  "source_sha256": "7aa077bc96555455daee17fd7f8e4a5fc0e99f36cc9494ee1df1d383f8fc52d5",
+  "retained_fields": [
+    "status",
+    "validation500",
+    "underflow_analysis",
+    "interpretation",
+    "final_statuses"
+  ],
+  "path_normalization": "$BENCHMARK_ROOT/$ELLIPTIC_BASELINE_ROOT; private approval record redacted",
+  "measurement": {
+    "status": "COMPLETE",
+    "validation500": {
+      "GCN": {
+        "target_count": 500,
+        "raw_nontrivial_fraction": 1.0,
+        "pairwise": {
+          "RAW_vs_FLOAT32": {
+            "exact_agreement_fraction": 0.044,
+            "mean_Jaccard": 0.175792231161891,
+            "median_Jaccard": 0.1111111111111111,
+            "affected_count": 478
+          },
+          "RAW_vs_FLOAT64": {
+            "exact_agreement_fraction": 0.974,
+            "mean_Jaccard": 0.9814214890459981,
+            "median_Jaccard": 1.0,
+            "affected_count": 13
+          },
+          "FLOAT32_vs_FLOAT64": {
+            "exact_agreement_fraction": 0.048,
+            "mean_Jaccard": 0.19074713773205626,
+            "median_Jaccard": 0.1111111111111111,
+            "affected_count": 476
+          }
+        },
+        "modes": {
+          "CANONICAL_FLOAT32_SIGMOID": {
+            "statistics": {
+              "mean": 3.207692438853492e-36,
+              "median": 1.1672232433163305e-36,
+              "std": 1.327545144242844e-35,
+              "min": 0.0,
+              "max": 8.960070818849956e-35,
+              "P80_minus_P20": 2.3721601912846883e-36,
+              "unique_fraction": 0.08379499385947373,
+              "exact_zero_count": 65.416,
+              "exact_zero_fraction": 0.9915811011176684,
+              "near_zero_fraction": 1.0,
+              "near_one_fraction": 0.0
+            },
+            "score_dtype": "torch.float32",
+            "boundary_tie_count": 493,
+            "tie_affected_count": 478,
+            "resolution_loss_count": 478,
+            "strict_raw_order_pairs_lost": 3925788,
+            "strict_raw_pairs_total": 4061404,
+            "genuine_monotonic_inversions": 0,
+            "selected_ratio_mean": 0.22963941963830736,
+            "hard_quality": {
+              "delta_remove": 0.009035653001163154,
+              "remove_flip": 0.02,
+              "retain_ratio": 0.9726532790153374,
+              "retain_preserved": 0.954
+            }
+          },
+          "FLOAT64_SIGMOID": {
+            "statistics": {
+              "mean": 3.20769498034383e-36,
+              "median": 1.1672255015031924e-36,
+              "std": 1.3275452576133984e-35,
+              "min": 8.185813612045335e-44,
+              "max": 8.960071552414537e-35,
+              "P80_minus_P20": 2.3721621843159325e-36,
+              "unique_fraction": 0.9679657754313801,
+              "exact_zero_count": 5.54,
+              "exact_zero_fraction": 0.03239469317597866,
+              "near_zero_fraction": 1.0,
+              "near_one_fraction": 0.0
+            },
+            "score_dtype": "torch.float64",
+            "boundary_tie_count": 13,
+            "tie_affected_count": 13,
+            "resolution_loss_count": 13,
+            "strict_raw_order_pairs_lost": 260476,
+            "strict_raw_pairs_total": 4061404,
+            "genuine_monotonic_inversions": 0,
+            "selected_ratio_mean": 0.22963941963830736,
+            "hard_quality": {
+              "delta_remove": 0.006452125061769038,
+              "remove_flip": 0.02,
+              "retain_ratio": 0.9814554699269092,
+              "retain_preserved": 0.966
+            }
+          },
+          "RAW_LOGIT_RANKING": {
+            "statistics": {
+              "mean": -292.0379291534424,
+              "median": -288.59762727355957,
+              "std": 39.75113003873825,
+              "min": -404.85067263793945,
+              "max": -215.35760733032225,
+              "P80_minus_P20": 46.10135893249512,
+              "unique_fraction": 0.9979311647175159,
+              "exact_zero_count": 0.0,
+              "exact_zero_fraction": 0.0
+            },
+            "score_dtype": "torch.float32",
+            "boundary_tie_count": 0,
+            "tie_affected_count": 0,
+            "resolution_loss_count": 0,
+            "strict_raw_order_pairs_lost": 0,
+            "strict_raw_pairs_total": 4061404,
+            "genuine_monotonic_inversions": 0,
+            "selected_ratio_mean": 0.22963941963830736,
+            "hard_quality": {
+              "delta_remove": 0.006452125061769038,
+              "remove_flip": 0.02,
+              "retain_ratio": 0.9814554699269092,
+              "retain_preserved": 0.966
+            }
+          }
+        }
+      },
+      "GraphSAGE": {
+        "target_count": 500,
+        "raw_nontrivial_fraction": 1.0,
+        "pairwise": {
+          "RAW_vs_FLOAT32": {
+            "exact_agreement_fraction": 0.036,
+            "mean_Jaccard": 0.16428827054328013,
+            "median_Jaccard": 0.125,
+            "affected_count": 482
+          },
+          "RAW_vs_FLOAT64": {
+            "exact_agreement_fraction": 0.968,
+            "mean_Jaccard": 0.976791373402301,
+            "median_Jaccard": 1.0,
+            "affected_count": 16
+          },
+          "FLOAT32_vs_FLOAT64": {
+            "exact_agreement_fraction": 0.038,
+            "mean_Jaccard": 0.18365446306878616,
+            "median_Jaccard": 0.125,
+            "affected_count": 481
+          }
+        },
+        "modes": {
+          "CANONICAL_FLOAT32_SIGMOID": {
+            "statistics": {
+              "mean": 6.973445871138271e-36,
+              "median": 1.362574191416578e-37,
+              "std": 1.9950364243203725e-35,
+              "min": 0.0,
+              "max": 8.351016985492464e-35,
+              "P80_minus_P20": 9.226365129765126e-37,
+              "unique_fraction": 0.0861458447217201,
+              "exact_zero_count": 65.93,
+              "exact_zero_fraction": 0.9895439616753997,
+              "near_zero_fraction": 1.0,
+              "near_one_fraction": 0.0
+            },
+            "score_dtype": "torch.float32",
+            "boundary_tie_count": 490,
+            "tie_affected_count": 482,
+            "resolution_loss_count": 482,
+            "strict_raw_order_pairs_lost": 4060144,
+            "strict_raw_pairs_total": 4061755,
+            "genuine_monotonic_inversions": 0,
+            "selected_ratio_mean": 0.22963941963830736,
+            "hard_quality": {
+              "delta_remove": 0.010864424049854278,
+              "remove_flip": 0.014,
+              "retain_ratio": 0.9623685210575257,
+              "retain_preserved": 0.982
+            }
+          },
+          "FLOAT64_SIGMOID": {
+            "statistics": {
+              "mean": 6.973451850192003e-36,
+              "median": 1.36262885242889e-37,
+              "std": 1.9950364596885045e-35,
+              "min": 6.198275825796354e-42,
+              "max": 8.351017713975976e-35,
+              "P80_minus_P20": 9.226378032310037e-37,
+              "unique_fraction": 0.9641975519061983,
+              "exact_zero_count": 5.864,
+              "exact_zero_fraction": 0.03792736088980365,
+              "near_zero_fraction": 1.0,
+              "near_one_fraction": 0.0
+            },
+            "score_dtype": "torch.float64",
+            "boundary_tie_count": 16,
+            "tie_affected_count": 16,
+            "resolution_loss_count": 16,
+            "strict_raw_order_pairs_lost": 291681,
+            "strict_raw_pairs_total": 4061755,
+            "genuine_monotonic_inversions": 0,
+            "selected_ratio_mean": 0.22963941963830736,
+            "hard_quality": {
+              "delta_remove": 0.010700460836291312,
+              "remove_flip": 0.01,
+              "retain_ratio": 0.9609376146838707,
+              "retain_preserved": 0.98
+            }
+          },
+          "RAW_LOGIT_RANKING": {
+            "statistics": {
+              "mean": -262.1923376312256,
+              "median": -260.79696366882325,
+              "std": 41.89181329113245,
+              "min": -366.83112446594237,
+              "max": -187.21264459228516,
+              "P80_minus_P20": 60.635114608764646,
+              "unique_fraction": 0.9999666633110428,
+              "exact_zero_count": 0.0,
+              "exact_zero_fraction": 0.0
+            },
+            "score_dtype": "torch.float32",
+            "boundary_tie_count": 0,
+            "tie_affected_count": 0,
+            "resolution_loss_count": 0,
+            "strict_raw_order_pairs_lost": 0,
+            "strict_raw_pairs_total": 4061755,
+            "genuine_monotonic_inversions": 0,
+            "selected_ratio_mean": 0.22963941963830736,
+            "hard_quality": {
+              "delta_remove": 0.010700460836291312,
+              "remove_flip": 0.01,
+              "retain_ratio": 0.9609376146838707,
+              "retain_preserved": 0.98
+            }
+          }
+        }
+      }
+    },
+    "underflow_analysis": {
+      "GCN": {
+        "CANONICAL_FLOAT32_SIGMOID": {
+          "exact_zero_candidate_occurrences": 32708,
+          "all_zero_target_count": 478,
+          "boundary_tie_count": 493,
+          "tie_affected_count": 478,
+          "resolution_loss_count": 478
+        },
+        "FLOAT64_SIGMOID": {
+          "exact_zero_candidate_occurrences": 2770,
+          "all_zero_target_count": 2,
+          "boundary_tie_count": 13,
+          "tie_affected_count": 13,
+          "resolution_loss_count": 13
+        },
+        "raw_global_min": -3048.14111328125,
+        "raw_global_max": -72.52900695800781,
+        "zero32_nonzero64_candidate_occurrences": 29938
+      },
+      "GraphSAGE": {
+        "CANONICAL_FLOAT32_SIGMOID": {
+          "exact_zero_candidate_occurrences": 32965,
+          "all_zero_target_count": 482,
+          "boundary_tie_count": 490,
+          "tie_affected_count": 482,
+          "resolution_loss_count": 482
+        },
+        "FLOAT64_SIGMOID": {
+          "exact_zero_candidate_occurrences": 2932,
+          "all_zero_target_count": 1,
+          "boundary_tie_count": 16,
+          "tie_affected_count": 16,
+          "resolution_loss_count": 16
+        },
+        "raw_global_min": -3011.2724609375,
+        "raw_global_max": -72.47867584228516,
+        "zero32_nonzero64_candidate_occurrences": 30033
+      }
+    },
+    "interpretation": {
+      "method_unchanged": "OTHER_ORIGINAL_PYG_HARD_CE_SUM",
+      "RAW_is_canonical": false,
+      "RAW_is_probability": false,
+      "ranking_correction_only": true,
+      "no_final200": true,
+      "final200_authorized": false,
+      "no_checkpoint_selection": true,
+      "no_training": true,
+      "no_finetuning": true,
+      "no_weight_modification": true,
+      "no_shift_or_centering": true,
+      "no_rescaling": true,
+      "no_float64_MLP": true,
+      "validation_support": {
+        "GCN": "RAW_RANKING_RESCUE_NOT_VALIDATION_SUPPORTED",
+        "GraphSAGE": "RAW_RANKING_RESCUE_VALIDATION_SUPPORTED"
+      },
+      "final200_firewall": "SEPARATE_PREREGISTERED_FINAL200_TASK_REQUIRED; no automatic authorization or execution",
+      "limits": "One historical seed42 checkpoint per backbone, fixed validation500, local RTX4060 deterministic inference. RAW ordering nontrivial is an internal criterion, not independent proof of explanation truth. Quality gates are descriptive thresholds, not significance tests. Canonicalfloat32 failure remains visible; float64 transformation may underflow. No inference shifts, new weights or automatic method replacement."
+    },
+    "final_statuses": {
+      "GCN": {
+        "CanonicalFloat32Status": "RANKING_RESOLUTION_FAIL",
+        "Float64Status": "FLOAT64_PARTIAL_RESCUE",
+        "RawRankingStatus": "RAW_RANKING_RESCUE_NOT_VALIDATION_SUPPORTED",
+        "FinalRescueVerdict": "HIST_FULL30_GCN_RAW_RANKING_NOT_RESCUABLE"
+      },
+      "GraphSAGE": {
+        "CanonicalFloat32Status": "RANKING_RESOLUTION_FAIL",
+        "Float64Status": "FLOAT64_PARTIAL_RESCUE",
+        "RawRankingStatus": "RAW_RANKING_RESCUE_VALIDATION_SUPPORTED",
+        "FinalRescueVerdict": "HIST_FULL30_SAGE_RAW_RANKING_RESCUABLE"
+      }
+    }
+  }
+}

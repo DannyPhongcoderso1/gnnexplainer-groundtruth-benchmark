@@ -1,0 +1,33 @@
+{
+  "original_scientific_protocol_identity": "e126d23ccccc8fd078ae2a8faa5e2913b8a2ddf9619d35857b25c0855392f6de",
+  "addendum_version": "TASK29_EVALUATION_EXACT_TIE_V1",
+  "canonical_tie_policy": {
+    "primary": "RAW_FLOAT32_DESCENDING",
+    "secondary_exact_equal_only": "CANONICAL_GLOBAL_DIRECTED_EDGE_ID_ASCENDING",
+    "score_modification": "NONE",
+    "budget": "max(1,ceil(0.20*candidate_count))"
+  },
+  "evaluation_policy_identity": "666142fcf71bf44552e5c1c1c9bd1fc60b4e6cdd1ce8a7c2f949d850b70df743",
+  "date": "2026-10-15",
+  "post_observation": true,
+  "original_execution_identity": "7d4706ff1342ae2a7445cd92a7ead06e6200480885fa4a4e6699c92ba2d3e11c",
+  "user_approved": true,
+  "approval_source": "PRIVATE_APPROVAL_RECORD",
+  "uniform_scope": "all2 backbones x5 seeds x200 targets",
+  "alternative_diagnostic_only": "RAW descending; exact-equal global IDs descending",
+  "original_stop_policy_changed": false,
+  "old_blocked_evidence_preserved": true,
+  "scientific_inference_arithmetic_changed": false,
+  "candidate_universe_changed": false,
+  "randomized_ties": false,
+  "epsilon": null,
+  "score_normalization": null,
+  "logit_float64_recomputation": false,
+  "additional_training": false,
+  "optimized_for_final200_jaccard": false,
+  "known_blocker_expected_choice": {
+    "chosen": 417302,
+    "not_chosen": 417344
+  },
+  "approval_sha256": "9b9965a043b81d5387d544f1304e74e181389694eb39e84fa3bc294e16914c60"
+}
