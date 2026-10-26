@@ -1,0 +1,11 @@
+{
+  "status": "PG_STABILITY_READY",
+  "all_four_cells_accepted": true,
+  "node1465_stress_verdict": "WARN",
+  "implementation_mismatch": false,
+  "topK_instability": false,
+  "metric_instability_above_threshold": false,
+  "recommendation": "Run PG stability seeds 0..4 in a separate phase",
+  "stability_executed": false,
+  "historical_status_unchanged": true
+}

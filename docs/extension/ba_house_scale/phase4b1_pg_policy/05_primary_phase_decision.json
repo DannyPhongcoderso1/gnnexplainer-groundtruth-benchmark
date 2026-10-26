@@ -1,0 +1,15 @@
+{
+  "decision": "BA_HOUSE_SCALE_PG_PRIMARY_ACCEPTED_UNDER_NUMERICAL_EQUIVALENCE_POLICY",
+  "all_four_cells_accepted": true,
+  "input_preservation": true,
+  "historical_exact_equality_verdict": "BA_HOUSE_SCALE_PG_PRIMARY_PHASE_INVALID",
+  "historical_stability_verdict": "BA_HOUSE_SCALE_PG_STABILITY_NOT_READY",
+  "historical_exact_equality_verdict_remains_archived": true,
+  "new_policy_supersedes_byte_equality_as_acceptance_interpretation": true,
+  "raw_results_modified": false,
+  "checkpoints_retrained": false,
+  "metrics_rewritten": false,
+  "GCN_limitation": "GCN primary result accepted for ranking/metric analysis with saturation limitation",
+  "evidence_limit": "Finite frozen replays and recorded stress repeats; not a new stability experiment or universal determinism guarantee",
+  "policy_sha256": "0ad3ab377b8d573720b88f295dafefc28c826f6fb14a4ec0dd9b9f2fa1c3a2db"
+}

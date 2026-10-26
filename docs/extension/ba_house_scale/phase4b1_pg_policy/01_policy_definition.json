@@ -1,0 +1,20 @@
+{
+  "policy_id": "BA-4B1-POLICY-v1",
+  "date": "2026-10-10",
+  "scope": "Frozen seed42 epoch29 BA1000/BA1500 GCN/GraphSAGE; existing evidence only",
+  "retrospective_policy": true,
+  "freeze": "Thresholds fixed before policy evaluation, not before the historical audit. No claim of prospective preregistration.",
+  "P1": {"hard": true, "rule": "Exact identities, epoch29 and all protected hashes unchanged"},
+  "P2": {"hard": true, "rule": "Verified directed candidate ordering, src/dst/target concatenation, state orientation, same-input MLP and artifact semantics"},
+  "P3": {"hard": false, "raw_atol": 1e-6, "raw_rtol": 1e-5, "rule": "Report PASS or WARN; never reject on raw allclose alone", "rationale": "Latent float32 magnitudes and device arithmetic are not the explanation; downstream behavior is decisive."},
+  "P4": {"hard": true, "exact_selected_set": true, "minimum_jaccard": 1.0, "target_fraction": 1.0, "rationale": "Deterministic top20 defines the actual explanation. No averaging away failures or fallback to 0.99."},
+  "P5": {"hard": true, "max_ranking_collapse": 0, "rule": "No collapse or topK change. Nonexact argsort allowed only for same-GT-class tied/near-tied relation changes, with no strict inversion. Near tie means raw gap <= 2*(atol+rtol*max(abs(raw pair))) using frozen P3 values."},
+  "P6": {"hard": true, "auroc_abs": 0.005, "ap_abs": 0.02, "rationale": "User-proposed practical bounds on unit-scale metrics: 0.5 and 2 percentage points. AP is more sensitive to exact threshold groups. These are explicit policy judgments, not universal statistical significance bounds or thresholds fitted to observed maxima."},
+  "P7": {"hard": true, "binary_exact": true, "continuous_abs": 0.0001, "continuous_keys": ["remove_delta", "retain_probability", "retain_delta", "retain_probability_ratio"], "binary_keys": ["fid_plus", "fid_minus", "one_minus_fid_minus"], "historical_atol": 2e-7, "historical_rtol": 2e-6, "rationale": "Class-flip outcomes must not change. 1e-4 is an explicit small probability/ratio-unit drift budget, applied per metric per target, without cancellation."},
+  "P8": {"hard": false, "zero_score_threshold": 0.01, "near_zero_score_threshold": 0.05, "saturated_fraction": 0.95, "collapse_unique_max": 1, "rule": "Report saturation separately; warn but do not automatically reject. Score mean/std are equally weighted per-target population statistics, matching primary aggregate semantics."},
+  "coverage": {"final_paths": ["runner_fresh", "verifier_fresh"], "node1465_fixed_repeats": 12, "validation": "All 88 historical mismatch keys are supporting sensitivity evidence, not a substitute for final-test coverage."},
+  "stress": {"rule": "Apply P4/P5/P6 to every existing node1465 repeat. WARN TIE_SENSITIVE_AP for nonzero within-budget AP drift supported by same-class tie splitting. Missing repeat evidence is INSUFFICIENT_EVIDENCE, not PASS."},
+  "decision": {"hard_gates": ["P1", "P2", "P4", "P5", "P6", "P7"], "allowed": ["ACCEPTED_NUMERICALLY_EQUIVALENT", "ACCEPTED_WITH_SATURATION_WARNING", "REJECTED_SCIENTIFICALLY_UNSTABLE", "INSUFFICIENT_EVIDENCE"], "readiness": "All four cells accepted, complete nonfailing stress evidence, no unresolved semantics or hard-gate failure."},
+  "limitations": ["Finite recorded replays do not prove universal CUDA determinism.", "Numerical acceptance does not prove explanation quality or resolve saturation.", "This policy does not revalidate every historical training/validation row.", "No new inference, score modification, epsilon grouping, training, backward or optimizer steps."],
+  "historical_interpretation": "Archive original INVALID unchanged; a new accepted scientific decision supersedes byte equality only as acceptance interpretation. It does not make the old verifier PASS."
+}

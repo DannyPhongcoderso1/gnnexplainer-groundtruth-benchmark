@@ -1,0 +1,137 @@
+{
+  "policy": {
+    "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/01_policy_definition.json",
+    "bytes": 3779,
+    "sha256": "0ad3ab377b8d573720b88f295dafefc28c826f6fb14a4ec0dd9b9f2fa1c3a2db"
+  },
+  "freeze_receipt": {
+    "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/policy_freeze_receipt.json",
+    "bytes": 1434,
+    "sha256": "30d8a744b552d377163a0cc3a3dfd5b7d882fd2f8f404c04acf08d5cde67e601"
+  },
+  "evaluation_started_after_freeze": true,
+  "completed_at_utc": "2026-10-10T02:15:08.110476+00:00",
+  "source_hashes": [
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/run_pg_policy.py",
+      "bytes": 26162,
+      "sha256": "10da913cb697eb0e0b8747a0fc672fc845f16ea5b9a581d02691bf33f682f017"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/verify_pg_numerical_equivalence_policy.py",
+      "bytes": 26134,
+      "sha256": "b72031ab7592b2c3c4447dbaaa71d9f95ce063da75a9972c015583bd6e1351e1"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/test_pg_policy.py",
+      "bytes": 4120,
+      "sha256": "3943b69f5c09a46d9ab0a9160a5dad8dad465d8cf21ca218221bb8e345dc383d"
+    }
+  ],
+  "output_hashes": [
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/00_README.md",
+      "bytes": 712,
+      "sha256": "956e5c151bdc418fae7f941c92a0c9ca0b046844eb0a5b7b9e3e37d49e8602bc"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/01_policy_definition.json",
+      "bytes": 3779,
+      "sha256": "0ad3ab377b8d573720b88f295dafefc28c826f6fb14a4ec0dd9b9f2fa1c3a2db"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/01_policy_definition.md",
+      "bytes": 2875,
+      "sha256": "c6b7d3c512be41960dfee43ff1fb3e14d900b0003b9ac59572d4ecbefe7f5632"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/02_target_level_policy_results.csv",
+      "bytes": 250072,
+      "sha256": "ac147c73d8c12fd861a08cdb52abe6935b0cf4793022d8ee052eecc02ddbd812"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/02_target_level_policy_results.json",
+      "bytes": 625531,
+      "sha256": "efa3adddc4566e4e8ed50dad8295b98d569c39412f5ae745116e111b58f5d1c9"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/03_cell_level_policy_results.csv",
+      "bytes": 4429,
+      "sha256": "2cd746c34508f2018158a21d3868d33dbebcec56bbaf48de53271f5af2456902"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/03_cell_level_policy_results.json",
+      "bytes": 8474,
+      "sha256": "8f6a25a02ee9d7c72340bd843c9c22db1cddcdb3614e66b30146609f86cfdcb1"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/04_node1465_policy_stress_test.json",
+      "bytes": 20107,
+      "sha256": "2716a1f7be6d724c08fe1ce12717850da229fbeb708f9178ad3bb6c1d1fe7f81"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/04_node1465_policy_stress_test.md",
+      "bytes": 1202,
+      "sha256": "e7e0669693c8958897e0b4810f0f3a58b35579db4a3216e1aa051a208c6fbe5f"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/05_primary_phase_decision.json",
+      "bytes": 880,
+      "sha256": "f3f711fd21f3659aef129fd1b9ec0742eff03eef210c16a076a8c9cfb7b6f17f"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/05_primary_phase_decision.md",
+      "bytes": 917,
+      "sha256": "9cbf71f76d08cd341ba43f59439a1c991484c494dbfa048a1bb8ac2388975ea6"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/06_stability_readiness.json",
+      "bytes": 362,
+      "sha256": "f913f25017d860099c4fec5d55f85d7b16a55381b0694c3aa746d7a24fee446b"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/06_stability_readiness.md",
+      "bytes": 385,
+      "sha256": "fa75b1f44de75ffce78ab5724a9fe75e3dd8b9dec9b6ff95ac78cc9772ddc0ad"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/08_validation_supporting_evidence.json",
+      "bytes": 136967,
+      "sha256": "4ebef3ad2307fc1e9e2f950f6730a88392a0cab55d9e45fb6a5f768dd1b4ed63"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/hash_manifest_after.json",
+      "bytes": 10880467,
+      "sha256": "bdbc6031c1c6e0b0e017d6f9514d8fc6dc5023fbf202331f964e10a0c0ac74d4"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/hash_manifest_before.json",
+      "bytes": 10880441,
+      "sha256": "a6a98653f5ab5998370f7f96af813a51a91de95b9e1c567e741e7a824717f6b7"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/policy_freeze_receipt.json",
+      "bytes": 1434,
+      "sha256": "30d8a744b552d377163a0cc3a3dfd5b7d882fd2f8f404c04acf08d5cde67e601"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/run_pg_policy.py",
+      "bytes": 26162,
+      "sha256": "10da913cb697eb0e0b8747a0fc672fc845f16ea5b9a581d02691bf33f682f017"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/test_pg_policy.py",
+      "bytes": 4120,
+      "sha256": "3943b69f5c09a46d9ab0a9160a5dad8dad465d8cf21ca218221bb8e345dc383d"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase4b1_pg_policy/verify_pg_numerical_equivalence_policy.py",
+      "bytes": 26134,
+      "sha256": "b72031ab7592b2c3c4447dbaaa71d9f95ce063da75a9972c015583bd6e1351e1"
+    }
+  ],
+  "protected_count": 51162,
+  "no_new_model_inference": true,
+  "no_training": true,
+  "no_historical_mutation": true
+}

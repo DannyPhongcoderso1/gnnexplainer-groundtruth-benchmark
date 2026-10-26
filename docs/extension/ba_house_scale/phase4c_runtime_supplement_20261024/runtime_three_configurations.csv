@@ -1,0 +1,13 @@
+configuration,backbone,method,pg_training_seconds,explanation_seconds_per_node,target_count,repeats,generation_source
+BA500,GCN,GNNExplainer,,0.1295054333362107,12,historical,results/metrics/ba_house_2x2/runtime.csv
+BA500,GCN,PGExplainer,22.389041,0.0055502583272755,12,historical,results/metrics/ba_house_2x2/runtime.csv
+BA500,GraphSAGE,GNNExplainer,,0.1296156666697546,12,historical,results/metrics/ba_house_2x2/runtime.csv
+BA500,GraphSAGE,PGExplainer,44.858333,0.0143360499981402,12,historical,results/metrics/ba_house_2x2/runtime.csv
+BA1000,GCN,GNNExplainer,,0.04560258194457371,24,3,per_target_runtime.csv
+BA1000,GCN,PGExplainer,69.59871120002936,0.002559018054651258,24,3,per_target_runtime.csv
+BA1000,GraphSAGE,GNNExplainer,,0.030238279167254706,24,3,per_target_runtime.csv
+BA1000,GraphSAGE,PGExplainer,51.364089499998954,0.0019094194444227873,24,3,per_target_runtime.csv
+BA1500,GCN,GNNExplainer,,0.0441022203706746,36,3,per_target_runtime.csv
+BA1500,GCN,PGExplainer,106.37585399995442,0.0025964453700537517,36,3,per_target_runtime.csv
+BA1500,GraphSAGE,GNNExplainer,,0.029756240740257286,36,3,per_target_runtime.csv
+BA1500,GraphSAGE,PGExplainer,76.57946659997106,0.0014355342591443332,36,3,per_target_runtime.csv

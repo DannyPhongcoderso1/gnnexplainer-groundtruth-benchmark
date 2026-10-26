@@ -1,0 +1,863 @@
+{
+  "order": [
+    [
+      "ba1000_ext",
+      "gcn"
+    ],
+    [
+      "ba1000_ext",
+      "graphsage"
+    ],
+    [
+      "ba1500_ext",
+      "gcn"
+    ],
+    [
+      "ba1500_ext",
+      "graphsage"
+    ]
+  ],
+  "cells": [
+    {
+      "scale": "ba1000_ext",
+      "backbone": "gcn",
+      "actual_epochs": 90,
+      "best_epoch": 30,
+      "best_validation_accuracy": 0.655,
+      "class_weights": [
+        0.4166666567325592,
+        1.5625,
+        1.5625,
+        3.125
+      ],
+      "train_class_counts": [
+        360.0,
+        96.0,
+        96.0,
+        48.0
+      ],
+      "metrics": {
+        "train": {
+          "loss": 1.3442444801330566,
+          "accuracy": 0.6266666666666667,
+          "correct": 376,
+          "total": 600,
+          "motif_correct": 94,
+          "motif_total": 240,
+          "motif_accuracy": 0.39166666666666666
+        },
+        "val": {
+          "loss": 1.3451942205429077,
+          "accuracy": 0.655,
+          "correct": 131,
+          "total": 200,
+          "motif_correct": 32,
+          "motif_total": 80,
+          "motif_accuracy": 0.4
+        },
+        "test": {
+          "loss": 1.3433876037597656,
+          "accuracy": 0.655,
+          "correct": 131,
+          "total": 200,
+          "motif_correct": 32,
+          "motif_total": 80,
+          "motif_accuracy": 0.4
+        },
+        "test_per_class": [
+          {
+            "class": 0,
+            "support": 120,
+            "correct": 99,
+            "accuracy": 0.825
+          },
+          {
+            "class": 1,
+            "support": 32,
+            "correct": 32,
+            "accuracy": 1.0
+          },
+          {
+            "class": 2,
+            "support": 32,
+            "correct": 0,
+            "accuracy": 0.0
+          },
+          {
+            "class": 3,
+            "support": 16,
+            "correct": 0,
+            "accuracy": 0.0
+          }
+        ]
+      },
+      "resolved_config": {
+        "model": {
+          "type": "GCN",
+          "convolution": "PyG GCNConv",
+          "hidden_channels": 32,
+          "num_layers": 3,
+          "dropout": 0.2,
+          "cached": false,
+          "seed": 42
+        },
+        "training": {
+          "learning_rate": 0.01,
+          "weight_decay": 0.0005,
+          "max_epochs": 300,
+          "patience": 60,
+          "device": "auto",
+          "class_weighting": true
+        },
+        "checkpoint": {
+          "monitor": "val_accuracy",
+          "mode": "max"
+        }
+      },
+      "architecture": {
+        "layers": 3,
+        "channels": [
+          10,
+          32,
+          32,
+          4
+        ],
+        "dropout": 0.2,
+        "convolution": "GCNConv",
+        "cached": false,
+        "aggregation": null,
+        "root_weight": null,
+        "normalize": null,
+        "activation": "ReLU after first two convolutions",
+        "output": "raw logits"
+      },
+      "device": "cuda",
+      "seed": 42,
+      "test_only_after_checkpoint_freeze": true,
+      "history_losses": "Post-update eval CE unweighted, as frozen trainer; optimization_loss_weighted is train-only dropout-enabled weighted CE",
+      "status": "BA1000_GCN_TRAINING_PASS",
+      "created_at_utc": "2026-10-09T09:43:01.052891+00:00",
+      "dataset": {
+        "path": "artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext.pt",
+        "bytes": 213189,
+        "sha256": "7680fbaba95bcfecb96d5f8de0d4935b469e16d31be75d803ed583e5ca8e5b9a"
+      },
+      "checkpoint": {
+        "path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/gcn/ba1000_ext_gcn_best.pt",
+        "bytes": 10321,
+        "sha256": "812e123a2ce3c3ed0d9b04eaca78cbba8a4f72d2fa61abf09cf336dde01d75ef"
+      },
+      "history": {
+        "path": "results/extensions/ba_house_scale/backbones/ba1000_ext/gcn/training_history.csv",
+        "bytes": 8915,
+        "sha256": "99575f445bf6718874c1e181655f11b59af2e18597e1f2b7fa0a97f429cf79da"
+      },
+      "summary": {
+        "path": "results/extensions/ba_house_scale/backbones/ba1000_ext/gcn/summary.json",
+        "bytes": 2476,
+        "sha256": "775aa39a98f1b82e252c354bb638b85e3debde3a0fe8a409893a4f74657a6115"
+      },
+      "environment": {
+        "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+        "torch": "2.11.0+cu128",
+        "pyg": "2.8.0.post1",
+        "cuda": "12.8",
+        "cuda_available": true,
+        "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "cpu_threads": 1,
+        "git_commit": "9963bb9f32435a1833d8bafe4e6af7da4db185be",
+        "git_diff_status": "M scripts/run_random_baseline.py\n?? 00_THESIS_BIG_PICTURE.md\n?? artifacts/debug/task28_pg_v3_fixed_target_saturation_probe/progress.json\n?? artifacts/debug/task28_pg_v3_micro_pilot/attempt-537a6a316d3a/initial_forward_pair.npz\n?? artifacts/debug/task28_pg_v3_micro_pilot/attempt-537a6a316d3a/progress.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/preflight.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/result.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/run_state.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/validation_candidates.npz\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/preflight.json\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/result.json\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/run_state.json\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/validation_candidates.npz\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/preflight.json\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/result.json\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/run_state.json\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/validation_candidates.npz\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/preflight.json\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/result.json\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/run_state.json\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/validation_candidates.npz\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/file_hashes.json\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/preflight.json\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/result.json\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/supplemental_cpu_parity.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_q_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_raw_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_raw_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_receipt.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_uniform_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_uniform_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_q_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_raw_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_raw_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_receipt.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_uniform_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_uniform_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/candidate_indices.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/initial_receipts.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/result.json\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/call1_branchA.npz\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/call1_branchB.npz\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/call1_pre_rng.pt\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/initial_pg_state.pt\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/initial_rng.pt\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/run_state.json\n?? artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext.pt\n?? artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext_manifest.json\n?? artifacts/extensions/ba_house_scale/ba1000_ext/structural_gt_diagnostics.pt\n?? artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext.pt\n?? artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext_manifest.json\n?? artifacts/extensions/ba_house_scale/ba1500_ext/structural_gt_diagnostics.pt\n?? artifacts/extensions/ba_house_scale/ba500_ext/ba500_ext.pt\n?? artifacts/extensions/ba_house_scale/ba500_ext/ba500_ext_manifest.json\n?? artifacts/extensions/ba_house_scale/ba500_ext/structural_gt_diagnostics.pt\n?? artifacts/extensions/ba_house_scale/ba_house_scale_dataset_manifest.json\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update6000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update6000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update6000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update6000.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0050.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0100.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0250.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0750.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0050.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0100.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0250.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0750.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0050.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0100.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0250.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0750.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update1500.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update2000.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0050.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0100.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0250.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0750.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update1500.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update2000.pt\n?? configs/explainer/pgexplainer_elliptic_v3_soft_ce.yaml\n?? configs/extensions/ba_house_scale/ba1000_ext.json\n?? configs/extensions/ba_house_scale/ba1500_ext.json\n?? configs/extensions/ba_house_scale/ba500_ext.json\n?? docs/audit/ba_house_data_lineage.md\n?? docs/audit/ba_house_end_to_end_protocol_audit.md\n?? docs/audit/ba_house_end_to_end_protocol_evidence.json\n?? docs/audit/ba_house_graphsage_random_baseline_audit.json\n?? docs/audit/ba_house_graphsage_random_baseline_audit.md\n?? docs/audit/ba_house_gvhd_questions.md\n?? docs/audit/ba_house_protocol_table.md\n?? docs/audit/backbone_config_cross_dataset_audit.md\n?? docs/audit/backbone_depth_3_3_2_audit.md\n?? docs/audit/candidate_edge_construction_audit.md\n?? docs/audit/candidate_edge_construction_evidence.json\n?? docs/audit/candidate_edge_open_questions.md\n?? docs/audit/candidate_edge_target_examples.csv\n?? docs/audit/ch4_evidence_matrix.json\n?? docs/audit/ch4_evidence_source_map.md\n?? docs/audit/ch4_open_gaps.md\n?? docs/audit/elliptic_backbone_reimplementation_parity_audit.md\n?? docs/audit/hop_choice_3_3_2_audit.md\n?? docs/audit/pgexplainer_installed_mechanism_deep_dive.json\n?? docs/audit/pgexplainer_installed_mechanism_deep_dive.md\n?? docs/audit/target_leakage_matrix.csv\n?? docs/audit/target_selection_flow_audit.md\n?? docs/audit/target_selection_flow_counts.json\n?? docs/audit/target_selection_protocol_audit.md\n?? docs/audit/task28_kaggle_runtime_dependency_audit.md\n?? docs/audit/task28_kaggle_runtime_dependency_inventory.json\n?? docs/audit/task28_live_progress_deployment.json\n?? docs/audit/task28_pg_elliptic_D1_initialization_reconstruction.json\n?? docs/audit/task28_pg_elliptic_D1_initialization_reconstruction.md\n?? docs/audit/task28_pg_elliptic_E1_hard_delete_sensitivity.json\n?? docs/audit/task28_pg_elliptic_E1_hard_delete_sensitivity.md\n?? docs/audit/task28_pg_elliptic_E2_raw_logit_gauge_audit.json\n?? docs/audit/task28_pg_elliptic_E2_raw_logit_gauge_audit.md\n?? docs/audit/task28_pg_elliptic_E3_common_gradient_audit.json\n?? docs/audit/task28_pg_elliptic_E3_common_gradient_audit.md\n?? docs/audit/task28_pg_elliptic_V3_SAGE_fresh2000_confirmation.json\n?? docs/audit/task28_pg_elliptic_V3_SAGE_fresh2000_confirmation.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_fresh2000_confirmation.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_fresh2000_confirmation.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_final_retry.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_final_retry.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v2.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v2.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v3.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v3.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_replay50_diagnostic.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_replay50_diagnostic.md\n?? docs/audit/task28_pg_elliptic_V4_centered_bounded500.json\n?? docs/audit/task28_pg_elliptic_V4_centered_bounded500.md\n?? docs/audit/task28_pg_elliptic_V4_centered_design.md\n?? docs/audit/task28_pg_elliptic_backbone_specific_validation500_selection.json\n?? docs/audit/task28_pg_elliptic_backbone_specific_validation500_selection.md\n?? docs/audit/task28_pg_elliptic_bounded_quality_probe.json\n?? docs/audit/task28_pg_elliptic_bounded_quality_probe.md\n?? docs/audit/task28_pg_elliptic_early_dynamics.json\n?? docs/audit/task28_pg_elliptic_early_dynamics.md\n?? docs/audit/task28_pg_elliptic_edge_representation_audit.json\n?? docs/audit/task28_pg_elliptic_edge_representation_audit.md\n?? docs/audit/task28_pg_elliptic_edge_sensitivity.json\n?? docs/audit/task28_pg_elliptic_edge_sensitivity.md\n?? docs/audit/task28_pg_elliptic_entropy_ablation.json\n?? docs/audit/task28_pg_elliptic_entropy_ablation.md\n?? docs/audit/task28_pg_elliptic_full30_raw_final200_case_study.json\n?? docs/audit/task28_pg_elliptic_full30_raw_final200_case_study.md\n?? docs/audit/task28_pg_elliptic_full30_raw_final200_per_target.csv\n?? docs/audit/task28_pg_elliptic_historical_full30_numerical_inference_rescue.json\n?? docs/audit/task28_pg_elliptic_historical_full30_numerical_inference_rescue.md\n?? docs/audit/task28_pg_elliptic_historical_full30_validation_audit.json\n?? docs/audit/task28_pg_elliptic_historical_full30_validation_audit.md\n?? docs/audit/task28_pg_elliptic_initial_mlp_signal.json\n?? docs/audit/task28_pg_elliptic_initial_mlp_signal.md\n?? docs/audit/task28_pg_elliptic_lr_ablation.json\n?? docs/audit/task28_pg_elliptic_lr_ablation.md\n?? docs/audit/task28_pg_elliptic_mask_semantics.json\n?? docs/audit/task28_pg_elliptic_mask_semantics.md\n?? docs/audit/task28_pg_elliptic_medium_horizon_500.json\n?? docs/audit/task28_pg_elliptic_medium_horizon_500.md\n?? docs/audit/task28_pg_elliptic_order_sensitivity.json\n?? docs/audit/task28_pg_elliptic_order_sensitivity.md\n?? docs/audit/task28_pg_elliptic_production_checkpoint_manifest.json\n?? docs/audit/task28_pg_elliptic_shuffle_only.json\n?? docs/audit/task28_pg_elliptic_shuffle_only.md\n?? docs/audit/task28_pg_elliptic_true_schedule_3epoch_probe.json\n?? docs/audit/task28_pg_elliptic_true_schedule_3epoch_probe.md\n?? docs/audit/task28_pg_elliptic_v3_fixed_target_saturation_probe.json\n?? docs/audit/task28_pg_elliptic_v3_fixed_target_saturation_probe.md\n?? docs/audit/task28_pg_elliptic_v3_micro_pilot.json\n?? docs/audit/task28_pg_elliptic_v3_micro_pilot.md\n?? docs/audit/task28_pg_elliptic_v3_soft_ce_alignment.json\n?? docs/audit/task28_pg_elliptic_v3_soft_ce_alignment.md\n?? docs/audit/task28_pre_rebuild_deployment_conditions.md\n?? docs/audit/task28_readiness_pre_step04_audit.md\n?? docs/audit/task28_readiness_reaudit_after_integrity_patch.md\n?? docs/audit/task28_step04_closure_step05_authorization.md\n?? docs/audit/task28_step05_primary_seed42_audit.json\n?? docs/audit/task28_step05_primary_seed42_audit.md\n?? docs/audit/task28_step05b_pg_mask_deep_diagnostic.json\n?? docs/audit/task28_step05b_pg_mask_deep_diagnostic.md\n?? docs/audit/task28_step05c_pg_zero_mask_root_cause.json\n?? docs/audit/task28_step05c_pg_zero_mask_root_cause.md\n?? docs/audit/task28_step05d_pg_size_amendment_comparison.json\n?? docs/audit/task28_step05d_pg_size_amendment_comparison.md\n?? docs/audit/task28_unattended_authorization.md\n?? docs/audit/task28_v2_step05f1_micro_pilot_criteria_patch.json\n?? docs/audit/task28_v2_step05f1_micro_pilot_criteria_patch.md\n?? docs/audit/task28_v2_step05f_local_preflight_smoke.json\n?? docs/audit/task28_v2_step05f_local_preflight_smoke.md\n?? docs/audit/task28_v2_step05g_local_micro_pilot.json\n?? docs/audit/task28_v2_step05g_local_micro_pilot.md\n?? docs/audit/task28_v2_step05h_one_saturation_root_cause.json\n?? docs/audit/task28_v2_step05h_one_saturation_root_cause.md\n?? docs/audit/task28_v2_step05i_size_only_pilot.json\n?? docs/audit/task28_v2_step05i_size_only_pilot.md\n?? docs/audit/task28_v2_step05j_trajectory_divergence.json\n?? docs/audit/task28_v2_step05j_trajectory_divergence.md\n?? docs/audit/task28_v2_step05k1_zero_update_forward_audit.json\n?? docs/audit/task28_v2_step05k1_zero_update_forward_audit.md\n?? docs/audit/task28_v2_step05k_matched_branch_diagnostic.json\n?? docs/audit/task28_v2_step05k_matched_branch_diagnostic.md\n?? docs/draft/chapter4_draft_review_notes.md\n?? docs/draft/chapter4_results_and_discussion.md\n?? docs/draft/chapter4_results_and_discussion_revised.docx\n?? docs/draft/chapter4_results_and_discussion_revised.md\n?? docs/draft/chapter4_revision_report.md\n?? docs/elliptic_pgexplainer_step04_kaggle_t4x2_plan.json\n?? docs/elliptic_pgexplainer_step04_kaggle_t4x2_plan.md\n?? docs/extension/ba_house_scale/phase1_generation/01_generation_report.json\n?? docs/extension/ba_house_scale/phase1_generation/01_generation_report.md\n?? docs/extension/ba_house_scale/phase1_generation/02_scale_parity_report.json\n?? docs/extension/ba_house_scale/phase1_generation/02_scale_parity_report.md\n?? docs/extension/ba_house_scale/phase1_generation/03_structural_clean_pool.csv\n?? docs/extension/ba_house_scale/phase1_generation/03_structural_clean_pool.json\n?? docs/extension/ba_house_scale/phase1_generation/04_verifier_receipt.json\n?? docs/extension/ba_house_scale/phase1_generation/command_receipt.json\n?? docs/extension/ba_house_scale/phase1_generation/generation_log.json\n?? docs/extension/ba_house_scale/phase1_generation/protected_baseline_after.json\n?? docs/extension/ba_house_scale/phase1_generation/protected_baseline_before.json\n?? docs/extension/ba_house_scale/phase2_backbones/protected_inputs_before.json\n?? docs/extension/phase1_pipeline_audit/01_ba_house_pipeline_audit.json\n?? docs/extension/phase1_pipeline_audit/01_ba_house_pipeline_audit.md\n?? docs/extension/phase1_pipeline_audit/02_shapeggen_pipeline_audit.json\n?? docs/extension/phase1_pipeline_audit/02_shapeggen_pipeline_audit.md\n?? docs/extension/phase1_pipeline_audit/03_frozen_result_receipt.json\n?? docs/extension/phase1_pipeline_audit/03_frozen_result_receipt.md\n?? docs/extension/phase1_pipeline_audit/04_extension_capability_recommendation.json\n?? docs/extension/phase1_pipeline_audit/04_extension_capability_recommendation.md\n?? docs/extension/phase1_pipeline_audit/audit_readonly.py\n?? docs/extension/phase1_pipeline_audit/build_reports.py\n?? docs/extension/phase1_pipeline_audit/evidence_snapshot.json\n?? docs/extension/phase1_pipeline_audit/protected_baseline_manifest_after.json\n?? docs/extension/phase1_pipeline_audit/protected_baseline_manifest_before.json\n?? docs/extension/phase1_pipeline_audit/verifier_receipt.json\n?? docs/extension/phase1_pipeline_audit/verify_readonly.py\n?? docs/kaggle/task28-step05-authorization/authorization.json\n?? docs/kaggle/task28_kaggle_bootstrap.py\n?? docs/kaggle/task28_kaggle_dual_gpu_run.sh\n?? docs/kaggle/task28_kaggle_notebook_cells.md\n?? docs/kaggle/task28_kaggle_preflight.py\n?? docs/kaggle/task28_kaggle_setup.sh\n?? docs/kaggle/task28_kaggle_smoke.py\n?? execution/task28_pg_v3_fixed_target_saturation_probe.py\n?? execution/task28_pg_v3_micro_pilot.py\n?? execution/task28_pg_v3_soft_ce_zero_update.py\n?? execution/task28_v2_local_micro_pilot.py\n?? execution/task28_v2_micro_pilot_criteria.py\n?? execution/task28_v2_step05f_local.py\n?? execution/task28_v2_step05h_objective_geometry.py\n?? execution/task28_v2_step05i_size_only_pilot.py\n?? execution/task28_v2_step05j_trajectory_analysis.py\n?? execution/task28_v2_step05k1_zero_update_forward_audit.py\n?? execution/task28_v2_step05k_matched_branch_diagnostic.py\n?? results/COMPLETE.txt\n?? results/COMPLETE1.txt\n?? results/elliptic_pg_gcn_seed42.zip\n?? results/elliptic_pg_gcn_seed42_manifest.txt\n?? results/elliptic_pg_graphsage_seed42.zip\n?? results/elliptic_pg_graphsage_seed42_manifest.txt\n?? \"results/epoch_030 (1).zip\"\n?? results/epoch_030.zip\n?? results/task28_primary_seed42_full_export.zip\n?? results/task28_primary_seed42_full_export/elliptic_pgexplainer_step04_kaggle_t4x2_plan.json\n?? results/task28_primary_seed42_full_export/environment-lock.txt\n?? results/task28_primary_seed42_full_export/locks/gcn_seed42.lock\n?? results/task28_primary_seed42_full_export/locks/gpu0.lock\n?? results/task28_primary_seed42_full_export/locks/gpu1.lock\n?? results/task28_primary_seed42_full_export/locks/graphsage_seed42.lock\n?? results/task28_primary_seed42_full_export/locks/session.lock\n?? results/task28_primary_seed42_full_export/operator/exits.tsv\n?? results/task28_primary_seed42_full_export/operator/pids.tsv\n?? results/task28_primary_seed42_full_export/preflight.json\n?? results/task28_primary_seed42_full_export/runtime-dependencies.json\n?? results/task28_primary_seed42_full_export/runtime_authorization.json\n?? results/task28_primary_seed42_full_export/task28_kaggle_dual_gpu_run.sh\n?? results/task28_primary_seed42_full_export/task28_kaggle_preflight.py\n?? results/task28_primary_seed42_full_export/task28_kaggle_setup.sh\n?? results/task28_primary_seed42_full_export/task28_kaggle_smoke.py\n?? results/task28_primary_seed42_full_export/task28_training.kaggle.json\n?? scripts/audit/candidate_edge_construction.py\n?? scripts/audit/task28_runtime_dependencies.py\n?? scripts/audit_target_selection_flow.py\n?? scripts/extensions/generate_ba_house_scale.py\n?? scripts/extensions/train_ba_house_scale_backbones.py\n?? scripts/extensions/verify_ba_house_scale.py\n?? scripts/extensions/verify_ba_house_scale_backbones.py\n?? scripts/package_task28_kaggle_zip.py\n?? scripts/prepare_task28_kaggle_bundle.ps1\n?? src/gnnexplainer_benchmark/explainers/pgexplainer_soft_ce.py\n?? src/gnnexplainer_benchmark/explainers/pgexplainer_v4_centered.py\n?? src/gnnexplainer_benchmark/extensions/__init__.py\n?? src/gnnexplainer_benchmark/extensions/ba_house_scale.py\n?? tests/test_elliptic_task28_kaggle_plan.py\n?? tests/test_pgexplainer_soft_ce.py\n?? tests/test_pgexplainer_v4_centered.py\n?? tests/test_random_backbone_dispatch.py\n?? tests/test_target_selection_flow_audit.py\n?? tests/test_task28_kaggle_auth.py\n?? tests/test_task28_kaggle_headless.py\n?? tests/test_task28_kaggle_smoke_api.py\n?? tests/test_task28_kaggle_zip.py\n?? tests/test_task28_pg_v3_fixed_target_probe.py\n?? tests/test_task28_pg_v3_micro_pilot.py\n?? tests/test_task28_runtime_dependencies.py\n?? tests/test_task28_smoke_comparator.py\n?? tests/test_task28_step05_authorization.py\n?? tests/test_task28_v2_local_micro_pilot.py\n?? tests/test_task28_v2_micro_pilot_criteria.py\n?? tests/test_task28_v2_step05f_local.py\n?? tests/test_task28_v2_step05h_objective_geometry.py\n?? tests/test_task28_v2_step05i_size_only_pilot.py\n?? tests/test_task28_v2_step05j_trajectory_analysis.py\n?? tests/test_task28_v2_step05k1_zero_update_forward_audit.py\n?? tests/test_task28_v2_step05k_matched_branch_diagnostic.py",
+        "determinism_policy": "Frozen seed_everything(42); no new algorithm flags",
+        "deterministic_algorithms": false
+      },
+      "checkpoint_rule": "strict val_accuracy improvement; first occurrence wins ties; patience60; full-graph train-mask-only optimization",
+      "manifest_file": {
+        "path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/gcn/ba1000_ext_gcn_best_manifest.json",
+        "bytes": 29384,
+        "sha256": "ead3c4da725f01fcab4eb75148ca0a27321ad14db05c385934cdfeab4c63e358"
+      }
+    },
+    {
+      "scale": "ba1000_ext",
+      "backbone": "graphsage",
+      "actual_epochs": 167,
+      "best_epoch": 107,
+      "best_validation_accuracy": 0.985,
+      "class_weights": [
+        0.4166666567325592,
+        1.5625,
+        1.5625,
+        3.125
+      ],
+      "train_class_counts": [
+        360.0,
+        96.0,
+        96.0,
+        48.0
+      ],
+      "metrics": {
+        "train": {
+          "loss": 0.3766666054725647,
+          "accuracy": 0.9416666666666667,
+          "correct": 565,
+          "total": 600,
+          "motif_correct": 208,
+          "motif_total": 240,
+          "motif_accuracy": 0.8666666666666667
+        },
+        "val": {
+          "loss": 0.34330683946609497,
+          "accuracy": 0.985,
+          "correct": 197,
+          "total": 200,
+          "motif_correct": 77,
+          "motif_total": 80,
+          "motif_accuracy": 0.9625
+        },
+        "test": {
+          "loss": 0.3683151304721832,
+          "accuracy": 0.95,
+          "correct": 190,
+          "total": 200,
+          "motif_correct": 70,
+          "motif_total": 80,
+          "motif_accuracy": 0.875
+        },
+        "test_per_class": [
+          {
+            "class": 0,
+            "support": 120,
+            "correct": 120,
+            "accuracy": 1.0
+          },
+          {
+            "class": 1,
+            "support": 32,
+            "correct": 32,
+            "accuracy": 1.0
+          },
+          {
+            "class": 2,
+            "support": 32,
+            "correct": 27,
+            "accuracy": 0.84375
+          },
+          {
+            "class": 3,
+            "support": 16,
+            "correct": 11,
+            "accuracy": 0.6875
+          }
+        ]
+      },
+      "resolved_config": {
+        "model": {
+          "type": "GraphSAGE",
+          "convolution": "PyG SAGEConv",
+          "hidden_channels": 32,
+          "num_layers": 3,
+          "dropout": 0.2,
+          "aggr": "sum",
+          "seed": 42
+        },
+        "training": {
+          "learning_rate": 0.01,
+          "weight_decay": 0.0005,
+          "max_epochs": 300,
+          "patience": 60,
+          "device": "auto",
+          "class_weighting": true
+        },
+        "checkpoint": {
+          "monitor": "val_accuracy",
+          "mode": "max"
+        }
+      },
+      "architecture": {
+        "layers": 3,
+        "channels": [
+          10,
+          32,
+          32,
+          4
+        ],
+        "dropout": 0.2,
+        "convolution": "SAGEConv",
+        "cached": null,
+        "aggregation": "sum",
+        "root_weight": true,
+        "normalize": false,
+        "activation": "ReLU after first two convolutions",
+        "output": "raw logits"
+      },
+      "device": "cuda",
+      "seed": 42,
+      "test_only_after_checkpoint_freeze": true,
+      "history_losses": "Post-update eval CE unweighted, as frozen trainer; optimization_loss_weighted is train-only dropout-enabled weighted CE",
+      "status": "BA1000_GRAPHSAGE_TRAINING_PASS",
+      "created_at_utc": "2026-10-09T09:43:03.022364+00:00",
+      "dataset": {
+        "path": "artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext.pt",
+        "bytes": 213189,
+        "sha256": "7680fbaba95bcfecb96d5f8de0d4935b469e16d31be75d803ed583e5ca8e5b9a"
+      },
+      "checkpoint": {
+        "path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/graphsage/ba1000_ext_graphsage_best.pt",
+        "bytes": 16965,
+        "sha256": "2c51117461c3eb2ff1cb29b291296f5202d114ba4ac4e8543754b6ceeeb607ca"
+      },
+      "history": {
+        "path": "results/extensions/ba_house_scale/backbones/ba1000_ext/graphsage/training_history.csv",
+        "bytes": 17648,
+        "sha256": "7455097cfad7b9265920fb1c2282890fac486d1c46560661d563e9f1b21a7fe9"
+      },
+      "summary": {
+        "path": "results/extensions/ba_house_scale/backbones/ba1000_ext/graphsage/summary.json",
+        "bytes": 2510,
+        "sha256": "d28b26a2edc8efe2ddb9705a9c9409cc337019664769122de233572286466b32"
+      },
+      "environment": {
+        "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+        "torch": "2.11.0+cu128",
+        "pyg": "2.8.0.post1",
+        "cuda": "12.8",
+        "cuda_available": true,
+        "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "cpu_threads": 1,
+        "git_commit": "9963bb9f32435a1833d8bafe4e6af7da4db185be",
+        "git_diff_status": "M scripts/run_random_baseline.py\n?? 00_THESIS_BIG_PICTURE.md\n?? artifacts/debug/task28_pg_v3_fixed_target_saturation_probe/progress.json\n?? artifacts/debug/task28_pg_v3_micro_pilot/attempt-537a6a316d3a/initial_forward_pair.npz\n?? artifacts/debug/task28_pg_v3_micro_pilot/attempt-537a6a316d3a/progress.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/preflight.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/result.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/run_state.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/validation_candidates.npz\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/preflight.json\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/result.json\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/run_state.json\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/validation_candidates.npz\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/preflight.json\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/result.json\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/run_state.json\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/validation_candidates.npz\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/preflight.json\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/result.json\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/run_state.json\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/validation_candidates.npz\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/file_hashes.json\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/preflight.json\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/result.json\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/supplemental_cpu_parity.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_q_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_raw_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_raw_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_receipt.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_uniform_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_uniform_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_q_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_raw_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_raw_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_receipt.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_uniform_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_uniform_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/candidate_indices.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/initial_receipts.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/result.json\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/call1_branchA.npz\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/call1_branchB.npz\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/call1_pre_rng.pt\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/initial_pg_state.pt\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/initial_rng.pt\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/run_state.json\n?? artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext.pt\n?? artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext_manifest.json\n?? artifacts/extensions/ba_house_scale/ba1000_ext/structural_gt_diagnostics.pt\n?? artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext.pt\n?? artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext_manifest.json\n?? artifacts/extensions/ba_house_scale/ba1500_ext/structural_gt_diagnostics.pt\n?? artifacts/extensions/ba_house_scale/ba500_ext/ba500_ext.pt\n?? artifacts/extensions/ba_house_scale/ba500_ext/ba500_ext_manifest.json\n?? artifacts/extensions/ba_house_scale/ba500_ext/structural_gt_diagnostics.pt\n?? artifacts/extensions/ba_house_scale/ba_house_scale_dataset_manifest.json\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update6000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update6000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update6000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update6000.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0050.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0100.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0250.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0750.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0050.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0100.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0250.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0750.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0050.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0100.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0250.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0750.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update1500.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update2000.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0050.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0100.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0250.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0750.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update1500.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update2000.pt\n?? configs/explainer/pgexplainer_elliptic_v3_soft_ce.yaml\n?? configs/extensions/ba_house_scale/ba1000_ext.json\n?? configs/extensions/ba_house_scale/ba1500_ext.json\n?? configs/extensions/ba_house_scale/ba500_ext.json\n?? docs/audit/ba_house_data_lineage.md\n?? docs/audit/ba_house_end_to_end_protocol_audit.md\n?? docs/audit/ba_house_end_to_end_protocol_evidence.json\n?? docs/audit/ba_house_graphsage_random_baseline_audit.json\n?? docs/audit/ba_house_graphsage_random_baseline_audit.md\n?? docs/audit/ba_house_gvhd_questions.md\n?? docs/audit/ba_house_protocol_table.md\n?? docs/audit/backbone_config_cross_dataset_audit.md\n?? docs/audit/backbone_depth_3_3_2_audit.md\n?? docs/audit/candidate_edge_construction_audit.md\n?? docs/audit/candidate_edge_construction_evidence.json\n?? docs/audit/candidate_edge_open_questions.md\n?? docs/audit/candidate_edge_target_examples.csv\n?? docs/audit/ch4_evidence_matrix.json\n?? docs/audit/ch4_evidence_source_map.md\n?? docs/audit/ch4_open_gaps.md\n?? docs/audit/elliptic_backbone_reimplementation_parity_audit.md\n?? docs/audit/hop_choice_3_3_2_audit.md\n?? docs/audit/pgexplainer_installed_mechanism_deep_dive.json\n?? docs/audit/pgexplainer_installed_mechanism_deep_dive.md\n?? docs/audit/target_leakage_matrix.csv\n?? docs/audit/target_selection_flow_audit.md\n?? docs/audit/target_selection_flow_counts.json\n?? docs/audit/target_selection_protocol_audit.md\n?? docs/audit/task28_kaggle_runtime_dependency_audit.md\n?? docs/audit/task28_kaggle_runtime_dependency_inventory.json\n?? docs/audit/task28_live_progress_deployment.json\n?? docs/audit/task28_pg_elliptic_D1_initialization_reconstruction.json\n?? docs/audit/task28_pg_elliptic_D1_initialization_reconstruction.md\n?? docs/audit/task28_pg_elliptic_E1_hard_delete_sensitivity.json\n?? docs/audit/task28_pg_elliptic_E1_hard_delete_sensitivity.md\n?? docs/audit/task28_pg_elliptic_E2_raw_logit_gauge_audit.json\n?? docs/audit/task28_pg_elliptic_E2_raw_logit_gauge_audit.md\n?? docs/audit/task28_pg_elliptic_E3_common_gradient_audit.json\n?? docs/audit/task28_pg_elliptic_E3_common_gradient_audit.md\n?? docs/audit/task28_pg_elliptic_V3_SAGE_fresh2000_confirmation.json\n?? docs/audit/task28_pg_elliptic_V3_SAGE_fresh2000_confirmation.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_fresh2000_confirmation.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_fresh2000_confirmation.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_final_retry.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_final_retry.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v2.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v2.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v3.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v3.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_replay50_diagnostic.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_replay50_diagnostic.md\n?? docs/audit/task28_pg_elliptic_V4_centered_bounded500.json\n?? docs/audit/task28_pg_elliptic_V4_centered_bounded500.md\n?? docs/audit/task28_pg_elliptic_V4_centered_design.md\n?? docs/audit/task28_pg_elliptic_backbone_specific_validation500_selection.json\n?? docs/audit/task28_pg_elliptic_backbone_specific_validation500_selection.md\n?? docs/audit/task28_pg_elliptic_bounded_quality_probe.json\n?? docs/audit/task28_pg_elliptic_bounded_quality_probe.md\n?? docs/audit/task28_pg_elliptic_early_dynamics.json\n?? docs/audit/task28_pg_elliptic_early_dynamics.md\n?? docs/audit/task28_pg_elliptic_edge_representation_audit.json\n?? docs/audit/task28_pg_elliptic_edge_representation_audit.md\n?? docs/audit/task28_pg_elliptic_edge_sensitivity.json\n?? docs/audit/task28_pg_elliptic_edge_sensitivity.md\n?? docs/audit/task28_pg_elliptic_entropy_ablation.json\n?? docs/audit/task28_pg_elliptic_entropy_ablation.md\n?? docs/audit/task28_pg_elliptic_full30_raw_final200_case_study.json\n?? docs/audit/task28_pg_elliptic_full30_raw_final200_case_study.md\n?? docs/audit/task28_pg_elliptic_full30_raw_final200_per_target.csv\n?? docs/audit/task28_pg_elliptic_historical_full30_numerical_inference_rescue.json\n?? docs/audit/task28_pg_elliptic_historical_full30_numerical_inference_rescue.md\n?? docs/audit/task28_pg_elliptic_historical_full30_validation_audit.json\n?? docs/audit/task28_pg_elliptic_historical_full30_validation_audit.md\n?? docs/audit/task28_pg_elliptic_initial_mlp_signal.json\n?? docs/audit/task28_pg_elliptic_initial_mlp_signal.md\n?? docs/audit/task28_pg_elliptic_lr_ablation.json\n?? docs/audit/task28_pg_elliptic_lr_ablation.md\n?? docs/audit/task28_pg_elliptic_mask_semantics.json\n?? docs/audit/task28_pg_elliptic_mask_semantics.md\n?? docs/audit/task28_pg_elliptic_medium_horizon_500.json\n?? docs/audit/task28_pg_elliptic_medium_horizon_500.md\n?? docs/audit/task28_pg_elliptic_order_sensitivity.json\n?? docs/audit/task28_pg_elliptic_order_sensitivity.md\n?? docs/audit/task28_pg_elliptic_production_checkpoint_manifest.json\n?? docs/audit/task28_pg_elliptic_shuffle_only.json\n?? docs/audit/task28_pg_elliptic_shuffle_only.md\n?? docs/audit/task28_pg_elliptic_true_schedule_3epoch_probe.json\n?? docs/audit/task28_pg_elliptic_true_schedule_3epoch_probe.md\n?? docs/audit/task28_pg_elliptic_v3_fixed_target_saturation_probe.json\n?? docs/audit/task28_pg_elliptic_v3_fixed_target_saturation_probe.md\n?? docs/audit/task28_pg_elliptic_v3_micro_pilot.json\n?? docs/audit/task28_pg_elliptic_v3_micro_pilot.md\n?? docs/audit/task28_pg_elliptic_v3_soft_ce_alignment.json\n?? docs/audit/task28_pg_elliptic_v3_soft_ce_alignment.md\n?? docs/audit/task28_pre_rebuild_deployment_conditions.md\n?? docs/audit/task28_readiness_pre_step04_audit.md\n?? docs/audit/task28_readiness_reaudit_after_integrity_patch.md\n?? docs/audit/task28_step04_closure_step05_authorization.md\n?? docs/audit/task28_step05_primary_seed42_audit.json\n?? docs/audit/task28_step05_primary_seed42_audit.md\n?? docs/audit/task28_step05b_pg_mask_deep_diagnostic.json\n?? docs/audit/task28_step05b_pg_mask_deep_diagnostic.md\n?? docs/audit/task28_step05c_pg_zero_mask_root_cause.json\n?? docs/audit/task28_step05c_pg_zero_mask_root_cause.md\n?? docs/audit/task28_step05d_pg_size_amendment_comparison.json\n?? docs/audit/task28_step05d_pg_size_amendment_comparison.md\n?? docs/audit/task28_unattended_authorization.md\n?? docs/audit/task28_v2_step05f1_micro_pilot_criteria_patch.json\n?? docs/audit/task28_v2_step05f1_micro_pilot_criteria_patch.md\n?? docs/audit/task28_v2_step05f_local_preflight_smoke.json\n?? docs/audit/task28_v2_step05f_local_preflight_smoke.md\n?? docs/audit/task28_v2_step05g_local_micro_pilot.json\n?? docs/audit/task28_v2_step05g_local_micro_pilot.md\n?? docs/audit/task28_v2_step05h_one_saturation_root_cause.json\n?? docs/audit/task28_v2_step05h_one_saturation_root_cause.md\n?? docs/audit/task28_v2_step05i_size_only_pilot.json\n?? docs/audit/task28_v2_step05i_size_only_pilot.md\n?? docs/audit/task28_v2_step05j_trajectory_divergence.json\n?? docs/audit/task28_v2_step05j_trajectory_divergence.md\n?? docs/audit/task28_v2_step05k1_zero_update_forward_audit.json\n?? docs/audit/task28_v2_step05k1_zero_update_forward_audit.md\n?? docs/audit/task28_v2_step05k_matched_branch_diagnostic.json\n?? docs/audit/task28_v2_step05k_matched_branch_diagnostic.md\n?? docs/draft/chapter4_draft_review_notes.md\n?? docs/draft/chapter4_results_and_discussion.md\n?? docs/draft/chapter4_results_and_discussion_revised.docx\n?? docs/draft/chapter4_results_and_discussion_revised.md\n?? docs/draft/chapter4_revision_report.md\n?? docs/elliptic_pgexplainer_step04_kaggle_t4x2_plan.json\n?? docs/elliptic_pgexplainer_step04_kaggle_t4x2_plan.md\n?? docs/extension/ba_house_scale/phase1_generation/01_generation_report.json\n?? docs/extension/ba_house_scale/phase1_generation/01_generation_report.md\n?? docs/extension/ba_house_scale/phase1_generation/02_scale_parity_report.json\n?? docs/extension/ba_house_scale/phase1_generation/02_scale_parity_report.md\n?? docs/extension/ba_house_scale/phase1_generation/03_structural_clean_pool.csv\n?? docs/extension/ba_house_scale/phase1_generation/03_structural_clean_pool.json\n?? docs/extension/ba_house_scale/phase1_generation/04_verifier_receipt.json\n?? docs/extension/ba_house_scale/phase1_generation/command_receipt.json\n?? docs/extension/ba_house_scale/phase1_generation/generation_log.json\n?? docs/extension/ba_house_scale/phase1_generation/protected_baseline_after.json\n?? docs/extension/ba_house_scale/phase1_generation/protected_baseline_before.json\n?? docs/extension/ba_house_scale/phase2_backbones/protected_inputs_before.json\n?? docs/extension/phase1_pipeline_audit/01_ba_house_pipeline_audit.json\n?? docs/extension/phase1_pipeline_audit/01_ba_house_pipeline_audit.md\n?? docs/extension/phase1_pipeline_audit/02_shapeggen_pipeline_audit.json\n?? docs/extension/phase1_pipeline_audit/02_shapeggen_pipeline_audit.md\n?? docs/extension/phase1_pipeline_audit/03_frozen_result_receipt.json\n?? docs/extension/phase1_pipeline_audit/03_frozen_result_receipt.md\n?? docs/extension/phase1_pipeline_audit/04_extension_capability_recommendation.json\n?? docs/extension/phase1_pipeline_audit/04_extension_capability_recommendation.md\n?? docs/extension/phase1_pipeline_audit/audit_readonly.py\n?? docs/extension/phase1_pipeline_audit/build_reports.py\n?? docs/extension/phase1_pipeline_audit/evidence_snapshot.json\n?? docs/extension/phase1_pipeline_audit/protected_baseline_manifest_after.json\n?? docs/extension/phase1_pipeline_audit/protected_baseline_manifest_before.json\n?? docs/extension/phase1_pipeline_audit/verifier_receipt.json\n?? docs/extension/phase1_pipeline_audit/verify_readonly.py\n?? docs/kaggle/task28-step05-authorization/authorization.json\n?? docs/kaggle/task28_kaggle_bootstrap.py\n?? docs/kaggle/task28_kaggle_dual_gpu_run.sh\n?? docs/kaggle/task28_kaggle_notebook_cells.md\n?? docs/kaggle/task28_kaggle_preflight.py\n?? docs/kaggle/task28_kaggle_setup.sh\n?? docs/kaggle/task28_kaggle_smoke.py\n?? execution/task28_pg_v3_fixed_target_saturation_probe.py\n?? execution/task28_pg_v3_micro_pilot.py\n?? execution/task28_pg_v3_soft_ce_zero_update.py\n?? execution/task28_v2_local_micro_pilot.py\n?? execution/task28_v2_micro_pilot_criteria.py\n?? execution/task28_v2_step05f_local.py\n?? execution/task28_v2_step05h_objective_geometry.py\n?? execution/task28_v2_step05i_size_only_pilot.py\n?? execution/task28_v2_step05j_trajectory_analysis.py\n?? execution/task28_v2_step05k1_zero_update_forward_audit.py\n?? execution/task28_v2_step05k_matched_branch_diagnostic.py\n?? results/COMPLETE.txt\n?? results/COMPLETE1.txt\n?? results/elliptic_pg_gcn_seed42.zip\n?? results/elliptic_pg_gcn_seed42_manifest.txt\n?? results/elliptic_pg_graphsage_seed42.zip\n?? results/elliptic_pg_graphsage_seed42_manifest.txt\n?? \"results/epoch_030 (1).zip\"\n?? results/epoch_030.zip\n?? results/task28_primary_seed42_full_export.zip\n?? results/task28_primary_seed42_full_export/elliptic_pgexplainer_step04_kaggle_t4x2_plan.json\n?? results/task28_primary_seed42_full_export/environment-lock.txt\n?? results/task28_primary_seed42_full_export/locks/gcn_seed42.lock\n?? results/task28_primary_seed42_full_export/locks/gpu0.lock\n?? results/task28_primary_seed42_full_export/locks/gpu1.lock\n?? results/task28_primary_seed42_full_export/locks/graphsage_seed42.lock\n?? results/task28_primary_seed42_full_export/locks/session.lock\n?? results/task28_primary_seed42_full_export/operator/exits.tsv\n?? results/task28_primary_seed42_full_export/operator/pids.tsv\n?? results/task28_primary_seed42_full_export/preflight.json\n?? results/task28_primary_seed42_full_export/runtime-dependencies.json\n?? results/task28_primary_seed42_full_export/runtime_authorization.json\n?? results/task28_primary_seed42_full_export/task28_kaggle_dual_gpu_run.sh\n?? results/task28_primary_seed42_full_export/task28_kaggle_preflight.py\n?? results/task28_primary_seed42_full_export/task28_kaggle_setup.sh\n?? results/task28_primary_seed42_full_export/task28_kaggle_smoke.py\n?? results/task28_primary_seed42_full_export/task28_training.kaggle.json\n?? scripts/audit/candidate_edge_construction.py\n?? scripts/audit/task28_runtime_dependencies.py\n?? scripts/audit_target_selection_flow.py\n?? scripts/extensions/generate_ba_house_scale.py\n?? scripts/extensions/train_ba_house_scale_backbones.py\n?? scripts/extensions/verify_ba_house_scale.py\n?? scripts/extensions/verify_ba_house_scale_backbones.py\n?? scripts/package_task28_kaggle_zip.py\n?? scripts/prepare_task28_kaggle_bundle.ps1\n?? src/gnnexplainer_benchmark/explainers/pgexplainer_soft_ce.py\n?? src/gnnexplainer_benchmark/explainers/pgexplainer_v4_centered.py\n?? src/gnnexplainer_benchmark/extensions/__init__.py\n?? src/gnnexplainer_benchmark/extensions/ba_house_scale.py\n?? tests/test_elliptic_task28_kaggle_plan.py\n?? tests/test_pgexplainer_soft_ce.py\n?? tests/test_pgexplainer_v4_centered.py\n?? tests/test_random_backbone_dispatch.py\n?? tests/test_target_selection_flow_audit.py\n?? tests/test_task28_kaggle_auth.py\n?? tests/test_task28_kaggle_headless.py\n?? tests/test_task28_kaggle_smoke_api.py\n?? tests/test_task28_kaggle_zip.py\n?? tests/test_task28_pg_v3_fixed_target_probe.py\n?? tests/test_task28_pg_v3_micro_pilot.py\n?? tests/test_task28_runtime_dependencies.py\n?? tests/test_task28_smoke_comparator.py\n?? tests/test_task28_step05_authorization.py\n?? tests/test_task28_v2_local_micro_pilot.py\n?? tests/test_task28_v2_micro_pilot_criteria.py\n?? tests/test_task28_v2_step05f_local.py\n?? tests/test_task28_v2_step05h_objective_geometry.py\n?? tests/test_task28_v2_step05i_size_only_pilot.py\n?? tests/test_task28_v2_step05j_trajectory_analysis.py\n?? tests/test_task28_v2_step05k1_zero_update_forward_audit.py\n?? tests/test_task28_v2_step05k_matched_branch_diagnostic.py",
+        "determinism_policy": "Frozen seed_everything(42); no new algorithm flags",
+        "deterministic_algorithms": false
+      },
+      "checkpoint_rule": "strict val_accuracy improvement; first occurrence wins ties; patience60; full-graph train-mask-only optimization",
+      "manifest_file": {
+        "path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/graphsage/ba1000_ext_graphsage_best_manifest.json",
+        "bytes": 29443,
+        "sha256": "13e643f2bebfbb1b52321f93a0700e890dc6d43f30e9c76d25dfd94baf65edc0"
+      }
+    },
+    {
+      "scale": "ba1500_ext",
+      "backbone": "gcn",
+      "actual_epochs": 69,
+      "best_epoch": 9,
+      "best_validation_accuracy": 0.6433333333333333,
+      "class_weights": [
+        0.4166666567325592,
+        1.5625,
+        1.5625,
+        3.125
+      ],
+      "train_class_counts": [
+        540.0,
+        144.0,
+        144.0,
+        72.0
+      ],
+      "metrics": {
+        "train": {
+          "loss": 1.3450435400009155,
+          "accuracy": 0.6322222222222222,
+          "correct": 569,
+          "total": 900,
+          "motif_correct": 141,
+          "motif_total": 360,
+          "motif_accuracy": 0.39166666666666666
+        },
+        "val": {
+          "loss": 1.3457378149032593,
+          "accuracy": 0.6433333333333333,
+          "correct": 193,
+          "total": 300,
+          "motif_correct": 48,
+          "motif_total": 120,
+          "motif_accuracy": 0.4
+        },
+        "test": {
+          "loss": 1.3467103242874146,
+          "accuracy": 0.65,
+          "correct": 195,
+          "total": 300,
+          "motif_correct": 48,
+          "motif_total": 120,
+          "motif_accuracy": 0.4
+        },
+        "test_per_class": [
+          {
+            "class": 0,
+            "support": 180,
+            "correct": 147,
+            "accuracy": 0.8166666666666667
+          },
+          {
+            "class": 1,
+            "support": 48,
+            "correct": 48,
+            "accuracy": 1.0
+          },
+          {
+            "class": 2,
+            "support": 48,
+            "correct": 0,
+            "accuracy": 0.0
+          },
+          {
+            "class": 3,
+            "support": 24,
+            "correct": 0,
+            "accuracy": 0.0
+          }
+        ]
+      },
+      "resolved_config": {
+        "model": {
+          "type": "GCN",
+          "convolution": "PyG GCNConv",
+          "hidden_channels": 32,
+          "num_layers": 3,
+          "dropout": 0.2,
+          "cached": false,
+          "seed": 42
+        },
+        "training": {
+          "learning_rate": 0.01,
+          "weight_decay": 0.0005,
+          "max_epochs": 300,
+          "patience": 60,
+          "device": "auto",
+          "class_weighting": true
+        },
+        "checkpoint": {
+          "monitor": "val_accuracy",
+          "mode": "max"
+        }
+      },
+      "architecture": {
+        "layers": 3,
+        "channels": [
+          10,
+          32,
+          32,
+          4
+        ],
+        "dropout": 0.2,
+        "convolution": "GCNConv",
+        "cached": false,
+        "aggregation": null,
+        "root_weight": null,
+        "normalize": null,
+        "activation": "ReLU after first two convolutions",
+        "output": "raw logits"
+      },
+      "device": "cuda",
+      "seed": 42,
+      "test_only_after_checkpoint_freeze": true,
+      "history_losses": "Post-update eval CE unweighted, as frozen trainer; optimization_loss_weighted is train-only dropout-enabled weighted CE",
+      "status": "BA1500_GCN_TRAINING_PASS",
+      "created_at_utc": "2026-10-09T09:43:04.269109+00:00",
+      "dataset": {
+        "path": "artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext.pt",
+        "bytes": 319493,
+        "sha256": "a4d227ac3b56cf40966c19a5afeef8edbd6a2ad65a9d4a36e34ae5a3dd135b95"
+      },
+      "checkpoint": {
+        "path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/gcn/ba1500_ext_gcn_best.pt",
+        "bytes": 10321,
+        "sha256": "be0ffcacc4031eb0dec6195120c608791082475a3d498c59bee1acbb89451bd7"
+      },
+      "history": {
+        "path": "results/extensions/ba_house_scale/backbones/ba1500_ext/gcn/training_history.csv",
+        "bytes": 7633,
+        "sha256": "f906fd9684afdac0a1aa8699d83d079a4ecb0e10958118dd9d525e38334fec4f"
+      },
+      "summary": {
+        "path": "results/extensions/ba_house_scale/backbones/ba1500_ext/gcn/summary.json",
+        "bytes": 2519,
+        "sha256": "aff8c8cac736c0cf02600461a31f8268171485c75b20785010dcc76ea84282ee"
+      },
+      "environment": {
+        "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+        "torch": "2.11.0+cu128",
+        "pyg": "2.8.0.post1",
+        "cuda": "12.8",
+        "cuda_available": true,
+        "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "cpu_threads": 1,
+        "git_commit": "9963bb9f32435a1833d8bafe4e6af7da4db185be",
+        "git_diff_status": "M scripts/run_random_baseline.py\n?? 00_THESIS_BIG_PICTURE.md\n?? artifacts/debug/task28_pg_v3_fixed_target_saturation_probe/progress.json\n?? artifacts/debug/task28_pg_v3_micro_pilot/attempt-537a6a316d3a/initial_forward_pair.npz\n?? artifacts/debug/task28_pg_v3_micro_pilot/attempt-537a6a316d3a/progress.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/preflight.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/result.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/run_state.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/validation_candidates.npz\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/preflight.json\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/result.json\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/run_state.json\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/validation_candidates.npz\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/preflight.json\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/result.json\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/run_state.json\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/validation_candidates.npz\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/preflight.json\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/result.json\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/run_state.json\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/validation_candidates.npz\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/file_hashes.json\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/preflight.json\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/result.json\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/supplemental_cpu_parity.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_q_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_raw_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_raw_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_receipt.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_uniform_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_uniform_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_q_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_raw_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_raw_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_receipt.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_uniform_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_uniform_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/candidate_indices.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/initial_receipts.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/result.json\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/call1_branchA.npz\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/call1_branchB.npz\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/call1_pre_rng.pt\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/initial_pg_state.pt\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/initial_rng.pt\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/run_state.json\n?? artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext.pt\n?? artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext_manifest.json\n?? artifacts/extensions/ba_house_scale/ba1000_ext/structural_gt_diagnostics.pt\n?? artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext.pt\n?? artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext_manifest.json\n?? artifacts/extensions/ba_house_scale/ba1500_ext/structural_gt_diagnostics.pt\n?? artifacts/extensions/ba_house_scale/ba500_ext/ba500_ext.pt\n?? artifacts/extensions/ba_house_scale/ba500_ext/ba500_ext_manifest.json\n?? artifacts/extensions/ba_house_scale/ba500_ext/structural_gt_diagnostics.pt\n?? artifacts/extensions/ba_house_scale/ba_house_scale_dataset_manifest.json\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update6000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update6000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update6000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update6000.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0050.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0100.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0250.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0750.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0050.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0100.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0250.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0750.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0050.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0100.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0250.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0750.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update1500.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update2000.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0050.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0100.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0250.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0750.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update1500.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update2000.pt\n?? configs/explainer/pgexplainer_elliptic_v3_soft_ce.yaml\n?? configs/extensions/ba_house_scale/ba1000_ext.json\n?? configs/extensions/ba_house_scale/ba1500_ext.json\n?? configs/extensions/ba_house_scale/ba500_ext.json\n?? docs/audit/ba_house_data_lineage.md\n?? docs/audit/ba_house_end_to_end_protocol_audit.md\n?? docs/audit/ba_house_end_to_end_protocol_evidence.json\n?? docs/audit/ba_house_graphsage_random_baseline_audit.json\n?? docs/audit/ba_house_graphsage_random_baseline_audit.md\n?? docs/audit/ba_house_gvhd_questions.md\n?? docs/audit/ba_house_protocol_table.md\n?? docs/audit/backbone_config_cross_dataset_audit.md\n?? docs/audit/backbone_depth_3_3_2_audit.md\n?? docs/audit/candidate_edge_construction_audit.md\n?? docs/audit/candidate_edge_construction_evidence.json\n?? docs/audit/candidate_edge_open_questions.md\n?? docs/audit/candidate_edge_target_examples.csv\n?? docs/audit/ch4_evidence_matrix.json\n?? docs/audit/ch4_evidence_source_map.md\n?? docs/audit/ch4_open_gaps.md\n?? docs/audit/elliptic_backbone_reimplementation_parity_audit.md\n?? docs/audit/hop_choice_3_3_2_audit.md\n?? docs/audit/pgexplainer_installed_mechanism_deep_dive.json\n?? docs/audit/pgexplainer_installed_mechanism_deep_dive.md\n?? docs/audit/target_leakage_matrix.csv\n?? docs/audit/target_selection_flow_audit.md\n?? docs/audit/target_selection_flow_counts.json\n?? docs/audit/target_selection_protocol_audit.md\n?? docs/audit/task28_kaggle_runtime_dependency_audit.md\n?? docs/audit/task28_kaggle_runtime_dependency_inventory.json\n?? docs/audit/task28_live_progress_deployment.json\n?? docs/audit/task28_pg_elliptic_D1_initialization_reconstruction.json\n?? docs/audit/task28_pg_elliptic_D1_initialization_reconstruction.md\n?? docs/audit/task28_pg_elliptic_E1_hard_delete_sensitivity.json\n?? docs/audit/task28_pg_elliptic_E1_hard_delete_sensitivity.md\n?? docs/audit/task28_pg_elliptic_E2_raw_logit_gauge_audit.json\n?? docs/audit/task28_pg_elliptic_E2_raw_logit_gauge_audit.md\n?? docs/audit/task28_pg_elliptic_E3_common_gradient_audit.json\n?? docs/audit/task28_pg_elliptic_E3_common_gradient_audit.md\n?? docs/audit/task28_pg_elliptic_V3_SAGE_fresh2000_confirmation.json\n?? docs/audit/task28_pg_elliptic_V3_SAGE_fresh2000_confirmation.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_fresh2000_confirmation.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_fresh2000_confirmation.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_final_retry.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_final_retry.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v2.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v2.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v3.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v3.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_replay50_diagnostic.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_replay50_diagnostic.md\n?? docs/audit/task28_pg_elliptic_V4_centered_bounded500.json\n?? docs/audit/task28_pg_elliptic_V4_centered_bounded500.md\n?? docs/audit/task28_pg_elliptic_V4_centered_design.md\n?? docs/audit/task28_pg_elliptic_backbone_specific_validation500_selection.json\n?? docs/audit/task28_pg_elliptic_backbone_specific_validation500_selection.md\n?? docs/audit/task28_pg_elliptic_bounded_quality_probe.json\n?? docs/audit/task28_pg_elliptic_bounded_quality_probe.md\n?? docs/audit/task28_pg_elliptic_early_dynamics.json\n?? docs/audit/task28_pg_elliptic_early_dynamics.md\n?? docs/audit/task28_pg_elliptic_edge_representation_audit.json\n?? docs/audit/task28_pg_elliptic_edge_representation_audit.md\n?? docs/audit/task28_pg_elliptic_edge_sensitivity.json\n?? docs/audit/task28_pg_elliptic_edge_sensitivity.md\n?? docs/audit/task28_pg_elliptic_entropy_ablation.json\n?? docs/audit/task28_pg_elliptic_entropy_ablation.md\n?? docs/audit/task28_pg_elliptic_full30_raw_final200_case_study.json\n?? docs/audit/task28_pg_elliptic_full30_raw_final200_case_study.md\n?? docs/audit/task28_pg_elliptic_full30_raw_final200_per_target.csv\n?? docs/audit/task28_pg_elliptic_historical_full30_numerical_inference_rescue.json\n?? docs/audit/task28_pg_elliptic_historical_full30_numerical_inference_rescue.md\n?? docs/audit/task28_pg_elliptic_historical_full30_validation_audit.json\n?? docs/audit/task28_pg_elliptic_historical_full30_validation_audit.md\n?? docs/audit/task28_pg_elliptic_initial_mlp_signal.json\n?? docs/audit/task28_pg_elliptic_initial_mlp_signal.md\n?? docs/audit/task28_pg_elliptic_lr_ablation.json\n?? docs/audit/task28_pg_elliptic_lr_ablation.md\n?? docs/audit/task28_pg_elliptic_mask_semantics.json\n?? docs/audit/task28_pg_elliptic_mask_semantics.md\n?? docs/audit/task28_pg_elliptic_medium_horizon_500.json\n?? docs/audit/task28_pg_elliptic_medium_horizon_500.md\n?? docs/audit/task28_pg_elliptic_order_sensitivity.json\n?? docs/audit/task28_pg_elliptic_order_sensitivity.md\n?? docs/audit/task28_pg_elliptic_production_checkpoint_manifest.json\n?? docs/audit/task28_pg_elliptic_shuffle_only.json\n?? docs/audit/task28_pg_elliptic_shuffle_only.md\n?? docs/audit/task28_pg_elliptic_true_schedule_3epoch_probe.json\n?? docs/audit/task28_pg_elliptic_true_schedule_3epoch_probe.md\n?? docs/audit/task28_pg_elliptic_v3_fixed_target_saturation_probe.json\n?? docs/audit/task28_pg_elliptic_v3_fixed_target_saturation_probe.md\n?? docs/audit/task28_pg_elliptic_v3_micro_pilot.json\n?? docs/audit/task28_pg_elliptic_v3_micro_pilot.md\n?? docs/audit/task28_pg_elliptic_v3_soft_ce_alignment.json\n?? docs/audit/task28_pg_elliptic_v3_soft_ce_alignment.md\n?? docs/audit/task28_pre_rebuild_deployment_conditions.md\n?? docs/audit/task28_readiness_pre_step04_audit.md\n?? docs/audit/task28_readiness_reaudit_after_integrity_patch.md\n?? docs/audit/task28_step04_closure_step05_authorization.md\n?? docs/audit/task28_step05_primary_seed42_audit.json\n?? docs/audit/task28_step05_primary_seed42_audit.md\n?? docs/audit/task28_step05b_pg_mask_deep_diagnostic.json\n?? docs/audit/task28_step05b_pg_mask_deep_diagnostic.md\n?? docs/audit/task28_step05c_pg_zero_mask_root_cause.json\n?? docs/audit/task28_step05c_pg_zero_mask_root_cause.md\n?? docs/audit/task28_step05d_pg_size_amendment_comparison.json\n?? docs/audit/task28_step05d_pg_size_amendment_comparison.md\n?? docs/audit/task28_unattended_authorization.md\n?? docs/audit/task28_v2_step05f1_micro_pilot_criteria_patch.json\n?? docs/audit/task28_v2_step05f1_micro_pilot_criteria_patch.md\n?? docs/audit/task28_v2_step05f_local_preflight_smoke.json\n?? docs/audit/task28_v2_step05f_local_preflight_smoke.md\n?? docs/audit/task28_v2_step05g_local_micro_pilot.json\n?? docs/audit/task28_v2_step05g_local_micro_pilot.md\n?? docs/audit/task28_v2_step05h_one_saturation_root_cause.json\n?? docs/audit/task28_v2_step05h_one_saturation_root_cause.md\n?? docs/audit/task28_v2_step05i_size_only_pilot.json\n?? docs/audit/task28_v2_step05i_size_only_pilot.md\n?? docs/audit/task28_v2_step05j_trajectory_divergence.json\n?? docs/audit/task28_v2_step05j_trajectory_divergence.md\n?? docs/audit/task28_v2_step05k1_zero_update_forward_audit.json\n?? docs/audit/task28_v2_step05k1_zero_update_forward_audit.md\n?? docs/audit/task28_v2_step05k_matched_branch_diagnostic.json\n?? docs/audit/task28_v2_step05k_matched_branch_diagnostic.md\n?? docs/draft/chapter4_draft_review_notes.md\n?? docs/draft/chapter4_results_and_discussion.md\n?? docs/draft/chapter4_results_and_discussion_revised.docx\n?? docs/draft/chapter4_results_and_discussion_revised.md\n?? docs/draft/chapter4_revision_report.md\n?? docs/elliptic_pgexplainer_step04_kaggle_t4x2_plan.json\n?? docs/elliptic_pgexplainer_step04_kaggle_t4x2_plan.md\n?? docs/extension/ba_house_scale/phase1_generation/01_generation_report.json\n?? docs/extension/ba_house_scale/phase1_generation/01_generation_report.md\n?? docs/extension/ba_house_scale/phase1_generation/02_scale_parity_report.json\n?? docs/extension/ba_house_scale/phase1_generation/02_scale_parity_report.md\n?? docs/extension/ba_house_scale/phase1_generation/03_structural_clean_pool.csv\n?? docs/extension/ba_house_scale/phase1_generation/03_structural_clean_pool.json\n?? docs/extension/ba_house_scale/phase1_generation/04_verifier_receipt.json\n?? docs/extension/ba_house_scale/phase1_generation/command_receipt.json\n?? docs/extension/ba_house_scale/phase1_generation/generation_log.json\n?? docs/extension/ba_house_scale/phase1_generation/protected_baseline_after.json\n?? docs/extension/ba_house_scale/phase1_generation/protected_baseline_before.json\n?? docs/extension/ba_house_scale/phase2_backbones/protected_inputs_before.json\n?? docs/extension/phase1_pipeline_audit/01_ba_house_pipeline_audit.json\n?? docs/extension/phase1_pipeline_audit/01_ba_house_pipeline_audit.md\n?? docs/extension/phase1_pipeline_audit/02_shapeggen_pipeline_audit.json\n?? docs/extension/phase1_pipeline_audit/02_shapeggen_pipeline_audit.md\n?? docs/extension/phase1_pipeline_audit/03_frozen_result_receipt.json\n?? docs/extension/phase1_pipeline_audit/03_frozen_result_receipt.md\n?? docs/extension/phase1_pipeline_audit/04_extension_capability_recommendation.json\n?? docs/extension/phase1_pipeline_audit/04_extension_capability_recommendation.md\n?? docs/extension/phase1_pipeline_audit/audit_readonly.py\n?? docs/extension/phase1_pipeline_audit/build_reports.py\n?? docs/extension/phase1_pipeline_audit/evidence_snapshot.json\n?? docs/extension/phase1_pipeline_audit/protected_baseline_manifest_after.json\n?? docs/extension/phase1_pipeline_audit/protected_baseline_manifest_before.json\n?? docs/extension/phase1_pipeline_audit/verifier_receipt.json\n?? docs/extension/phase1_pipeline_audit/verify_readonly.py\n?? docs/kaggle/task28-step05-authorization/authorization.json\n?? docs/kaggle/task28_kaggle_bootstrap.py\n?? docs/kaggle/task28_kaggle_dual_gpu_run.sh\n?? docs/kaggle/task28_kaggle_notebook_cells.md\n?? docs/kaggle/task28_kaggle_preflight.py\n?? docs/kaggle/task28_kaggle_setup.sh\n?? docs/kaggle/task28_kaggle_smoke.py\n?? execution/task28_pg_v3_fixed_target_saturation_probe.py\n?? execution/task28_pg_v3_micro_pilot.py\n?? execution/task28_pg_v3_soft_ce_zero_update.py\n?? execution/task28_v2_local_micro_pilot.py\n?? execution/task28_v2_micro_pilot_criteria.py\n?? execution/task28_v2_step05f_local.py\n?? execution/task28_v2_step05h_objective_geometry.py\n?? execution/task28_v2_step05i_size_only_pilot.py\n?? execution/task28_v2_step05j_trajectory_analysis.py\n?? execution/task28_v2_step05k1_zero_update_forward_audit.py\n?? execution/task28_v2_step05k_matched_branch_diagnostic.py\n?? results/COMPLETE.txt\n?? results/COMPLETE1.txt\n?? results/elliptic_pg_gcn_seed42.zip\n?? results/elliptic_pg_gcn_seed42_manifest.txt\n?? results/elliptic_pg_graphsage_seed42.zip\n?? results/elliptic_pg_graphsage_seed42_manifest.txt\n?? \"results/epoch_030 (1).zip\"\n?? results/epoch_030.zip\n?? results/task28_primary_seed42_full_export.zip\n?? results/task28_primary_seed42_full_export/elliptic_pgexplainer_step04_kaggle_t4x2_plan.json\n?? results/task28_primary_seed42_full_export/environment-lock.txt\n?? results/task28_primary_seed42_full_export/locks/gcn_seed42.lock\n?? results/task28_primary_seed42_full_export/locks/gpu0.lock\n?? results/task28_primary_seed42_full_export/locks/gpu1.lock\n?? results/task28_primary_seed42_full_export/locks/graphsage_seed42.lock\n?? results/task28_primary_seed42_full_export/locks/session.lock\n?? results/task28_primary_seed42_full_export/operator/exits.tsv\n?? results/task28_primary_seed42_full_export/operator/pids.tsv\n?? results/task28_primary_seed42_full_export/preflight.json\n?? results/task28_primary_seed42_full_export/runtime-dependencies.json\n?? results/task28_primary_seed42_full_export/runtime_authorization.json\n?? results/task28_primary_seed42_full_export/task28_kaggle_dual_gpu_run.sh\n?? results/task28_primary_seed42_full_export/task28_kaggle_preflight.py\n?? results/task28_primary_seed42_full_export/task28_kaggle_setup.sh\n?? results/task28_primary_seed42_full_export/task28_kaggle_smoke.py\n?? results/task28_primary_seed42_full_export/task28_training.kaggle.json\n?? scripts/audit/candidate_edge_construction.py\n?? scripts/audit/task28_runtime_dependencies.py\n?? scripts/audit_target_selection_flow.py\n?? scripts/extensions/generate_ba_house_scale.py\n?? scripts/extensions/train_ba_house_scale_backbones.py\n?? scripts/extensions/verify_ba_house_scale.py\n?? scripts/extensions/verify_ba_house_scale_backbones.py\n?? scripts/package_task28_kaggle_zip.py\n?? scripts/prepare_task28_kaggle_bundle.ps1\n?? src/gnnexplainer_benchmark/explainers/pgexplainer_soft_ce.py\n?? src/gnnexplainer_benchmark/explainers/pgexplainer_v4_centered.py\n?? src/gnnexplainer_benchmark/extensions/__init__.py\n?? src/gnnexplainer_benchmark/extensions/ba_house_scale.py\n?? tests/test_elliptic_task28_kaggle_plan.py\n?? tests/test_pgexplainer_soft_ce.py\n?? tests/test_pgexplainer_v4_centered.py\n?? tests/test_random_backbone_dispatch.py\n?? tests/test_target_selection_flow_audit.py\n?? tests/test_task28_kaggle_auth.py\n?? tests/test_task28_kaggle_headless.py\n?? tests/test_task28_kaggle_smoke_api.py\n?? tests/test_task28_kaggle_zip.py\n?? tests/test_task28_pg_v3_fixed_target_probe.py\n?? tests/test_task28_pg_v3_micro_pilot.py\n?? tests/test_task28_runtime_dependencies.py\n?? tests/test_task28_smoke_comparator.py\n?? tests/test_task28_step05_authorization.py\n?? tests/test_task28_v2_local_micro_pilot.py\n?? tests/test_task28_v2_micro_pilot_criteria.py\n?? tests/test_task28_v2_step05f_local.py\n?? tests/test_task28_v2_step05h_objective_geometry.py\n?? tests/test_task28_v2_step05i_size_only_pilot.py\n?? tests/test_task28_v2_step05j_trajectory_analysis.py\n?? tests/test_task28_v2_step05k1_zero_update_forward_audit.py\n?? tests/test_task28_v2_step05k_matched_branch_diagnostic.py",
+        "determinism_policy": "Frozen seed_everything(42); no new algorithm flags",
+        "deterministic_algorithms": false
+      },
+      "checkpoint_rule": "strict val_accuracy improvement; first occurrence wins ties; patience60; full-graph train-mask-only optimization",
+      "manifest_file": {
+        "path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/gcn/ba1500_ext_gcn_best_manifest.json",
+        "bytes": 29427,
+        "sha256": "5fa9cff6e3049532d0d5d12f6508f3cf1bdedd0afa331312b952852a9afa44d5"
+      }
+    },
+    {
+      "scale": "ba1500_ext",
+      "backbone": "graphsage",
+      "actual_epochs": 300,
+      "best_epoch": 276,
+      "best_validation_accuracy": 0.9666666666666667,
+      "class_weights": [
+        0.4166666567325592,
+        1.5625,
+        1.5625,
+        3.125
+      ],
+      "train_class_counts": [
+        540.0,
+        144.0,
+        144.0,
+        72.0
+      ],
+      "metrics": {
+        "train": {
+          "loss": 0.11727763712406158,
+          "accuracy": 0.9511111111111111,
+          "correct": 856,
+          "total": 900,
+          "motif_correct": 316,
+          "motif_total": 360,
+          "motif_accuracy": 0.8777777777777778
+        },
+        "val": {
+          "loss": 0.1026386022567749,
+          "accuracy": 0.9666666666666667,
+          "correct": 290,
+          "total": 300,
+          "motif_correct": 110,
+          "motif_total": 120,
+          "motif_accuracy": 0.9166666666666666
+        },
+        "test": {
+          "loss": 0.10189501196146011,
+          "accuracy": 0.9533333333333334,
+          "correct": 286,
+          "total": 300,
+          "motif_correct": 106,
+          "motif_total": 120,
+          "motif_accuracy": 0.8833333333333333
+        },
+        "test_per_class": [
+          {
+            "class": 0,
+            "support": 180,
+            "correct": 180,
+            "accuracy": 1.0
+          },
+          {
+            "class": 1,
+            "support": 48,
+            "correct": 48,
+            "accuracy": 1.0
+          },
+          {
+            "class": 2,
+            "support": 48,
+            "correct": 34,
+            "accuracy": 0.7083333333333334
+          },
+          {
+            "class": 3,
+            "support": 24,
+            "correct": 24,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      "resolved_config": {
+        "model": {
+          "type": "GraphSAGE",
+          "convolution": "PyG SAGEConv",
+          "hidden_channels": 32,
+          "num_layers": 3,
+          "dropout": 0.2,
+          "aggr": "sum",
+          "seed": 42
+        },
+        "training": {
+          "learning_rate": 0.01,
+          "weight_decay": 0.0005,
+          "max_epochs": 300,
+          "patience": 60,
+          "device": "auto",
+          "class_weighting": true
+        },
+        "checkpoint": {
+          "monitor": "val_accuracy",
+          "mode": "max"
+        }
+      },
+      "architecture": {
+        "layers": 3,
+        "channels": [
+          10,
+          32,
+          32,
+          4
+        ],
+        "dropout": 0.2,
+        "convolution": "SAGEConv",
+        "cached": null,
+        "aggregation": "sum",
+        "root_weight": true,
+        "normalize": false,
+        "activation": "ReLU after first two convolutions",
+        "output": "raw logits"
+      },
+      "device": "cuda",
+      "seed": 42,
+      "test_only_after_checkpoint_freeze": true,
+      "history_losses": "Post-update eval CE unweighted, as frozen trainer; optimization_loss_weighted is train-only dropout-enabled weighted CE",
+      "status": "BA1500_GRAPHSAGE_TRAINING_PASS",
+      "created_at_utc": "2026-10-09T09:43:07.961048+00:00",
+      "dataset": {
+        "path": "artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext.pt",
+        "bytes": 319493,
+        "sha256": "a4d227ac3b56cf40966c19a5afeef8edbd6a2ad65a9d4a36e34ae5a3dd135b95"
+      },
+      "checkpoint": {
+        "path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/graphsage/ba1500_ext_graphsage_best.pt",
+        "bytes": 16965,
+        "sha256": "01dcc7c4818e34a91d5d19c36acbefec818b095c29adb13dff208cb4a2a1b56e"
+      },
+      "history": {
+        "path": "results/extensions/ba_house_scale/backbones/ba1500_ext/graphsage/training_history.csv",
+        "bytes": 37365,
+        "sha256": "3ee705e6163139c17c59603bc26608939a7e23ec3b2223aa626d77ce8344a9f4"
+      },
+      "summary": {
+        "path": "results/extensions/ba_house_scale/backbones/ba1500_ext/graphsage/summary.json",
+        "bytes": 2590,
+        "sha256": "fdbdc283f10839f2751f61dee5bb7838fe22701f2890a0781c4f196b70d07e06"
+      },
+      "environment": {
+        "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+        "torch": "2.11.0+cu128",
+        "pyg": "2.8.0.post1",
+        "cuda": "12.8",
+        "cuda_available": true,
+        "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "cpu_threads": 1,
+        "git_commit": "9963bb9f32435a1833d8bafe4e6af7da4db185be",
+        "git_diff_status": "M scripts/run_random_baseline.py\n?? 00_THESIS_BIG_PICTURE.md\n?? artifacts/debug/task28_pg_v3_fixed_target_saturation_probe/progress.json\n?? artifacts/debug/task28_pg_v3_micro_pilot/attempt-537a6a316d3a/initial_forward_pair.npz\n?? artifacts/debug/task28_pg_v3_micro_pilot/attempt-537a6a316d3a/progress.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/preflight.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/result.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/run_state.json\n?? artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/validation_candidates.npz\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/preflight.json\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/result.json\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/run_state.json\n?? artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/validation_candidates.npz\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/preflight.json\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/result.json\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/run_state.json\n?? artifacts/debug/task28_v2_size_pilot/size_020/attempt-4d786481e92b/validation_candidates.npz\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/preflight.json\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/result.json\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/run_state.json\n?? artifacts/debug/task28_v2_size_pilot/size_050/attempt-9eaf29a65b8e/validation_candidates.npz\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/file_hashes.json\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/preflight.json\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/result.json\n?? artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/supplemental_cpu_parity.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_q_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_raw_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_raw_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_receipt.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_uniform_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchA_uniform_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_q_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_raw_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_raw_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_receipt.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_uniform_candidate.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/branchB_uniform_full.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/candidate_indices.npy\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/initial_receipts.json\n?? artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/result.json\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/call1_branchA.npz\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/call1_branchB.npz\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/call1_pre_rng.pt\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/initial_pg_state.pt\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/initial_rng.pt\n?? artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/run_state.json\n?? artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext.pt\n?? artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext_manifest.json\n?? artifacts/extensions/ba_house_scale/ba1000_ext/structural_gt_diagnostics.pt\n?? artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext.pt\n?? artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext_manifest.json\n?? artifacts/extensions/ba_house_scale/ba1500_ext/structural_gt_diagnostics.pt\n?? artifacts/extensions/ba_house_scale/ba500_ext/ba500_ext.pt\n?? artifacts/extensions/ba_house_scale/ba500_ext/ba500_ext_manifest.json\n?? artifacts/extensions/ba_house_scale/ba500_ext/structural_gt_diagnostics.pt\n?? artifacts/extensions/ba_house_scale/ba_house_scale_dataset_manifest.json\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/A_FRESH_SORTED/update6000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/GCN_V4/B_FRESH_SHUFFLE2718/update6000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/A_FRESH_SORTED/update6000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update1500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update2000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update2500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update3000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update3500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update4000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update4500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update5000.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update5500.pt\n?? artifacts/task28_true_schedule_3epoch/SAGE_V3/B_FRESH_SHUFFLE2718/update6000.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0050.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0100.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0250.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update0750.pt\n?? artifacts/task28_v3_sage_fresh2000/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0050.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0100.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0250.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update0750.pt\n?? artifacts/task28_v3_sage_fresh2000/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0000.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0050.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0100.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0250.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0500.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update0750.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update1000.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update1500.pt\n?? artifacts/task28_v4_gcn_fresh2000/A_FRESH_SORTED/update2000.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0000.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0050.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0100.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0250.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0500.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update0750.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update1000.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update1500.pt\n?? artifacts/task28_v4_gcn_fresh2000/B_FRESH_SHUFFLE2718/update2000.pt\n?? configs/explainer/pgexplainer_elliptic_v3_soft_ce.yaml\n?? configs/extensions/ba_house_scale/ba1000_ext.json\n?? configs/extensions/ba_house_scale/ba1500_ext.json\n?? configs/extensions/ba_house_scale/ba500_ext.json\n?? docs/audit/ba_house_data_lineage.md\n?? docs/audit/ba_house_end_to_end_protocol_audit.md\n?? docs/audit/ba_house_end_to_end_protocol_evidence.json\n?? docs/audit/ba_house_graphsage_random_baseline_audit.json\n?? docs/audit/ba_house_graphsage_random_baseline_audit.md\n?? docs/audit/ba_house_gvhd_questions.md\n?? docs/audit/ba_house_protocol_table.md\n?? docs/audit/backbone_config_cross_dataset_audit.md\n?? docs/audit/backbone_depth_3_3_2_audit.md\n?? docs/audit/candidate_edge_construction_audit.md\n?? docs/audit/candidate_edge_construction_evidence.json\n?? docs/audit/candidate_edge_open_questions.md\n?? docs/audit/candidate_edge_target_examples.csv\n?? docs/audit/ch4_evidence_matrix.json\n?? docs/audit/ch4_evidence_source_map.md\n?? docs/audit/ch4_open_gaps.md\n?? docs/audit/elliptic_backbone_reimplementation_parity_audit.md\n?? docs/audit/hop_choice_3_3_2_audit.md\n?? docs/audit/pgexplainer_installed_mechanism_deep_dive.json\n?? docs/audit/pgexplainer_installed_mechanism_deep_dive.md\n?? docs/audit/target_leakage_matrix.csv\n?? docs/audit/target_selection_flow_audit.md\n?? docs/audit/target_selection_flow_counts.json\n?? docs/audit/target_selection_protocol_audit.md\n?? docs/audit/task28_kaggle_runtime_dependency_audit.md\n?? docs/audit/task28_kaggle_runtime_dependency_inventory.json\n?? docs/audit/task28_live_progress_deployment.json\n?? docs/audit/task28_pg_elliptic_D1_initialization_reconstruction.json\n?? docs/audit/task28_pg_elliptic_D1_initialization_reconstruction.md\n?? docs/audit/task28_pg_elliptic_E1_hard_delete_sensitivity.json\n?? docs/audit/task28_pg_elliptic_E1_hard_delete_sensitivity.md\n?? docs/audit/task28_pg_elliptic_E2_raw_logit_gauge_audit.json\n?? docs/audit/task28_pg_elliptic_E2_raw_logit_gauge_audit.md\n?? docs/audit/task28_pg_elliptic_E3_common_gradient_audit.json\n?? docs/audit/task28_pg_elliptic_E3_common_gradient_audit.md\n?? docs/audit/task28_pg_elliptic_V3_SAGE_fresh2000_confirmation.json\n?? docs/audit/task28_pg_elliptic_V3_SAGE_fresh2000_confirmation.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_fresh2000_confirmation.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_fresh2000_confirmation.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_final_retry.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_final_retry.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v2.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v2.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v3.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_long_horizon_retry_v3.md\n?? docs/audit/task28_pg_elliptic_V4_GCN_replay50_diagnostic.json\n?? docs/audit/task28_pg_elliptic_V4_GCN_replay50_diagnostic.md\n?? docs/audit/task28_pg_elliptic_V4_centered_bounded500.json\n?? docs/audit/task28_pg_elliptic_V4_centered_bounded500.md\n?? docs/audit/task28_pg_elliptic_V4_centered_design.md\n?? docs/audit/task28_pg_elliptic_backbone_specific_validation500_selection.json\n?? docs/audit/task28_pg_elliptic_backbone_specific_validation500_selection.md\n?? docs/audit/task28_pg_elliptic_bounded_quality_probe.json\n?? docs/audit/task28_pg_elliptic_bounded_quality_probe.md\n?? docs/audit/task28_pg_elliptic_early_dynamics.json\n?? docs/audit/task28_pg_elliptic_early_dynamics.md\n?? docs/audit/task28_pg_elliptic_edge_representation_audit.json\n?? docs/audit/task28_pg_elliptic_edge_representation_audit.md\n?? docs/audit/task28_pg_elliptic_edge_sensitivity.json\n?? docs/audit/task28_pg_elliptic_edge_sensitivity.md\n?? docs/audit/task28_pg_elliptic_entropy_ablation.json\n?? docs/audit/task28_pg_elliptic_entropy_ablation.md\n?? docs/audit/task28_pg_elliptic_full30_raw_final200_case_study.json\n?? docs/audit/task28_pg_elliptic_full30_raw_final200_case_study.md\n?? docs/audit/task28_pg_elliptic_full30_raw_final200_per_target.csv\n?? docs/audit/task28_pg_elliptic_historical_full30_numerical_inference_rescue.json\n?? docs/audit/task28_pg_elliptic_historical_full30_numerical_inference_rescue.md\n?? docs/audit/task28_pg_elliptic_historical_full30_validation_audit.json\n?? docs/audit/task28_pg_elliptic_historical_full30_validation_audit.md\n?? docs/audit/task28_pg_elliptic_initial_mlp_signal.json\n?? docs/audit/task28_pg_elliptic_initial_mlp_signal.md\n?? docs/audit/task28_pg_elliptic_lr_ablation.json\n?? docs/audit/task28_pg_elliptic_lr_ablation.md\n?? docs/audit/task28_pg_elliptic_mask_semantics.json\n?? docs/audit/task28_pg_elliptic_mask_semantics.md\n?? docs/audit/task28_pg_elliptic_medium_horizon_500.json\n?? docs/audit/task28_pg_elliptic_medium_horizon_500.md\n?? docs/audit/task28_pg_elliptic_order_sensitivity.json\n?? docs/audit/task28_pg_elliptic_order_sensitivity.md\n?? docs/audit/task28_pg_elliptic_production_checkpoint_manifest.json\n?? docs/audit/task28_pg_elliptic_shuffle_only.json\n?? docs/audit/task28_pg_elliptic_shuffle_only.md\n?? docs/audit/task28_pg_elliptic_true_schedule_3epoch_probe.json\n?? docs/audit/task28_pg_elliptic_true_schedule_3epoch_probe.md\n?? docs/audit/task28_pg_elliptic_v3_fixed_target_saturation_probe.json\n?? docs/audit/task28_pg_elliptic_v3_fixed_target_saturation_probe.md\n?? docs/audit/task28_pg_elliptic_v3_micro_pilot.json\n?? docs/audit/task28_pg_elliptic_v3_micro_pilot.md\n?? docs/audit/task28_pg_elliptic_v3_soft_ce_alignment.json\n?? docs/audit/task28_pg_elliptic_v3_soft_ce_alignment.md\n?? docs/audit/task28_pre_rebuild_deployment_conditions.md\n?? docs/audit/task28_readiness_pre_step04_audit.md\n?? docs/audit/task28_readiness_reaudit_after_integrity_patch.md\n?? docs/audit/task28_step04_closure_step05_authorization.md\n?? docs/audit/task28_step05_primary_seed42_audit.json\n?? docs/audit/task28_step05_primary_seed42_audit.md\n?? docs/audit/task28_step05b_pg_mask_deep_diagnostic.json\n?? docs/audit/task28_step05b_pg_mask_deep_diagnostic.md\n?? docs/audit/task28_step05c_pg_zero_mask_root_cause.json\n?? docs/audit/task28_step05c_pg_zero_mask_root_cause.md\n?? docs/audit/task28_step05d_pg_size_amendment_comparison.json\n?? docs/audit/task28_step05d_pg_size_amendment_comparison.md\n?? docs/audit/task28_unattended_authorization.md\n?? docs/audit/task28_v2_step05f1_micro_pilot_criteria_patch.json\n?? docs/audit/task28_v2_step05f1_micro_pilot_criteria_patch.md\n?? docs/audit/task28_v2_step05f_local_preflight_smoke.json\n?? docs/audit/task28_v2_step05f_local_preflight_smoke.md\n?? docs/audit/task28_v2_step05g_local_micro_pilot.json\n?? docs/audit/task28_v2_step05g_local_micro_pilot.md\n?? docs/audit/task28_v2_step05h_one_saturation_root_cause.json\n?? docs/audit/task28_v2_step05h_one_saturation_root_cause.md\n?? docs/audit/task28_v2_step05i_size_only_pilot.json\n?? docs/audit/task28_v2_step05i_size_only_pilot.md\n?? docs/audit/task28_v2_step05j_trajectory_divergence.json\n?? docs/audit/task28_v2_step05j_trajectory_divergence.md\n?? docs/audit/task28_v2_step05k1_zero_update_forward_audit.json\n?? docs/audit/task28_v2_step05k1_zero_update_forward_audit.md\n?? docs/audit/task28_v2_step05k_matched_branch_diagnostic.json\n?? docs/audit/task28_v2_step05k_matched_branch_diagnostic.md\n?? docs/draft/chapter4_draft_review_notes.md\n?? docs/draft/chapter4_results_and_discussion.md\n?? docs/draft/chapter4_results_and_discussion_revised.docx\n?? docs/draft/chapter4_results_and_discussion_revised.md\n?? docs/draft/chapter4_revision_report.md\n?? docs/elliptic_pgexplainer_step04_kaggle_t4x2_plan.json\n?? docs/elliptic_pgexplainer_step04_kaggle_t4x2_plan.md\n?? docs/extension/ba_house_scale/phase1_generation/01_generation_report.json\n?? docs/extension/ba_house_scale/phase1_generation/01_generation_report.md\n?? docs/extension/ba_house_scale/phase1_generation/02_scale_parity_report.json\n?? docs/extension/ba_house_scale/phase1_generation/02_scale_parity_report.md\n?? docs/extension/ba_house_scale/phase1_generation/03_structural_clean_pool.csv\n?? docs/extension/ba_house_scale/phase1_generation/03_structural_clean_pool.json\n?? docs/extension/ba_house_scale/phase1_generation/04_verifier_receipt.json\n?? docs/extension/ba_house_scale/phase1_generation/command_receipt.json\n?? docs/extension/ba_house_scale/phase1_generation/generation_log.json\n?? docs/extension/ba_house_scale/phase1_generation/protected_baseline_after.json\n?? docs/extension/ba_house_scale/phase1_generation/protected_baseline_before.json\n?? docs/extension/ba_house_scale/phase2_backbones/protected_inputs_before.json\n?? docs/extension/phase1_pipeline_audit/01_ba_house_pipeline_audit.json\n?? docs/extension/phase1_pipeline_audit/01_ba_house_pipeline_audit.md\n?? docs/extension/phase1_pipeline_audit/02_shapeggen_pipeline_audit.json\n?? docs/extension/phase1_pipeline_audit/02_shapeggen_pipeline_audit.md\n?? docs/extension/phase1_pipeline_audit/03_frozen_result_receipt.json\n?? docs/extension/phase1_pipeline_audit/03_frozen_result_receipt.md\n?? docs/extension/phase1_pipeline_audit/04_extension_capability_recommendation.json\n?? docs/extension/phase1_pipeline_audit/04_extension_capability_recommendation.md\n?? docs/extension/phase1_pipeline_audit/audit_readonly.py\n?? docs/extension/phase1_pipeline_audit/build_reports.py\n?? docs/extension/phase1_pipeline_audit/evidence_snapshot.json\n?? docs/extension/phase1_pipeline_audit/protected_baseline_manifest_after.json\n?? docs/extension/phase1_pipeline_audit/protected_baseline_manifest_before.json\n?? docs/extension/phase1_pipeline_audit/verifier_receipt.json\n?? docs/extension/phase1_pipeline_audit/verify_readonly.py\n?? docs/kaggle/task28-step05-authorization/authorization.json\n?? docs/kaggle/task28_kaggle_bootstrap.py\n?? docs/kaggle/task28_kaggle_dual_gpu_run.sh\n?? docs/kaggle/task28_kaggle_notebook_cells.md\n?? docs/kaggle/task28_kaggle_preflight.py\n?? docs/kaggle/task28_kaggle_setup.sh\n?? docs/kaggle/task28_kaggle_smoke.py\n?? execution/task28_pg_v3_fixed_target_saturation_probe.py\n?? execution/task28_pg_v3_micro_pilot.py\n?? execution/task28_pg_v3_soft_ce_zero_update.py\n?? execution/task28_v2_local_micro_pilot.py\n?? execution/task28_v2_micro_pilot_criteria.py\n?? execution/task28_v2_step05f_local.py\n?? execution/task28_v2_step05h_objective_geometry.py\n?? execution/task28_v2_step05i_size_only_pilot.py\n?? execution/task28_v2_step05j_trajectory_analysis.py\n?? execution/task28_v2_step05k1_zero_update_forward_audit.py\n?? execution/task28_v2_step05k_matched_branch_diagnostic.py\n?? results/COMPLETE.txt\n?? results/COMPLETE1.txt\n?? results/elliptic_pg_gcn_seed42.zip\n?? results/elliptic_pg_gcn_seed42_manifest.txt\n?? results/elliptic_pg_graphsage_seed42.zip\n?? results/elliptic_pg_graphsage_seed42_manifest.txt\n?? \"results/epoch_030 (1).zip\"\n?? results/epoch_030.zip\n?? results/task28_primary_seed42_full_export.zip\n?? results/task28_primary_seed42_full_export/elliptic_pgexplainer_step04_kaggle_t4x2_plan.json\n?? results/task28_primary_seed42_full_export/environment-lock.txt\n?? results/task28_primary_seed42_full_export/locks/gcn_seed42.lock\n?? results/task28_primary_seed42_full_export/locks/gpu0.lock\n?? results/task28_primary_seed42_full_export/locks/gpu1.lock\n?? results/task28_primary_seed42_full_export/locks/graphsage_seed42.lock\n?? results/task28_primary_seed42_full_export/locks/session.lock\n?? results/task28_primary_seed42_full_export/operator/exits.tsv\n?? results/task28_primary_seed42_full_export/operator/pids.tsv\n?? results/task28_primary_seed42_full_export/preflight.json\n?? results/task28_primary_seed42_full_export/runtime-dependencies.json\n?? results/task28_primary_seed42_full_export/runtime_authorization.json\n?? results/task28_primary_seed42_full_export/task28_kaggle_dual_gpu_run.sh\n?? results/task28_primary_seed42_full_export/task28_kaggle_preflight.py\n?? results/task28_primary_seed42_full_export/task28_kaggle_setup.sh\n?? results/task28_primary_seed42_full_export/task28_kaggle_smoke.py\n?? results/task28_primary_seed42_full_export/task28_training.kaggle.json\n?? scripts/audit/candidate_edge_construction.py\n?? scripts/audit/task28_runtime_dependencies.py\n?? scripts/audit_target_selection_flow.py\n?? scripts/extensions/generate_ba_house_scale.py\n?? scripts/extensions/train_ba_house_scale_backbones.py\n?? scripts/extensions/verify_ba_house_scale.py\n?? scripts/extensions/verify_ba_house_scale_backbones.py\n?? scripts/package_task28_kaggle_zip.py\n?? scripts/prepare_task28_kaggle_bundle.ps1\n?? src/gnnexplainer_benchmark/explainers/pgexplainer_soft_ce.py\n?? src/gnnexplainer_benchmark/explainers/pgexplainer_v4_centered.py\n?? src/gnnexplainer_benchmark/extensions/__init__.py\n?? src/gnnexplainer_benchmark/extensions/ba_house_scale.py\n?? tests/test_elliptic_task28_kaggle_plan.py\n?? tests/test_pgexplainer_soft_ce.py\n?? tests/test_pgexplainer_v4_centered.py\n?? tests/test_random_backbone_dispatch.py\n?? tests/test_target_selection_flow_audit.py\n?? tests/test_task28_kaggle_auth.py\n?? tests/test_task28_kaggle_headless.py\n?? tests/test_task28_kaggle_smoke_api.py\n?? tests/test_task28_kaggle_zip.py\n?? tests/test_task28_pg_v3_fixed_target_probe.py\n?? tests/test_task28_pg_v3_micro_pilot.py\n?? tests/test_task28_runtime_dependencies.py\n?? tests/test_task28_smoke_comparator.py\n?? tests/test_task28_step05_authorization.py\n?? tests/test_task28_v2_local_micro_pilot.py\n?? tests/test_task28_v2_micro_pilot_criteria.py\n?? tests/test_task28_v2_step05f_local.py\n?? tests/test_task28_v2_step05h_objective_geometry.py\n?? tests/test_task28_v2_step05i_size_only_pilot.py\n?? tests/test_task28_v2_step05j_trajectory_analysis.py\n?? tests/test_task28_v2_step05k1_zero_update_forward_audit.py\n?? tests/test_task28_v2_step05k_matched_branch_diagnostic.py",
+        "determinism_policy": "Frozen seed_everything(42); no new algorithm flags",
+        "deterministic_algorithms": false
+      },
+      "checkpoint_rule": "strict val_accuracy improvement; first occurrence wins ties; patience60; full-graph train-mask-only optimization",
+      "manifest_file": {
+        "path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/graphsage/ba1500_ext_graphsage_best_manifest.json",
+        "bytes": 29523,
+        "sha256": "7169e830e965b8c6d1981ec3b62ce87cd180cbf39ad0a1b9611a1edec506bfae"
+      }
+    }
+  ],
+  "readiness": {
+    "counts_only": true,
+    "no_target_ids_or_pg_pools": true,
+    "scales": {
+      "ba1000_ext": {
+        "splits": [
+          {
+            "split": "train",
+            "common_correct": 373,
+            "common_correct_motif": 94,
+            "common_correct_motif_structurally_clean": 94
+          },
+          {
+            "split": "val",
+            "common_correct": 131,
+            "common_correct_motif": 32,
+            "common_correct_motif_structurally_clean": 32
+          },
+          {
+            "split": "test",
+            "common_correct": 131,
+            "common_correct_motif": 32,
+            "common_correct_motif_structurally_clean": 32
+          }
+        ],
+        "test_class_composition": {
+          "1": 32,
+          "2": 0,
+          "3": 0
+        },
+        "test_total": 32
+      },
+      "ba1500_ext": {
+        "splits": [
+          {
+            "split": "train",
+            "common_correct": 569,
+            "common_correct_motif": 141,
+            "common_correct_motif_structurally_clean": 141
+          },
+          {
+            "split": "val",
+            "common_correct": 193,
+            "common_correct_motif": 48,
+            "common_correct_motif_structurally_clean": 48
+          },
+          {
+            "split": "test",
+            "common_correct": 195,
+            "common_correct_motif": 48,
+            "common_correct_motif_structurally_clean": 48
+          }
+        ],
+        "test_class_composition": {
+          "1": 48,
+          "2": 0,
+          "3": 0
+        },
+        "test_total": 48
+      }
+    },
+    "readiness_criterion": "Nonempty clean common-correct motif intersection in each split at both scales; no final quota or accuracy threshold is assumed",
+    "verdict": "BA_HOUSE_SCALE_COMMON_CORRECT_SELECTION_READY"
+  },
+  "source_hashes": [
+    {
+      "path": "scripts/extensions/train_ba_house_scale_backbones.py",
+      "bytes": 22490,
+      "sha256": "40c40a894365f3bd7fba22fb15e35f62580c4eab78b17aacf03f16feaff59344"
+    },
+    {
+      "path": "scripts/extensions/verify_ba_house_scale_backbones.py",
+      "bytes": 20161,
+      "sha256": "05e64c5af1aa468e4a4d8e437a402e8e9a1debbe53c40543595eeafbd4616f33"
+    }
+  ],
+  "output_hashes": [
+    {
+      "path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/gcn/ba1000_ext_gcn_best.pt",
+      "bytes": 10321,
+      "sha256": "812e123a2ce3c3ed0d9b04eaca78cbba8a4f72d2fa61abf09cf336dde01d75ef"
+    },
+    {
+      "path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/gcn/ba1000_ext_gcn_best_manifest.json",
+      "bytes": 29384,
+      "sha256": "ead3c4da725f01fcab4eb75148ca0a27321ad14db05c385934cdfeab4c63e358"
+    },
+    {
+      "path": "results/extensions/ba_house_scale/backbones/ba1000_ext/gcn/training_history.csv",
+      "bytes": 8915,
+      "sha256": "99575f445bf6718874c1e181655f11b59af2e18597e1f2b7fa0a97f429cf79da"
+    },
+    {
+      "path": "results/extensions/ba_house_scale/backbones/ba1000_ext/gcn/summary.json",
+      "bytes": 2476,
+      "sha256": "775aa39a98f1b82e252c354bb638b85e3debde3a0fe8a409893a4f74657a6115"
+    },
+    {
+      "path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/graphsage/ba1000_ext_graphsage_best.pt",
+      "bytes": 16965,
+      "sha256": "2c51117461c3eb2ff1cb29b291296f5202d114ba4ac4e8543754b6ceeeb607ca"
+    },
+    {
+      "path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/graphsage/ba1000_ext_graphsage_best_manifest.json",
+      "bytes": 29443,
+      "sha256": "13e643f2bebfbb1b52321f93a0700e890dc6d43f30e9c76d25dfd94baf65edc0"
+    },
+    {
+      "path": "results/extensions/ba_house_scale/backbones/ba1000_ext/graphsage/training_history.csv",
+      "bytes": 17648,
+      "sha256": "7455097cfad7b9265920fb1c2282890fac486d1c46560661d563e9f1b21a7fe9"
+    },
+    {
+      "path": "results/extensions/ba_house_scale/backbones/ba1000_ext/graphsage/summary.json",
+      "bytes": 2510,
+      "sha256": "d28b26a2edc8efe2ddb9705a9c9409cc337019664769122de233572286466b32"
+    },
+    {
+      "path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/gcn/ba1500_ext_gcn_best.pt",
+      "bytes": 10321,
+      "sha256": "be0ffcacc4031eb0dec6195120c608791082475a3d498c59bee1acbb89451bd7"
+    },
+    {
+      "path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/gcn/ba1500_ext_gcn_best_manifest.json",
+      "bytes": 29427,
+      "sha256": "5fa9cff6e3049532d0d5d12f6508f3cf1bdedd0afa331312b952852a9afa44d5"
+    },
+    {
+      "path": "results/extensions/ba_house_scale/backbones/ba1500_ext/gcn/training_history.csv",
+      "bytes": 7633,
+      "sha256": "f906fd9684afdac0a1aa8699d83d079a4ecb0e10958118dd9d525e38334fec4f"
+    },
+    {
+      "path": "results/extensions/ba_house_scale/backbones/ba1500_ext/gcn/summary.json",
+      "bytes": 2519,
+      "sha256": "aff8c8cac736c0cf02600461a31f8268171485c75b20785010dcc76ea84282ee"
+    },
+    {
+      "path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/graphsage/ba1500_ext_graphsage_best.pt",
+      "bytes": 16965,
+      "sha256": "01dcc7c4818e34a91d5d19c36acbefec818b095c29adb13dff208cb4a2a1b56e"
+    },
+    {
+      "path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/graphsage/ba1500_ext_graphsage_best_manifest.json",
+      "bytes": 29523,
+      "sha256": "7169e830e965b8c6d1981ec3b62ce87cd180cbf39ad0a1b9611a1edec506bfae"
+    },
+    {
+      "path": "results/extensions/ba_house_scale/backbones/ba1500_ext/graphsage/training_history.csv",
+      "bytes": 37365,
+      "sha256": "3ee705e6163139c17c59603bc26608939a7e23ec3b2223aa626d77ce8344a9f4"
+    },
+    {
+      "path": "results/extensions/ba_house_scale/backbones/ba1500_ext/graphsage/summary.json",
+      "bytes": 2590,
+      "sha256": "fdbdc283f10839f2751f61dee5bb7838fe22701f2890a0781c4f196b70d07e06"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase2_backbones/01_backbone_training_report.md",
+      "bytes": 1322,
+      "sha256": "7061cf528d61b4a18a8f3cfca62012cfa2023e8e441fec8fb56e217c2e117295"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase2_backbones/01_backbone_training_report.json",
+      "bytes": 123485,
+      "sha256": "40d25c1dba8517d206f291b4722c08d45c695eba6dba011291db7b944ecca9d5"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase2_backbones/02_predictive_comparison.md",
+      "bytes": 1964,
+      "sha256": "47cfac29181d99ec27cc3add8517bb2944625ef3a851d92ac6c79fdcf5c92832"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase2_backbones/02_predictive_comparison.json",
+      "bytes": 125191,
+      "sha256": "be8d30fb9420a6e7d81a756ebec27cb8a858570978b6fef8867ad9e3d01cee48"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase2_backbones/03_common_correct_readiness.md",
+      "bytes": 789,
+      "sha256": "096a7088da5df177367c3450efd954d497201f15e00aafef2ef801fac138e64e"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase2_backbones/03_common_correct_readiness.json",
+      "bytes": 2995,
+      "sha256": "de189aa58f75e174fa09b491a5e65fb3198cf2719d9b57fac1b4ffd53691829b"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase2_backbones/protected_inputs_before.json",
+      "bytes": 10340260,
+      "sha256": "a88043f0db9d88ddd10c7e8282b0d295f82c7212a7408dd5a379057a51f686b3"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase2_backbones/command_receipt.json",
+      "bytes": 26409,
+      "sha256": "9e64717a258268c2e5db77158e9a3e85556b27b3f88fab28f92aad7983b50447"
+    },
+    {
+      "path": "docs/extension/ba_house_scale/phase2_backbones/training_log.json",
+      "bytes": 2490,
+      "sha256": "974c357512aa32f763690af4a794e0df0d531fbdfd506fef6234438fe98bc681"
+    }
+  ],
+  "final_receipt": "04_verifier_receipt.json",
+  "self_and_final_receipts_excluded": true
+}

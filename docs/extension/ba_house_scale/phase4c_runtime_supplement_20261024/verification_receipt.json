@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "measured_rows": 720,
+  "unique_target_repeat_records": 720,
+  "summary_cells": 8,
+  "table_rows": 12,
+  "independent_mean_recalculation": "PASS",
+  "source_hash_check": "PASS",
+  "parity": [
+    {
+      "scale": "ba1000_ext",
+      "backbone": "gcn",
+      "method": "GNNExplainer",
+      "max_score_absolute_difference": 5.960464477539063e-08,
+      "allclose_to_archived_scores": true
+    },
+    {
+      "scale": "ba1000_ext",
+      "backbone": "gcn",
+      "method": "PGExplainer",
+      "max_score_absolute_difference": 3.686287386450715e-17,
+      "allclose_to_archived_scores": true
+    },
+    {
+      "scale": "ba1000_ext",
+      "backbone": "graphsage",
+      "method": "GNNExplainer",
+      "max_score_absolute_difference": 5.960464477539063e-08,
+      "allclose_to_archived_scores": true
+    },
+    {
+      "scale": "ba1000_ext",
+      "backbone": "graphsage",
+      "method": "PGExplainer",
+      "max_score_absolute_difference": 2.1047890186309814e-07,
+      "allclose_to_archived_scores": true
+    },
+    {
+      "scale": "ba1500_ext",
+      "backbone": "gcn",
+      "method": "GNNExplainer",
+      "max_score_absolute_difference": 5.960464477539063e-08,
+      "allclose_to_archived_scores": true
+    },
+    {
+      "scale": "ba1500_ext",
+      "backbone": "gcn",
+      "method": "PGExplainer",
+      "max_score_absolute_difference": 1.5178830414797062e-18,
+      "allclose_to_archived_scores": true
+    },
+    {
+      "scale": "ba1500_ext",
+      "backbone": "graphsage",
+      "method": "GNNExplainer",
+      "max_score_absolute_difference": 5.960464477539063e-08,
+      "allclose_to_archived_scores": true
+    },
+    {
+      "scale": "ba1500_ext",
+      "backbone": "graphsage",
+      "method": "PGExplainer",
+      "max_score_absolute_difference": 4.738569259643555e-06,
+      "allclose_to_archived_scores": true
+    }
+  ]
+}

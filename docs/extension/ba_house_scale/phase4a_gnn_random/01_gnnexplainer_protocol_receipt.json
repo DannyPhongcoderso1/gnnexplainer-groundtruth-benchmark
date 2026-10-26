@@ -1,0 +1,163 @@
+{
+  "verdict": "BA_HOUSE_SCALE_GNNEXPLAINER_PROTOCOL_PARITY_PASS",
+  "resolved_config": {
+    "explainer": {
+      "algorithm": "PyG GNNExplainer",
+      "explanation_type": "model",
+      "task_level": "node",
+      "return_type": "raw",
+      "edge_mask_type": "object",
+      "node_mask_type": "common_attributes",
+      "epochs": 5,
+      "learning_rate": 0.01,
+      "seed": 42,
+      "top_k_edges": 25
+    }
+  },
+  "coefficients": {
+    "edge_size": 0.005,
+    "edge_reduction": "sum",
+    "edge_ent": 1.0,
+    "node_feat_size": 1.0,
+    "node_feat_reduction": "mean",
+    "node_feat_ent": 0.1,
+    "EPS": 1e-15
+  },
+  "phase4d": {
+    "stability_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "random_baseline_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "selected_edge_ratio": 0.2,
+    "rounding_rule": "ceil(candidate_edge_count * selected_edge_ratio), minimum 1",
+    "edge_ranking_metric_scope": "continuous_scores_over_full_candidate_edge_set"
+  },
+  "optimizer": "Adam mask parameters only",
+  "candidate": "induced3hop; full-graph GNN optimization, candidate-filtered downstream scores",
+  "topk": "CPU torch.topk(float32 candidate scores); native frozen tie behavior unchanged",
+  "ignored_legacy_top_k_edges": "25 is not used by ratio-budget path; actual K=ceil(.2*C)",
+  "fidelity": "Physical edge-column remove and globally retain only selected columns; x unchanged; Fid+ and Fid- are original-class flip indicators; ratio None iff p_orig==0",
+  "stability": "Mean of all unordered pair Jaccards per target; macro mean/sample SD over targets",
+  "random": "CPU float32 Uniform; seed=s*1000003+node; scores generated once and shared",
+  "random_aggregation": "Mean across10 seeds per target then macro targets. Historical SD is sample SD over pooled target-seed rows (batch summary/raw Random receipt). Also retain per-target-mean SD and across-seed macro SD separately, without altering mean.",
+  "historical_metadata": [
+    {
+      "path": "results/explanations/frozen_phase4c_v2/node_306/metadata.json",
+      "bytes": 1984,
+      "sha256": "f145f6801e87753c7d001091b6dd304ef2ffe992a01bf44f13b857534cca1e1f"
+    },
+    {
+      "path": "results/explanations/graphsage_gnnexplainer/seed42/node_306/metadata.json",
+      "bytes": 1947,
+      "sha256": "c5ecaf89f855703d5acf930a698029c3dddcdf4fbebbae8bb73c3ad7366afbe8"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "configs/explainer/gnnexplainer.yaml",
+      "bytes": 326,
+      "sha256": "990631db53fddcce2b4d281c24c50cfe822655fa5965762fda127c1f48b20d60"
+    },
+    {
+      "path": "configs/evaluation/phase4d.yaml",
+      "bytes": 376,
+      "sha256": "939ad03fd0292280a14a0521b4b2f97ab390dcaf94a0da65edbb7b23ab596636"
+    },
+    {
+      "path": "configs/evaluation/core_metrics.yaml",
+      "bytes": 563,
+      "sha256": "c919ea2da3b4a777b56bc59d6a002119d5074bb101d4bded9078528e390673d6"
+    },
+    {
+      "path": "src/gnnexplainer_benchmark/explain/gnnexplainer_runner.py",
+      "bytes": 2327,
+      "sha256": "bdeeb1ce3dbb4b17726a92d17cc8c1471643f7a34cf4b7d104287c1f2359b003"
+    },
+    {
+      "path": "src/gnnexplainer_benchmark/evaluation/budget.py",
+      "bytes": 2427,
+      "sha256": "f893d99747d57de14bebd8a9adbbf8f3d50a8804bb82bce109c53f1d0bdb7cda"
+    },
+    {
+      "path": "src/gnnexplainer_benchmark/evaluation/fidelity.py",
+      "bytes": 4006,
+      "sha256": "98235d65a2791d30b1fc22554054d8077ab6e066eac0fc9aa2aeef4cdd6fb0a2"
+    },
+    {
+      "path": "src/gnnexplainer_benchmark/evaluation/edge_ground_truth.py",
+      "bytes": 3323,
+      "sha256": "65f985cc544ba1d18bf6e28e1bf4683132d43c807bfc8b65db47a4e443a8b26a"
+    },
+    {
+      "path": "src/gnnexplainer_benchmark/evaluation/stability.py",
+      "bytes": 3140,
+      "sha256": "5bab72885e9f03f6051fc0fb31b97be10038f756e84f5fe18225a9fbc26f1014"
+    },
+    {
+      "path": "src/gnnexplainer_benchmark/explainers/random_baseline.py",
+      "bytes": 747,
+      "sha256": "445aa25d44f2c02971c24a6fa5169c152996cbc90a79e03a0712a4ee36f61c16"
+    },
+    {
+      "path": "scripts/run_random_baseline.py",
+      "bytes": 15898,
+      "sha256": "5cf6e41b121eedc9da6ed23d434dab9c92782960673e46ad075841383cff02a0"
+    },
+    {
+      "path": "scripts/run_stability.py",
+      "bytes": 11333,
+      "sha256": "8e1cbba45b98fd2b7bdb8480564d29aa1d9341399543b5beee5ea3f3b9a239b9"
+    },
+    {
+      "path": "scripts/compute_random_stability.py",
+      "bytes": 13148,
+      "sha256": "61d68ca20747cb9eeebc6c098912d9fc3845f7e80559b7d017bc2c8936fb7225"
+    },
+    {
+      "path": "src/gnnexplainer_benchmark/evaluation/batch_gnnexplainer.py",
+      "bytes": 28874,
+      "sha256": "4f3b331c7393361f3b8af66fded37e1764711de1599a68ffd1fb6bf2414532f2"
+    },
+    {
+      "path": "docs/audit/ba_house_protocol_table.md",
+      "bytes": 7817,
+      "sha256": "3ec8d7bd77a22e9102eaeff1b0921139480a0c63654ac689a8b648f50a2f03b9"
+    },
+    {
+      "path": ".venv/Lib/site-packages/torch_geometric/explain/algorithm/gnn_explainer.py",
+      "bytes": 24724,
+      "sha256": "0a6659b0910adcf035e0d343e422c79b2bf7ecef15aea1d1f10e5f69a8d28556"
+    },
+    {
+      "path": "results/metrics/frozen_phase4c_v2/batch_gnnexplainer_manifest.json",
+      "bytes": 877,
+      "sha256": "3ab4a1ea51c4b98b631d16e5bc42e7829198870e0823405c58df302f44196c8b"
+    },
+    {
+      "path": "results/metrics/graphsage_gnnexplainer/seed42/batch_gnnexplainer_manifest.json",
+      "bytes": 916,
+      "sha256": "42c4740b47e107b8a3362497aa357401e5a8e3f419f84a14f3900cc9e9d4a7a7"
+    },
+    {
+      "path": "results/metrics/phase4d_random_baseline/random_baseline_manifest.json",
+      "bytes": 3877,
+      "sha256": "2cf36be9d0ec0d525e947e2ac2d1ce10f67d82c640e56b0a9e7ee206b617b3e6"
+    }
+  ],
+  "no_tuning": true
+}
