@@ -19,3 +19,5 @@ python -m pytest -q -p no:cacheprovider tests/test_random_backbone_dispatch.py t
 ```
 
 `git diff --check`, exact index allowlist/blob comparison, final staged review and live remote equality are required again before each publication. Their final receipts are summarized in report06. These gates do not establish fresh-machine installation, full experiment reproduction or dataset redistribution rights.
+
+Final staged allowlist/blob/diff checks PASS; six payload commits pushed and remote SHA equality verified. See report06.
