@@ -138,3 +138,17 @@ docs/release_review/** -text whitespace=blank-at-eol,blank-at-eof,space-before-t
 docs/provenance/release_manifest.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 .gitattributes -text
 docs/provenance/external_assets.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/metrics/ba_house_2x2/main.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/metrics/ba_house_2x2/random_node_level_summary.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/metrics/ba_house_2x2/runtime.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/metrics/ba_house_2x2/stability.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/metrics/pgexplainer_common_pool_sensitivity/graphsage_common_seed42_summary.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/metrics/pgexplainer_common_pool_sensitivity/graphsage_common_stability_summary.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/metrics/shapeggen/gcn/gnnexplainer/per_node_metrics.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/metrics/shapeggen/gcn/pgexplainer/per_node_metrics.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/metrics/shapeggen/graphsage/gnnexplainer/per_node_metrics.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/metrics/shapeggen/graphsage/pgexplainer/per_node_metrics.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/metrics/shapeggen/task23_comparison_summary.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/metrics/shapeggen/task24_pgexplainer_summary.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/metrics/shapeggen_backbone_comparison/gcn_summary.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/metrics/shapeggen_backbone_comparison/graphsage_summary.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

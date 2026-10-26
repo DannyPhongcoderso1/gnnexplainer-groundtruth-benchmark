@@ -21,3 +21,5 @@ python -m pytest -q -p no:cacheprovider tests/test_random_backbone_dispatch.py t
 `git diff --check`, exact index allowlist/blob comparison, final staged review and live remote equality are required again before each publication. Their final receipts are summarized in report06. These gates do not establish fresh-machine installation, full experiment reproduction or dataset redistribution rights.
 
 Final staged allowlist/blob/diff checks PASS; six payload commits pushed and remote SHA equality verified. See report06.
+
+Post-push portability correction: 14 inherited result paths initially used Windows-checkout SHA256 in the new manifest. Their existing Git blobs and numerical values were unchanged. The manifest now hashes the exact inherited Git blobs, and `.gitattributes` preserves those bytes on checkout. A clean `git archive` extraction of all 150 scientific payload files passed the standard-library verifier without local fixtures, datasets or checkpoints. Only attributes/manifests/review documentation changed in this correction.
