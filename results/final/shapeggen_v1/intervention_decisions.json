@@ -1,0 +1,506 @@
+[
+  {
+    "source": "docs/thesis_evidence/shapeggen_v1_pg_size_pilot/16_STEP02B_RESULTS.json",
+    "sha256": "0cabd25505eb00e6b67912ff138bede473209652f5dbeea565b3be2192a5fb69",
+    "measurement": {
+      "acceptance": {
+        "SIZE_010": {
+          "existing_function_decision": {
+            "passed": false,
+            "failures": [
+              "Insufficient joint AUROC/AP validation improvement",
+              "Saturation/ranking alternative gate failed"
+            ],
+            "auroc_gain": -0.0019508563453310424,
+            "ap_gain": -0.001055343797392222,
+            "near_zero_fraction_reduction": 0.0
+          },
+          "individual_gates": [
+            {
+              "gate": "AUROC gain",
+              "group": "all",
+              "observed": -0.0019508563453310424,
+              "operator": ">=",
+              "threshold": 0.02,
+              "passed": false
+            },
+            {
+              "gate": "AP gain",
+              "group": "all",
+              "observed": -0.001055343797392222,
+              "operator": ">=",
+              "threshold": 0.01,
+              "passed": false
+            },
+            {
+              "gate": "Saturation OR stronger joint ranking",
+              "group": "all",
+              "observed": 0.0,
+              "operator": "OR",
+              "threshold": "reduction >= .10 OR (AUROC gain >= .05 AND AP gain >= .02)",
+              "branches": {
+                "near_zero_reduction": {
+                  "observed": 0.0,
+                  "minimum": 0.1,
+                  "passed": false
+                },
+                "alternative_auroc": {
+                  "observed": -0.0019508563453310424,
+                  "minimum": 0.05,
+                  "passed": false
+                },
+                "alternative_ap": {
+                  "observed": -0.001055343797392222,
+                  "minimum": 0.02,
+                  "passed": false
+                }
+              },
+              "passed": false
+            },
+            {
+              "gate": "edge_auroc degradation",
+              "group": "0",
+              "observed": 0.005642390356057292,
+              "operator": "<=",
+              "threshold": 0.02,
+              "passed": true
+            },
+            {
+              "gate": "edge_ap degradation",
+              "group": "0",
+              "observed": 0.0021786431574691845,
+              "operator": "<=",
+              "threshold": 0.01,
+              "passed": true
+            },
+            {
+              "gate": "edge_auroc degradation",
+              "group": "1",
+              "observed": 0.00013534781546559183,
+              "operator": "<=",
+              "threshold": 0.02,
+              "passed": true
+            },
+            {
+              "gate": "edge_ap degradation",
+              "group": "1",
+              "observed": 0.0005029014891577144,
+              "operator": "<=",
+              "threshold": 0.01,
+              "passed": true
+            },
+            {
+              "gate": "fid_plus degradation",
+              "group": "all",
+              "observed": 0.005494505494505503,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "fid_minus increase",
+              "group": "all",
+              "observed": -0.005494505494505475,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "remove_probability_delta degradation",
+              "group": "all",
+              "observed": -0.0031499897058193463,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "retain_probability_delta increase",
+              "group": "all",
+              "observed": -0.006348290634188024,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "Absolute Sparsity difference",
+              "group": "all",
+              "observed": 0.0,
+              "operator": "<=",
+              "threshold": 1e-12,
+              "passed": true
+            },
+            {
+              "gate": "fid_plus degradation",
+              "group": "0",
+              "observed": 0.04999999999999999,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "fid_minus increase",
+              "group": "0",
+              "observed": 0.0,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "remove_probability_delta degradation",
+              "group": "0",
+              "observed": 0.01183650592962901,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "retain_probability_delta increase",
+              "group": "0",
+              "observed": 0.003064754356940591,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "Absolute Sparsity difference",
+              "group": "0",
+              "observed": 0.0,
+              "operator": "<=",
+              "threshold": 1e-12,
+              "passed": true
+            },
+            {
+              "gate": "fid_plus degradation",
+              "group": "1",
+              "observed": -0.016393442622950817,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "fid_minus increase",
+              "group": "1",
+              "observed": -0.008196721311475419,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "remove_probability_delta degradation",
+              "group": "1",
+              "observed": -0.010520397395384115,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "retain_probability_delta increase",
+              "group": "1",
+              "observed": -0.010977657023267667,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "Absolute Sparsity difference",
+              "group": "1",
+              "observed": 0.0,
+              "operator": "<=",
+              "threshold": 1e-12,
+              "passed": true
+            },
+            {
+              "gate": "constant_ranking fraction increase",
+              "group": "all",
+              "observed": 0.0,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "cutoff_tie fraction increase",
+              "group": "all",
+              "observed": 0.0,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            }
+          ],
+          "execution_prerequisites": {
+            "training_epochs_30": true,
+            "updates_16170": true,
+            "all_losses_and_gradients_finite": true,
+            "validation_targets_182_successful": true,
+            "fixed_final_epoch_30": true,
+            "implementation_and_artifact_parity": true
+          }
+        },
+        "SIZE_005": {
+          "existing_function_decision": {
+            "passed": false,
+            "failures": [
+              "Insufficient joint AUROC/AP validation improvement",
+              "Saturation/ranking alternative gate failed",
+              "Fidelity/probability bound: 0/fid_plus"
+            ],
+            "auroc_gain": -0.0010532084098722194,
+            "ap_gain": -0.0029874968267491475,
+            "near_zero_fraction_reduction": 0.0
+          },
+          "individual_gates": [
+            {
+              "gate": "AUROC gain",
+              "group": "all",
+              "observed": -0.0010532084098722194,
+              "operator": ">=",
+              "threshold": 0.02,
+              "passed": false
+            },
+            {
+              "gate": "AP gain",
+              "group": "all",
+              "observed": -0.0029874968267491475,
+              "operator": ">=",
+              "threshold": 0.01,
+              "passed": false
+            },
+            {
+              "gate": "Saturation OR stronger joint ranking",
+              "group": "all",
+              "observed": 0.0,
+              "operator": "OR",
+              "threshold": "reduction >= .10 OR (AUROC gain >= .05 AND AP gain >= .02)",
+              "branches": {
+                "near_zero_reduction": {
+                  "observed": 0.0,
+                  "minimum": 0.1,
+                  "passed": false
+                },
+                "alternative_auroc": {
+                  "observed": -0.0010532084098722194,
+                  "minimum": 0.05,
+                  "passed": false
+                },
+                "alternative_ap": {
+                  "observed": -0.0029874968267491475,
+                  "minimum": 0.02,
+                  "passed": false
+                }
+              },
+              "passed": false
+            },
+            {
+              "gate": "edge_auroc degradation",
+              "group": "0",
+              "observed": 0.0042560770327990105,
+              "operator": "<=",
+              "threshold": 0.02,
+              "passed": true
+            },
+            {
+              "gate": "edge_ap degradation",
+              "group": "0",
+              "observed": 0.007249934784142403,
+              "operator": "<=",
+              "threshold": 0.01,
+              "passed": true
+            },
+            {
+              "gate": "edge_auroc degradation",
+              "group": "1",
+              "observed": -0.0005219728800918699,
+              "operator": "<=",
+              "threshold": 0.02,
+              "passed": true
+            },
+            {
+              "gate": "edge_ap degradation",
+              "group": "1",
+              "observed": 0.0008912158640967116,
+              "operator": "<=",
+              "threshold": 0.01,
+              "passed": true
+            },
+            {
+              "gate": "fid_plus degradation",
+              "group": "all",
+              "observed": -0.027472527472527472,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "fid_minus increase",
+              "group": "all",
+              "observed": -0.04945054945054944,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "remove_probability_delta degradation",
+              "group": "all",
+              "observed": -0.01955746851124606,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "retain_probability_delta increase",
+              "group": "all",
+              "observed": -0.02222085402860142,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "Absolute Sparsity difference",
+              "group": "all",
+              "observed": 0.0,
+              "operator": "<=",
+              "threshold": 1e-12,
+              "passed": true
+            },
+            {
+              "gate": "fid_plus degradation",
+              "group": "0",
+              "observed": 0.06666666666666665,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": false
+            },
+            {
+              "gate": "fid_minus increase",
+              "group": "0",
+              "observed": -0.01666666666666667,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "remove_probability_delta degradation",
+              "group": "0",
+              "observed": 0.02816895619034767,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "retain_probability_delta increase",
+              "group": "0",
+              "observed": 0.008336412703890045,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "Absolute Sparsity difference",
+              "group": "0",
+              "observed": 0.0,
+              "operator": "<=",
+              "threshold": 1e-12,
+              "passed": true
+            },
+            {
+              "gate": "fid_plus degradation",
+              "group": "1",
+              "observed": -0.07377049180327869,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "fid_minus increase",
+              "group": "1",
+              "observed": -0.0655737704918033,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "remove_probability_delta degradation",
+              "group": "1",
+              "observed": -0.04302948065957085,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "retain_probability_delta increase",
+              "group": "1",
+              "observed": -0.03724901799540051,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "Absolute Sparsity difference",
+              "group": "1",
+              "observed": 0.0,
+              "operator": "<=",
+              "threshold": 1e-12,
+              "passed": true
+            },
+            {
+              "gate": "constant_ranking fraction increase",
+              "group": "all",
+              "observed": 0.0,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            },
+            {
+              "gate": "cutoff_tie fraction increase",
+              "group": "all",
+              "observed": 0.0,
+              "operator": "<=",
+              "threshold": 0.05,
+              "passed": true
+            }
+          ],
+          "execution_prerequisites": {
+            "training_epochs_30": true,
+            "updates_16170": true,
+            "all_losses_and_gradients_finite": true,
+            "validation_targets_182_successful": true,
+            "fixed_final_epoch_30": true,
+            "implementation_and_artifact_parity": true
+          }
+        }
+      }
+    }
+  },
+  {
+    "source": "docs/thesis_evidence/shapeggen_v1_pg_size_warmup/09_STEP04B_RESULTS.json",
+    "sha256": "b645470b502cbf96ad77c2cd14d31754106ed32e5cd2dbcf035061623b769f85",
+    "measurement": {
+      "label": "EXPLORATORY_WARMUP_MICROPILOT_NOT_OFFICIAL_V1",
+      "verdict": "WARMUP_DELAYED_COLLAPSE",
+      "completed_optimizer_updates": 539,
+      "coefficient_boundaries": {
+        "1": 0.0,
+        "50": 0.0,
+        "100": 0.0,
+        "101": 0.0005,
+        "150": 0.025,
+        "200": 0.05,
+        "201": 0.05,
+        "539": 0.05
+      },
+      "gates": {
+        "A_execution": true,
+        "B_update121": true,
+        "B_update200": true,
+        "C_gradient_health": "SUPPORTED",
+        "D_collapse_updates": [
+          250,
+          350,
+          539
+        ],
+        "qualified": false
+      },
+      "no_validation": true,
+      "no_final_test": true
+    }
+  }
+]
