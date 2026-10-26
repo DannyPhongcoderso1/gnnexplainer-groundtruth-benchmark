@@ -1,0 +1,32 @@
+{
+  "dataset_variant": "BA500_EXT",
+  "parameters": {
+    "background_nodes": 300,
+    "num_house_motifs": 40,
+    "ba_m": 5,
+    "feature_dim": 10,
+    "seed": 42
+  },
+  "frozen_generation_config": {
+    "dataset": {
+      "type": "PyG ExplainerDataset",
+      "background_graph": "Barabasi-Albert",
+      "background_nodes": 300,
+      "ba_attachment_parameter": 5,
+      "motif": "house",
+      "num_motifs": 40,
+      "seed": 42,
+      "constant_node_features": true,
+      "feature_dim": 10,
+      "split": {
+        "train_ratio": 0.6,
+        "val_ratio": 0.2,
+        "test_ratio": 0.2
+      }
+    }
+  },
+  "track": "TRACK A ONLY - CLEAN SCALE ROBUSTNESS",
+  "primary_gt": "GLOBAL edge GT restricted to target 3-hop candidates",
+  "same_seed_nesting_claim": false,
+  "no_common_correct_or_final_targets_in_phase_BA1": true
+}

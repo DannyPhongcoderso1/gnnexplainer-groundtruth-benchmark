@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import sys
 from pathlib import Path
 from time import perf_counter
 from typing import Any
@@ -30,12 +31,14 @@ from gnnexplainer_benchmark.explain.subgraph_mapping import computation_subgraph
 from gnnexplainer_benchmark.explainers.random_baseline import random_candidate_edge_scores
 from gnnexplainer_benchmark.training.checkpointing import (
     build_gcn_from_checkpoint,
+    build_graphsage_from_checkpoint,
     load_checkpoint,
 )
 
 
-def parse_args() -> argparse.Namespace:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run Phase 4D Random explanation baseline.")
+    parser.add_argument("--backbone", choices=["gcn", "graphsage"], default="gcn")
     parser.add_argument("--artifact", type=Path, default=Path("artifacts/data/ba_house.pt"))
     parser.add_argument(
         "--metadata",
@@ -89,7 +92,47 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
     parser.add_argument("--max-targets", type=int, default=None)
-    return parser.parse_args()
+    argv = sys.argv[1:] if argv is None else argv
+    args = parser.parse_args(argv)
+    if args.backbone == "graphsage":
+        # Keep historical GCN defaults intact and isolate GraphSAGE outputs/references.
+        defaults = {
+            "checkpoint": "artifacts/checkpoints/ba_house_graphsage_best.pt",
+            "target_file": "configs/targets/ba_house_2x2_targets.csv",
+            "output_root": "results/explanations/graphsage_random_baseline",
+            "metrics_output_dir": "results/metrics/graphsage_random_baseline",
+            "gnnexplainer_summary":
+                "results/metrics/graphsage_gnnexplainer/seed42/summary_metrics.csv",
+            "stability_summary":
+                "results/metrics/graphsage_gnnexplainer/stability/"
+                "gnnexplainer_stability_summary.csv",
+            "comparison_output": "results/metrics/graphsage_random_baseline/comparison.csv",
+        }
+        for key, value in defaults.items():
+            option = "--" + key.replace("_", "-")
+            if not any(arg == option or arg.startswith(option + "=") for arg in argv):
+                setattr(args, key, Path(value))
+        for key in ("output_root", "metrics_output_dir", "comparison_output"):
+            path = getattr(args, key).resolve()
+            legacy = Path(parser.get_default(key)).resolve()
+            if path == legacy or legacy in path.parents or path in legacy.parents:
+                raise ValueError("GraphSAGE output must not overlap historical GCN outputs")
+    return args
+
+
+def build_backbone_from_checkpoint(
+    checkpoint: dict[str, Any], *, backbone: str, in_channels: int, out_channels: int
+) -> torch.nn.Module:
+    constructors = {"gcn": build_gcn_from_checkpoint, "graphsage": build_graphsage_from_checkpoint}
+    if backbone not in constructors:
+        raise ValueError(f"Unsupported backbone: {backbone}")
+    model_type = str(checkpoint["resolved_config"]["model"].get("type", "GCN")).lower()
+    if model_type != backbone:
+        raise ValueError(f"Checkpoint type {model_type} does not match backbone {backbone}")
+    model = constructors[backbone](checkpoint, in_channels, out_channels)
+    if backbone == "graphsage":
+        model.eval().requires_grad_(False)
+    return model
 
 
 def resolve_device(device_arg: str) -> torch.device:
@@ -184,8 +227,9 @@ def main() -> None:
         dataset_checksum = sha256_file(args.artifact)
 
     device = resolve_device(args.device)
-    model = build_gcn_from_checkpoint(
+    model = build_backbone_from_checkpoint(
         checkpoint,
+        backbone=args.backbone,
         in_channels=int(data_cpu.x.size(1)),
         out_channels=int(data_cpu.y.max().item()) + 1,
     ).to(device)

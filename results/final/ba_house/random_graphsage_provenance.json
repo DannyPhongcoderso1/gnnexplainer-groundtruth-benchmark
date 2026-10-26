@@ -1,0 +1,155 @@
+{
+  "schema": "thesis-evidence-projection-v1",
+  "source_artifact": "docs/audit/ba_house_graphsage_random_baseline_audit.json",
+  "source_sha256": "e22c4b78511276d891a99601ac7ef6b078e5f7554b4a44e746d58278b325d02c",
+  "retained_fields": [
+    "target_ids",
+    "seeds",
+    "ratio",
+    "verdict",
+    "expected_records",
+    "actual_records",
+    "missing_records",
+    "duplicate_records",
+    "summary_node_level",
+    "stability_summary",
+    "backbone_unchanged",
+    "historical_files_unchanged"
+  ],
+  "path_normalization": "$BENCHMARK_ROOT/$ELLIPTIC_BASELINE_ROOT; private approval record redacted",
+  "measurement": {
+    "target_ids": [
+      306,
+      315,
+      316,
+      355,
+      365,
+      375,
+      376,
+      411,
+      445,
+      465,
+      486,
+      491
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "ratio": 0.2,
+    "verdict": "BA_HOUSE_GRAPHSAGE_RANDOM_PASS",
+    "expected_records": 120,
+    "actual_records": 120,
+    "missing_records": 0,
+    "duplicate_records": 0,
+    "summary_node_level": {
+      "edge_auroc": {
+        "n": 12.0,
+        "mean": 0.49672747641120163,
+        "std": 0.026777803218137372,
+        "median": 0.4914446567883778,
+        "min": 0.45595238095238094,
+        "max": 0.5471324461343472
+      },
+      "edge_ap": {
+        "n": 12.0,
+        "mean": 0.2771782735276123,
+        "std": 0.23254707418093776,
+        "median": 0.2593640386469227,
+        "min": 0.017967693293962174,
+        "max": 0.5899137257713445
+      },
+      "fid_plus": {
+        "n": 12.0,
+        "mean": 0.425,
+        "std": 0.17645499039801518,
+        "median": 0.4,
+        "min": 0.2,
+        "max": 0.7
+      },
+      "fid_minus": {
+        "n": 12.0,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "one_minus_fid_minus": {
+        "n": 12.0,
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "remove_probability_delta": {
+        "n": 12.0,
+        "mean": 0.1286942680676778,
+        "std": 0.04363137534521013,
+        "median": 0.1412664007395506,
+        "min": 0.04539751410484314,
+        "max": 0.18513694852590562
+      },
+      "retain_probability_delta": {
+        "n": 12.0,
+        "mean": 0.47432999120404323,
+        "std": 0.049571247871889164,
+        "median": 0.49292739052325485,
+        "min": 0.34140052273869514,
+        "max": 0.5091971535235643
+      },
+      "retain_probability_ratio": {
+        "n": 12.0,
+        "mean": 0.12384423089688597,
+        "std": 0.04738887970527369,
+        "median": 0.10786892926980093,
+        "min": 0.07425172345616883,
+        "max": 0.2417074436582803
+      },
+      "sparsity": {
+        "n": 12.0,
+        "mean": 0.7936944650380934,
+        "std": 0.008900508700863707,
+        "median": 0.7970328282828283,
+        "min": 0.7692307692307692,
+        "max": 0.8
+      },
+      "runtime_seconds": {
+        "n": 12.0,
+        "mean": 0.007010572499893897,
+        "std": 0.0015139500818322183,
+        "median": 0.006507824998698198,
+        "min": 0.005788980000215815,
+        "max": 0.01085284999862779
+      },
+      "evaluation_runtime_seconds": {
+        "n": 12.0,
+        "mean": 0.007010572499893897,
+        "std": 0.0015139500818322183,
+        "median": 0.006507824998698198,
+        "min": 0.005788980000215815,
+        "max": 0.01085284999862779
+      }
+    },
+    "stability_summary": {
+      "metric": "random_stability_mean_jaccard",
+      "n_targets": "12",
+      "mean": "0.1265360411344618",
+      "std": "0.017375689604513356",
+      "median": "0.12346079846079847",
+      "min": "0.10896026774007149",
+      "max": "0.1698989898989899"
+    },
+    "backbone_unchanged": true,
+    "historical_files_unchanged": true
+  }
+}
