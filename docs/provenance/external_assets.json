@@ -1,0 +1,347 @@
+{
+  "status": "EXTERNAL_ASSET_REQUIRED",
+  "acquisition": "Request exact frozen assets from the maintainer under applicable data/source permissions; restore at restore_path and compare SHA256 before pipeline execution. No public mirror asserted.",
+  "raw_elliptic": "Obtain original licensed Elliptic data through its provider, then use the pinned baseline preprocessing and frozen manifests; new preprocessing is not an identity substitute.",
+  "fresh5": "Ten original fresh checkpoint packages and exact Release002 archives are required by historical evaluator. See original protocol/execution/scientific-source manifests for checkpoint identities.",
+  "assets": [
+    {
+      "restore_path": "docs/kaggle/task29/dist/release_002/TASK29_ELLIPTIC_FROZEN_INPUTS.zip",
+      "bytes": 44361978,
+      "sha256": "d94354dec5301ea8b7c286c2dda3a12ec75bab71b93a19422a10112e870a8799",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "restore_path": "docs/kaggle/task29/dist/release_002/TASK29_KAGGLE_CODE_BUNDLE.zip",
+      "bytes": 379280,
+      "sha256": "95661d2e4faecf83e7590e98c448e3ad5d4725396f02623fa2a95e842890067e",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "restore_path": "docs/kaggle/task29/dist/release_002/UPLOAD_MANIFEST.json",
+      "bytes": 871,
+      "sha256": "297c6c1876f665d9121d04bed92e748ccb2f9ab4a1e2b2bce6dd76f9ea357356",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext.pt",
+      "bytes": 213189,
+      "sha256": "7680fbaba95bcfecb96d5f8de0d4935b469e16d31be75d803ed583e5ca8e5b9a",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "artifacts/extensions/ba_house_scale/ba1000_ext/structural_gt_diagnostics.pt",
+      "bytes": 11074713,
+      "sha256": "c72fa2d8301a775096a5050e730d680d5a8dd1ee979aec8b37e295b723d6a1b4",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext.pt",
+      "bytes": 319493,
+      "sha256": "a4d227ac3b56cf40966c19a5afeef8edbd6a2ad65a9d4a36e34ae5a3dd135b95",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "artifacts/extensions/ba_house_scale/ba1500_ext/structural_gt_diagnostics.pt",
+      "bytes": 25097177,
+      "sha256": "7dc260e647690d460856a631ed9ecb6f2c7f7c633c5eb04a5609340d2854b967",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "artifacts/extensions/ba_house_scale/ba500_ext/ba500_ext.pt",
+      "bytes": 107333,
+      "sha256": "144b019f4600e087177e9ddded78efa52ad180290de5543bde1b1ccfb5debe97",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "artifacts/extensions/ba_house_scale/ba500_ext/structural_gt_diagnostics.pt",
+      "bytes": 2722649,
+      "sha256": "7b52faf3000af9af69473eaf4bdcee694c657950797f9f6383b80de7d4001ad3",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/gcn/ba1000_ext_gcn_best.pt",
+      "bytes": 10321,
+      "sha256": "812e123a2ce3c3ed0d9b04eaca78cbba8a4f72d2fa61abf09cf336dde01d75ef",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/graphsage/ba1000_ext_graphsage_best.pt",
+      "bytes": 16965,
+      "sha256": "2c51117461c3eb2ff1cb29b291296f5202d114ba4ac4e8543754b6ceeeb607ca",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/gcn/ba1500_ext_gcn_best.pt",
+      "bytes": 10321,
+      "sha256": "be0ffcacc4031eb0dec6195120c608791082475a3d498c59bee1acbb89451bd7",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/graphsage/ba1500_ext_graphsage_best.pt",
+      "bytes": 16965,
+      "sha256": "01dcc7c4818e34a91d5d19c36acbefec818b095c29adb13dff208cb4a2a1b56e",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED0_COMPLETE.zip",
+      "bytes": 576634,
+      "sha256": "fb8de11cc437e22b30f4813e49f7d2a1a09e181256a9260f3f5c18157623faab",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED1_COMPLETE.zip",
+      "bytes": 575713,
+      "sha256": "8fcf72879d9c9ff650db6c2e36658fa18d9db8de64b0ebab84b0a0571faa1ac3",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED2_COMPLETE.zip",
+      "bytes": 576146,
+      "sha256": "4f3c962d78393406a46f8d1db739af5494cb942d893de5b2c3b9e9087af4387d",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED0_COMPLETE.zip",
+      "bytes": 631986,
+      "sha256": "2b70686729f123e63fdcd12c05f724e12d3039104fdd3e8f55f8547a3c375dcd",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED1_COMPLETE.zip",
+      "bytes": 634180,
+      "sha256": "cc078e4b575f338882f19a0c61364e8941f2db19db69fd43bfa15ee8bef94abf",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED2_COMPLETE.zip",
+      "bytes": 633308,
+      "sha256": "1d1eaa3165fddf1d292afa84523e8837d65f5f0667ccfcb5468b9ba54aeb1572",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED3_COMPLETE.zip",
+      "bytes": 573557,
+      "sha256": "72e35b92e9fc0a90d012c48e61035bd419e4d5c10bc32fe942b0ff545b1cbba3",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED4_COMPLETE.zip",
+      "bytes": 580677,
+      "sha256": "e2be5117be15943bc8625d7ada3ef91c6b5fc55374439b9f00d70a15712c226c",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED3_COMPLETE.zip",
+      "bytes": 632522,
+      "sha256": "7ad450254982b4d357e4c8644574d31246b8295648d61336e7c02113a6156dde",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED4_COMPLETE.zip",
+      "bytes": 634438,
+      "sha256": "47081d4123100bce5aba7928eb0a991bc3dede3ce027f085547cf0b6acdd5003",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "results/elliptic_pg_gcn_seed42.zip",
+      "bytes": 231423,
+      "sha256": "6035f9b343862a2c5fde376ba6160166c61ed916f5b497ee12498fe8726d3988",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "benchmark",
+      "restore_path": "results/elliptic_pg_graphsage_seed42.zip",
+      "bytes": 261507,
+      "sha256": "ef9e81c399283834aba6bc4d45b72e25e334f00674f1e389ba5003a77eb6e827",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "elliptic",
+      "restore_path": "artifacts/checkpoints/gcn_baseline.pt",
+      "bytes": 220129,
+      "sha256": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "elliptic",
+      "restore_path": "artifacts/checkpoints/graphsage_baseline.pt",
+      "bytes": 305513,
+      "sha256": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    },
+    {
+      "repository": "elliptic",
+      "restore_path": "datasets/elliptic/elliptic_data.pt",
+      "bytes": 146676895,
+      "sha256": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
+      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "redistribution_license": "NOT_VERIFIED"
+    }
+  ],
+  "large_originals": [
+    {
+      "path": "results/final/ba_house/random_graphsage_provenance.json",
+      "source": "docs/audit/ba_house_graphsage_random_baseline_audit.json",
+      "source_sha256": "e22c4b78511276d891a99601ac7ef6b078e5f7554b4a44e746d58278b325d02c",
+      "retained_fields": [
+        "target_ids",
+        "seeds",
+        "ratio",
+        "verdict",
+        "expected_records",
+        "actual_records",
+        "missing_records",
+        "duplicate_records",
+        "summary_node_level",
+        "stability_summary",
+        "backbone_unchanged",
+        "historical_files_unchanged"
+      ],
+      "comparison": "PASS_EXACT_AFTER_DECLARED_PATH_NORMALIZATION",
+      "bytes": 4019
+    },
+    {
+      "path": "results/final/shapeggen_v1/ranking_and_mask_diagnostics.json",
+      "source": "docs/thesis_evidence/shapeggen_v1_pg_gcn_diagnostic/09_DIAGNOSTIC_RESULTS.json",
+      "source_sha256": "73dee93bb0d575d0699ab04d34887485e10e0c185bc2820fe7e4336f2647da10",
+      "retained_fields": [
+        "scope",
+        "status",
+        "statistics_precision",
+        "score_distribution_weighting",
+        "cells",
+        "verdicts",
+        "missing_evidence"
+      ],
+      "comparison": "PASS_EXACT_AFTER_DECLARED_PATH_NORMALIZATION",
+      "bytes": 1623649
+    },
+    {
+      "path": "results/final/shapeggen_v1/loss_gradient_probes.json",
+      "source": "docs/thesis_evidence/shapeggen_v1_pg_gcn_loss_probe/09_LOSS_PROBE_RESULTS.json",
+      "source_sha256": "8d8f700f8e87f86315aaf3905805d1de006a1cd918b26dadc8a9ce8db1e5603e",
+      "comparison": "PASS_ALL_COUNTERFACTUAL_RECORDS_AND_SUMMARIES_EXACT",
+      "bytes": 4357929
+    },
+    {
+      "path": "results/final/elliptic/validation_selection.json",
+      "source": "docs/audit/task28_pg_elliptic_backbone_specific_validation500_selection.json",
+      "source_sha256": "ba1f708b5a657389100658294af7f2fe6ae9ba330664ec902450cdcea753e6be",
+      "retained_fields": [
+        "status",
+        "candidate_inventory",
+        "excluded_inventory",
+        "results",
+        "selection",
+        "selection_trace",
+        "validation_verdicts",
+        "final200_eligibility"
+      ],
+      "comparison": "PASS_EXACT_AFTER_DECLARED_PATH_NORMALIZATION",
+      "bytes": 182309
+    },
+    {
+      "path": "results/final/elliptic/production_identity.json",
+      "source": "docs/audit/task28_pg_elliptic_production_checkpoint_manifest.json",
+      "source_sha256": "af14b74d005cfa3b7a4385bfe4bd7f3f15022bca1fdc49cd23aeaf1950f88848",
+      "retained_fields": [
+        "schema",
+        "production",
+        "no_candidate_verdicts",
+        "validation_pool_SHA256",
+        "scope_hops",
+        "top_ratio",
+        "k_rule",
+        "backbone_specific_not_fixed_method_comparison"
+      ],
+      "comparison": "PASS_EXACT_AFTER_DECLARED_PATH_NORMALIZATION",
+      "bytes": 20504
+    },
+    {
+      "path": "results/final/elliptic/historical_raw_final200.json",
+      "source": "docs/audit/task28_pg_elliptic_full30_raw_final200_case_study.json",
+      "source_sha256": "9ee70ac00b403ae63e08c307a1839e8ab2c4fbaf72bd621c98da8bacdf969561",
+      "retained_fields": [
+        "status",
+        "protocol",
+        "per_target",
+        "aggregate",
+        "verdicts"
+      ],
+      "comparison": "PASS_EXACT_AFTER_DECLARED_PATH_NORMALIZATION",
+      "bytes": 3717474
+    },
+    {
+      "path": "results/final/elliptic/score_resolution_validation500.json",
+      "source": "docs/audit/task28_pg_elliptic_historical_full30_numerical_inference_rescue.json",
+      "source_sha256": "7aa077bc96555455daee17fd7f8e4a5fc0e99f36cc9494ee1df1d383f8fc52d5",
+      "retained_fields": [
+        "status",
+        "validation500",
+        "underflow_analysis",
+        "interpretation",
+        "final_statuses"
+      ],
+      "comparison": "PASS_EXACT_AFTER_DECLARED_PATH_NORMALIZATION",
+      "bytes": 12465
+    },
+    {
+      "path": "results/final/shapeggen_v1/thesis_diagnostic_counts.json",
+      "source": "docs/thesis_evidence/SHAPEGGEN_V1_CH44_SUPPLEMENTARY_AUDIT/evidence_index.json",
+      "source_sha256": "7def3d1b040b7a6f7a551f0b2b0bbd2c8acd0122aca3b1321ecc45ccf30d4361",
+      "retained_fields": [
+        "masks",
+        "thresholds"
+      ],
+      "comparison": "PASS_EXACT_AFTER_DECLARED_PATH_NORMALIZATION"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "checks": {
+    "all_compact_projection_values_and_original_hashes": "PASS",
+    "compile_without_import_or_cache": {
+      "status": "PASS",
+      "count": 45
+    },
+    "exact_copies_or_declared_metadata_edits": "PASS",
+    "independent_backup_readback": {
+      "status": "PASS",
+      "files": 121
+    },
+    "original_scientific_hashes_unchanged": {
+      "status": "PASS",
+      "files": 50294
+    },
+    "original_heads_and_tracked_modifications_preserved": "PASS",
+    "secret_personal_path_and_blob_scan": {
+      "status": "PASS",
+      "new_payload_under_25MB_each": true,
+      "project_platform_path_exceptions": [
+        "docs/audit/elliptic_pg_stability/task29_final_evaluation_tie_v1/TASK29_FINAL_EVALUATION_INTEGRITY.json",
+        "scripts/report_task29_tie_v1.py",
+        "docs/kaggle/task29/ACTIVE_RELEASE.json",
+        "docs/kaggle/task29/protocol.json",
+        "docs/kaggle/task29/scientific_source_manifest.json",
+        "docs/kaggle/task29/common.py",
+        "docs/kaggle/task29/bootstrap.py",
+        "docs/kaggle/task29/preflight.py",
+        "docs/kaggle/task29/verify_release.py",
+        "results/final/elliptic/validation_selection.json",
+        "results/final/elliptic/production_identity.json",
+        "docs/reproducibility/RUNBOOK.md"
+      ],
+      "exception_reason": "Frozen historical project roots and Kaggle runtime contracts; documented in runbook. No personal-home paths."
+    }
+  },
+  "cli_help": [
+    {
+      "script": "scripts/run_random_baseline.py",
+      "exit": 0,
+      "usage_found": true
+    },
+    {
+      "script": "scripts/run_shapeggen_pgexplainer.py",
+      "exit": 0,
+      "usage_found": true
+    },
+    {
+      "script": "scripts/run_elliptic_gnnexplainer.py",
+      "exit": 0,
+      "usage_found": true
+    },
+    {
+      "script": "scripts/evaluate_task29_tie_v1.py",
+      "exit": 0,
+      "usage_found": true
+    }
+  ],
+  "targeted_pytest": {
+    "passed": 61,
+    "warnings": 2,
+    "seconds": 38.98
+  },
+  "scope": "No training or fresh full reproduction"
+}
