@@ -1,12 +1,29 @@
-# GNN XAI benchmark
+# GNN XAI thesis benchmark
 
-Ground-truth and perturbation evaluation of GNNExplainer, PGExplainer and a Random baseline on GCN and GraphSAGE. The thesis studies BA-House (500, 1000 and 1500 nodes), frozen ShapeGGen V1 (graph/split seed912), and Elliptic.
+Evaluate GNNExplainer, PGExplainer and a Random baseline using GCN and GraphSAGE on BA-House (500/1000/1500 nodes), ShapeGGen V1 and Elliptic. Synthetic graphs have edge ground truth; Elliptic uses perturbation fidelity and stability without explanation ground truth.
 
-This release is **PARTIAL for scientific reproducibility**: 75 of the 76 minimum frozen model/graph artifacts are now in Git: all 71 model artifacts and four synthetic graphs. The Elliptic dataset is intentionally excluded and must be acquired from its provider. BA500 GraphSAGE PGExplainer has a natural/common training-pool conflict in the thesis; nine affected cells are withheld from the release trace. No model training or fresh experiment was performed for this release.
+## Organization
+
+```text
+src/gnnexplainer_benchmark/
+  models/{synthetic,elliptic}/  separate backbone families
+  explainers/                 accepted GNNExplainer, PGExplainer and Random
+  data/                       dataset-specific preparation and splits
+  evaluation/                 ground truth, fidelity, stability, sparsity, runtime
+scripts/{data,train,evaluate,verify}/
+configs/{ba_house,shapeggen,elliptic,shared}/
+data/{ba_house,shapeggen,elliptic}/
+artifacts/checkpoints/{ba_house,shapeggen,elliptic}/
+results/{ba_house,shapeggen,elliptic}/
+docs/{methodology,reproducibility,provenance}/
+tests/
+```
+
+[Source and protocol map](docs/methodology/PROTOCOLS.md) distinguishes synthetic/Elliptic architectures and final protocols. [Artifact access](docs/reproducibility/ARTIFACTS.md), [command guide](docs/reproducibility/RUNBOOK.md) and [result index](results/README.md) provide the main navigation. Historical execution records keep their original paths; [the path catalog](docs/provenance/repository_paths.json) maps them to current files. Old Python imports/commands remain compatible. Historical reports and raw mask caches remain where needed for provenance; they are not required reading.
 
 ## Install
 
-Use Python 3.11 in a new environment. Install a PyTorch build suitable for the machine before PyG:
+Use Python 3.11. Select a suitable PyTorch build, then install the project:
 
 ```powershell
 py -3.11 -m venv .venv
@@ -15,51 +32,49 @@ py -3.11 -m venv .venv
 .venv/Scripts/python.exe -m pip install -e . --no-deps
 ```
 
-[requirements/lock.txt](requirements/lock.txt) records the historical Windows environment; [the TASK29 lock](docs/kaggle/task29/historical-linux-lock.txt) records the separate Linux run. Installation on a fresh machine was not tested in this release.
+[Windows dependency lock](requirements/lock.txt) and [historical Linux lock](docs/kaggle/task29/historical-linux-lock.txt) describe distinct environments. A fresh-machine installation was not tested during restructuring.
 
-## Results and verification
+## Check the frozen release
 
-Run the standard-library verifier without training or downloading datasets:
-
-```powershell
-python scripts/verify_thesis_artifacts.py
-python scripts/verify_release_evidence.py
-```
-
-[The thesis trace](results/final/thesis_traceability.json) maps 217 retained numerical cells across 20 tables and two figures to original evidence. [The release manifest](docs/provenance/release_manifest.json) provides hashes and derivation provenance. Original frozen result paths remain in place. [Release review](docs/release_review/04_VERIFICATION_REPORT.md) records tests and limitations.
-
-The verifier checks release hashes, displayed numerical precision, saved Elliptic final200 perturbation arithmetic, all 400 FRESH5 records and 4000 Jaccard comparisons, BA extension seed42 identities, and ShapeGGen diagnostic counts. A successful check verifies saved evidence, not full model reproduction. Original figure builders remain unlocated.
-
-## Elliptic Dataset and Pretrained Models
-
-Dataset source: [Elliptic / Weber et al. (2019)](https://www.kaggle.com/datasets/ellipticco/elliptic-data-set). Baseline source: [Dang et al., RMIT-BDSL](https://github.com/RMIT-BDSL/Blockchain-Anomaly-Detection). **The original and processed Elliptic dataset are not redistributed.** Acquire the CSVs from Kaggle and run the included original preprocessing/temporal-split pipeline locally.
-
-Frozen backbones: `artifacts/elliptic/backbones/`. Historical PG seed42: `artifacts/elliptic/pgexplainer/historical_seed42/`. FRESH5 seeds0â€“4: `artifacts/elliptic/pgexplainer/fresh5/`. All 14 files preserve original checkpoint bytes and SHA256. No full COMPLETE package is uploaded.
+These commands do not train or generate explanations:
 
 ```powershell
-python scripts/elliptic_frozen_models.py --check-load
+python scripts/verify/verify_thesis_artifacts.py
+python scripts/verify/verify_release_evidence.py
+python scripts/verify/checkpoints.py --check-load
 ```
 
-See [dataset acquisition, SHA checks and frozen inference](docs/reproducibility/ELLIPTIC_MODELS.md) for exact architectures, config/target references and no-training replay commands. Full real-graph replay still needs an independently acquired dataset; GNN raw-score replay also needs omitted cached masks. Hash/model-load/preprocessing tests passed; a fresh-machine dependency install and full 200-target forward replay were not tested.
+All **71 final model identities** and **four synthetic graphs** are directly published with original SHA256 values. The one Elliptic graph is intentionally external (75/76 minimum model/graph artifacts in Git). The [mutable artifact catalog](docs/provenance/external_assets.json) and [SHA256 inventory](docs/provenance/artifact_sha256.json) identify exact files. The model checker loads CPU states strictly with `weights_only=True` and makes no forward/training calls.
 
-## Frozen artifact access
+## Preparation, training and evaluation
 
-Clone with `git clone --branch release/thesis-final-20261026 --single-branch https://github.com/DannyPhongcoderso1/gnnexplainer-groundtruth-benchmark.git`. [The artifact guide](docs/reproducibility/ARTIFACTS.md) explains current 75/76 resolution, the single intentional dataset exclusion and cache access.
-
-## Running experiments
-
-[The runbook](docs/reproducibility/RUNBOOK.md) explains entry points, required assets and historical execution constraints. Example help commands:
+Examples below only show help; training and experiment drivers are separate from frozen verification:
 
 ```powershell
-python scripts/run_random_baseline.py --help
-python scripts/run_shapeggen_pgexplainer.py --help
-python scripts/run_elliptic_gnnexplainer.py --help
+python scripts/data/generate_ba_house.py --help
+python scripts/data/generate_shapeggen.py --help
+python scripts/train/train_gcn.py --help
+python scripts/train/run_shapeggen_pgexplainer.py --help
+python scripts/evaluate/run_batch_gnnexplainer.py --help
+python scripts/evaluate/run_random_baseline.py --help
+python scripts/evaluate/elliptic_frozen_models.py --help
 ```
 
-Acquire restricted assets before executing experiment commands. Existing frozen output directories must be preserved; historical scripts can refuse to overwrite them.
+Dataset-specific configs live under [BA-House](configs/ba_house), [ShapeGGen V1](configs/shapeggen/v1) and [Elliptic](configs/elliptic). Checkpoints are under [BA-House](artifacts/checkpoints/ba_house), [ShapeGGen V1](artifacts/checkpoints/shapeggen/v1) and [Elliptic](artifacts/checkpoints/elliptic). Use new output directories; preserve frozen files. The [runbook](docs/reproducibility/RUNBOOK.md) identifies mixed training/evaluation drivers and historical guard dependencies.
 
-## Dependencies and interpretation
+## Elliptic dataset and pretrained models
 
-Elliptic backbone training provenance comes from the separate [baseline repository](https://github.com/DannyPhongcoderso1/elliptic-gnn-xai), pinned at `95710a9852019104f90499cdba628c37f4483a2a` in its migration lineage; the exact verified SHA is recorded in the manifest and runbook. GraphXAI provenance is recorded separately. See [third-party notices](THIRD_PARTY_NOTICE.md) and [external assets](docs/provenance/external_assets.json). Repository access does not establish permission to redistribute datasets, weights or original project code under a new license.
+Obtain [Elliptic / Weber et al. (2019)](https://www.kaggle.com/datasets/ellipticco/elliptic-data-set) from its provider. **Raw CSVs, processed graphs and dataset archives are not redistributed.** The baseline derives from [Dang et al., RMIT-BDSL](https://github.com/RMIT-BDSL/Blockchain-Anomaly-Detection); its [MIT notice](external/elliptic_baseline/LICENSE) is retained.
 
-ShapeGGen V1 diagnostics and failed size/warmup interventions do not replace official results or prove a universal causal mechanism. Elliptic historical RAW ranking and FRESH5 seeds 0â€“4 are distinct from later diagnostic variants and the historical seed42 checkpoint. FRESH5 exact-tie handling was an evaluation-only addendum after observation; interpret its stability with that limitation.
+```powershell
+python scripts/data/preprocess_elliptic.py --raw-dir D:/user-acquired-elliptic --out data/elliptic/elliptic_data.pt
+python scripts/evaluate/elliptic_frozen_models.py --check-load
+```
+
+[The Elliptic guide](docs/reproducibility/ELLIPTIC_MODELS.md) describes original preprocessing/temporal splits, frozen backbone loading, historical seed42 versus FRESH5 paths and no-training replay commands. GNNExplainer raw-score replay still needs the separately cataloged cached masks; it has no shared explainer model checkpoint.
+
+## Results and limitations
+
+[Saved results](results/README.md) map to [217 retained thesis cells](results/final/thesis_traceability.json). Numerical verification checks saved hashes/arithmetic, not a new experimental reproduction. Nine BA500 GraphSAGE PGExplainer cells remain withheld because natural106/35 and common48/16 cohorts conflict; both artifact families remain distinctly named. ShapeGGen diagnostic probes are supplementary and do not replace official results. Historical Elliptic seed42 and FRESH5 stability remain separate.
+
+Restructuring changed organization and path resolution, not model algorithms, seeds, checkpoint bytes, graph identities or frozen measurements. No training, explanation generation or full scientific evaluation was run. The existing regression suite includes its original forward checks; the separate checkpoint gate performs no inference. Full fresh-machine/result reproduction and original figure generation are not claimed. See [validation](docs/release_review/RESTRUCTURE_VALIDATION.md), [before/after](docs/release_review/RESTRUCTURE_BEFORE_AFTER.md) and [third-party notices](THIRD_PARTY_NOTICE.md).

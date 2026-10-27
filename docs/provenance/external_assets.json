@@ -2,7 +2,7 @@
   "status": "VERIFIED_MODEL_ONLY_RELEASE_DATASET_USER_ACQUISITION",
   "acquisition": "All 71 required model artifacts and four synthetic graphs are directly in Git. Only the Elliptic dataset must be acquired through its provider; see docs/reproducibility/ELLIPTIC_MODELS.md. Historical raw GNN caches remain separately governed.",
   "raw_elliptic": "Obtain original licensed Elliptic data through its provider, then use the pinned baseline preprocessing and frozen manifests; new preprocessing is not an identity substitute.",
-  "fresh5": "All ten exact FRESH5 checkpoint members are published in artifacts/elliptic/pgexplainer/fresh5. Original COMPLETE/Release002 archives remain optional dependencies of historical guard drivers, not of the model-only adapter.",
+  "fresh5": "All ten exact FRESH5 checkpoint members are published in artifacts/checkpoints/elliptic/pgexplainer/fresh5. Original COMPLETE/Release002 archives remain optional dependencies of historical guard drivers, not of the model-only adapter.",
   "assets": [
     {
       "restore_path": "docs/kaggle/task29/dist/release_002/TASK29_ELLIPTIC_FROZEN_INPUTS.zip",
@@ -36,7 +36,7 @@
       "availability": "GIT_RELEASE",
       "redistribution_license": "NOT_VERIFIED",
       "catalog_identity_preserved": true,
-      "published_relative_path": "artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext.pt"
+      "published_relative_path": "data/ba_house/ba1000/graph.pt"
     },
     {
       "repository": "benchmark",
@@ -55,7 +55,7 @@
       "availability": "GIT_RELEASE",
       "redistribution_license": "NOT_VERIFIED",
       "catalog_identity_preserved": true,
-      "published_relative_path": "artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext.pt"
+      "published_relative_path": "data/ba_house/ba1500/graph.pt"
     },
     {
       "repository": "benchmark",
@@ -92,7 +92,7 @@
       "availability": "GIT_RELEASE",
       "redistribution_license": "NOT_VERIFIED",
       "catalog_identity_preserved": true,
-      "published_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/gcn/ba1000_ext_gcn_best.pt"
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/backbones/gcn/seed42.pt"
     },
     {
       "repository": "benchmark",
@@ -102,7 +102,7 @@
       "availability": "GIT_RELEASE",
       "redistribution_license": "NOT_VERIFIED",
       "catalog_identity_preserved": true,
-      "published_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/graphsage/ba1000_ext_graphsage_best.pt"
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/backbones/graphsage/seed42.pt"
     },
     {
       "repository": "benchmark",
@@ -112,7 +112,7 @@
       "availability": "GIT_RELEASE",
       "redistribution_license": "NOT_VERIFIED",
       "catalog_identity_preserved": true,
-      "published_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/gcn/ba1500_ext_gcn_best.pt"
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/backbones/gcn/seed42.pt"
     },
     {
       "repository": "benchmark",
@@ -122,7 +122,7 @@
       "availability": "GIT_RELEASE",
       "redistribution_license": "NOT_VERIFIED",
       "catalog_identity_preserved": true,
-      "published_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/graphsage/ba1500_ext_graphsage_best.pt"
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/backbones/graphsage/seed42.pt"
     },
     {
       "repository": "benchmark",
@@ -134,7 +134,7 @@
       "catalog_identity_preserved": true,
       "published_checkpoint_member": [
         {
-          "path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_0.pt",
+          "path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_0.pt",
           "sha256": "193d175a0b49529d9f1a17d17f8b4388cb43c375d90e9d09657afa87c8c69259"
         }
       ]
@@ -149,7 +149,7 @@
       "catalog_identity_preserved": true,
       "published_checkpoint_member": [
         {
-          "path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_1.pt",
+          "path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_1.pt",
           "sha256": "cb1d2a786bcb9b4b64be2728c056fd20191226c8d4e81b4890bf29412969d0e6"
         }
       ]
@@ -164,7 +164,7 @@
       "catalog_identity_preserved": true,
       "published_checkpoint_member": [
         {
-          "path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_2.pt",
+          "path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_2.pt",
           "sha256": "f8d8f2d51a65568f6e101aaa3d2310ba55453469f4d190a1d9b4aa1b706eed2a"
         }
       ]
@@ -179,7 +179,7 @@
       "catalog_identity_preserved": true,
       "published_checkpoint_member": [
         {
-          "path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_0.pt",
+          "path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_0.pt",
           "sha256": "30d88fd22e9c44e85d51584c4cff582783c5d21c254fa9b483fba9dd49e33734"
         }
       ]
@@ -194,7 +194,7 @@
       "catalog_identity_preserved": true,
       "published_checkpoint_member": [
         {
-          "path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_1.pt",
+          "path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_1.pt",
           "sha256": "99847560d9709200ddffb7988b98a22c967948bac743f0ef9d3f8a93171e46ab"
         }
       ]
@@ -209,7 +209,7 @@
       "catalog_identity_preserved": true,
       "published_checkpoint_member": [
         {
-          "path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_2.pt",
+          "path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_2.pt",
           "sha256": "bc64c8eaee2c64bff32ddd69e0e814b2a6cab4ecfdf78535b935ba4484e73537"
         }
       ]
@@ -224,7 +224,7 @@
       "catalog_identity_preserved": true,
       "published_checkpoint_member": [
         {
-          "path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_3.pt",
+          "path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_3.pt",
           "sha256": "4a67e143d4b093161e4ca3e10e6dc8d6b225b826233d7e7f7bdfb9ab41cc5ebb"
         }
       ]
@@ -239,7 +239,7 @@
       "catalog_identity_preserved": true,
       "published_checkpoint_member": [
         {
-          "path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_4.pt",
+          "path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_4.pt",
           "sha256": "4faabab5a2ec917bfd12639fd0c2756de6dc0c6332da1e4debfad63b7898db64"
         }
       ]
@@ -254,7 +254,7 @@
       "catalog_identity_preserved": true,
       "published_checkpoint_member": [
         {
-          "path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_3.pt",
+          "path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_3.pt",
           "sha256": "6553f6dfec0e7aa5b5cb7a84066e0d5d5bd1ec00d0d9f471f067bcae888ab519"
         }
       ]
@@ -269,7 +269,7 @@
       "catalog_identity_preserved": true,
       "published_checkpoint_member": [
         {
-          "path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_4.pt",
+          "path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_4.pt",
           "sha256": "54351edf384c0ddf517137faaee8f4198b95f32381faac43a7d8756e0e105fd7"
         }
       ]
@@ -282,7 +282,7 @@
       "availability": "GIT_RELEASE_MODEL_ONLY",
       "redistribution_license": "NOT_VERIFIED",
       "catalog_identity_preserved": true,
-      "published_relative_path": "artifacts/elliptic/pgexplainer/historical_seed42/gcn.zip"
+      "published_relative_path": "artifacts/checkpoints/elliptic/pgexplainer/historical_seed42/gcn.zip"
     },
     {
       "repository": "benchmark",
@@ -292,7 +292,7 @@
       "availability": "GIT_RELEASE_MODEL_ONLY",
       "redistribution_license": "NOT_VERIFIED",
       "catalog_identity_preserved": true,
-      "published_relative_path": "artifacts/elliptic/pgexplainer/historical_seed42/graphsage.zip"
+      "published_relative_path": "artifacts/checkpoints/elliptic/pgexplainer/historical_seed42/graphsage.zip"
     },
     {
       "repository": "elliptic",
@@ -302,7 +302,7 @@
       "availability": "GIT_RELEASE_MODEL_ONLY",
       "redistribution_license": "NOT_VERIFIED",
       "catalog_identity_preserved": true,
-      "published_relative_path": "artifacts/elliptic/backbones/gcn.pt"
+      "published_relative_path": "artifacts/checkpoints/elliptic/backbones/gcn.pt"
     },
     {
       "repository": "elliptic",
@@ -312,7 +312,7 @@
       "availability": "GIT_RELEASE_MODEL_ONLY",
       "redistribution_license": "NOT_VERIFIED",
       "catalog_identity_preserved": true,
-      "published_relative_path": "artifacts/elliptic/backbones/graphsage.pt"
+      "published_relative_path": "artifacts/checkpoints/elliptic/backbones/graphsage.pt"
     },
     {
       "repository": "elliptic",
@@ -455,7 +455,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/gcn/ba1000_ext_gcn_best.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/gcn/ba1000_ext_gcn_best.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/backbones/gcn/seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -474,7 +474,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/gcn/ba1000_ext_gcn_best.pt"
     },
     {
       "id": "ba1000.backbone_checkpoint.graphsage.seed42.default",
@@ -487,7 +488,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/graphsage/ba1000_ext_graphsage_best.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/graphsage/ba1000_ext_graphsage_best.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/backbones/graphsage/seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -506,7 +507,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1000_ext/graphsage/ba1000_ext_graphsage_best.pt"
     },
     {
       "id": "ba1000.data_graph.shared.seed42.default",
@@ -519,7 +521,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext.pt",
+      "published_relative_path": "data/ba_house/ba1000/graph.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -538,7 +540,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/ba1000_ext/ba1000_ext.pt"
     },
     {
       "id": "ba1000.pg_checkpoint.gcn.seed42.default",
@@ -551,7 +554,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer/ba1000_ext/gcn/seed_42/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer/ba1000_ext/gcn/seed_42/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/pgexplainer/gcn/primary_seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -570,7 +573,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer/ba1000_ext/gcn/seed_42/final_pg.pt"
     },
     {
       "id": "ba1000.pg_checkpoint.graphsage.seed42.default",
@@ -583,7 +587,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer/ba1000_ext/graphsage/seed_42/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer/ba1000_ext/graphsage/seed_42/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/pgexplainer/graphsage/primary_seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -602,7 +606,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer/ba1000_ext/graphsage/seed_42/final_pg.pt"
     },
     {
       "id": "ba1000.pg_checkpoint.gcn.seed0.default",
@@ -615,7 +620,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_0/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_0/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/pgexplainer/gcn/stability/seed_0.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -634,7 +639,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_0/final_pg.pt"
     },
     {
       "id": "ba1000.pg_checkpoint.gcn.seed1.default",
@@ -647,7 +653,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_1/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_1/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/pgexplainer/gcn/stability/seed_1.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -666,7 +672,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_1/final_pg.pt"
     },
     {
       "id": "ba1000.pg_checkpoint.gcn.seed2.default",
@@ -679,7 +686,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_2/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_2/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/pgexplainer/gcn/stability/seed_2.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -698,7 +705,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_2/final_pg.pt"
     },
     {
       "id": "ba1000.pg_checkpoint.gcn.seed3.default",
@@ -711,7 +719,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_3/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_3/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/pgexplainer/gcn/stability/seed_3.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -730,7 +738,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_3/final_pg.pt"
     },
     {
       "id": "ba1000.pg_checkpoint.gcn.seed4.default",
@@ -743,7 +752,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_4/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_4/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/pgexplainer/gcn/stability/seed_4.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -762,7 +771,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/gcn/seed_4/final_pg.pt"
     },
     {
       "id": "ba1000.pg_checkpoint.graphsage.seed0.default",
@@ -775,7 +785,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_0/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_0/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/pgexplainer/graphsage/stability/seed_0.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -794,7 +804,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_0/final_pg.pt"
     },
     {
       "id": "ba1000.pg_checkpoint.graphsage.seed1.default",
@@ -807,7 +818,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_1/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_1/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/pgexplainer/graphsage/stability/seed_1.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -826,7 +837,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_1/final_pg.pt"
     },
     {
       "id": "ba1000.pg_checkpoint.graphsage.seed2.default",
@@ -839,7 +851,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_2/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_2/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/pgexplainer/graphsage/stability/seed_2.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -858,7 +870,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_2/final_pg.pt"
     },
     {
       "id": "ba1000.pg_checkpoint.graphsage.seed3.default",
@@ -871,7 +884,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_3/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_3/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/pgexplainer/graphsage/stability/seed_3.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -890,7 +903,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_3/final_pg.pt"
     },
     {
       "id": "ba1000.pg_checkpoint.graphsage.seed4.default",
@@ -903,7 +917,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_4/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_4/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1000/pgexplainer/graphsage/stability/seed_4.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -922,7 +936,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1000_ext/graphsage/seed_4/final_pg.pt"
     },
     {
       "id": "ba1500.backbone_checkpoint.gcn.seed42.default",
@@ -935,7 +950,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/gcn/ba1500_ext_gcn_best.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/gcn/ba1500_ext_gcn_best.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/backbones/gcn/seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -954,7 +969,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/gcn/ba1500_ext_gcn_best.pt"
     },
     {
       "id": "ba1500.backbone_checkpoint.graphsage.seed42.default",
@@ -967,7 +983,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/graphsage/ba1500_ext_graphsage_best.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/graphsage/ba1500_ext_graphsage_best.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/backbones/graphsage/seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -986,7 +1002,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/backbones/ba1500_ext/graphsage/ba1500_ext_graphsage_best.pt"
     },
     {
       "id": "ba1500.data_graph.shared.seed42.default",
@@ -999,7 +1016,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext.pt",
+      "published_relative_path": "data/ba_house/ba1500/graph.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1018,7 +1035,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/ba1500_ext/ba1500_ext.pt"
     },
     {
       "id": "ba1500.pg_checkpoint.gcn.seed42.default",
@@ -1031,7 +1049,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer/ba1500_ext/gcn/seed_42/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer/ba1500_ext/gcn/seed_42/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/pgexplainer/gcn/primary_seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1050,7 +1068,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer/ba1500_ext/gcn/seed_42/final_pg.pt"
     },
     {
       "id": "ba1500.pg_checkpoint.graphsage.seed42.default",
@@ -1063,7 +1082,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer/ba1500_ext/graphsage/seed_42/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer/ba1500_ext/graphsage/seed_42/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/pgexplainer/graphsage/primary_seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1082,7 +1101,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer/ba1500_ext/graphsage/seed_42/final_pg.pt"
     },
     {
       "id": "ba1500.pg_checkpoint.gcn.seed0.default",
@@ -1095,7 +1115,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_0/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_0/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/pgexplainer/gcn/stability/seed_0.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1114,7 +1134,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_0/final_pg.pt"
     },
     {
       "id": "ba1500.pg_checkpoint.gcn.seed1.default",
@@ -1127,7 +1148,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_1/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_1/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/pgexplainer/gcn/stability/seed_1.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1146,7 +1167,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_1/final_pg.pt"
     },
     {
       "id": "ba1500.pg_checkpoint.gcn.seed2.default",
@@ -1159,7 +1181,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_2/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_2/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/pgexplainer/gcn/stability/seed_2.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1178,7 +1200,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_2/final_pg.pt"
     },
     {
       "id": "ba1500.pg_checkpoint.gcn.seed3.default",
@@ -1191,7 +1214,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_3/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_3/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/pgexplainer/gcn/stability/seed_3.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1210,7 +1233,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_3/final_pg.pt"
     },
     {
       "id": "ba1500.pg_checkpoint.gcn.seed4.default",
@@ -1223,7 +1247,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_4/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_4/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/pgexplainer/gcn/stability/seed_4.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1242,7 +1266,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/gcn/seed_4/final_pg.pt"
     },
     {
       "id": "ba1500.pg_checkpoint.graphsage.seed0.default",
@@ -1255,7 +1280,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_0/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_0/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/pgexplainer/graphsage/stability/seed_0.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1274,7 +1299,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_0/final_pg.pt"
     },
     {
       "id": "ba1500.pg_checkpoint.graphsage.seed1.default",
@@ -1287,7 +1313,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_1/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_1/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/pgexplainer/graphsage/stability/seed_1.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1306,7 +1332,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_1/final_pg.pt"
     },
     {
       "id": "ba1500.pg_checkpoint.graphsage.seed2.default",
@@ -1319,7 +1346,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_2/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_2/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/pgexplainer/graphsage/stability/seed_2.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1338,7 +1365,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_2/final_pg.pt"
     },
     {
       "id": "ba1500.pg_checkpoint.graphsage.seed3.default",
@@ -1351,7 +1379,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_3/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_3/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/pgexplainer/graphsage/stability/seed_3.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1370,7 +1398,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_3/final_pg.pt"
     },
     {
       "id": "ba1500.pg_checkpoint.graphsage.seed4.default",
@@ -1383,7 +1412,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_4/final_pg.pt",
-      "published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_4/final_pg.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba1500/pgexplainer/graphsage/stability/seed_4.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1402,7 +1431,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/extensions/ba_house_scale/xai/pgexplainer_stability/ba1500_ext/graphsage/seed_4/final_pg.pt"
     },
     {
       "id": "ba500.backbone_checkpoint.gcn.seed42.default",
@@ -1415,7 +1445,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/checkpoints/ba_house_gcn_best.pt",
-      "published_relative_path": "artifacts/checkpoints/ba_house_gcn_best.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/backbones/gcn/seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1434,7 +1464,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/checkpoints/ba_house_gcn_best.pt"
     },
     {
       "id": "ba500.backbone_checkpoint.graphsage.seed42.default",
@@ -1447,7 +1478,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/checkpoints/ba_house_graphsage_best.pt",
-      "published_relative_path": "artifacts/checkpoints/ba_house_graphsage_best.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/backbones/graphsage/seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1466,7 +1497,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/checkpoints/ba_house_graphsage_best.pt"
     },
     {
       "id": "ba500.data_graph.shared.seed42.default",
@@ -1479,7 +1511,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/data/ba_house.pt",
-      "published_relative_path": "artifacts/data/ba_house.pt",
+      "published_relative_path": "data/ba_house/ba500/graph.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1498,7 +1530,8 @@
       "access": "GIT_RELEASE",
       "before_published": false,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/data/ba_house.pt"
     },
     {
       "id": "ba500.pg_checkpoint.gcn.seed0.default",
@@ -1511,7 +1544,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed0.pt",
-      "published_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed0.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/pgexplainer/gcn/stability/seed_0.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1530,7 +1563,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed0.pt"
     },
     {
       "id": "ba500.pg_checkpoint.gcn.seed1.default",
@@ -1543,7 +1577,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed1.pt",
-      "published_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed1.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/pgexplainer/gcn/stability/seed_1.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1562,7 +1596,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed1.pt"
     },
     {
       "id": "ba500.pg_checkpoint.gcn.seed2.default",
@@ -1575,7 +1610,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed2.pt",
-      "published_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed2.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/pgexplainer/gcn/stability/seed_2.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1594,7 +1629,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed2.pt"
     },
     {
       "id": "ba500.pg_checkpoint.gcn.seed3.default",
@@ -1607,7 +1643,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed3.pt",
-      "published_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed3.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/pgexplainer/gcn/stability/seed_3.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1626,7 +1662,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed3.pt"
     },
     {
       "id": "ba500.pg_checkpoint.gcn.seed4.default",
@@ -1639,7 +1676,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed4.pt",
-      "published_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed4.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/pgexplainer/gcn/stability/seed_4.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1658,7 +1695,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed4.pt"
     },
     {
       "id": "ba500.pg_checkpoint.gcn.seed42.default",
@@ -1671,7 +1709,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed42.pt",
-      "published_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed42.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/pgexplainer/gcn/primary_seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1690,7 +1728,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/pgexplainer_gcn_ba_house_seed42.pt"
     },
     {
       "id": "ba500.pg_checkpoint.graphsage.seed0.common48_16",
@@ -1703,7 +1742,7 @@
       "pool_identity": "common48/16",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed0.pt",
-      "published_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed0.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/pgexplainer/graphsage/common48_16/stability/seed_0.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1722,7 +1761,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed0.pt"
     },
     {
       "id": "ba500.pg_checkpoint.graphsage.seed1.common48_16",
@@ -1735,7 +1775,7 @@
       "pool_identity": "common48/16",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed1.pt",
-      "published_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed1.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/pgexplainer/graphsage/common48_16/stability/seed_1.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1754,7 +1794,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed1.pt"
     },
     {
       "id": "ba500.pg_checkpoint.graphsage.seed2.common48_16",
@@ -1767,7 +1808,7 @@
       "pool_identity": "common48/16",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed2.pt",
-      "published_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed2.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/pgexplainer/graphsage/common48_16/stability/seed_2.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1786,7 +1827,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed2.pt"
     },
     {
       "id": "ba500.pg_checkpoint.graphsage.seed3.common48_16",
@@ -1799,7 +1841,7 @@
       "pool_identity": "common48/16",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed3.pt",
-      "published_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed3.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/pgexplainer/graphsage/common48_16/stability/seed_3.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1818,7 +1860,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed3.pt"
     },
     {
       "id": "ba500.pg_checkpoint.graphsage.seed4.common48_16",
@@ -1831,7 +1874,7 @@
       "pool_identity": "common48/16",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed4.pt",
-      "published_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed4.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/pgexplainer/graphsage/common48_16/stability/seed_4.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1850,7 +1893,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed4.pt"
     },
     {
       "id": "ba500.pg_checkpoint.graphsage.seed42.common48_16",
@@ -1863,7 +1907,7 @@
       "pool_identity": "common48/16",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed42.pt",
-      "published_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed42.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/pgexplainer/graphsage/common48_16/primary_seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1882,7 +1926,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed42.pt"
     },
     {
       "id": "ba500.pg_checkpoint.graphsage.seed42.natural106_35",
@@ -1895,7 +1940,7 @@
       "pool_identity": "natural106/35",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_seed42.pt",
-      "published_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_seed42.pt",
+      "published_relative_path": "artifacts/checkpoints/ba_house/ba500/pgexplainer/graphsage/natural106_35/primary_seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1914,7 +1959,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/pgexplainer_graphsage_ba_house_seed42.pt"
     },
     {
       "id": "elliptic.backbone_checkpoint.gcn.seed42.default",
@@ -1927,7 +1973,7 @@
       "pool_identity": "",
       "original_repository": "elliptic",
       "original_relative_path": "artifacts/checkpoints/gcn_baseline.pt",
-      "published_relative_path": "artifacts/elliptic/backbones/gcn.pt",
+      "published_relative_path": "artifacts/checkpoints/elliptic/backbones/gcn.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1947,7 +1993,8 @@
       "before_published": false,
       "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
       "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
-      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded",
+      "previous_published_relative_path": "artifacts/elliptic/backbones/gcn.pt"
     },
     {
       "id": "elliptic.backbone_checkpoint.graphsage.seed42.default",
@@ -1960,7 +2007,7 @@
       "pool_identity": "",
       "original_repository": "elliptic",
       "original_relative_path": "artifacts/checkpoints/graphsage_baseline.pt",
-      "published_relative_path": "artifacts/elliptic/backbones/graphsage.pt",
+      "published_relative_path": "artifacts/checkpoints/elliptic/backbones/graphsage.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1980,7 +2027,8 @@
       "before_published": false,
       "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
       "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
-      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded",
+      "previous_published_relative_path": "artifacts/elliptic/backbones/graphsage.pt"
     },
     {
       "id": "elliptic.data_graph.shared.seedna.default",
@@ -2025,7 +2073,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED0_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_0.pt",
+      "published_relative_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_0.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED0_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "fb8de11cc437e22b30f4813e49f7d2a1a09e181256a9260f3f5c18157623faab",
@@ -2045,7 +2093,8 @@
       "before_published": false,
       "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
       "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
-      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded",
+      "previous_published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_0.pt"
     },
     {
       "id": "elliptic.pg_checkpoint.gcn.seed1.default",
@@ -2058,7 +2107,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED1_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_1.pt",
+      "published_relative_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_1.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED1_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "8fcf72879d9c9ff650db6c2e36658fa18d9db8de64b0ebab84b0a0571faa1ac3",
@@ -2078,7 +2127,8 @@
       "before_published": false,
       "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
       "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
-      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded",
+      "previous_published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_1.pt"
     },
     {
       "id": "elliptic.pg_checkpoint.gcn.seed2.default",
@@ -2091,7 +2141,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED2_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_2.pt",
+      "published_relative_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_2.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED2_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "4f3c962d78393406a46f8d1db739af5494cb942d893de5b2c3b9e9087af4387d",
@@ -2111,7 +2161,8 @@
       "before_published": false,
       "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
       "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
-      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded",
+      "previous_published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_2.pt"
     },
     {
       "id": "elliptic.pg_checkpoint.graphsage.seed0.default",
@@ -2124,7 +2175,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED0_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_0.pt",
+      "published_relative_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_0.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED0_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "2b70686729f123e63fdcd12c05f724e12d3039104fdd3e8f55f8547a3c375dcd",
@@ -2144,7 +2195,8 @@
       "before_published": false,
       "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
       "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
-      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded",
+      "previous_published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_0.pt"
     },
     {
       "id": "elliptic.pg_checkpoint.graphsage.seed1.default",
@@ -2157,7 +2209,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED1_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_1.pt",
+      "published_relative_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_1.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED1_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "cc078e4b575f338882f19a0c61364e8941f2db19db69fd43bfa15ee8bef94abf",
@@ -2177,7 +2229,8 @@
       "before_published": false,
       "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
       "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
-      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded",
+      "previous_published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_1.pt"
     },
     {
       "id": "elliptic.pg_checkpoint.graphsage.seed2.default",
@@ -2190,7 +2243,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED2_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_2.pt",
+      "published_relative_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_2.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED2_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "1d1eaa3165fddf1d292afa84523e8837d65f5f0667ccfcb5468b9ba54aeb1572",
@@ -2210,7 +2263,8 @@
       "before_published": false,
       "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
       "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
-      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded",
+      "previous_published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_2.pt"
     },
     {
       "id": "elliptic.pg_checkpoint.gcn.seed3.default",
@@ -2223,7 +2277,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED3_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_3.pt",
+      "published_relative_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_3.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED3_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "72e35b92e9fc0a90d012c48e61035bd419e4d5c10bc32fe942b0ff545b1cbba3",
@@ -2243,7 +2297,8 @@
       "before_published": false,
       "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
       "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
-      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded",
+      "previous_published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_3.pt"
     },
     {
       "id": "elliptic.pg_checkpoint.gcn.seed4.default",
@@ -2256,7 +2311,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED4_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_4.pt",
+      "published_relative_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_4.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED4_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "e2be5117be15943bc8625d7ada3ef91c6b5fc55374439b9f00d70a15712c226c",
@@ -2276,7 +2331,8 @@
       "before_published": false,
       "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
       "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
-      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded",
+      "previous_published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_4.pt"
     },
     {
       "id": "elliptic.pg_checkpoint.graphsage.seed3.default",
@@ -2289,7 +2345,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED3_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_3.pt",
+      "published_relative_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_3.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED3_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "7ad450254982b4d357e4c8644574d31246b8295648d61336e7c02113a6156dde",
@@ -2309,7 +2365,8 @@
       "before_published": false,
       "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
       "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
-      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded",
+      "previous_published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_3.pt"
     },
     {
       "id": "elliptic.pg_checkpoint.graphsage.seed4.default",
@@ -2322,7 +2379,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED4_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_4.pt",
+      "published_relative_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_4.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED4_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "47081d4123100bce5aba7928eb0a991bc3dede3ce027f085547cf0b6acdd5003",
@@ -2342,7 +2399,8 @@
       "before_published": false,
       "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
       "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
-      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded",
+      "previous_published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_4.pt"
     },
     {
       "id": "elliptic.pg_checkpoint_serialized_zip.gcn.seed42.default",
@@ -2355,7 +2413,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "results/elliptic_pg_gcn_seed42.zip",
-      "published_relative_path": "artifacts/elliptic/pgexplainer/historical_seed42/gcn.zip",
+      "published_relative_path": "artifacts/checkpoints/elliptic/pgexplainer/historical_seed42/gcn.zip",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2375,7 +2433,8 @@
       "before_published": false,
       "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
       "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
-      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded",
+      "previous_published_relative_path": "artifacts/elliptic/pgexplainer/historical_seed42/gcn.zip"
     },
     {
       "id": "elliptic.pg_checkpoint_serialized_zip.graphsage.seed42.default",
@@ -2388,7 +2447,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "results/elliptic_pg_graphsage_seed42.zip",
-      "published_relative_path": "artifacts/elliptic/pgexplainer/historical_seed42/graphsage.zip",
+      "published_relative_path": "artifacts/checkpoints/elliptic/pgexplainer/historical_seed42/graphsage.zip",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2408,7 +2467,8 @@
       "before_published": false,
       "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
       "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
-      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded",
+      "previous_published_relative_path": "artifacts/elliptic/pgexplainer/historical_seed42/graphsage.zip"
     },
     {
       "id": "shapeggen_v1.backbone_checkpoint.gcn.seed42.default",
@@ -2421,7 +2481,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/checkpoints/shapeggen_gcn_best.pt",
-      "published_relative_path": "artifacts/checkpoints/shapeggen_gcn_best.pt",
+      "published_relative_path": "artifacts/checkpoints/shapeggen/v1/backbones/gcn/seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2440,7 +2500,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/checkpoints/shapeggen_gcn_best.pt"
     },
     {
       "id": "shapeggen_v1.backbone_checkpoint.graphsage.seed42.default",
@@ -2453,7 +2514,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/checkpoints/shapeggen_graphsage_best.pt",
-      "published_relative_path": "artifacts/checkpoints/shapeggen_graphsage_best.pt",
+      "published_relative_path": "artifacts/checkpoints/shapeggen/v1/backbones/graphsage/seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2472,7 +2533,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/checkpoints/shapeggen_graphsage_best.pt"
     },
     {
       "id": "shapeggen_v1.data_graph.shared.seed912.default",
@@ -2485,7 +2547,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/data/shapeggen.pt",
-      "published_relative_path": "artifacts/data/shapeggen.pt",
+      "published_relative_path": "data/shapeggen/v1/graph.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2504,7 +2566,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/data/shapeggen.pt"
     },
     {
       "id": "shapeggen_v1.pg_checkpoint.gcn.seed0.default",
@@ -2517,7 +2580,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed0.pt",
-      "published_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed0.pt",
+      "published_relative_path": "artifacts/checkpoints/shapeggen/v1/pgexplainer/gcn/stability/seed_0.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2536,7 +2599,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed0.pt"
     },
     {
       "id": "shapeggen_v1.pg_checkpoint.gcn.seed1.default",
@@ -2549,7 +2613,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed1.pt",
-      "published_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed1.pt",
+      "published_relative_path": "artifacts/checkpoints/shapeggen/v1/pgexplainer/gcn/stability/seed_1.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2568,7 +2632,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed1.pt"
     },
     {
       "id": "shapeggen_v1.pg_checkpoint.gcn.seed2.default",
@@ -2581,7 +2646,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed2.pt",
-      "published_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed2.pt",
+      "published_relative_path": "artifacts/checkpoints/shapeggen/v1/pgexplainer/gcn/stability/seed_2.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2600,7 +2665,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed2.pt"
     },
     {
       "id": "shapeggen_v1.pg_checkpoint.gcn.seed3.default",
@@ -2613,7 +2679,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed3.pt",
-      "published_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed3.pt",
+      "published_relative_path": "artifacts/checkpoints/shapeggen/v1/pgexplainer/gcn/stability/seed_3.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2632,7 +2698,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed3.pt"
     },
     {
       "id": "shapeggen_v1.pg_checkpoint.gcn.seed4.default",
@@ -2645,7 +2712,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed4.pt",
-      "published_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed4.pt",
+      "published_relative_path": "artifacts/checkpoints/shapeggen/v1/pgexplainer/gcn/stability/seed_4.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2664,7 +2731,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed4.pt"
     },
     {
       "id": "shapeggen_v1.pg_checkpoint.gcn.seed42.default",
@@ -2677,7 +2745,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed42.pt",
-      "published_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed42.pt",
+      "published_relative_path": "artifacts/checkpoints/shapeggen/v1/pgexplainer/gcn/primary_seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2696,7 +2764,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/shapeggen_pg_gcn_seed42.pt"
     },
     {
       "id": "shapeggen_v1.pg_checkpoint.graphsage.seed0.default",
@@ -2709,7 +2778,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed0.pt",
-      "published_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed0.pt",
+      "published_relative_path": "artifacts/checkpoints/shapeggen/v1/pgexplainer/graphsage/stability/seed_0.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2728,7 +2797,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed0.pt"
     },
     {
       "id": "shapeggen_v1.pg_checkpoint.graphsage.seed1.default",
@@ -2741,7 +2811,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed1.pt",
-      "published_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed1.pt",
+      "published_relative_path": "artifacts/checkpoints/shapeggen/v1/pgexplainer/graphsage/stability/seed_1.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2760,7 +2830,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed1.pt"
     },
     {
       "id": "shapeggen_v1.pg_checkpoint.graphsage.seed2.default",
@@ -2773,7 +2844,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed2.pt",
-      "published_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed2.pt",
+      "published_relative_path": "artifacts/checkpoints/shapeggen/v1/pgexplainer/graphsage/stability/seed_2.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2792,7 +2863,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed2.pt"
     },
     {
       "id": "shapeggen_v1.pg_checkpoint.graphsage.seed3.default",
@@ -2805,7 +2877,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed3.pt",
-      "published_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed3.pt",
+      "published_relative_path": "artifacts/checkpoints/shapeggen/v1/pgexplainer/graphsage/stability/seed_3.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2824,7 +2896,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed3.pt"
     },
     {
       "id": "shapeggen_v1.pg_checkpoint.graphsage.seed4.default",
@@ -2837,7 +2910,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed4.pt",
-      "published_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed4.pt",
+      "published_relative_path": "artifacts/checkpoints/shapeggen/v1/pgexplainer/graphsage/stability/seed_4.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2856,7 +2929,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed4.pt"
     },
     {
       "id": "shapeggen_v1.pg_checkpoint.graphsage.seed42.default",
@@ -2869,7 +2943,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed42.pt",
-      "published_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed42.pt",
+      "published_relative_path": "artifacts/checkpoints/shapeggen/v1/pgexplainer/graphsage/primary_seed42.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2888,7 +2962,8 @@
       "access": "GIT_RELEASE",
       "before_published": true,
       "restore": "Present at published_relative_path in the release branch; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "previous_published_relative_path": "artifacts/explainers/shapeggen_pg_graphsage_seed42.pt"
     }
   ],
   "contents": {
@@ -3551,5 +3626,12 @@
       "dataset_files": 0,
       "decision": "Explicit owner authorization; third-party MIT notice retained; dataset terms remain separate"
     }
-  ]
+  ],
+  "organization": {
+    "source_release": "2b29e57784217269dcabc5e4d950468a759034d7",
+    "mapping": "docs/provenance/repository_paths.json",
+    "historical_paths_immutable": true,
+    "active_config_root": "configs",
+    "model_families_separate": true
+  }
 }

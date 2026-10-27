@@ -11,7 +11,7 @@
       "family": "backbone",
       "seed": 42,
       "original_path": "$ELLIPTIC_BASELINE_ROOT/artifacts/checkpoints/gcn_baseline.pt",
-      "published_path": "artifacts/elliptic/backbones/gcn.pt",
+      "published_path": "artifacts/checkpoints/elliptic/backbones/gcn.pt",
       "sha256": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07",
       "size_bytes": 220129,
       "source_manifest": "$BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/preflight.json#/task_config/gcn_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/preflight.json#/task_config/gcn_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/result.json#/preflight/task_config/gcn_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/run_state.json#/preflight/task_config/gcn_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/preflight.json#/preflight/task_config/gcn_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/result.json#/preflight/task_config/gcn_checkpoint",
@@ -74,7 +74,8 @@
       "embedded_graph_or_dataset_tensors": false,
       "secret_or_personal_home_path_hits": 0,
       "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
-      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate",
+      "previous_published_path": "artifacts/elliptic/backbones/gcn.pt"
     },
     {
       "dataset": "Elliptic",
@@ -83,7 +84,7 @@
       "family": "backbone",
       "seed": 42,
       "original_path": "$ELLIPTIC_BASELINE_ROOT/artifacts/checkpoints/graphsage_baseline.pt",
-      "published_path": "artifacts/elliptic/backbones/graphsage.pt",
+      "published_path": "artifacts/checkpoints/elliptic/backbones/graphsage.pt",
       "sha256": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf",
       "size_bytes": 305513,
       "source_manifest": "$BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/preflight.json#/task_config/graphsage_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/preflight.json#/task_config/graphsage_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/result.json#/preflight/task_config/graphsage_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/run_state.json#/preflight/task_config/graphsage_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/preflight.json#/preflight/task_config/graphsage_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/result.json#/preflight/task_config/graphsage_checkpoint",
@@ -164,7 +165,8 @@
       "embedded_graph_or_dataset_tensors": false,
       "secret_or_personal_home_path_hits": 0,
       "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
-      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate",
+      "previous_published_path": "artifacts/elliptic/backbones/graphsage.pt"
     },
     {
       "dataset": "Elliptic",
@@ -173,7 +175,7 @@
       "family": "fresh5",
       "seed": 0,
       "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED0_COMPLETE.zip!checkpoint.pt",
-      "published_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_0.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_0.pt",
       "sha256": "193d175a0b49529d9f1a17d17f8b4388cb43c375d90e9d09657afa87c8c69259",
       "size_bytes": 231081,
       "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED0_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED0_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED0_COMPLETE.zip!completion_manifest.json",
@@ -311,7 +313,8 @@
       "embedded_graph_or_dataset_tensors": false,
       "secret_or_personal_home_path_hits": 0,
       "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
-      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate",
+      "previous_published_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_0.pt"
     },
     {
       "dataset": "Elliptic",
@@ -320,7 +323,7 @@
       "family": "fresh5",
       "seed": 1,
       "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED1_COMPLETE.zip!checkpoint.pt",
-      "published_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_1.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_1.pt",
       "sha256": "cb1d2a786bcb9b4b64be2728c056fd20191226c8d4e81b4890bf29412969d0e6",
       "size_bytes": 231081,
       "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED1_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED1_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED1_COMPLETE.zip!completion_manifest.json",
@@ -458,7 +461,8 @@
       "embedded_graph_or_dataset_tensors": false,
       "secret_or_personal_home_path_hits": 0,
       "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
-      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate",
+      "previous_published_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_1.pt"
     },
     {
       "dataset": "Elliptic",
@@ -467,7 +471,7 @@
       "family": "fresh5",
       "seed": 2,
       "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED2_COMPLETE.zip!checkpoint.pt",
-      "published_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_2.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_2.pt",
       "sha256": "f8d8f2d51a65568f6e101aaa3d2310ba55453469f4d190a1d9b4aa1b706eed2a",
       "size_bytes": 231081,
       "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED2_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED2_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED2_COMPLETE.zip!completion_manifest.json",
@@ -605,7 +609,8 @@
       "embedded_graph_or_dataset_tensors": false,
       "secret_or_personal_home_path_hits": 0,
       "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
-      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate",
+      "previous_published_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_2.pt"
     },
     {
       "dataset": "Elliptic",
@@ -614,7 +619,7 @@
       "family": "fresh5",
       "seed": 0,
       "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED0_COMPLETE.zip!checkpoint.pt",
-      "published_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_0.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_0.pt",
       "sha256": "30d88fd22e9c44e85d51584c4cff582783c5d21c254fa9b483fba9dd49e33734",
       "size_bytes": 261229,
       "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED0_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED0_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED0_COMPLETE.zip!completion_manifest.json",
@@ -752,7 +757,8 @@
       "embedded_graph_or_dataset_tensors": false,
       "secret_or_personal_home_path_hits": 0,
       "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
-      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate",
+      "previous_published_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_0.pt"
     },
     {
       "dataset": "Elliptic",
@@ -761,7 +767,7 @@
       "family": "fresh5",
       "seed": 1,
       "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED1_COMPLETE.zip!checkpoint.pt",
-      "published_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_1.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_1.pt",
       "sha256": "99847560d9709200ddffb7988b98a22c967948bac743f0ef9d3f8a93171e46ab",
       "size_bytes": 261229,
       "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED1_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED1_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED1_COMPLETE.zip!completion_manifest.json",
@@ -899,7 +905,8 @@
       "embedded_graph_or_dataset_tensors": false,
       "secret_or_personal_home_path_hits": 0,
       "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
-      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate",
+      "previous_published_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_1.pt"
     },
     {
       "dataset": "Elliptic",
@@ -908,7 +915,7 @@
       "family": "fresh5",
       "seed": 2,
       "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED2_COMPLETE.zip!checkpoint.pt",
-      "published_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_2.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_2.pt",
       "sha256": "bc64c8eaee2c64bff32ddd69e0e814b2a6cab4ecfdf78535b935ba4484e73537",
       "size_bytes": 261229,
       "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED2_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED2_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED2_COMPLETE.zip!completion_manifest.json",
@@ -1046,7 +1053,8 @@
       "embedded_graph_or_dataset_tensors": false,
       "secret_or_personal_home_path_hits": 0,
       "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
-      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate",
+      "previous_published_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_2.pt"
     },
     {
       "dataset": "Elliptic",
@@ -1055,7 +1063,7 @@
       "family": "fresh5",
       "seed": 3,
       "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED3_COMPLETE.zip!checkpoint.pt",
-      "published_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_3.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_3.pt",
       "sha256": "4a67e143d4b093161e4ca3e10e6dc8d6b225b826233d7e7f7bdfb9ab41cc5ebb",
       "size_bytes": 231081,
       "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED3_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED3_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED3_COMPLETE.zip!completion_manifest.json",
@@ -1193,7 +1201,8 @@
       "embedded_graph_or_dataset_tensors": false,
       "secret_or_personal_home_path_hits": 0,
       "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
-      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate",
+      "previous_published_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_3.pt"
     },
     {
       "dataset": "Elliptic",
@@ -1202,7 +1211,7 @@
       "family": "fresh5",
       "seed": 4,
       "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED4_COMPLETE.zip!checkpoint.pt",
-      "published_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_4.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_4.pt",
       "sha256": "4faabab5a2ec917bfd12639fd0c2756de6dc0c6332da1e4debfad63b7898db64",
       "size_bytes": 231081,
       "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED4_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED4_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED4_COMPLETE.zip!completion_manifest.json",
@@ -1340,7 +1349,8 @@
       "embedded_graph_or_dataset_tensors": false,
       "secret_or_personal_home_path_hits": 0,
       "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
-      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate",
+      "previous_published_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_4.pt"
     },
     {
       "dataset": "Elliptic",
@@ -1349,7 +1359,7 @@
       "family": "fresh5",
       "seed": 3,
       "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED3_COMPLETE.zip!checkpoint.pt",
-      "published_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_3.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_3.pt",
       "sha256": "6553f6dfec0e7aa5b5cb7a84066e0d5d5bd1ec00d0d9f471f067bcae888ab519",
       "size_bytes": 261229,
       "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED3_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED3_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED3_COMPLETE.zip!completion_manifest.json",
@@ -1487,7 +1497,8 @@
       "embedded_graph_or_dataset_tensors": false,
       "secret_or_personal_home_path_hits": 0,
       "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
-      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate",
+      "previous_published_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_3.pt"
     },
     {
       "dataset": "Elliptic",
@@ -1496,7 +1507,7 @@
       "family": "fresh5",
       "seed": 4,
       "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED4_COMPLETE.zip!checkpoint.pt",
-      "published_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_4.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_4.pt",
       "sha256": "54351edf384c0ddf517137faaee8f4198b95f32381faac43a7d8756e0e105fd7",
       "size_bytes": 261229,
       "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED4_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED4_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED4_COMPLETE.zip!completion_manifest.json",
@@ -1634,7 +1645,8 @@
       "embedded_graph_or_dataset_tensors": false,
       "secret_or_personal_home_path_hits": 0,
       "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
-      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate",
+      "previous_published_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_4.pt"
     },
     {
       "dataset": "Elliptic",
@@ -1643,7 +1655,7 @@
       "family": "historical_seed42",
       "seed": 42,
       "original_path": "$BENCHMARK_ROOT/results/elliptic_pg_gcn_seed42.zip",
-      "published_path": "artifacts/elliptic/pgexplainer/historical_seed42/gcn.zip",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/historical_seed42/gcn.zip",
       "sha256": "6035f9b343862a2c5fde376ba6160166c61ed916f5b497ee12498fe8726d3988",
       "size_bytes": 231423,
       "source_manifest": "$BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/preflight.json#/frozen_hashes/results/elliptic_pg_gcn_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/initial_receipts.json#/preserved_sha256/results/elliptic_pg_gcn_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/result.json#/preserved_sha256/results/elliptic_pg_gcn_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/run_state.json#/preserved_sha256/results/elliptic_pg_gcn_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/result.json#/preflight/frozen_hashes/results/elliptic_pg_gcn_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/run_state.json#/preflight/frozen_hashes/results/elliptic_pg_gcn_seed42.zip",
@@ -1781,7 +1793,8 @@
       "embedded_graph_or_dataset_tensors": false,
       "secret_or_personal_home_path_hits": 0,
       "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
-      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate",
+      "previous_published_path": "artifacts/elliptic/pgexplainer/historical_seed42/gcn.zip"
     },
     {
       "dataset": "Elliptic",
@@ -1790,7 +1803,7 @@
       "family": "historical_seed42",
       "seed": 42,
       "original_path": "$BENCHMARK_ROOT/results/elliptic_pg_graphsage_seed42.zip",
-      "published_path": "artifacts/elliptic/pgexplainer/historical_seed42/graphsage.zip",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/historical_seed42/graphsage.zip",
       "sha256": "ef9e81c399283834aba6bc4d45b72e25e334f00674f1e389ba5003a77eb6e827",
       "size_bytes": 261507,
       "source_manifest": "$BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/preflight.json#/frozen_hashes/results/elliptic_pg_graphsage_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/initial_receipts.json#/preserved_sha256/results/elliptic_pg_graphsage_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/result.json#/preserved_sha256/results/elliptic_pg_graphsage_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/run_state.json#/preserved_sha256/results/elliptic_pg_graphsage_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/result.json#/preflight/frozen_hashes/results/elliptic_pg_graphsage_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/run_state.json#/preflight/frozen_hashes/results/elliptic_pg_graphsage_seed42.zip",
@@ -1928,7 +1941,8 @@
       "embedded_graph_or_dataset_tensors": false,
       "secret_or_personal_home_path_hits": 0,
       "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
-      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate",
+      "previous_published_path": "artifacts/elliptic/pgexplainer/historical_seed42/graphsage.zip"
     }
   ],
   "blocked_models": [],
@@ -1943,7 +1957,8 @@
       "published_sha256": "0fc1730c3d1c761172d2a996b2929c3374c931997002251cf735a923cc9b8648",
       "change": "Trailing whitespace/newline normalization only; Python AST identical",
       "license": "MIT",
-      "license_file": "external/elliptic_baseline/LICENSE"
+      "license_file": "external/elliptic_baseline/LICENSE",
+      "pre_organization_published_sha256": "0fc1730c3d1c761172d2a996b2929c3374c931997002251cf735a923cc9b8648"
     },
     {
       "original_relative_path": "model/SAGE.py",
@@ -1955,31 +1970,38 @@
       "published_sha256": "744de81f3c383db793f274f4555af69efe955158d8cf247c54fc1256282e623f",
       "change": "Trailing whitespace/newline normalization only; Python AST identical",
       "license": "MIT",
-      "license_file": "external/elliptic_baseline/LICENSE"
+      "license_file": "external/elliptic_baseline/LICENSE",
+      "pre_organization_published_sha256": "744de81f3c383db793f274f4555af69efe955158d8cf247c54fc1256282e623f"
     },
     {
       "original_relative_path": "data/dataset.py",
       "source_repository": "elliptic-gnn-xai",
       "source_commit": "95710a9852019104f90499cdba628c37f4483a2a",
       "upstream_lineage": "https://github.com/RMIT-BDSL/Blockchain-Anomaly-Detection/tree/83ef2b9ed8b3233175bbc3f4231c593c365225b9",
-      "published_path": "external/elliptic_baseline/data/dataset.py",
+      "published_path": "src/gnnexplainer_benchmark/data/elliptic.py",
       "original_sha256": "4e3ea9c4169e9c452fdf8a2284756d751602c845e68ff52d87cda9d559b04481",
       "published_sha256": "2d3f4b0226a9864f87602a641e6cd838180d842cbf9d41857757f819e5f02fb5",
       "change": "Trailing whitespace/newline normalization only; Python AST identical",
       "license": "MIT",
-      "license_file": "external/elliptic_baseline/LICENSE"
+      "license_file": "external/elliptic_baseline/LICENSE",
+      "previous_published_path": "external/elliptic_baseline/data/dataset.py",
+      "pre_organization_published_sha256": "2d3f4b0226a9864f87602a641e6cd838180d842cbf9d41857757f819e5f02fb5",
+      "organization_change": "Same upstream implementation; relocated reusable module or CLI import/path-only refactor. Original hash/commit remain separately recorded."
     },
     {
       "original_relative_path": "scripts/preprocess_elliptic.py",
       "source_repository": "elliptic-gnn-xai",
       "source_commit": "95710a9852019104f90499cdba628c37f4483a2a",
       "upstream_lineage": "https://github.com/RMIT-BDSL/Blockchain-Anomaly-Detection/tree/83ef2b9ed8b3233175bbc3f4231c593c365225b9",
-      "published_path": "external/elliptic_baseline/scripts/preprocess_elliptic.py",
+      "published_path": "scripts/data/preprocess_elliptic.py",
       "original_sha256": "83f635c73fa6ce269cbce285277d809f650ae297361e648b934efd0f7888967d",
-      "published_sha256": "83f635c73fa6ce269cbce285277d809f650ae297361e648b934efd0f7888967d",
+      "published_sha256": "f71966c51b192d12826b9e34c7e7f609d8b97d96b476d6f9e8c87b74e146b225",
       "change": "Trailing whitespace/newline normalization only; Python AST identical",
       "license": "MIT",
-      "license_file": "external/elliptic_baseline/LICENSE"
+      "license_file": "external/elliptic_baseline/LICENSE",
+      "previous_published_path": "external/elliptic_baseline/scripts/preprocess_elliptic.py",
+      "pre_organization_published_sha256": "83f635c73fa6ce269cbce285277d809f650ae297361e648b934efd0f7888967d",
+      "organization_change": "Same upstream implementation; relocated reusable module or CLI import/path-only refactor. Original hash/commit remain separately recorded."
     },
     {
       "original_relative_path": "config/training_baseline_paper_gcn.yaml",
@@ -1991,7 +2013,8 @@
       "published_sha256": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368",
       "change": "Trailing whitespace/newline normalization only; Python AST identical",
       "license": "MIT",
-      "license_file": "external/elliptic_baseline/LICENSE"
+      "license_file": "external/elliptic_baseline/LICENSE",
+      "pre_organization_published_sha256": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368"
     },
     {
       "original_relative_path": "config/training_baseline_paper_sage.yaml",
@@ -2003,7 +2026,8 @@
       "published_sha256": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a",
       "change": "Trailing whitespace/newline normalization only; Python AST identical",
       "license": "MIT",
-      "license_file": "external/elliptic_baseline/LICENSE"
+      "license_file": "external/elliptic_baseline/LICENSE",
+      "pre_organization_published_sha256": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a"
     },
     {
       "original_relative_path": "LICENSE.source",
@@ -2015,7 +2039,8 @@
       "published_sha256": "500b34a485c4f82eb39d5df212028add771d552d1f1841637c551f31d4978e41",
       "change": "Trailing whitespace/newline normalization only; Python AST identical",
       "license": "MIT",
-      "license_file": "external/elliptic_baseline/LICENSE"
+      "license_file": "external/elliptic_baseline/LICENSE",
+      "pre_organization_published_sha256": "500b34a485c4f82eb39d5df212028add771d552d1f1841637c551f31d4978e41"
     }
   ],
   "dataset": {
@@ -2036,8 +2061,8 @@
     "dataset_license": "CC BY-NC-ND 4.0",
     "weight_scope": "Learned parameter/optimizer state and index/config metadata only; noncommercial thesis release, not a license grant for the dataset or a blanket commercial-use permission"
   },
-  "inference_config": "configs/evaluation/elliptic_frozen_publication.json",
-  "evaluation_script": "scripts/elliptic_frozen_models.py",
+  "inference_config": "configs/elliptic/elliptic_frozen_publication.json",
+  "evaluation_script": "scripts/evaluate/elliptic_frozen_models.py",
   "preprocessing_validation": {
     "status": "PASS",
     "preprocessing_source": "external/elliptic_baseline/scripts/preprocess_elliptic.py",
@@ -2050,5 +2075,6 @@
     "features": 165,
     "dataset_published": false,
     "training_performed": false
-  }
+  },
+  "organization_source_release": "2b29e57784217269dcabc5e4d950468a759034d7"
 }

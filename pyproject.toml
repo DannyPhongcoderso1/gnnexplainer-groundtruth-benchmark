@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "gnnexplainer-groundtruth-benchmark"
 version = "0.1.0"
-description = "Initialization scaffold for PyG GNNExplainer ground-truth benchmark experiments."
+description = "Frozen GNN explanation benchmark, model artifacts and thesis evidence verification."
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
 
