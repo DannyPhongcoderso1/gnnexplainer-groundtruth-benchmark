@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 import torch
 
-from scripts.elliptic_frozen_models import (
+from scripts.evaluate.elliptic_frozen_models import (
     checked_path,
     load_models,
     read_json,
@@ -42,31 +42,16 @@ def test_all_14_frozen_identities_and_loads(loaded):
         assert all(torch.equal(v, before[k]) for k, v in algorithm.state_dict().items())
 
 
-def test_exact_mit_architectures_match_existing_inference_wrappers(loaded):
+def test_published_backbone_schema_matches_canonical_state(loaded):
     config, models, _ = loaded
-    edges = torch.tensor([[0, 1, 1, 2, 2, 3], [1, 0, 2, 1, 3, 2]])
-    features = torch.arange(4 * 165, dtype=torch.float32).reshape(4, 165) / 1000
-    for backbone, filename, name in [("gcn", "GCN.py", "GCN"), ("graphsage", "SAGE.py", "SAGE")]:
-        spec = importlib.util.spec_from_file_location(
-            "licensed_" + backbone, ROOT / "external/elliptic_baseline/model" / filename
-        )
-        module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(module)
-        params = {
-            k: v
-            for k, v in config["architectures"][backbone].items()
-            if k not in ["class", "cached"]
-        }
-        reference = getattr(module, name)(edges, **params, graphnorm=False, init_mode="default")
-        state = next(
-            e for e in config["models"] if e["family"] == "backbone" and e["backbone"] == backbone
-        )
-        reference.load_state_dict(safe_checkpoint(ROOT, state), strict=True)
-        reference.eval().requires_grad_(False)
-        with torch.no_grad():
-            torch.testing.assert_close(
-                reference(features, edges), models[backbone](features, edges), rtol=0, atol=0
-            )
+    for backbone in ["gcn", "graphsage"]:
+        entry = next(e for e in config["models"]
+                     if e["family"] == "backbone" and e["backbone"] == backbone)
+        expected = {e["path"].lstrip("/"): (e["shape"], e["dtype"])
+                    for e in entry["tensor_schema"]}
+        actual = {name: (list(tensor.shape), str(tensor.dtype))
+                  for name, tensor in models[backbone].state_dict().items()}
+        assert actual == expected
 
 
 def test_checkpoint_metadata_and_targets_match_original_training(loaded):

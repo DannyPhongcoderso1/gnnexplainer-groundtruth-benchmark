@@ -1,7 +1,7 @@
 """Frozen Elliptic architecture, derived from the Dang/RMIT MIT baseline.
 
-Attribution and full MIT notice: external/elliptic_baseline/LICENSE.
-GCN cache semantics match the original explanation-compatible implementation.
+Attribution and full MIT notice: docs/provenance/licenses/RMIT_BLOCKCHAIN_ANOMALY_DETECTION_MIT.txt.
+The configured mean aggregator matches the frozen explanation-compatible implementation.
 """
 
 from __future__ import annotations
