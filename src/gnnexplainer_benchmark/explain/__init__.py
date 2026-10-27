@@ -1,4 +1,4 @@
-from gnnexplainer_benchmark.explain.gnnexplainer_runner import (
+from gnnexplainer_benchmark.explainers.gnnexplainer import (
     load_explainer_config,
     model_weights_unchanged,
     run_gnnexplainer_for_node,
