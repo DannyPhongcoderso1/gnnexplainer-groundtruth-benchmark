@@ -1,6 +1,6 @@
 # Final source cleanup report
 
-Status: source-level static checks complete; exact staged Git-byte verification follows before push. Work branch refactor/repository-organization; source `9233a58d28688dae0419824b60d7e45ee4b67dfe`.
+Status: **SOURCE_STATIC_AUDIT_AND_CLEANUP_COMPLETE**. Runtime after cleanup: **NOT_RETESTED**. Work branch refactor/repository-organization; source `9233a58d28688dae0419824b60d7e45ee4b67dfe`.
 
 1. external/elliptic_baseline existed as the minimal attributed MIT source/config/preprocessing subset used for the earlier Elliptic publication and a parity-reference unit check. It was not a submodule or a required production classifier implementation.
 2. The whole redundant vendor directory is removed. Full MIT notice moved unchanged to docs/provenance/licenses/RMIT_BLOCKCHAIN_ANOMALY_DETECTION_MIT.txt. Two accepted training YAMLs moved byte-identically to configs/elliptic/backbone_training_gcn.yaml and backbone_training_graphsage.yaml. Pinned upstream URL/SHA, original source hashes, copyright and model lineage remain recorded.
@@ -26,4 +26,21 @@ Static path correction: scripts/train/run_shapeggen_pgexplainer.checkpoint_paths
 - Original research HEAD/index/user-modified bytes remain unchanged. No upstream checkout or protected branch was modified.
 - A stale, zero-byte worktree index.lock older than20 minutes was recoverably moved to the task's temporary directory after confirming no active Git process and exclusive open; no source checkout index was removed.
 
-Final commit/push receipt follows after publication. This report is excluded from the hash manifest's self-referential scope.
+Publication completed; exact content-commit/live-remote receipt follows below. This report is excluded from the hash manifest's self-referential scope.
+
+## Commit and live remote receipt
+
+| Scope | Commit |
+| --- | --- |
+| cleanup: remove redundant Elliptic vendor sources and preserve MIT lineage | `9b2de73714130fc3fdceeb3ce1671ffff3c3c65d` |
+| cleanup: remove duplicate backbone and explainer forwarding definitions | `af0dbd840fd4c65d74ba73ace254a798b4a46cb8` |
+| cleanup: retire obsolete script wrappers and redirect canonical consumers | `b3d24c2424b0732c0541b9a981758ca93b7214d4` |
+| docs: record static scientific source parity and cleanup provenance | `5234f2c1decae7209712fee78cf5606e2f13cbf4` |
+
+Normal push succeeded to `refactor/repository-organization`. Final cleanup-content HEAD and verified live remote SHA: `5234f2c1decae7209712fee78cf5606e2f13cbf4`, verified UTC 2026-10-27T11:57:30.003895+00:00. No force push or merge.
+
+This subsequent report-only attestation commit does not change code, configs, artifacts or numerical results. Its own SHA cannot be embedded in itself; the final attestation HEAD and verified live remote SHA are provided in the delivery response and by git log -1 / git ls-remote.
+
+Protected GitHub main remains `6034c13bfab601bef823c07194c70574cd49ec41`; original release remains `2b29e57784217269dcabc5e4d950468a759034d7`; baseline main remains `9cd7a02339aa6f08427700b87a1a8e49fbbd195b`. Both original research HEADs, indexes and user-modified source/README bytes match the initial snapshots. No upstream checkout was modified.
+
+No unresolved active reference blocker was found by static dependency/path/link checks. Historical guarded producers, complete synthetic checkpoint-schema validation, raw CSV alignment/future-structure assumptions and all current runtime behavior remain NOT_VERIFIED. Scientific description gaps and the nine-cell cohort conflict were recorded, not repaired by changing measurements or models.
