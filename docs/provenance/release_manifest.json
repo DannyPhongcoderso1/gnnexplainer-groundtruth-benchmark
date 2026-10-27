@@ -11,12 +11,13 @@
   "files": [
     {
       "path": ".gitattributes",
-      "sha256": "2d54a9412378bf744fd8b429d09d5e3f1d032ebe52ddf7b436da5cd7a604bf20",
-      "bytes": 69764,
+      "sha256": "4dfd3d1b1c9dd8427cf2198fb0d4ee4128d57a205dd83042b6c55de8788b87fa",
+      "bytes": 67698,
       "group": "C11",
       "origin": "SELECTED_OR_DERIVED",
       "previous_release_sha256": "0c0057aeb0a7eab7d54dba2f5f9e462af33d531b3fa9becaa04cd939159050de",
-      "change_reason": "Organization/path/import/documentation change; original release and SHA remain auditable"
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change",
+      "pre_cleanup_sha256": "2d54a9412378bf744fd8b429d09d5e3f1d032ebe52ddf7b436da5cd7a604bf20"
     },
     {
       "path": ".gitignore",
@@ -29,21 +30,23 @@
     },
     {
       "path": "README.md",
-      "sha256": "6638b682ee78dce4e22321280988453a8695042207ad6c4da4d62e32962ec29c",
-      "bytes": 5919,
+      "sha256": "9b62a24399101c38682a0cab4bca0f7bf3823c4ed25d639f42e7d82d571b1399",
+      "bytes": 6367,
       "group": "C11",
       "origin": "SELECTED_OR_DERIVED",
       "previous_release_sha256": "bf213d74b4d0d31795edaec348c619591e6d8fad63d8863db239f274618384b6",
-      "change_reason": "Organization/path/import/documentation change; original release and SHA remain auditable"
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change",
+      "pre_cleanup_sha256": "6638b682ee78dce4e22321280988453a8695042207ad6c4da4d62e32962ec29c"
     },
     {
       "path": "THIRD_PARTY_NOTICE.md",
-      "sha256": "d6bbff099250e71d2717145b568211e6161dd324a8fc83228d3b143fa2ae0f8b",
-      "bytes": 1632,
+      "sha256": "47985726e67842039089376c075e4542bed05ff7b698660409e9ad0a53874290",
+      "bytes": 1693,
       "group": "C11",
       "origin": "SELECTED_OR_DERIVED",
       "previous_release_sha256": "3bf1d6fafc0e4339bf199bc68fedd74f2cdcd2ec672a4a67c9b7dd377efed450",
-      "change_reason": "Elliptic model-only publication: exact weights, MIT source, safe loader, catalog and documentation; no frozen numerical/result changes"
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change",
+      "pre_cleanup_sha256": "d6bbff099250e71d2717145b568211e6161dd324a8fc83228d3b143fa2ae0f8b"
     },
     {
       "path": "artifacts/checkpoints/ba_house/ba1000/backbones/gcn/seed42.pt",
@@ -820,6 +823,22 @@
       "previous_published_path": "configs/extensions/ba_house_scale/ba500_ext.json"
     },
     {
+      "path": "configs/elliptic/backbone_training_gcn.yaml",
+      "sha256": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368",
+      "bytes": 732,
+      "group": "ELLIPTIC_MODEL_PUBLICATION_ARCHITECTURE",
+      "origin": "SELECTED_SOURCE_OR_PUBLICATION_SUPPORT",
+      "pre_cleanup_published_path": "external/elliptic_baseline/config/training_baseline_paper_gcn.yaml"
+    },
+    {
+      "path": "configs/elliptic/backbone_training_graphsage.yaml",
+      "sha256": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a",
+      "bytes": 756,
+      "group": "ELLIPTIC_MODEL_PUBLICATION_ARCHITECTURE",
+      "origin": "SELECTED_SOURCE_OR_PUBLICATION_SUPPORT",
+      "pre_cleanup_published_path": "external/elliptic_baseline/config/training_baseline_paper_sage.yaml"
+    },
+    {
       "path": "configs/elliptic/elliptic_frozen_publication.json",
       "sha256": "4dc10d20396343b2a3e9c8dc92414948019ff9873c8d861ab581d10faf0c680e",
       "bytes": 64890,
@@ -1528,10 +1547,12 @@
     },
     {
       "path": "docs/methodology/PROTOCOLS.md",
-      "sha256": "974a019f4e94659d72c2057bba3fd801bbbd29813d61806607b6b804ca8eb8c8",
-      "bytes": 2615,
+      "sha256": "aaa5829ebc9b37a3c8111beae6bed7186a1e93b2478e952f3ee3a397064913b2",
+      "bytes": 2686,
       "group": "REPOSITORY_ORGANIZATION",
-      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT"
+      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT",
+      "pre_cleanup_sha256": "974a019f4e94659d72c2057bba3fd801bbbd29813d61806607b6b804ca8eb8c8",
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change"
     },
     {
       "path": "docs/provenance/README.md",
@@ -1584,21 +1605,23 @@
     },
     {
       "path": "docs/provenance/artifact_sha256.json",
-      "sha256": "2bfa63b12b6feb1884f70063f02cc09ab9f5bdd6171816cd735c1df41ab4549e",
+      "sha256": "eea3c4e7887451909d8243b4761504f645857d68ecc0302c4362f837327629ff",
       "bytes": 37196,
       "group": "catalog",
       "origin": "REVIEWED_EXISTING_OR_SUPPORT",
-      "change_reason": "Organization/path/import/documentation change; original release and SHA remain auditable",
-      "previous_release_sha256": "a081c4ab66c8e5b998d6654736de890fbb554533dbe134864c4e5fdfea5759d4"
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change",
+      "previous_release_sha256": "a081c4ab66c8e5b998d6654736de890fbb554533dbe134864c4e5fdfea5759d4",
+      "pre_cleanup_sha256": "2bfa63b12b6feb1884f70063f02cc09ab9f5bdd6171816cd735c1df41ab4549e"
     },
     {
       "path": "docs/provenance/elliptic_model_publication.json",
-      "sha256": "0c20fca9401a41680247ad2fd95e7d19769a347c5cc03b5c68bccc25956aa965",
-      "bytes": 70748,
+      "sha256": "b79d678c242616fc9ab9795394b6663fe5e8da67a2194d4d8d1f14ad5dc928aa",
+      "bytes": 73152,
       "group": "ELLIPTIC_MODEL_PUBLICATION_METADATA",
       "origin": "SELECTED_SOURCE_OR_PUBLICATION_SUPPORT",
       "previous_release_sha256": "0df51140048be78eca0900e1ff28c028b13e3623659bb347e5badf30466ac0b7",
-      "change_reason": "Organization/path/import/documentation change; original release and SHA remain auditable"
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change",
+      "pre_cleanup_sha256": "0c20fca9401a41680247ad2fd95e7d19769a347c5cc03b5c68bccc25956aa965"
     },
     {
       "path": "docs/provenance/external_assets.json",
@@ -1625,11 +1648,21 @@
       "origin": "REVIEWED_EXISTING_OR_SUPPORT"
     },
     {
+      "path": "docs/provenance/licenses/RMIT_BLOCKCHAIN_ANOMALY_DETECTION_MIT.txt",
+      "sha256": "500b34a485c4f82eb39d5df212028add771d552d1f1841637c551f31d4978e41",
+      "bytes": 1089,
+      "group": "ELLIPTIC_MODEL_PUBLICATION_ARCHITECTURE",
+      "origin": "SELECTED_SOURCE_OR_PUBLICATION_SUPPORT",
+      "pre_cleanup_published_path": "external/elliptic_baseline/LICENSE"
+    },
+    {
       "path": "docs/provenance/repository_paths.json",
-      "sha256": "6f7f1d72b65fe492506ca505af05a07634005197effd5c568b95ff87e1c54574",
-      "bytes": 85887,
+      "sha256": "c31dc945bb01ae3461be15cef31ae2e5fc83ba82f64b1a784c1e35d24584488c",
+      "bytes": 88579,
       "group": "REPOSITORY_ORGANIZATION",
-      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT"
+      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT",
+      "pre_cleanup_sha256": "6f7f1d72b65fe492506ca505af05a07634005197effd5c568b95ff87e1c54574",
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change"
     },
     {
       "path": "docs/reproducibility/ARTIFACTS.md",
@@ -1642,21 +1675,23 @@
     },
     {
       "path": "docs/reproducibility/ELLIPTIC_MODELS.md",
-      "sha256": "e4ea49c44eaac7842dae9f9d438f510371a11a8563b0df1423ba50aab82cb40e",
-      "bytes": 7038,
+      "sha256": "9fff8526cff7b69b12575d3d5361461497546d9220e39d40bb2f2efa85ac23eb",
+      "bytes": 7252,
       "group": "ELLIPTIC_MODEL_PUBLICATION_DOCUMENTATION",
       "origin": "SELECTED_SOURCE_OR_PUBLICATION_SUPPORT",
       "previous_release_sha256": "241dcf0e03f847edc3cd29d48ac01711faf91ceffdb8d9c5dc048ae5d35bb14a",
-      "change_reason": "Organization/path/import/documentation change; original release and SHA remain auditable"
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change",
+      "pre_cleanup_sha256": "e4ea49c44eaac7842dae9f9d438f510371a11a8563b0df1423ba50aab82cb40e"
     },
     {
       "path": "docs/reproducibility/RUNBOOK.md",
-      "sha256": "574f42aa5b9f3afe15543a352609298041d8389a82b63c2e561123de132e8612",
-      "bytes": 3331,
+      "sha256": "c63c26cb86f93a55d121bb9b0287a190187631b6d68ea233c268a72be3ae79f3",
+      "bytes": 3387,
       "group": "C11",
       "origin": "SELECTED_OR_DERIVED",
       "previous_release_sha256": "86a8a99a02b810e1a225eaebf0dea668dfc52ae4b4db5ee53730f60ad99a55f0",
-      "change_reason": "Organization/path/import/documentation change; original release and SHA remain auditable"
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change",
+      "pre_cleanup_sha256": "574f42aa5b9f3afe15543a352609298041d8389a82b63c2e561123de132e8612"
     },
     {
       "path": "docs/thesis_evidence/shapeggen_v1_pg_gcn_loss_probe/run_loss_probe.py",
@@ -1664,41 +1699,6 @@
       "bytes": 30584,
       "group": "C05",
       "origin": "SELECTED_OR_DERIVED"
-    },
-    {
-      "path": "external/elliptic_baseline/LICENSE",
-      "sha256": "500b34a485c4f82eb39d5df212028add771d552d1f1841637c551f31d4978e41",
-      "bytes": 1089,
-      "group": "ELLIPTIC_MODEL_PUBLICATION_ARCHITECTURE",
-      "origin": "SELECTED_SOURCE_OR_PUBLICATION_SUPPORT"
-    },
-    {
-      "path": "external/elliptic_baseline/config/training_baseline_paper_gcn.yaml",
-      "sha256": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368",
-      "bytes": 732,
-      "group": "ELLIPTIC_MODEL_PUBLICATION_ARCHITECTURE",
-      "origin": "SELECTED_SOURCE_OR_PUBLICATION_SUPPORT"
-    },
-    {
-      "path": "external/elliptic_baseline/config/training_baseline_paper_sage.yaml",
-      "sha256": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a",
-      "bytes": 756,
-      "group": "ELLIPTIC_MODEL_PUBLICATION_ARCHITECTURE",
-      "origin": "SELECTED_SOURCE_OR_PUBLICATION_SUPPORT"
-    },
-    {
-      "path": "external/elliptic_baseline/model/GCN.py",
-      "sha256": "0fc1730c3d1c761172d2a996b2929c3374c931997002251cf735a923cc9b8648",
-      "bytes": 4063,
-      "group": "ELLIPTIC_MODEL_PUBLICATION_ARCHITECTURE",
-      "origin": "SELECTED_SOURCE_OR_PUBLICATION_SUPPORT"
-    },
-    {
-      "path": "external/elliptic_baseline/model/SAGE.py",
-      "sha256": "744de81f3c383db793f274f4555af69efe955158d8cf247c54fc1256282e623f",
-      "bytes": 3479,
-      "group": "ELLIPTIC_MODEL_PUBLICATION_ARCHITECTURE",
-      "origin": "SELECTED_SOURCE_OR_PUBLICATION_SUPPORT"
     },
     {
       "path": "pyproject.toml",
@@ -2636,6 +2636,13 @@
       "previous_published_path": "results/metrics/shapeggen/task24_pgexplainer_summary.csv"
     },
     {
+      "path": "scripts/audit_backbone_fairness.py",
+      "sha256": "2ad785f0ba086bc8b1fc55b34c928d7bdf825db5a90e91373cf5b5dc0bcf4f53",
+      "bytes": 52089,
+      "group": "STATIC_SOURCE_CLEANUP",
+      "origin": "IMPORT_PATH_OR_PROVENANCE_SUPPORT"
+    },
+    {
       "path": "scripts/data/freeze_ba_house_2x2_targets.py",
       "sha256": "3bd979761fdce8d9e8070e17f4fbd11187d12a5a25227b6d9d7464f4812ba61a",
       "bytes": 4038,
@@ -2689,13 +2696,14 @@
     },
     {
       "path": "scripts/evaluate/elliptic_frozen_models.py",
-      "sha256": "188aa9c5c36bd1552bf09ae2a5d8a7cb98f07048d9fbd8c44a9eafebf63815d2",
-      "bytes": 10968,
+      "sha256": "bac8d16c874c6903b764939aad54d780b55d68f627769b16b7488aa04fb07d76",
+      "bytes": 11042,
       "group": "ELLIPTIC_MODEL_PUBLICATION_EVALUATION",
       "origin": "SELECTED_SOURCE_OR_PUBLICATION_SUPPORT",
       "previous_release_sha256": "4dc4e4400911211419d5aa0a1b602a669684691d1e7a8236a965612195aa90d2",
-      "change_reason": "Organization/path/import/documentation change; original release and SHA remain auditable",
-      "previous_published_path": "scripts/elliptic_frozen_models.py"
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change",
+      "previous_published_path": "scripts/elliptic_frozen_models.py",
+      "pre_cleanup_sha256": "188aa9c5c36bd1552bf09ae2a5d8a7cb98f07048d9fbd8c44a9eafebf63815d2"
     },
     {
       "path": "scripts/evaluate/evaluate_ba_house_model.py",
@@ -2720,24 +2728,30 @@
     },
     {
       "path": "scripts/evaluate/evaluate_single_explanation.py",
-      "sha256": "cd67b062580ec6364a3d88369050991ad3cedd1eff318933b7f6d51a0c76d5cd",
-      "bytes": 7350,
+      "sha256": "05afb372a182a6a9c65dd64424e96b043f89f3b2f41d9836ec05b39db02a7d20",
+      "bytes": 7346,
       "group": "REPOSITORY_ORGANIZATION",
-      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT"
+      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT",
+      "pre_cleanup_sha256": "cd67b062580ec6364a3d88369050991ad3cedd1eff318933b7f6d51a0c76d5cd",
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change"
     },
     {
       "path": "scripts/evaluate/evaluate_validation_budget.py",
-      "sha256": "c351144b323b6292cb51c3c11584ccc885720f1ed9904aef724d13f8b36a1a77",
-      "bytes": 9494,
+      "sha256": "fa0beacedea8fb6d241bd1f6224209e6f8b89cd1f2414fb49001c2e5a713f062",
+      "bytes": 9490,
       "group": "REPOSITORY_ORGANIZATION",
-      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT"
+      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT",
+      "pre_cleanup_sha256": "c351144b323b6292cb51c3c11584ccc885720f1ed9904aef724d13f8b36a1a77",
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change"
     },
     {
       "path": "scripts/evaluate/run_batch_gnnexplainer.py",
-      "sha256": "bdd159d12522867e5672f836ede8704f887c0288ce86958a18b17bab398abbbb",
-      "bytes": 9370,
+      "sha256": "59ca96c80feecec89c4b5daa8f92101a207208bf9b78ada7d36c053eaee4781f",
+      "bytes": 9366,
       "group": "REPOSITORY_ORGANIZATION",
-      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT"
+      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT",
+      "pre_cleanup_sha256": "bdd159d12522867e5672f836ede8704f887c0288ce86958a18b17bab398abbbb",
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change"
     },
     {
       "path": "scripts/evaluate/run_elliptic_gnnexplainer.py",
@@ -2758,17 +2772,21 @@
     },
     {
       "path": "scripts/evaluate/run_shapeggen_gnnexplainer_random.py",
-      "sha256": "84d81fe47aea4d899d5bae43fb0953d7c535dc89162108d11e985a4516784e5e",
-      "bytes": 62475,
+      "sha256": "ecceac10bf70091ee7ab11e68e2d914eb07fcab7a07bc25154c17f6f13af495c",
+      "bytes": 62471,
       "group": "REPOSITORY_ORGANIZATION",
-      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT"
+      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT",
+      "pre_cleanup_sha256": "84d81fe47aea4d899d5bae43fb0953d7c535dc89162108d11e985a4516784e5e",
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change"
     },
     {
       "path": "scripts/evaluate/run_stability.py",
-      "sha256": "3fbd028b865de612dd4db6d4c3f6a6160512615b833108ae8199de054dfa6215",
-      "bytes": 11245,
+      "sha256": "00089e25164c57e225bea83ddd8242e872a8987288bf657395208c6e11f1f52d",
+      "bytes": 11241,
       "group": "REPOSITORY_ORGANIZATION",
-      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT"
+      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT",
+      "pre_cleanup_sha256": "3fbd028b865de612dd4db6d4c3f6a6160512615b833108ae8199de054dfa6215",
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change"
     },
     {
       "path": "scripts/evaluate_task29_final_stability.py",
@@ -2783,6 +2801,13 @@
       "bytes": 27025,
       "group": "C08",
       "origin": "SELECTED_OR_DERIVED"
+    },
+    {
+      "path": "scripts/explain_one_node.py",
+      "sha256": "90737fc39f59f84ac23468b168ebaf13f2a4dd759327b385a26557c1ac59466d",
+      "bytes": 4444,
+      "group": "STATIC_SOURCE_CLEANUP",
+      "origin": "IMPORT_PATH_OR_PROVENANCE_SUPPORT"
     },
     {
       "path": "scripts/extensions/generate_ba_house_scale.py",
@@ -2813,6 +2838,20 @@
       "origin": "SELECTED_OR_DERIVED"
     },
     {
+      "path": "scripts/pilot_elliptic_pgexplainer_step03.py",
+      "sha256": "2f888a860a51b4c9e3da95c14e18ef2864b06928e186b08a7c9a5ced6ffef5d6",
+      "bytes": 17979,
+      "group": "STATIC_SOURCE_CLEANUP",
+      "origin": "IMPORT_PATH_OR_PROVENANCE_SUPPORT"
+    },
+    {
+      "path": "scripts/pilot_elliptic_pgexplainer_step03_evidence_expansion.py",
+      "sha256": "ab9bdc5762571f8fa68aaa69a9741ab97d29bb02191b58eed4a692c6fa1f1c63",
+      "bytes": 60675,
+      "group": "STATIC_SOURCE_CLEANUP",
+      "origin": "IMPORT_PATH_OR_PROVENANCE_SUPPORT"
+    },
+    {
       "path": "scripts/prepare_elliptic_task26.py",
       "sha256": "74f2b94d900d9018b6e85d545036a786e914e0616c4851ff03179d39ce4996cc",
       "bytes": 27159,
@@ -2835,10 +2874,12 @@
     },
     {
       "path": "scripts/train/run_pgexplainer_gcn_stability.py",
-      "sha256": "7f926462acadbdf62e435d74d24296cbc36c92184e59833afb1eda047f170b11",
-      "bytes": 19136,
+      "sha256": "40e0d23f35e660d667790a7c14446038c84446db70fe2d17171abeeaad70f50c",
+      "bytes": 19142,
       "group": "REPOSITORY_ORGANIZATION",
-      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT"
+      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT",
+      "pre_cleanup_sha256": "7f926462acadbdf62e435d74d24296cbc36c92184e59833afb1eda047f170b11",
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change"
     },
     {
       "path": "scripts/train/run_pgexplainer_graphsage_stability.py",
@@ -2856,10 +2897,12 @@
     },
     {
       "path": "scripts/train/run_shapeggen_pgexplainer.py",
-      "sha256": "6d94e0e82ba71280e8365e468bd9a5a388616776892bef4844b32229b6120726",
-      "bytes": 48919,
+      "sha256": "22425308fd12227baefc80119337f816dd22ec9528e4ad5886514a6d3813b8fb",
+      "bytes": 49024,
       "group": "REPOSITORY_ORGANIZATION",
-      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT"
+      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT",
+      "pre_cleanup_sha256": "6d94e0e82ba71280e8365e468bd9a5a388616776892bef4844b32229b6120726",
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change"
     },
     {
       "path": "scripts/train/train_ba_house_scale_backbones.py",
@@ -2960,6 +3003,20 @@
       "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT"
     },
     {
+      "path": "src/gnnexplainer_benchmark/evaluation/batch_gnnexplainer.py",
+      "sha256": "4c4e416e9db555e38c5c0a4b7951385817e31861e6ea71f3a0d51568e9c9032b",
+      "bytes": 28150,
+      "group": "STATIC_SOURCE_CLEANUP",
+      "origin": "IMPORT_PATH_OR_PROVENANCE_SUPPORT"
+    },
+    {
+      "path": "src/gnnexplainer_benchmark/explain/__init__.py",
+      "sha256": "57ab43089759499aba3c11b45d4b862f868704a138f42e3d350dbcedc0e6cdc7",
+      "bytes": 951,
+      "group": "STATIC_SOURCE_CLEANUP",
+      "origin": "IMPORT_PATH_OR_PROVENANCE_SUPPORT"
+    },
+    {
       "path": "src/gnnexplainer_benchmark/explainers/gnnexplainer.py",
       "sha256": "0571ae779a6b164919661f57166248b71271b55c27f8cea6fe62b6d847b4d775",
       "bytes": 2318,
@@ -2988,6 +3045,13 @@
       "origin": "SELECTED_OR_DERIVED"
     },
     {
+      "path": "src/gnnexplainer_benchmark/models/__init__.py",
+      "sha256": "cddcbe11f2eab7c7c94ffe80c2baae00169d08fe2a6b0c19c83362a8b29eb46b",
+      "bytes": 164,
+      "group": "STATIC_SOURCE_CLEANUP",
+      "origin": "IMPORT_PATH_OR_PROVENANCE_SUPPORT"
+    },
+    {
       "path": "src/gnnexplainer_benchmark/models/elliptic/__init__.py",
       "sha256": "e23a76969e5252c3674612a9aa0552acb9500eefbe31f307370d7bc304340c3d",
       "bytes": 182,
@@ -2996,17 +3060,21 @@
     },
     {
       "path": "src/gnnexplainer_benchmark/models/elliptic/gcn.py",
-      "sha256": "ffe9a16f503358b020c61f9b7cce58fb5f0a9b591751f6a629df1e166182b3ce",
-      "bytes": 1591,
+      "sha256": "64edda9fd880697645633d51677c05e634ddfe92a32b9b83ca27c109ca08f31e",
+      "bytes": 1623,
       "group": "REPOSITORY_ORGANIZATION",
-      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT"
+      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT",
+      "pre_cleanup_sha256": "ffe9a16f503358b020c61f9b7cce58fb5f0a9b591751f6a629df1e166182b3ce",
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change"
     },
     {
       "path": "src/gnnexplainer_benchmark/models/elliptic/graphsage.py",
-      "sha256": "b45090454883f4036e698c1bdb2113c7c7c3b42b4c07c26877f3ee726fb80e87",
-      "bytes": 1608,
+      "sha256": "a5953beebc4fb7919886e413eb413ca4eaeb93298bfa1812ad095cf03afbdd46",
+      "bytes": 1651,
       "group": "REPOSITORY_ORGANIZATION",
-      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT"
+      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT",
+      "pre_cleanup_sha256": "b45090454883f4036e698c1bdb2113c7c7c3b42b4c07c26877f3ee726fb80e87",
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change"
     },
     {
       "path": "src/gnnexplainer_benchmark/models/synthetic/__init__.py",
@@ -3045,35 +3113,90 @@
     },
     {
       "path": "tests/test_artifact_resolution.py",
-      "sha256": "daa3ca953f246af918caeed270efe79cc7389d2c0be61d8184a6388ab60bf0db",
-      "bytes": 3763,
+      "sha256": "2cd77ef2acf66b3b21dc55fbbe3ebef051b8ad46f32aa2f909e848997afa4b09",
+      "bytes": 3770,
       "group": "catalog",
-      "origin": "REVIEWED_EXISTING_OR_SUPPORT"
+      "origin": "REVIEWED_EXISTING_OR_SUPPORT",
+      "pre_cleanup_sha256": "daa3ca953f246af918caeed270efe79cc7389d2c0be61d8184a6388ab60bf0db",
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change"
     },
     {
       "path": "tests/test_elliptic_model_publication.py",
-      "sha256": "266e1bde75dd15d30c05eccd5f7305e6cc3ec35247aedbbd79e4503b6fa75923",
-      "bytes": 4973,
+      "sha256": "3602284468ee51f61cf90ad4c728a36d59a3e02d7e9fa199505db3701dfe2818",
+      "bytes": 4261,
       "group": "ELLIPTIC_MODEL_PUBLICATION_EVALUATION",
       "origin": "SELECTED_SOURCE_OR_PUBLICATION_SUPPORT",
       "previous_release_sha256": "1248d5c51e4dd656ae379674b48858c54382144b9c0775e78ca4e745a04c7629",
-      "change_reason": "Organization/path/import/documentation change; original release and SHA remain auditable"
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change",
+      "pre_cleanup_sha256": "266e1bde75dd15d30c05eccd5f7305e6cc3ec35247aedbbd79e4503b6fa75923"
+    },
+    {
+      "path": "tests/test_elliptic_task28_compute_plan.py",
+      "sha256": "92b2170c77efbf4bda5c343b8518ae6e712a23c670d62270c4ccef6d7302d035",
+      "bytes": 3061,
+      "group": "STATIC_SOURCE_CLEANUP",
+      "origin": "IMPORT_PATH_OR_PROVENANCE_SUPPORT"
+    },
+    {
+      "path": "tests/test_elliptic_task28_training_runner.py",
+      "sha256": "7c0912f26b96af998e27db9384689d0cbaa89ff24edfc6a4107964c8d4eeb4c3",
+      "bytes": 18709,
+      "group": "STATIC_SOURCE_CLEANUP",
+      "origin": "IMPORT_PATH_OR_PROVENANCE_SUPPORT"
+    },
+    {
+      "path": "tests/test_model_frozen_during_explanation.py",
+      "sha256": "cbdfbb4f1e6f2d955171a98510aab841309753ca2db5e87019461fa07bd45f51",
+      "bytes": 1558,
+      "group": "STATIC_SOURCE_CLEANUP",
+      "origin": "IMPORT_PATH_OR_PROVENANCE_SUPPORT"
+    },
+    {
+      "path": "tests/test_pgexplainer_protocol.py",
+      "sha256": "b646021fdcd79705cb648c0b5f928768301b805d873988e6a8def494bb774c8d",
+      "bytes": 7450,
+      "group": "STATIC_SOURCE_CLEANUP",
+      "origin": "IMPORT_PATH_OR_PROVENANCE_SUPPORT"
+    },
+    {
+      "path": "tests/test_pgexplainer_stability.py",
+      "sha256": "4bb9271c648914f6b0d335a2772b65c0daae41287b291178d01bcc8e2300d89b",
+      "bytes": 1411,
+      "group": "STATIC_SOURCE_CLEANUP",
+      "origin": "IMPORT_PATH_OR_PROVENANCE_SUPPORT"
     },
     {
       "path": "tests/test_random_backbone_dispatch.py",
-      "sha256": "81bc8bd8ea835057a8beeeac1dd96f9cace3402b9447e8f81401258c2f206c54",
-      "bytes": 5330,
+      "sha256": "185de2f141fe685a4755b5f6ad12b2b0a03dae4be4ca19bbcc9629a569a0d8af",
+      "bytes": 5339,
       "group": "C01",
       "origin": "SELECTED_OR_DERIVED",
       "previous_release_sha256": "bdaea9ad891e8e00394f2dd6d775c7a6cf110ef1b7c80a277106d7e23c5796d9",
-      "change_reason": "Organization/path/import/documentation change; original release and SHA remain auditable"
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change",
+      "pre_cleanup_sha256": "81bc8bd8ea835057a8beeeac1dd96f9cace3402b9447e8f81401258c2f206c54"
     },
     {
       "path": "tests/test_repository_organization.py",
-      "sha256": "05fe8efaebe958f43ec72ae577e2cbba251ec68c923d499bc062d9036f88357f",
-      "bytes": 2470,
+      "sha256": "69ffc3167d121c29692d39c628ebae9a9d384772d522f7948c88d1aa2329daee",
+      "bytes": 2396,
       "group": "REPOSITORY_ORGANIZATION",
-      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT"
+      "origin": "EXACT_RELOCATION_OR_PATH_ONLY_SUPPORT",
+      "pre_cleanup_sha256": "05fe8efaebe958f43ec72ae577e2cbba251ec68c923d499bc062d9036f88357f",
+      "change_reason": "Static source import/deduplication, license-location or documentation correction; no computation/config/result change"
+    },
+    {
+      "path": "tests/test_task28_canonical_source_hash.py",
+      "sha256": "488ec23ca50a7ba9ad7db2215e239bc628f2e178edca75c600e46ec853fdb856",
+      "bytes": 4112,
+      "group": "STATIC_SOURCE_CLEANUP",
+      "origin": "IMPORT_PATH_OR_PROVENANCE_SUPPORT"
+    },
+    {
+      "path": "tests/test_task28_live_progress.py",
+      "sha256": "48b3cec9a217b668838878e6566e8c62228734875ab3fe94e30ee5d8796d9436",
+      "bytes": 8596,
+      "group": "STATIC_SOURCE_CLEANUP",
+      "origin": "IMPORT_PATH_OR_PROVENANCE_SUPPORT"
     },
     {
       "path": "tests/test_task29_final_stability.py",
@@ -3361,5 +3484,30 @@
     "frozen_results_bytes_changed": 0,
     "prior_source_available_in_immutable_release": true,
     "no_training_or_scientific_evaluation": true
+  },
+  "source_cleanup": {
+    "source_head": "9233a58d28688dae0419824b60d7e45ee4b67dfe",
+    "audit": "docs/release_review/FINAL_SOURCE_CLEANUP_REPORT.md",
+    "static_only": true,
+    "runtime_retested": false,
+    "project_imports_executed": false,
+    "checkpoints_loaded": false,
+    "removed_files": 37,
+    "relocated_files": 3,
+    "removed_payload_entries": [
+      {
+        "path": "external/elliptic_baseline/model/GCN.py",
+        "sha256": "0fc1730c3d1c761172d2a996b2929c3374c931997002251cf735a923cc9b8648",
+        "recover_at_commit": "9233a58d28688dae0419824b60d7e45ee4b67dfe",
+        "reason": "Redundant source reference/forwarder; no scientific payload removed"
+      },
+      {
+        "path": "external/elliptic_baseline/model/SAGE.py",
+        "sha256": "744de81f3c383db793f274f4555af69efe955158d8cf247c54fc1256282e623f",
+        "recover_at_commit": "9233a58d28688dae0419824b60d7e45ee4b67dfe",
+        "reason": "Redundant source reference/forwarder; no scientific payload removed"
+      }
+    ],
+    "frozen_checkpoint_graph_results_unchanged": true
   }
 }

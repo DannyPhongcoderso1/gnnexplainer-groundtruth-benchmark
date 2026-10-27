@@ -552,5 +552,5 @@
   "raw_gnn_cache_manifest_sha256": "68ecec3272f0883c31da3144424c97936063049fa8517f9aa3997f6a05b43622",
   "frozen_source_receipts_sha256": "4e3cb54ef9b9f3710fe5b26878589c78fee4d2337f81cb04a4dd3dd9bf136041",
   "scope": "Logical/byte identity for 76 frozen artifacts; 75 public paths. Elliptic schema/model loading separately verified in elliptic_model_publication.json; dataset intentionally excluded.",
-  "elliptic_model_publication_manifest_sha256": "0c20fca9401a41680247ad2fd95e7d19769a347c5cc03b5c68bccc25956aa965"
+  "elliptic_model_publication_manifest_sha256": "b79d678c242616fc9ab9795394b6663fe5e8da67a2194d4d8d1f14ad5dc928aa"
 }

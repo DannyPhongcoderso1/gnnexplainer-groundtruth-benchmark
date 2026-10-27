@@ -19,7 +19,7 @@ docs/{methodology,reproducibility,provenance}/
 tests/
 ```
 
-[Source and protocol map](docs/methodology/PROTOCOLS.md) distinguishes synthetic/Elliptic architectures and final protocols. [Artifact access](docs/reproducibility/ARTIFACTS.md), [command guide](docs/reproducibility/RUNBOOK.md) and [result index](results/README.md) provide the main navigation. Historical execution records keep their original paths; [the path catalog](docs/provenance/repository_paths.json) maps them to current files. Old Python imports/commands remain compatible. Historical reports and raw mask caches remain where needed for provenance; they are not required reading.
+[Source and protocol map](docs/methodology/PROTOCOLS.md) distinguishes synthetic/Elliptic architectures and final protocols. [Artifact access](docs/reproducibility/ARTIFACTS.md), [command guide](docs/reproducibility/RUNBOOK.md) and [result index](results/README.md) provide the main navigation. Historical execution records keep their original paths; [the path catalog](docs/provenance/repository_paths.json) maps them to current files. Canonical module/CLI paths are authoritative; redundant old forwarding files were removed after redirecting active consumers. Historical reports and raw mask caches remain where needed for provenance; they are not required reading.
 
 ## Install
 
@@ -64,7 +64,7 @@ Dataset-specific configs live under [BA-House](configs/ba_house), [ShapeGGen V1]
 
 ## Elliptic dataset and pretrained models
 
-Obtain [Elliptic / Weber et al. (2019)](https://www.kaggle.com/datasets/ellipticco/elliptic-data-set) from its provider. **Raw CSVs, processed graphs and dataset archives are not redistributed.** The baseline derives from [Dang et al., RMIT-BDSL](https://github.com/RMIT-BDSL/Blockchain-Anomaly-Detection); its [MIT notice](external/elliptic_baseline/LICENSE) is retained.
+Obtain [Elliptic / Weber et al. (2019)](https://www.kaggle.com/datasets/ellipticco/elliptic-data-set) from its provider. **Raw CSVs, processed graphs and dataset archives are not redistributed.** The baseline derives from [Dang et al., RMIT-BDSL](https://github.com/RMIT-BDSL/Blockchain-Anomaly-Detection); its [MIT notice](docs/provenance/licenses/RMIT_BLOCKCHAIN_ANOMALY_DETECTION_MIT.txt) is retained.
 
 ```powershell
 python scripts/data/preprocess_elliptic.py --raw-dir D:/user-acquired-elliptic --out data/elliptic/elliptic_data.pt
@@ -78,3 +78,5 @@ python scripts/evaluate/elliptic_frozen_models.py --check-load
 [Saved results](results/README.md) map to [217 retained thesis cells](results/final/thesis_traceability.json). Numerical verification checks saved hashes/arithmetic, not a new experimental reproduction. Nine BA500 GraphSAGE PGExplainer cells remain withheld because natural106/35 and common48/16 cohorts conflict; both artifact families remain distinctly named. ShapeGGen diagnostic probes are supplementary and do not replace official results. Historical Elliptic seed42 and FRESH5 stability remain separate.
 
 Restructuring changed organization and path resolution, not model algorithms, seeds, checkpoint bytes, graph identities or frozen measurements. No training, explanation generation or full scientific evaluation was run. The existing regression suite includes its original forward checks; the separate checkpoint gate performs no inference. Full fresh-machine/result reproduction and original figure generation are not claimed. See [validation](docs/release_review/RESTRUCTURE_VALIDATION.md), [before/after](docs/release_review/RESTRUCTURE_BEFORE_AFTER.md) and [third-party notices](THIRD_PARTY_NOTICE.md).
+
+Current source cleanup was audited statically only. No tests, project imports, checkpoint loading, inference, optimization or dataset execution were run after cleanup. Earlier runtime results apply to the earlier commit, not a retest of this cleanup. See [the source cleanup report](docs/release_review/FINAL_SOURCE_CLEANUP_REPORT.md).

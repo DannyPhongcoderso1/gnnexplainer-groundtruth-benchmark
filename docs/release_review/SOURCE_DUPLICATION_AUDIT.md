@@ -1,0 +1,18 @@
+# Source duplication audit
+
+Source HEAD `9233a58d28688dae0419824b60d7e45ee4b67dfe`, branch refactor/repository-organization. Entire tracked src/external/scripts/configs/data/artifacts/results/docs/tests tree was inspected by Git blobs, SHA256 and AST/reference search; no project module was imported or executed.
+
+- 34,325 tracked paths;5,525 exact-content duplicate groups containing18,004 file identities. Canonical final model/graph identities are not duplicated at the file-hash level. No tensor loading was used to infer internal duplicates.
+- 30 forwarding modules:27 old root CLI/import files, two root model forwarding files and the GNN runner alias. Current direct/dynamic import and active path consumers were redirected before removal; original Git commit:path strings and immutable source receipts were not rewritten.
+- Two complete audit-local Elliptic class definitions in scripts/audit_backbone_fairness.py were replaced with canonical imports. The canonical four class bodies remain byte/AST-auditable and computationally unchanged.
+- The vendor directory was plain tracked files (mode100644), not a submodule or active subtree dependency. Its two generic architecture references were required only by a vendor-specific comparison test. The accepted runtime already used canonical classes. Extra GraphNorm/output/init modes are not generally identical to the frozen subset; they were unused reference functionality, not copied into a new classifier.
+- The vendor-only test was replaced with the saved-schema contract, and the dataset test now points to its canonical source. The import-compatibility test now checks the remaining canonical API exports. No test was run or claimed to pass.
+- Unique license and both exact frozen training configs were relocated, not discarded. Four category entry points that delegate to provenance-pinned scale producers remain UNIQUE_REQUIRED: removing them would undermine the accepted command organization or guarded producer identity.
+- Duplicate target CSVs are retained: common-pool and backbone-specific selection roles are not interchangeable merely because frozen bytes coincide. Per-target/per-seed cached results and source-versus-result freeze receipts are retained as distinct scientific identities. Package init files and upstream GraphXAI source are not removed merely for matching empty/text bytes.
+- No exact duplicate Markdown groups were found. Historical reports retain unique evidence or source lineage and are not deleted because of their names.
+
+Classifications and exact actions are in DUPLICATE_REMOVAL_MANIFEST.csv. No uncertain scientific file was deleted. Scientific conflicts are documented in the architecture/explainer reports; unavailable runtime or complete synthetic tensor-schema properties remain NOT_VERIFIED.
+
+A static pre-commit check caught an error in an automatic import rewrite (the first wrapper import was pathlib, not its forwarded implementation). Affected files were restored from their independently verified Git-byte backup and rewrites were regenerated using explicit AST forwarding targets and actual import nodes. No erroneous revision was committed or published; final static symbol/reference validation is required before push.
+
+A pre-existing formatted ShapeGGen checkpoint-path construction still used the former artifacts/explainers layout. checkpoint_paths now resolves that exact historical identity through the existing path catalog; the explainer, seed, bytes and configuration do not change. Its separate historical manifest path is retained. No training/evaluation was executed to validate the change at runtime. Other guarded historical producers are not represented as portable full-reproduction commands.

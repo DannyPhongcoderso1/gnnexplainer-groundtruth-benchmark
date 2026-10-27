@@ -315,7 +315,12 @@
     "docs/release_review/13_ELLIPTIC_MODEL_PUBLICATION.md": "docs/provenance/release_history/20261027/13_ELLIPTIC_MODEL_PUBLICATION.md",
     "docs/release_review/14_ELLIPTIC_MODEL_VERIFICATION.md": "docs/provenance/release_history/20261027/14_ELLIPTIC_MODEL_VERIFICATION.md",
     "docs/release_review/15_ELLIPTIC_MODEL_PUSH_REPORT.md": "docs/provenance/release_history/20261027/15_ELLIPTIC_MODEL_PUSH_REPORT.md",
-    "docs/release_review/verification_receipt.json": "docs/provenance/release_history/20261027/verification_receipt.json"
+    "docs/release_review/verification_receipt.json": "docs/provenance/release_history/20261027/verification_receipt.json",
+    "external/elliptic_baseline/LICENSE": "docs/provenance/licenses/RMIT_BLOCKCHAIN_ANOMALY_DETECTION_MIT.txt",
+    "external/elliptic_baseline/config/training_baseline_paper_gcn.yaml": "configs/elliptic/backbone_training_gcn.yaml",
+    "external/elliptic_baseline/config/training_baseline_paper_sage.yaml": "configs/elliptic/backbone_training_graphsage.yaml",
+    "external/elliptic_baseline/model/GCN.py": "src/gnnexplainer_benchmark/models/elliptic/gcn.py",
+    "external/elliptic_baseline/model/SAGE.py": "src/gnnexplainer_benchmark/models/elliptic/graphsage.py"
   },
   "original_sha256": {
     "src/gnnexplainer_benchmark/models/gcn.py": "dd0c188464cf9ff04ee4389cf02c00cf61c0ebcefe7ef453028558299c36f16d",
@@ -662,5 +667,55 @@
       "backup_semantics": "Verified initial Windows checkout bytes; immutable Git source preserves exact original repository bytes"
     }
   },
-  "hash_scope": "SHA256 of exact original Git blobs; initial Windows checkout backup can differ only in text line endings"
+  "hash_scope": "SHA256 of exact original Git blobs; initial Windows checkout backup can differ only in text line endings",
+  "source_cleanup": {
+    "source_head": "9233a58d28688dae0419824b60d7e45ee4b67dfe",
+    "static_only": true,
+    "runtime_retested": false,
+    "retired_wrappers": [
+      "scripts/check_environment.py",
+      "scripts/elliptic_frozen_models.py",
+      "scripts/evaluate_ba_house_model.py",
+      "scripts/evaluate_gcn.py",
+      "scripts/evaluate_pgexplainer_gcn.py",
+      "scripts/evaluate_single_explanation.py",
+      "scripts/evaluate_validation_budget.py",
+      "scripts/freeze_ba_house_2x2_targets.py",
+      "scripts/generate_ba_house.py",
+      "scripts/generate_shapeggen.py",
+      "scripts/run_batch_gnnexplainer.py",
+      "scripts/run_elliptic_gnnexplainer.py",
+      "scripts/run_elliptic_pgexplainer_training.py",
+      "scripts/run_pgexplainer_gcn_stability.py",
+      "scripts/run_pgexplainer_graphsage_stability.py",
+      "scripts/run_random_baseline.py",
+      "scripts/run_shapeggen_backbones_and_targets.py",
+      "scripts/run_shapeggen_gnnexplainer_random.py",
+      "scripts/run_shapeggen_pgexplainer.py",
+      "scripts/run_stability.py",
+      "scripts/select_pgexplainer_targets.py",
+      "scripts/select_target_nodes.py",
+      "scripts/train_gcn.py",
+      "scripts/train_graphsage.py",
+      "scripts/train_pgexplainer_gcn.py",
+      "scripts/verify_release_evidence.py",
+      "scripts/verify_thesis_artifacts.py",
+      "src/gnnexplainer_benchmark/models/gcn.py",
+      "src/gnnexplainer_benchmark/models/graphsage.py",
+      "src/gnnexplainer_benchmark/explain/gnnexplainer_runner.py"
+    ],
+    "backup": {
+      "path": "D:\\CS\\KLTN\\_thesis_release_backups\\20261027\\source_cleanup_9233a58d.zip",
+      "sha256": "ce3fcc726cdfecede66834cb0f2f05b8cb973f6db231c5af0d29d968c437a419",
+      "file_entries": 256,
+      "CRC_and_member_SHA256": "PASS",
+      "scope": "Exact original Git blobs, including all removal candidates and unique source/provenance/config metadata"
+    },
+    "removed_empty_placeholders": [
+      "results/explanations/.gitkeep",
+      "results/figures/.gitkeep",
+      "results/metrics/.gitkeep"
+    ],
+    "canonical_model_class_bodies_unchanged": true
+  }
 }

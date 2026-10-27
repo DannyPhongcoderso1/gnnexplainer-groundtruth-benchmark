@@ -1952,26 +1952,32 @@
       "source_repository": "elliptic-gnn-xai",
       "source_commit": "95710a9852019104f90499cdba628c37f4483a2a",
       "upstream_lineage": "https://github.com/RMIT-BDSL/Blockchain-Anomaly-Detection/tree/83ef2b9ed8b3233175bbc3f4231c593c365225b9",
-      "published_path": "external/elliptic_baseline/model/GCN.py",
+      "published_path": "src/gnnexplainer_benchmark/models/elliptic/gcn.py",
       "original_sha256": "f734eea389e4cef60ed1432c4ca48e87cfdd60badce6dc2835b6dacd2250d903",
-      "published_sha256": "0fc1730c3d1c761172d2a996b2929c3374c931997002251cf735a923cc9b8648",
-      "change": "Trailing whitespace/newline normalization only; Python AST identical",
+      "published_sha256": "64edda9fd880697645633d51677c05e634ddfe92a32b9b83ca27c109ca08f31e",
+      "change": "Frozen-compatible canonical class, not the generic upstream API: graphnorm=false and positive output dimension fixed by accepted config; GCN cached=false for perturbation. Original optional-mode source remains at pinned upstream and immutable pre-cleanup commit.",
       "license": "MIT",
-      "license_file": "external/elliptic_baseline/LICENSE",
-      "pre_organization_published_sha256": "0fc1730c3d1c761172d2a996b2929c3374c931997002251cf735a923cc9b8648"
+      "license_file": "docs/provenance/licenses/RMIT_BLOCKCHAIN_ANOMALY_DETECTION_MIT.txt",
+      "pre_organization_published_sha256": "0fc1730c3d1c761172d2a996b2929c3374c931997002251cf735a923cc9b8648",
+      "pre_cleanup_published_path": "external/elliptic_baseline/model/GCN.py",
+      "pre_cleanup_published_sha256": "0fc1730c3d1c761172d2a996b2929c3374c931997002251cf735a923cc9b8648",
+      "source_status": "CANONICAL_FROZEN_ADAPTATION; generic reference vendor removed"
     },
     {
       "original_relative_path": "model/SAGE.py",
       "source_repository": "elliptic-gnn-xai",
       "source_commit": "95710a9852019104f90499cdba628c37f4483a2a",
       "upstream_lineage": "https://github.com/RMIT-BDSL/Blockchain-Anomaly-Detection/tree/83ef2b9ed8b3233175bbc3f4231c593c365225b9",
-      "published_path": "external/elliptic_baseline/model/SAGE.py",
+      "published_path": "src/gnnexplainer_benchmark/models/elliptic/graphsage.py",
       "original_sha256": "37dfc0b15377ecab9275904dc1d4ad98e49741c66282382c85100e7434e41492",
-      "published_sha256": "744de81f3c383db793f274f4555af69efe955158d8cf247c54fc1256282e623f",
-      "change": "Trailing whitespace/newline normalization only; Python AST identical",
+      "published_sha256": "a5953beebc4fb7919886e413eb413ca4eaeb93298bfa1812ad095cf03afbdd46",
+      "change": "Frozen-compatible canonical class, not the generic upstream API: graphnorm=false and positive output dimension fixed by accepted config; GCN cached=false for perturbation. Original optional-mode source remains at pinned upstream and immutable pre-cleanup commit.",
       "license": "MIT",
-      "license_file": "external/elliptic_baseline/LICENSE",
-      "pre_organization_published_sha256": "744de81f3c383db793f274f4555af69efe955158d8cf247c54fc1256282e623f"
+      "license_file": "docs/provenance/licenses/RMIT_BLOCKCHAIN_ANOMALY_DETECTION_MIT.txt",
+      "pre_organization_published_sha256": "744de81f3c383db793f274f4555af69efe955158d8cf247c54fc1256282e623f",
+      "pre_cleanup_published_path": "external/elliptic_baseline/model/SAGE.py",
+      "pre_cleanup_published_sha256": "744de81f3c383db793f274f4555af69efe955158d8cf247c54fc1256282e623f",
+      "source_status": "CANONICAL_FROZEN_ADAPTATION; generic reference vendor removed"
     },
     {
       "original_relative_path": "data/dataset.py",
@@ -1983,10 +1989,12 @@
       "published_sha256": "2d3f4b0226a9864f87602a641e6cd838180d842cbf9d41857757f819e5f02fb5",
       "change": "Trailing whitespace/newline normalization only; Python AST identical",
       "license": "MIT",
-      "license_file": "external/elliptic_baseline/LICENSE",
+      "license_file": "docs/provenance/licenses/RMIT_BLOCKCHAIN_ANOMALY_DETECTION_MIT.txt",
       "previous_published_path": "external/elliptic_baseline/data/dataset.py",
       "pre_organization_published_sha256": "2d3f4b0226a9864f87602a641e6cd838180d842cbf9d41857757f819e5f02fb5",
-      "organization_change": "Same upstream implementation; relocated reusable module or CLI import/path-only refactor. Original hash/commit remain separately recorded."
+      "organization_change": "Same upstream implementation; relocated reusable module or CLI import/path-only refactor. Original hash/commit remain separately recorded.",
+      "pre_cleanup_published_path": "src/gnnexplainer_benchmark/data/elliptic.py",
+      "pre_cleanup_published_sha256": "2d3f4b0226a9864f87602a641e6cd838180d842cbf9d41857757f819e5f02fb5"
     },
     {
       "original_relative_path": "scripts/preprocess_elliptic.py",
@@ -1998,49 +2006,57 @@
       "published_sha256": "f71966c51b192d12826b9e34c7e7f609d8b97d96b476d6f9e8c87b74e146b225",
       "change": "Trailing whitespace/newline normalization only; Python AST identical",
       "license": "MIT",
-      "license_file": "external/elliptic_baseline/LICENSE",
+      "license_file": "docs/provenance/licenses/RMIT_BLOCKCHAIN_ANOMALY_DETECTION_MIT.txt",
       "previous_published_path": "external/elliptic_baseline/scripts/preprocess_elliptic.py",
       "pre_organization_published_sha256": "83f635c73fa6ce269cbce285277d809f650ae297361e648b934efd0f7888967d",
-      "organization_change": "Same upstream implementation; relocated reusable module or CLI import/path-only refactor. Original hash/commit remain separately recorded."
+      "organization_change": "Same upstream implementation; relocated reusable module or CLI import/path-only refactor. Original hash/commit remain separately recorded.",
+      "pre_cleanup_published_path": "scripts/data/preprocess_elliptic.py",
+      "pre_cleanup_published_sha256": "f71966c51b192d12826b9e34c7e7f609d8b97d96b476d6f9e8c87b74e146b225"
     },
     {
       "original_relative_path": "config/training_baseline_paper_gcn.yaml",
       "source_repository": "elliptic-gnn-xai",
       "source_commit": "95710a9852019104f90499cdba628c37f4483a2a",
       "upstream_lineage": "https://github.com/RMIT-BDSL/Blockchain-Anomaly-Detection/tree/83ef2b9ed8b3233175bbc3f4231c593c365225b9",
-      "published_path": "external/elliptic_baseline/config/training_baseline_paper_gcn.yaml",
+      "published_path": "configs/elliptic/backbone_training_gcn.yaml",
       "original_sha256": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368",
       "published_sha256": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368",
       "change": "Trailing whitespace/newline normalization only; Python AST identical",
       "license": "MIT",
-      "license_file": "external/elliptic_baseline/LICENSE",
-      "pre_organization_published_sha256": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368"
+      "license_file": "docs/provenance/licenses/RMIT_BLOCKCHAIN_ANOMALY_DETECTION_MIT.txt",
+      "pre_organization_published_sha256": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368",
+      "pre_cleanup_published_path": "external/elliptic_baseline/config/training_baseline_paper_gcn.yaml",
+      "pre_cleanup_published_sha256": "db271b1485f7f92d6e4a630394fe709af2f77f9e6390b06d8a1bcc65b675a368"
     },
     {
       "original_relative_path": "config/training_baseline_paper_sage.yaml",
       "source_repository": "elliptic-gnn-xai",
       "source_commit": "95710a9852019104f90499cdba628c37f4483a2a",
       "upstream_lineage": "https://github.com/RMIT-BDSL/Blockchain-Anomaly-Detection/tree/83ef2b9ed8b3233175bbc3f4231c593c365225b9",
-      "published_path": "external/elliptic_baseline/config/training_baseline_paper_sage.yaml",
+      "published_path": "configs/elliptic/backbone_training_graphsage.yaml",
       "original_sha256": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a",
       "published_sha256": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a",
       "change": "Trailing whitespace/newline normalization only; Python AST identical",
       "license": "MIT",
-      "license_file": "external/elliptic_baseline/LICENSE",
-      "pre_organization_published_sha256": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a"
+      "license_file": "docs/provenance/licenses/RMIT_BLOCKCHAIN_ANOMALY_DETECTION_MIT.txt",
+      "pre_organization_published_sha256": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a",
+      "pre_cleanup_published_path": "external/elliptic_baseline/config/training_baseline_paper_sage.yaml",
+      "pre_cleanup_published_sha256": "2118d7836632468ce20cfd1b34a7dc6507199db1356320d71f0f7f0d53fbaf2a"
     },
     {
       "original_relative_path": "LICENSE.source",
       "source_repository": "elliptic-gnn-xai",
       "source_commit": "95710a9852019104f90499cdba628c37f4483a2a",
       "upstream_lineage": "https://github.com/RMIT-BDSL/Blockchain-Anomaly-Detection/tree/83ef2b9ed8b3233175bbc3f4231c593c365225b9",
-      "published_path": "external/elliptic_baseline/LICENSE",
+      "published_path": "docs/provenance/licenses/RMIT_BLOCKCHAIN_ANOMALY_DETECTION_MIT.txt",
       "original_sha256": "ee4742851d07f4b7e099bdfa5443bab323f13b61839638e015332cd02be9203b",
       "published_sha256": "500b34a485c4f82eb39d5df212028add771d552d1f1841637c551f31d4978e41",
       "change": "Trailing whitespace/newline normalization only; Python AST identical",
       "license": "MIT",
-      "license_file": "external/elliptic_baseline/LICENSE",
-      "pre_organization_published_sha256": "500b34a485c4f82eb39d5df212028add771d552d1f1841637c551f31d4978e41"
+      "license_file": "docs/provenance/licenses/RMIT_BLOCKCHAIN_ANOMALY_DETECTION_MIT.txt",
+      "pre_organization_published_sha256": "500b34a485c4f82eb39d5df212028add771d552d1f1841637c551f31d4978e41",
+      "pre_cleanup_published_path": "external/elliptic_baseline/LICENSE",
+      "pre_cleanup_published_sha256": "500b34a485c4f82eb39d5df212028add771d552d1f1841637c551f31d4978e41"
     }
   ],
   "dataset": {
@@ -2049,7 +2065,7 @@
     "license": "CC BY-NC-ND 4.0",
     "redistributed": false,
     "baseline_source": "https://github.com/RMIT-BDSL/Blockchain-Anomaly-Detection",
-    "preprocessing": "external/elliptic_baseline/scripts/preprocess_elliptic.py",
+    "preprocessing": "scripts/data/preprocess_elliptic.py",
     "temporal_split": "known labels only: time<30 train,30<=time<40 validation,time>=40 test; time_step excluded from model features"
   },
   "rights_evidence": {
@@ -2065,7 +2081,7 @@
   "evaluation_script": "scripts/evaluate/elliptic_frozen_models.py",
   "preprocessing_validation": {
     "status": "PASS",
-    "preprocessing_source": "external/elliptic_baseline/scripts/preprocess_elliptic.py",
+    "preprocessing_source": "scripts/data/preprocess_elliptic.py",
     "all_7_frozen_tensor_fingerprints_match": true,
     "processed_file_sha256": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
     "original_file_sha256": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
@@ -2076,5 +2092,12 @@
     "dataset_published": false,
     "training_performed": false
   },
-  "organization_source_release": "2b29e57784217269dcabc5e4d950468a759034d7"
+  "organization_source_release": "2b29e57784217269dcabc5e4d950468a759034d7",
+  "static_cleanup": {
+    "source_head": "9233a58d28688dae0419824b60d7e45ee4b67dfe",
+    "checkpoint_loading_this_task": "NOT_PERFORMED",
+    "runtime_parity_this_task": "NOT_VERIFIED",
+    "audit": "docs/release_review/ELLIPTIC_ARCHITECTURE_PARITY.md",
+    "no_model_class_body_change": true
+  }
 }
