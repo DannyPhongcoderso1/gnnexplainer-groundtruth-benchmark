@@ -1,6 +1,6 @@
 # Frozen artifact verification and restoration
 
-The minimum catalog has 71 model artifacts and five graphs. There are 61 directly in Git, including 32 new BA synthetic files. Fifteen Elliptic artifacts are retained in a versioned private local ZIP; there is no verified online download endpoint yet. Do not equate a local package with public access.
+The minimum catalog has 71 model artifacts and five graphs. There are75 directly in Git, including all 71 model artifacts and four synthetic graphs. The single Elliptic graph is intentionally not redistributed; acquire it from the provider and preprocess locally. Do not equate a local package with public access.
 
 ## Clone and install
 
@@ -22,22 +22,11 @@ python scripts/verify_thesis_artifacts.py
 python scripts/verify_release_evidence.py
 ```
 
-The first command uses only the standard library: no torch import, pickle deserialization, inference or download. A repository-only checkout resolves61/76 and explicitly reports15 `EXTERNAL_ACCESS_REQUIRED`. `--require-complete` returns a nonzero status until authorized external bytes are available. Original frozen source hashes and exact artifact identities are recorded in `docs/provenance/frozen_artifact_sources.json` and `docs/provenance/artifact_sha256.json`.
+The first command uses only the standard library: no torch import, pickle deserialization, inference or download. A repository-only checkout resolves75/76 and explicitly reports the single dataset as `EXTERNAL_ACCESS_REQUIRED`. `--require-complete` returns a nonzero status until the original byte-identical local graph is available; the Elliptic-specific loader also verifies canonical tensors for local preprocessing outputs. Original frozen source hashes and exact artifact identities are recorded in `docs/provenance/frozen_artifact_sources.json` and `docs/provenance/artifact_sha256.json`.
 
-## Restore authorized Elliptic inputs
+## Elliptic data is acquired, not redistributed
 
-Ask the maintainer for rights clearance and access to `final-thesis-elliptic-artifacts-v1.zip`. Compare its SHA256 with `docs/provenance/external_assets.json`. The maintainer retains the ZIP locally outside Git with a protected ACL; no remote archive was uploaded. Restore into a new directory:
-
-```powershell
-python scripts/verify_thesis_artifacts.py --restore --bundle D:/approved-access/final-thesis-elliptic-artifacts-v1.zip --destination-root D:/thesis-restored
-python scripts/verify_thesis_artifacts.py --private-root D:/thesis-restored --require-complete
-```
-
-These are example reader paths, not asserted download locations. Restoration accepts only the hash-bound bundle and exact allowlisted members. Existing matching files are reused; differing files cause an error and are not overwritten. The processed graph, two classifier checkpoints, two historical native Torch ZIP checkpoints and ten FRESH5 final PG checkpoints are restored as exact bytes. No epoch histories, optimizer-resume files or debug checkpoints are added.
-
-The ten fresh states map to GCN/GraphSAGE seeds0–4. They train PGExplainer while keeping classifiers frozen. Historical seed42 native Torch archives remain separate. A `.zip` containing Torch serialization is itself the model artifact; an old absent standalone `.pt` alias is not a missing model.
-
-The original historical TASK29 evaluator also authenticates original Release002 and COMPLETE archives. Their28 legacy asset entries remain in the catalog. The minimal new package preserves inference weights but does not replace the original completion/guard archives or bypass their checks. Request those original archives separately if replaying that historical driver. The private baseline code remains a pinned dependency at 95710a9852019104f90499cdba628c37f4483a2a.
+All 14 frozen Elliptic model files are now directly published. Only the graph remains outside Git by explicit user policy. Follow [the Elliptic guide](ELLIPTIC_MODELS.md) to acquire the original CSVs, run the unchanged preprocessing/temporal split, verify model hashes and use the frozen model-only loader. The original private bundle remains an owner-local backup, not a public dataset distribution channel. Historical COMPLETE guard archives remain optional dependencies of the old guard drivers; the new model loader needs only published weights and configs.
 
 ## GNNExplainer caches and Random
 

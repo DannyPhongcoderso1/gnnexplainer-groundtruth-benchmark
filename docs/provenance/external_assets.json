@@ -1,8 +1,8 @@
 {
-  "status": "PARTIAL_EXTERNAL_ACCESS_REQUIRED",
-  "acquisition": "Request exact frozen assets from the maintainer under applicable data/source permissions; restore at restore_path and compare SHA256 before pipeline execution. No public mirror asserted.",
+  "status": "VERIFIED_MODEL_ONLY_RELEASE_DATASET_USER_ACQUISITION",
+  "acquisition": "All 71 required model artifacts and four synthetic graphs are directly in Git. Only the Elliptic dataset must be acquired through its provider; see docs/reproducibility/ELLIPTIC_MODELS.md. Historical raw GNN caches remain separately governed.",
   "raw_elliptic": "Obtain original licensed Elliptic data through its provider, then use the pinned baseline preprocessing and frozen manifests; new preprocessing is not an identity substitute.",
-  "fresh5": "Ten original fresh checkpoint packages and exact Release002 archives are required by historical evaluator. See original protocol/execution/scientific-source manifests for checkpoint identities.",
+  "fresh5": "All ten exact FRESH5 checkpoint members are published in artifacts/elliptic/pgexplainer/fresh5. Original COMPLETE/Release002 archives remain optional dependencies of historical guard drivers, not of the model-only adapter.",
   "assets": [
     {
       "restore_path": "docs/kaggle/task29/dist/release_002/TASK29_ELLIPTIC_FROZEN_INPUTS.zip",
@@ -129,133 +129,197 @@
       "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED0_COMPLETE.zip",
       "bytes": 576634,
       "sha256": "fb8de11cc437e22b30f4813e49f7d2a1a09e181256a9260f3f5c18157623faab",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "LEGACY_CONTAINER_OWNER_LOCAL_NOT_PUBLISHED",
       "redistribution_license": "NOT_VERIFIED",
-      "catalog_identity_preserved": true
+      "catalog_identity_preserved": true,
+      "published_checkpoint_member": [
+        {
+          "path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_0.pt",
+          "sha256": "193d175a0b49529d9f1a17d17f8b4388cb43c375d90e9d09657afa87c8c69259"
+        }
+      ]
     },
     {
       "repository": "benchmark",
       "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED1_COMPLETE.zip",
       "bytes": 575713,
       "sha256": "8fcf72879d9c9ff650db6c2e36658fa18d9db8de64b0ebab84b0a0571faa1ac3",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "LEGACY_CONTAINER_OWNER_LOCAL_NOT_PUBLISHED",
       "redistribution_license": "NOT_VERIFIED",
-      "catalog_identity_preserved": true
+      "catalog_identity_preserved": true,
+      "published_checkpoint_member": [
+        {
+          "path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_1.pt",
+          "sha256": "cb1d2a786bcb9b4b64be2728c056fd20191226c8d4e81b4890bf29412969d0e6"
+        }
+      ]
     },
     {
       "repository": "benchmark",
       "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED2_COMPLETE.zip",
       "bytes": 576146,
       "sha256": "4f3c962d78393406a46f8d1db739af5494cb942d893de5b2c3b9e9087af4387d",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "LEGACY_CONTAINER_OWNER_LOCAL_NOT_PUBLISHED",
       "redistribution_license": "NOT_VERIFIED",
-      "catalog_identity_preserved": true
+      "catalog_identity_preserved": true,
+      "published_checkpoint_member": [
+        {
+          "path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_2.pt",
+          "sha256": "f8d8f2d51a65568f6e101aaa3d2310ba55453469f4d190a1d9b4aa1b706eed2a"
+        }
+      ]
     },
     {
       "repository": "benchmark",
       "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED0_COMPLETE.zip",
       "bytes": 631986,
       "sha256": "2b70686729f123e63fdcd12c05f724e12d3039104fdd3e8f55f8547a3c375dcd",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "LEGACY_CONTAINER_OWNER_LOCAL_NOT_PUBLISHED",
       "redistribution_license": "NOT_VERIFIED",
-      "catalog_identity_preserved": true
+      "catalog_identity_preserved": true,
+      "published_checkpoint_member": [
+        {
+          "path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_0.pt",
+          "sha256": "30d88fd22e9c44e85d51584c4cff582783c5d21c254fa9b483fba9dd49e33734"
+        }
+      ]
     },
     {
       "repository": "benchmark",
       "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED1_COMPLETE.zip",
       "bytes": 634180,
       "sha256": "cc078e4b575f338882f19a0c61364e8941f2db19db69fd43bfa15ee8bef94abf",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "LEGACY_CONTAINER_OWNER_LOCAL_NOT_PUBLISHED",
       "redistribution_license": "NOT_VERIFIED",
-      "catalog_identity_preserved": true
+      "catalog_identity_preserved": true,
+      "published_checkpoint_member": [
+        {
+          "path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_1.pt",
+          "sha256": "99847560d9709200ddffb7988b98a22c967948bac743f0ef9d3f8a93171e46ab"
+        }
+      ]
     },
     {
       "repository": "benchmark",
       "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED2_COMPLETE.zip",
       "bytes": 633308,
       "sha256": "1d1eaa3165fddf1d292afa84523e8837d65f5f0667ccfcb5468b9ba54aeb1572",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "LEGACY_CONTAINER_OWNER_LOCAL_NOT_PUBLISHED",
       "redistribution_license": "NOT_VERIFIED",
-      "catalog_identity_preserved": true
+      "catalog_identity_preserved": true,
+      "published_checkpoint_member": [
+        {
+          "path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_2.pt",
+          "sha256": "bc64c8eaee2c64bff32ddd69e0e814b2a6cab4ecfdf78535b935ba4484e73537"
+        }
+      ]
     },
     {
       "repository": "benchmark",
       "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED3_COMPLETE.zip",
       "bytes": 573557,
       "sha256": "72e35b92e9fc0a90d012c48e61035bd419e4d5c10bc32fe942b0ff545b1cbba3",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "LEGACY_CONTAINER_OWNER_LOCAL_NOT_PUBLISHED",
       "redistribution_license": "NOT_VERIFIED",
-      "catalog_identity_preserved": true
+      "catalog_identity_preserved": true,
+      "published_checkpoint_member": [
+        {
+          "path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_3.pt",
+          "sha256": "4a67e143d4b093161e4ca3e10e6dc8d6b225b826233d7e7f7bdfb9ab41cc5ebb"
+        }
+      ]
     },
     {
       "repository": "benchmark",
       "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED4_COMPLETE.zip",
       "bytes": 580677,
       "sha256": "e2be5117be15943bc8625d7ada3ef91c6b5fc55374439b9f00d70a15712c226c",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "LEGACY_CONTAINER_OWNER_LOCAL_NOT_PUBLISHED",
       "redistribution_license": "NOT_VERIFIED",
-      "catalog_identity_preserved": true
+      "catalog_identity_preserved": true,
+      "published_checkpoint_member": [
+        {
+          "path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_4.pt",
+          "sha256": "4faabab5a2ec917bfd12639fd0c2756de6dc0c6332da1e4debfad63b7898db64"
+        }
+      ]
     },
     {
       "repository": "benchmark",
       "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED3_COMPLETE.zip",
       "bytes": 632522,
       "sha256": "7ad450254982b4d357e4c8644574d31246b8295648d61336e7c02113a6156dde",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "LEGACY_CONTAINER_OWNER_LOCAL_NOT_PUBLISHED",
       "redistribution_license": "NOT_VERIFIED",
-      "catalog_identity_preserved": true
+      "catalog_identity_preserved": true,
+      "published_checkpoint_member": [
+        {
+          "path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_3.pt",
+          "sha256": "6553f6dfec0e7aa5b5cb7a84066e0d5d5bd1ec00d0d9f471f067bcae888ab519"
+        }
+      ]
     },
     {
       "repository": "benchmark",
       "restore_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED4_COMPLETE.zip",
       "bytes": 634438,
       "sha256": "47081d4123100bce5aba7928eb0a991bc3dede3ce027f085547cf0b6acdd5003",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "LEGACY_CONTAINER_OWNER_LOCAL_NOT_PUBLISHED",
       "redistribution_license": "NOT_VERIFIED",
-      "catalog_identity_preserved": true
+      "catalog_identity_preserved": true,
+      "published_checkpoint_member": [
+        {
+          "path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_4.pt",
+          "sha256": "54351edf384c0ddf517137faaee8f4198b95f32381faac43a7d8756e0e105fd7"
+        }
+      ]
     },
     {
       "repository": "benchmark",
       "restore_path": "results/elliptic_pg_gcn_seed42.zip",
       "bytes": 231423,
       "sha256": "6035f9b343862a2c5fde376ba6160166c61ed916f5b497ee12498fe8726d3988",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "GIT_RELEASE_MODEL_ONLY",
       "redistribution_license": "NOT_VERIFIED",
-      "catalog_identity_preserved": true
+      "catalog_identity_preserved": true,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/historical_seed42/gcn.zip"
     },
     {
       "repository": "benchmark",
       "restore_path": "results/elliptic_pg_graphsage_seed42.zip",
       "bytes": 261507,
       "sha256": "ef9e81c399283834aba6bc4d45b72e25e334f00674f1e389ba5003a77eb6e827",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "GIT_RELEASE_MODEL_ONLY",
       "redistribution_license": "NOT_VERIFIED",
-      "catalog_identity_preserved": true
+      "catalog_identity_preserved": true,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/historical_seed42/graphsage.zip"
     },
     {
       "repository": "elliptic",
       "restore_path": "artifacts/checkpoints/gcn_baseline.pt",
       "bytes": 220129,
       "sha256": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "GIT_RELEASE_MODEL_ONLY",
       "redistribution_license": "NOT_VERIFIED",
-      "catalog_identity_preserved": true
+      "catalog_identity_preserved": true,
+      "published_relative_path": "artifacts/elliptic/backbones/gcn.pt"
     },
     {
       "repository": "elliptic",
       "restore_path": "artifacts/checkpoints/graphsage_baseline.pt",
       "bytes": 305513,
       "sha256": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "GIT_RELEASE_MODEL_ONLY",
       "redistribution_license": "NOT_VERIFIED",
-      "catalog_identity_preserved": true
+      "catalog_identity_preserved": true,
+      "published_relative_path": "artifacts/elliptic/backbones/graphsage.pt"
     },
     {
       "repository": "elliptic",
       "restore_path": "datasets/elliptic/elliptic_data.pt",
       "bytes": 146676895,
       "sha256": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
-      "availability": "MAINTAINER_ACCESS_REQUIRED",
+      "availability": "USER_ACQUISITION_DATASET_NOT_REDISTRIBUTED",
       "redistribution_license": "NOT_VERIFIED",
       "catalog_identity_preserved": true
     }
@@ -1863,7 +1927,7 @@
       "pool_identity": "",
       "original_repository": "elliptic",
       "original_relative_path": "artifacts/checkpoints/gcn_baseline.pt",
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/backbones/gcn.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1878,11 +1942,12 @@
       },
       "thesis_relevance": "Thesis Elliptic Tables4.15–4.20; historical seed42 RAW final200 separated from FRESH5 seeds0–4",
       "evaluation_role": "Frozen model inference / independent per-seed Stability; no training",
-      "category": "B",
-      "access": "EXTERNAL_ACCESS_REQUIRED",
+      "category": "A",
+      "access": "GIT_RELEASE_MODELS_ONLY",
       "before_published": false,
-      "restore": "Use scripts/verify_thesis_artifacts.py with --bundle/--restore for licensed external bytes; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
     },
     {
       "id": "elliptic.backbone_checkpoint.graphsage.seed42.default",
@@ -1895,7 +1960,7 @@
       "pool_identity": "",
       "original_repository": "elliptic",
       "original_relative_path": "artifacts/checkpoints/graphsage_baseline.pt",
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/backbones/graphsage.pt",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -1910,11 +1975,12 @@
       },
       "thesis_relevance": "Thesis Elliptic Tables4.15–4.20; historical seed42 RAW final200 separated from FRESH5 seeds0–4",
       "evaluation_role": "Frozen model inference / independent per-seed Stability; no training",
-      "category": "B",
-      "access": "EXTERNAL_ACCESS_REQUIRED",
+      "category": "A",
+      "access": "GIT_RELEASE_MODELS_ONLY",
       "before_published": false,
-      "restore": "Use scripts/verify_thesis_artifacts.py with --bundle/--restore for licensed external bytes; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
     },
     {
       "id": "elliptic.data_graph.shared.seedna.default",
@@ -1959,7 +2025,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED0_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_0.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED0_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "fb8de11cc437e22b30f4813e49f7d2a1a09e181256a9260f3f5c18157623faab",
@@ -1974,11 +2040,12 @@
       },
       "thesis_relevance": "Elliptic FRESH5 Stability, seeds0–4, Table4.20; evaluation-only exact-tie addendum",
       "evaluation_role": "Frozen model inference / independent per-seed Stability; no training",
-      "category": "B",
-      "access": "EXTERNAL_ACCESS_REQUIRED",
+      "category": "A",
+      "access": "GIT_RELEASE_MODELS_ONLY",
       "before_published": false,
-      "restore": "Use scripts/verify_thesis_artifacts.py with --bundle/--restore for licensed external bytes; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
     },
     {
       "id": "elliptic.pg_checkpoint.gcn.seed1.default",
@@ -1991,7 +2058,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED1_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_1.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED1_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "8fcf72879d9c9ff650db6c2e36658fa18d9db8de64b0ebab84b0a0571faa1ac3",
@@ -2006,11 +2073,12 @@
       },
       "thesis_relevance": "Elliptic FRESH5 Stability, seeds0–4, Table4.20; evaluation-only exact-tie addendum",
       "evaluation_role": "Frozen model inference / independent per-seed Stability; no training",
-      "category": "B",
-      "access": "EXTERNAL_ACCESS_REQUIRED",
+      "category": "A",
+      "access": "GIT_RELEASE_MODELS_ONLY",
       "before_published": false,
-      "restore": "Use scripts/verify_thesis_artifacts.py with --bundle/--restore for licensed external bytes; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
     },
     {
       "id": "elliptic.pg_checkpoint.gcn.seed2.default",
@@ -2023,7 +2091,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED2_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_2.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED2_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "4f3c962d78393406a46f8d1db739af5494cb942d893de5b2c3b9e9087af4387d",
@@ -2038,11 +2106,12 @@
       },
       "thesis_relevance": "Elliptic FRESH5 Stability, seeds0–4, Table4.20; evaluation-only exact-tie addendum",
       "evaluation_role": "Frozen model inference / independent per-seed Stability; no training",
-      "category": "B",
-      "access": "EXTERNAL_ACCESS_REQUIRED",
+      "category": "A",
+      "access": "GIT_RELEASE_MODELS_ONLY",
       "before_published": false,
-      "restore": "Use scripts/verify_thesis_artifacts.py with --bundle/--restore for licensed external bytes; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
     },
     {
       "id": "elliptic.pg_checkpoint.graphsage.seed0.default",
@@ -2055,7 +2124,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED0_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_0.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED0_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "2b70686729f123e63fdcd12c05f724e12d3039104fdd3e8f55f8547a3c375dcd",
@@ -2070,11 +2139,12 @@
       },
       "thesis_relevance": "Elliptic FRESH5 Stability, seeds0–4, Table4.20; evaluation-only exact-tie addendum",
       "evaluation_role": "Frozen model inference / independent per-seed Stability; no training",
-      "category": "B",
-      "access": "EXTERNAL_ACCESS_REQUIRED",
+      "category": "A",
+      "access": "GIT_RELEASE_MODELS_ONLY",
       "before_published": false,
-      "restore": "Use scripts/verify_thesis_artifacts.py with --bundle/--restore for licensed external bytes; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
     },
     {
       "id": "elliptic.pg_checkpoint.graphsage.seed1.default",
@@ -2087,7 +2157,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED1_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_1.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED1_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "cc078e4b575f338882f19a0c61364e8941f2db19db69fd43bfa15ee8bef94abf",
@@ -2102,11 +2172,12 @@
       },
       "thesis_relevance": "Elliptic FRESH5 Stability, seeds0–4, Table4.20; evaluation-only exact-tie addendum",
       "evaluation_role": "Frozen model inference / independent per-seed Stability; no training",
-      "category": "B",
-      "access": "EXTERNAL_ACCESS_REQUIRED",
+      "category": "A",
+      "access": "GIT_RELEASE_MODELS_ONLY",
       "before_published": false,
-      "restore": "Use scripts/verify_thesis_artifacts.py with --bundle/--restore for licensed external bytes; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
     },
     {
       "id": "elliptic.pg_checkpoint.graphsage.seed2.default",
@@ -2119,7 +2190,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED2_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_2.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED2_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "1d1eaa3165fddf1d292afa84523e8837d65f5f0667ccfcb5468b9ba54aeb1572",
@@ -2134,11 +2205,12 @@
       },
       "thesis_relevance": "Elliptic FRESH5 Stability, seeds0–4, Table4.20; evaluation-only exact-tie addendum",
       "evaluation_role": "Frozen model inference / independent per-seed Stability; no training",
-      "category": "B",
-      "access": "EXTERNAL_ACCESS_REQUIRED",
+      "category": "A",
+      "access": "GIT_RELEASE_MODELS_ONLY",
       "before_published": false,
-      "restore": "Use scripts/verify_thesis_artifacts.py with --bundle/--restore for licensed external bytes; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
     },
     {
       "id": "elliptic.pg_checkpoint.gcn.seed3.default",
@@ -2151,7 +2223,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED3_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_3.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED3_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "72e35b92e9fc0a90d012c48e61035bd419e4d5c10bc32fe942b0ff545b1cbba3",
@@ -2166,11 +2238,12 @@
       },
       "thesis_relevance": "Elliptic FRESH5 Stability, seeds0–4, Table4.20; evaluation-only exact-tie addendum",
       "evaluation_role": "Frozen model inference / independent per-seed Stability; no training",
-      "category": "B",
-      "access": "EXTERNAL_ACCESS_REQUIRED",
+      "category": "A",
+      "access": "GIT_RELEASE_MODELS_ONLY",
       "before_published": false,
-      "restore": "Use scripts/verify_thesis_artifacts.py with --bundle/--restore for licensed external bytes; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
     },
     {
       "id": "elliptic.pg_checkpoint.gcn.seed4.default",
@@ -2183,7 +2256,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED4_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_4.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED4_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "e2be5117be15943bc8625d7ada3ef91c6b5fc55374439b9f00d70a15712c226c",
@@ -2198,11 +2271,12 @@
       },
       "thesis_relevance": "Elliptic FRESH5 Stability, seeds0–4, Table4.20; evaluation-only exact-tie addendum",
       "evaluation_role": "Frozen model inference / independent per-seed Stability; no training",
-      "category": "B",
-      "access": "EXTERNAL_ACCESS_REQUIRED",
+      "category": "A",
+      "access": "GIT_RELEASE_MODELS_ONLY",
       "before_published": false,
-      "restore": "Use scripts/verify_thesis_artifacts.py with --bundle/--restore for licensed external bytes; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
     },
     {
       "id": "elliptic.pg_checkpoint.graphsage.seed3.default",
@@ -2215,7 +2289,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED3_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_3.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED3_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "7ad450254982b4d357e4c8644574d31246b8295648d61336e7c02113a6156dde",
@@ -2230,11 +2304,12 @@
       },
       "thesis_relevance": "Elliptic FRESH5 Stability, seeds0–4, Table4.20; evaluation-only exact-tie addendum",
       "evaluation_role": "Frozen model inference / independent per-seed Stability; no training",
-      "category": "B",
-      "access": "EXTERNAL_ACCESS_REQUIRED",
+      "category": "A",
+      "access": "GIT_RELEASE_MODELS_ONLY",
       "before_published": false,
-      "restore": "Use scripts/verify_thesis_artifacts.py with --bundle/--restore for licensed external bytes; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
     },
     {
       "id": "elliptic.pg_checkpoint.graphsage.seed4.default",
@@ -2247,7 +2322,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED4_COMPLETE.zip!checkpoint.pt",
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_4.pt",
       "archive_relative_path": "docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED4_COMPLETE.zip",
       "archive_member": "checkpoint.pt",
       "archive_sha256": "47081d4123100bce5aba7928eb0a991bc3dede3ce027f085547cf0b6acdd5003",
@@ -2262,11 +2337,12 @@
       },
       "thesis_relevance": "Elliptic FRESH5 Stability, seeds0–4, Table4.20; evaluation-only exact-tie addendum",
       "evaluation_role": "Frozen model inference / independent per-seed Stability; no training",
-      "category": "B",
-      "access": "EXTERNAL_ACCESS_REQUIRED",
+      "category": "A",
+      "access": "GIT_RELEASE_MODELS_ONLY",
       "before_published": false,
-      "restore": "Use scripts/verify_thesis_artifacts.py with --bundle/--restore for licensed external bytes; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
     },
     {
       "id": "elliptic.pg_checkpoint_serialized_zip.gcn.seed42.default",
@@ -2279,7 +2355,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "results/elliptic_pg_gcn_seed42.zip",
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/historical_seed42/gcn.zip",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2294,11 +2370,12 @@
       },
       "thesis_relevance": "Elliptic historical full30 hardCE/SUM RAW final200, Tables4.17–4.19; GCN diagnostic / GraphSAGE case study",
       "evaluation_role": "Frozen model inference / independent per-seed Stability; no training",
-      "category": "B",
-      "access": "EXTERNAL_ACCESS_REQUIRED",
+      "category": "A",
+      "access": "GIT_RELEASE_MODELS_ONLY",
       "before_published": false,
-      "restore": "Use scripts/verify_thesis_artifacts.py with --bundle/--restore for licensed external bytes; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
     },
     {
       "id": "elliptic.pg_checkpoint_serialized_zip.graphsage.seed42.default",
@@ -2311,7 +2388,7 @@
       "pool_identity": "",
       "original_repository": "benchmark",
       "original_relative_path": "results/elliptic_pg_graphsage_seed42.zip",
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/historical_seed42/graphsage.zip",
       "archive_relative_path": null,
       "archive_member": null,
       "archive_sha256": null,
@@ -2326,11 +2403,12 @@
       },
       "thesis_relevance": "Elliptic historical full30 hardCE/SUM RAW final200, Tables4.17–4.19; GCN diagnostic / GraphSAGE case study",
       "evaluation_role": "Frozen model inference / independent per-seed Stability; no training",
-      "category": "B",
-      "access": "EXTERNAL_ACCESS_REQUIRED",
+      "category": "A",
+      "access": "GIT_RELEASE_MODELS_ONLY",
       "before_published": false,
-      "restore": "Use scripts/verify_thesis_artifacts.py with --bundle/--restore for licensed external bytes; verify SHA before loading",
-      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch"
+      "restore": "Direct published path; verify exact SHA256 before restricted weights-only loading",
+      "necessity": "Exact frozen dependency for reported point/stability values, not an intermediate epoch",
+      "distribution_decision": "2026-10-27 owner-authorized model-only publication; original dataset excluded"
     },
     {
       "id": "shapeggen_v1.backbone_checkpoint.gcn.seed42.default",
@@ -3430,10 +3508,10 @@
       "sha256": "1dc7b9285e03a0ca20eb79a7aeb0fe08f29e6447b1dc8977c43084c39aa2389b",
       "size_bytes": 47032364,
       "members": 15,
-      "status": "VERIFIED_LOCAL_ARCHIVE_EXTERNAL_ACCESS_REQUIRED",
+      "status": "LEGACY_OWNER_LOCAL_BACKUP_CONTAINS_DATASET_NOT_DISTRIBUTED",
       "download_url": null,
       "owner_local_storage": "$THESIS_PRIVATE_ARTIFACT_ROOT/20261027/final-thesis-elliptic-artifacts-v1.zip",
-      "access_step": "Maintainer must confirm dataset/checkpoint redistribution rights, select access-controlled distribution, grant reader access, and publish/verify the resulting locator. No online upload has been performed.",
+      "access_step": "Not a public dataset distribution channel. All14 model weights are now in Git. Obtain original data from Kaggle under provider terms and run the included preprocessing locally. Original backup remains owner-local and unchanged.",
       "acl": "Local newly created archive directory disables inherited ACL; current user, SYSTEM and Administrators only"
     }
   ],
@@ -3442,15 +3520,36 @@
     "graphs": 5,
     "required": 76,
     "published_before": 29,
-    "new_git_artifacts": 32,
-    "git_after": 61,
-    "external_required": 15,
+    "new_git_artifacts": 46,
+    "git_after": 75,
+    "external_required": 1,
     "missing_local": 0,
-    "hash_mismatches": 0
+    "hash_mismatches": 0,
+    "new_elliptic_models": 14,
+    "model_artifacts_in_git": 71,
+    "graphs_in_git": 4
   },
   "license_and_privacy_review": {
     "synthetic_new_32": "User-authorized, locally research-generated BA graphs and models; producer/frozen manifests tie weights to these synthetic graphs, not imported third-party pretrained weights. No real-user identifiers in generation schema. PyG MIT license inspected; no new project-wide license asserted.",
-    "elliptic": "Original input/checkpoint redistribution rights not established; no Elliptic binary uploaded. Local bundle access remains restricted.",
+    "elliptic": "User authorizes their own model weights for thesis publication; code MIT notice preserved. Dataset CC BY-NC-ND remains separate and is not redistributed. No automatic unrestricted/commercial license is asserted for weights or data. Restricted weights-only inspection found parameter/optimizer tensors and run/target-index metadata, no embedded dataset records or graph tensors, secrets or private-home paths.",
     "shape_v1": "Previously published exact bytes retained unchanged; graph seed912, model seed42 and explainer seeds0–4,42 kept separate"
-  }
+  },
+  "dataset_acquisition": {
+    "url": "https://www.kaggle.com/datasets/ellipticco/elliptic-data-set",
+    "attribution": "Elliptic / Weber et al. (2019)",
+    "license": "CC BY-NC-ND 4.0",
+    "redistributed": false,
+    "baseline_source": "https://github.com/RMIT-BDSL/Blockchain-Anomaly-Detection",
+    "preprocessing": "external/elliptic_baseline/scripts/preprocess_elliptic.py",
+    "temporal_split": "known labels only: time<30 train,30<=time<40 validation,time>=40 test; time_step excluded from model features"
+  },
+  "publication_history": [
+    {
+      "previous_head": "11e44790f0da4e5cb2e662aac3b2996afd104406",
+      "scope": "14 Elliptic model files only; zero datasets",
+      "new_model_files": 14,
+      "dataset_files": 0,
+      "decision": "Explicit owner authorization; third-party MIT notice retained; dataset terms remain separate"
+    }
+  ]
 }

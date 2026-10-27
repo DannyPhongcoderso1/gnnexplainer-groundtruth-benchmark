@@ -280,13 +280,13 @@
     "elliptic.backbone_checkpoint.gcn.seed42.default": {
       "sha256": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07",
       "size_bytes": 220129,
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/backbones/gcn.pt",
       "restored_relative_path": "elliptic-gnn-xai/artifacts/checkpoints/gcn_baseline.pt"
     },
     "elliptic.backbone_checkpoint.graphsage.seed42.default": {
       "sha256": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf",
       "size_bytes": 305513,
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/backbones/graphsage.pt",
       "restored_relative_path": "elliptic-gnn-xai/artifacts/checkpoints/graphsage_baseline.pt"
     },
     "elliptic.data_graph.shared.seedna.default": {
@@ -298,73 +298,73 @@
     "elliptic.pg_checkpoint.gcn.seed0.default": {
       "sha256": "193d175a0b49529d9f1a17d17f8b4388cb43c375d90e9d09657afa87c8c69259",
       "size_bytes": 231081,
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_0.pt",
       "restored_relative_path": "benchmark-private/fresh5/gcn/seed_0/checkpoint.pt"
     },
     "elliptic.pg_checkpoint.gcn.seed1.default": {
       "sha256": "cb1d2a786bcb9b4b64be2728c056fd20191226c8d4e81b4890bf29412969d0e6",
       "size_bytes": 231081,
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_1.pt",
       "restored_relative_path": "benchmark-private/fresh5/gcn/seed_1/checkpoint.pt"
     },
     "elliptic.pg_checkpoint.gcn.seed2.default": {
       "sha256": "f8d8f2d51a65568f6e101aaa3d2310ba55453469f4d190a1d9b4aa1b706eed2a",
       "size_bytes": 231081,
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_2.pt",
       "restored_relative_path": "benchmark-private/fresh5/gcn/seed_2/checkpoint.pt"
     },
     "elliptic.pg_checkpoint.graphsage.seed0.default": {
       "sha256": "30d88fd22e9c44e85d51584c4cff582783c5d21c254fa9b483fba9dd49e33734",
       "size_bytes": 261229,
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_0.pt",
       "restored_relative_path": "benchmark-private/fresh5/graphsage/seed_0/checkpoint.pt"
     },
     "elliptic.pg_checkpoint.graphsage.seed1.default": {
       "sha256": "99847560d9709200ddffb7988b98a22c967948bac743f0ef9d3f8a93171e46ab",
       "size_bytes": 261229,
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_1.pt",
       "restored_relative_path": "benchmark-private/fresh5/graphsage/seed_1/checkpoint.pt"
     },
     "elliptic.pg_checkpoint.graphsage.seed2.default": {
       "sha256": "bc64c8eaee2c64bff32ddd69e0e814b2a6cab4ecfdf78535b935ba4484e73537",
       "size_bytes": 261229,
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_2.pt",
       "restored_relative_path": "benchmark-private/fresh5/graphsage/seed_2/checkpoint.pt"
     },
     "elliptic.pg_checkpoint.gcn.seed3.default": {
       "sha256": "4a67e143d4b093161e4ca3e10e6dc8d6b225b826233d7e7f7bdfb9ab41cc5ebb",
       "size_bytes": 231081,
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_3.pt",
       "restored_relative_path": "benchmark-private/fresh5/gcn/seed_3/checkpoint.pt"
     },
     "elliptic.pg_checkpoint.gcn.seed4.default": {
       "sha256": "4faabab5a2ec917bfd12639fd0c2756de6dc0c6332da1e4debfad63b7898db64",
       "size_bytes": 231081,
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_4.pt",
       "restored_relative_path": "benchmark-private/fresh5/gcn/seed_4/checkpoint.pt"
     },
     "elliptic.pg_checkpoint.graphsage.seed3.default": {
       "sha256": "6553f6dfec0e7aa5b5cb7a84066e0d5d5bd1ec00d0d9f471f067bcae888ab519",
       "size_bytes": 261229,
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_3.pt",
       "restored_relative_path": "benchmark-private/fresh5/graphsage/seed_3/checkpoint.pt"
     },
     "elliptic.pg_checkpoint.graphsage.seed4.default": {
       "sha256": "54351edf384c0ddf517137faaee8f4198b95f32381faac43a7d8756e0e105fd7",
       "size_bytes": 261229,
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_4.pt",
       "restored_relative_path": "benchmark-private/fresh5/graphsage/seed_4/checkpoint.pt"
     },
     "elliptic.pg_checkpoint_serialized_zip.gcn.seed42.default": {
       "sha256": "6035f9b343862a2c5fde376ba6160166c61ed916f5b497ee12498fe8726d3988",
       "size_bytes": 231423,
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/historical_seed42/gcn.zip",
       "restored_relative_path": "benchmark-private/results/elliptic_pg_gcn_seed42.zip"
     },
     "elliptic.pg_checkpoint_serialized_zip.graphsage.seed42.default": {
       "sha256": "ef9e81c399283834aba6bc4d45b72e25e334f00674f1e389ba5003a77eb6e827",
       "size_bytes": 261507,
-      "published_relative_path": null,
+      "published_relative_path": "artifacts/elliptic/pgexplainer/historical_seed42/graphsage.zip",
       "restored_relative_path": "benchmark-private/results/elliptic_pg_graphsage_seed42.zip"
     },
     "shapeggen_v1.backbone_checkpoint.gcn.seed42.default": {
@@ -505,6 +505,20 @@
     "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed4.pt": "ca77b6a7415de56fcb9649a86b563eaf0f05e59983f58037248bda767ac3c70c",
     "artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed42.pt": "4b2f34c00555c8d3dd9beb6fe04dbe14d71c9d1a7636f9958bb56b03130c843e",
     "artifacts/explainers/pgexplainer_graphsage_ba_house_seed42.pt": "0fc6ca4a232388ba861005f9f6d7b63a4cc6241eb7ca1a0eb44921cf0b03fb69",
+    "artifacts/elliptic/backbones/gcn.pt": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07",
+    "artifacts/elliptic/backbones/graphsage.pt": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf",
+    "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_0.pt": "193d175a0b49529d9f1a17d17f8b4388cb43c375d90e9d09657afa87c8c69259",
+    "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_1.pt": "cb1d2a786bcb9b4b64be2728c056fd20191226c8d4e81b4890bf29412969d0e6",
+    "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_2.pt": "f8d8f2d51a65568f6e101aaa3d2310ba55453469f4d190a1d9b4aa1b706eed2a",
+    "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_0.pt": "30d88fd22e9c44e85d51584c4cff582783c5d21c254fa9b483fba9dd49e33734",
+    "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_1.pt": "99847560d9709200ddffb7988b98a22c967948bac743f0ef9d3f8a93171e46ab",
+    "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_2.pt": "bc64c8eaee2c64bff32ddd69e0e814b2a6cab4ecfdf78535b935ba4484e73537",
+    "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_3.pt": "4a67e143d4b093161e4ca3e10e6dc8d6b225b826233d7e7f7bdfb9ab41cc5ebb",
+    "artifacts/elliptic/pgexplainer/fresh5/gcn/seed_4.pt": "4faabab5a2ec917bfd12639fd0c2756de6dc0c6332da1e4debfad63b7898db64",
+    "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_3.pt": "6553f6dfec0e7aa5b5cb7a84066e0d5d5bd1ec00d0d9f471f067bcae888ab519",
+    "artifacts/elliptic/pgexplainer/fresh5/graphsage/seed_4.pt": "54351edf384c0ddf517137faaee8f4198b95f32381faac43a7d8756e0e105fd7",
+    "artifacts/elliptic/pgexplainer/historical_seed42/gcn.zip": "6035f9b343862a2c5fde376ba6160166c61ed916f5b497ee12498fe8726d3988",
+    "artifacts/elliptic/pgexplainer/historical_seed42/graphsage.zip": "ef9e81c399283834aba6bc4d45b72e25e334f00674f1e389ba5003a77eb6e827",
     "artifacts/checkpoints/shapeggen_gcn_best.pt": "15bfa8960fe4e0f0712c3a794db93ed4e90aad6fce3555a16db23a8a13b91e36",
     "artifacts/checkpoints/shapeggen_graphsage_best.pt": "498a74875360a82749b78cb40a69b3e4ec04ec634b85e4713e85d96f34c666a0",
     "artifacts/data/shapeggen.pt": "9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e",
@@ -528,14 +542,15 @@
       "sha256": "1dc7b9285e03a0ca20eb79a7aeb0fe08f29e6447b1dc8977c43084c39aa2389b",
       "size_bytes": 47032364,
       "members": 15,
-      "status": "VERIFIED_LOCAL_ARCHIVE_EXTERNAL_ACCESS_REQUIRED",
+      "status": "LEGACY_OWNER_LOCAL_BACKUP_CONTAINS_DATASET_NOT_DISTRIBUTED",
       "download_url": null,
       "owner_local_storage": "$THESIS_PRIVATE_ARTIFACT_ROOT/20261027/final-thesis-elliptic-artifacts-v1.zip",
-      "access_step": "Maintainer must confirm dataset/checkpoint redistribution rights, select access-controlled distribution, grant reader access, and publish/verify the resulting locator. No online upload has been performed.",
+      "access_step": "Not a public dataset distribution channel. All14 model weights are now in Git. Obtain original data from Kaggle under provider terms and run the included preprocessing locally. Original backup remains owner-local and unchanged.",
       "acl": "Local newly created archive directory disables inherited ACL; current user, SYSTEM and Administrators only"
     }
   ],
   "raw_gnn_cache_manifest_sha256": "68ecec3272f0883c31da3144424c97936063049fa8517f9aa3997f6a05b43622",
   "frozen_source_receipts_sha256": "4e3cb54ef9b9f3710fe5b26878589c78fee4d2337f81cb04a4dd3dd9bf136041",
-  "scope": "Logical and byte identity, not tensor schema/model loading validation"
+  "scope": "Logical/byte identity for 76 frozen artifacts; 75 public paths. Elliptic schema/model loading separately verified in elliptic_model_publication.json; dataset intentionally excluded.",
+  "elliptic_model_publication_manifest_sha256": "0df51140048be78eca0900e1ff28c028b13e3623659bb347e5badf30466ac0b7"
 }

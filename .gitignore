@@ -53,3 +53,10 @@ desktop.ini
 # Local logs
 logs/
 *.log
+
+# Elliptic inputs are acquired locally and must never be redistributed here.
+**/elliptic_txs_features.csv
+**/elliptic_txs_edgelist.csv
+**/elliptic_txs_classes.csv
+**/elliptic_data.pt
+external_data/elliptic/

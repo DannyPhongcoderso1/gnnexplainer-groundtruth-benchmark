@@ -1,3 +1,5 @@
+For current Elliptic model-only publication and provider-acquired data, see [ELLIPTIC_MODELS.md](ELLIPTIC_MODELS.md). Historical guard drivers below retain their original archive expectations.
+
 See [frozen artifact access](ARTIFACTS.md) before any historical pipeline command. Published checkpoints do not require replaying generation/training.
 
 # Reproduction scope
