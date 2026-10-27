@@ -24,3 +24,5 @@ Final exact staging, secret/blob-size checks, clean committed-payload checks and
 Updated 221-file release payload manifest and release evidence verifier: PASS. The 217 retained trace records are unchanged; nine withheld cells remain withheld. All original selected numerical/record hashes and minimum previously published model/data bytes are unchanged.
 
 One 15,159-byte frozen BA500 Random score reference is also included because the existing dispatch regression compares against this exact tensor. It is a cached numerical output, not a learned model and not part of the76 minimum model/graph artifacts. No new GNN raw mask is added.
+
+Final staged gates and clean-archive verification PASS for55 exact paths; payload pushed as `2ff3c2ebc02cff848053c0c61769c7ae09488b20` and remote equality plus221 manifest blobs/61 Git artifact hashes verified. Zero external archives uploaded. See report12.
