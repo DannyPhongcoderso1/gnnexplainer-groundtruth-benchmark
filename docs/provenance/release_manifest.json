@@ -30,8 +30,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "9b62a24399101c38682a0cab4bca0f7bf3823c4ed25d639f42e7d82d571b1399",
-      "bytes": 6367,
+      "sha256": "7071b7f37170e3d98bc43fc898d10f713771e1439c929080b23ac189ac19d028",
+      "bytes": 12383,
       "group": "C11",
       "origin": "SELECTED_OR_DERIVED",
       "previous_release_sha256": "bf213d74b4d0d31795edaec348c619591e6d8fad63d8863db239f274618384b6",
