@@ -1,0 +1,2057 @@
+{
+  "schema": "elliptic-frozen-inference-v1",
+  "publication_manifest": "docs/provenance/elliptic_model_publication.json",
+  "models": [
+    {
+      "dataset": "Elliptic",
+      "backbone": "gcn",
+      "explainer": "backbone",
+      "family": "backbone",
+      "seed": 42,
+      "original_path": "$ELLIPTIC_BASELINE_ROOT/artifacts/checkpoints/gcn_baseline.pt",
+      "published_path": "artifacts/checkpoints/elliptic/backbones/gcn.pt",
+      "sha256": "55004ffa1b712ae374fbf630d55f31ac69602d696dbeef8cb150d3f788a9cc07",
+      "size_bytes": 220129,
+      "source_manifest": "$BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/preflight.json#/task_config/gcn_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/preflight.json#/task_config/gcn_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/result.json#/preflight/task_config/gcn_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/run_state.json#/preflight/task_config/gcn_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/preflight.json#/preflight/task_config/gcn_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/result.json#/preflight/task_config/gcn_checkpoint",
+      "original_archive_member": null,
+      "tensor_count": 6,
+      "tensor_schema": [
+        {
+          "path": "/convs.0.bias",
+          "shape": [
+            211
+          ],
+          "dtype": "torch.float32",
+          "numel": 211
+        },
+        {
+          "path": "/convs.0.lin.weight",
+          "shape": [
+            211,
+            165
+          ],
+          "dtype": "torch.float32",
+          "numel": 34815
+        },
+        {
+          "path": "/convs.1.bias",
+          "shape": [
+            90
+          ],
+          "dtype": "torch.float32",
+          "numel": 90
+        },
+        {
+          "path": "/convs.1.lin.weight",
+          "shape": [
+            90,
+            211
+          ],
+          "dtype": "torch.float32",
+          "numel": 18990
+        },
+        {
+          "path": "/out.weight",
+          "shape": [
+            2,
+            90
+          ],
+          "dtype": "torch.float32",
+          "numel": 180
+        },
+        {
+          "path": "/out.bias",
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float32",
+          "numel": 2
+        }
+      ],
+      "safe_load": "weights_only=True; trusted TorchVersion string type only",
+      "embedded_graph_or_dataset_tensors": false,
+      "secret_or_personal_home_path_hits": 0,
+      "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+    },
+    {
+      "dataset": "Elliptic",
+      "backbone": "graphsage",
+      "explainer": "backbone",
+      "family": "backbone",
+      "seed": 42,
+      "original_path": "$ELLIPTIC_BASELINE_ROOT/artifacts/checkpoints/graphsage_baseline.pt",
+      "published_path": "artifacts/checkpoints/elliptic/backbones/graphsage.pt",
+      "sha256": "f25d5cbeb10f9a27dbba1adcb2fdb21b406219956c107f8d51e8ecf5188866bf",
+      "size_bytes": 305513,
+      "source_manifest": "$BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/preflight.json#/task_config/graphsage_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05f_smoke/attempt-936b77f46f2c/preflight.json#/task_config/graphsage_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/result.json#/preflight/task_config/graphsage_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/run_state.json#/preflight/task_config/graphsage_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/preflight.json#/preflight/task_config/graphsage_checkpoint ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_size_pilot/size_010/attempt-ff1bc263658c/result.json#/preflight/task_config/graphsage_checkpoint",
+      "original_archive_member": null,
+      "tensor_count": 8,
+      "tensor_schema": [
+        {
+          "path": "/convs.0.lin_l.weight",
+          "shape": [
+            140,
+            165
+          ],
+          "dtype": "torch.float32",
+          "numel": 23100
+        },
+        {
+          "path": "/convs.0.lin_l.bias",
+          "shape": [
+            140
+          ],
+          "dtype": "torch.float32",
+          "numel": 140
+        },
+        {
+          "path": "/convs.0.lin_r.weight",
+          "shape": [
+            140,
+            165
+          ],
+          "dtype": "torch.float32",
+          "numel": 23100
+        },
+        {
+          "path": "/convs.1.lin_l.weight",
+          "shape": [
+            103,
+            140
+          ],
+          "dtype": "torch.float32",
+          "numel": 14420
+        },
+        {
+          "path": "/convs.1.lin_l.bias",
+          "shape": [
+            103
+          ],
+          "dtype": "torch.float32",
+          "numel": 103
+        },
+        {
+          "path": "/convs.1.lin_r.weight",
+          "shape": [
+            103,
+            140
+          ],
+          "dtype": "torch.float32",
+          "numel": 14420
+        },
+        {
+          "path": "/out.weight",
+          "shape": [
+            2,
+            103
+          ],
+          "dtype": "torch.float32",
+          "numel": 206
+        },
+        {
+          "path": "/out.bias",
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float32",
+          "numel": 2
+        }
+      ],
+      "safe_load": "weights_only=True; trusted TorchVersion string type only",
+      "embedded_graph_or_dataset_tensors": false,
+      "secret_or_personal_home_path_hits": 0,
+      "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+    },
+    {
+      "dataset": "Elliptic",
+      "backbone": "gcn",
+      "explainer": "PGExplainer",
+      "family": "fresh5",
+      "seed": 0,
+      "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED0_COMPLETE.zip!checkpoint.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_0.pt",
+      "sha256": "193d175a0b49529d9f1a17d17f8b4388cb43c375d90e9d09657afa87c8c69259",
+      "size_bytes": 231081,
+      "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED0_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED0_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED0_COMPLETE.zip!completion_manifest.json",
+      "original_archive_member": "checkpoint.pt",
+      "tensor_count": 16,
+      "tensor_schema": [
+        {
+          "path": "/algorithm_state_dict/mlp.0.weight",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.0.bias",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.weight",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.bias",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg_sq",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg_sq",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg_sq",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg_sq",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        }
+      ],
+      "safe_load": "weights_only=True; trusted TorchVersion string type only",
+      "embedded_graph_or_dataset_tensors": false,
+      "secret_or_personal_home_path_hits": 0,
+      "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+    },
+    {
+      "dataset": "Elliptic",
+      "backbone": "gcn",
+      "explainer": "PGExplainer",
+      "family": "fresh5",
+      "seed": 1,
+      "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED1_COMPLETE.zip!checkpoint.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_1.pt",
+      "sha256": "cb1d2a786bcb9b4b64be2728c056fd20191226c8d4e81b4890bf29412969d0e6",
+      "size_bytes": 231081,
+      "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED1_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED1_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED1_COMPLETE.zip!completion_manifest.json",
+      "original_archive_member": "checkpoint.pt",
+      "tensor_count": 16,
+      "tensor_schema": [
+        {
+          "path": "/algorithm_state_dict/mlp.0.weight",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.0.bias",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.weight",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.bias",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg_sq",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg_sq",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg_sq",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg_sq",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        }
+      ],
+      "safe_load": "weights_only=True; trusted TorchVersion string type only",
+      "embedded_graph_or_dataset_tensors": false,
+      "secret_or_personal_home_path_hits": 0,
+      "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+    },
+    {
+      "dataset": "Elliptic",
+      "backbone": "gcn",
+      "explainer": "PGExplainer",
+      "family": "fresh5",
+      "seed": 2,
+      "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED2_COMPLETE.zip!checkpoint.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_2.pt",
+      "sha256": "f8d8f2d51a65568f6e101aaa3d2310ba55453469f4d190a1d9b4aa1b706eed2a",
+      "size_bytes": 231081,
+      "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED2_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED2_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GCN_SEED2_COMPLETE.zip!completion_manifest.json",
+      "original_archive_member": "checkpoint.pt",
+      "tensor_count": 16,
+      "tensor_schema": [
+        {
+          "path": "/algorithm_state_dict/mlp.0.weight",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.0.bias",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.weight",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.bias",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg_sq",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg_sq",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg_sq",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg_sq",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        }
+      ],
+      "safe_load": "weights_only=True; trusted TorchVersion string type only",
+      "embedded_graph_or_dataset_tensors": false,
+      "secret_or_personal_home_path_hits": 0,
+      "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+    },
+    {
+      "dataset": "Elliptic",
+      "backbone": "graphsage",
+      "explainer": "PGExplainer",
+      "family": "fresh5",
+      "seed": 0,
+      "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED0_COMPLETE.zip!checkpoint.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_0.pt",
+      "sha256": "30d88fd22e9c44e85d51584c4cff582783c5d21c254fa9b483fba9dd49e33734",
+      "size_bytes": 261229,
+      "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED0_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED0_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED0_COMPLETE.zip!completion_manifest.json",
+      "original_archive_member": "checkpoint.pt",
+      "tensor_count": 16,
+      "tensor_schema": [
+        {
+          "path": "/algorithm_state_dict/mlp.0.weight",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.0.bias",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.weight",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.bias",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg_sq",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg_sq",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg_sq",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg_sq",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        }
+      ],
+      "safe_load": "weights_only=True; trusted TorchVersion string type only",
+      "embedded_graph_or_dataset_tensors": false,
+      "secret_or_personal_home_path_hits": 0,
+      "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+    },
+    {
+      "dataset": "Elliptic",
+      "backbone": "graphsage",
+      "explainer": "PGExplainer",
+      "family": "fresh5",
+      "seed": 1,
+      "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED1_COMPLETE.zip!checkpoint.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_1.pt",
+      "sha256": "99847560d9709200ddffb7988b98a22c967948bac743f0ef9d3f8a93171e46ab",
+      "size_bytes": 261229,
+      "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED1_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED1_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED1_COMPLETE.zip!completion_manifest.json",
+      "original_archive_member": "checkpoint.pt",
+      "tensor_count": 16,
+      "tensor_schema": [
+        {
+          "path": "/algorithm_state_dict/mlp.0.weight",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.0.bias",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.weight",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.bias",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg_sq",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg_sq",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg_sq",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg_sq",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        }
+      ],
+      "safe_load": "weights_only=True; trusted TorchVersion string type only",
+      "embedded_graph_or_dataset_tensors": false,
+      "secret_or_personal_home_path_hits": 0,
+      "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+    },
+    {
+      "dataset": "Elliptic",
+      "backbone": "graphsage",
+      "explainer": "PGExplainer",
+      "family": "fresh5",
+      "seed": 2,
+      "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED2_COMPLETE.zip!checkpoint.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_2.pt",
+      "sha256": "bc64c8eaee2c64bff32ddd69e0e814b2a6cab4ecfdf78535b935ba4484e73537",
+      "size_bytes": 261229,
+      "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED2_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED2_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_A_ALL/TASK29_GRAPHSAGE_SEED2_COMPLETE.zip!completion_manifest.json",
+      "original_archive_member": "checkpoint.pt",
+      "tensor_count": 16,
+      "tensor_schema": [
+        {
+          "path": "/algorithm_state_dict/mlp.0.weight",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.0.bias",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.weight",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.bias",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg_sq",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg_sq",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg_sq",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg_sq",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        }
+      ],
+      "safe_load": "weights_only=True; trusted TorchVersion string type only",
+      "embedded_graph_or_dataset_tensors": false,
+      "secret_or_personal_home_path_hits": 0,
+      "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+    },
+    {
+      "dataset": "Elliptic",
+      "backbone": "gcn",
+      "explainer": "PGExplainer",
+      "family": "fresh5",
+      "seed": 3,
+      "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED3_COMPLETE.zip!checkpoint.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_3.pt",
+      "sha256": "4a67e143d4b093161e4ca3e10e6dc8d6b225b826233d7e7f7bdfb9ab41cc5ebb",
+      "size_bytes": 231081,
+      "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED3_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED3_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED3_COMPLETE.zip!completion_manifest.json",
+      "original_archive_member": "checkpoint.pt",
+      "tensor_count": 16,
+      "tensor_schema": [
+        {
+          "path": "/algorithm_state_dict/mlp.0.weight",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.0.bias",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.weight",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.bias",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg_sq",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg_sq",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg_sq",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg_sq",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        }
+      ],
+      "safe_load": "weights_only=True; trusted TorchVersion string type only",
+      "embedded_graph_or_dataset_tensors": false,
+      "secret_or_personal_home_path_hits": 0,
+      "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+    },
+    {
+      "dataset": "Elliptic",
+      "backbone": "gcn",
+      "explainer": "PGExplainer",
+      "family": "fresh5",
+      "seed": 4,
+      "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED4_COMPLETE.zip!checkpoint.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/gcn/seed_4.pt",
+      "sha256": "4faabab5a2ec917bfd12639fd0c2756de6dc0c6332da1e4debfad63b7898db64",
+      "size_bytes": 231081,
+      "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED4_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED4_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GCN_SEED4_COMPLETE.zip!completion_manifest.json",
+      "original_archive_member": "checkpoint.pt",
+      "tensor_count": 16,
+      "tensor_schema": [
+        {
+          "path": "/algorithm_state_dict/mlp.0.weight",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.0.bias",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.weight",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.bias",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg_sq",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg_sq",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg_sq",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg_sq",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        }
+      ],
+      "safe_load": "weights_only=True; trusted TorchVersion string type only",
+      "embedded_graph_or_dataset_tensors": false,
+      "secret_or_personal_home_path_hits": 0,
+      "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+    },
+    {
+      "dataset": "Elliptic",
+      "backbone": "graphsage",
+      "explainer": "PGExplainer",
+      "family": "fresh5",
+      "seed": 3,
+      "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED3_COMPLETE.zip!checkpoint.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_3.pt",
+      "sha256": "6553f6dfec0e7aa5b5cb7a84066e0d5d5bd1ec00d0d9f471f067bcae888ab519",
+      "size_bytes": 261229,
+      "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED3_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED3_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED3_COMPLETE.zip!completion_manifest.json",
+      "original_archive_member": "checkpoint.pt",
+      "tensor_count": 16,
+      "tensor_schema": [
+        {
+          "path": "/algorithm_state_dict/mlp.0.weight",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.0.bias",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.weight",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.bias",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg_sq",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg_sq",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg_sq",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg_sq",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        }
+      ],
+      "safe_load": "weights_only=True; trusted TorchVersion string type only",
+      "embedded_graph_or_dataset_tensors": false,
+      "secret_or_personal_home_path_hits": 0,
+      "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+    },
+    {
+      "dataset": "Elliptic",
+      "backbone": "graphsage",
+      "explainer": "PGExplainer",
+      "family": "fresh5",
+      "seed": 4,
+      "original_path": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED4_COMPLETE.zip!checkpoint.pt",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/fresh5/graphsage/seed_4.pt",
+      "sha256": "54351edf384c0ddf517137faaee8f4198b95f32381faac43a7d8756e0e105fd7",
+      "size_bytes": 261229,
+      "source_manifest": "$BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED4_COMPLETE.zip!ARCHIVE_MANIFEST.json#/files/checkpoint.pt ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED4_COMPLETE.zip!original_manifest.json ; $BENCHMARK_ROOT/docs/kaggle/TASK29_ELLIPTIC_STABILITY_SESSION_B_ALL/TASK29_GRAPHSAGE_SEED4_COMPLETE.zip!completion_manifest.json",
+      "original_archive_member": "checkpoint.pt",
+      "tensor_count": 16,
+      "tensor_schema": [
+        {
+          "path": "/algorithm_state_dict/mlp.0.weight",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.0.bias",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.weight",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.bias",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg_sq",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg_sq",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg_sq",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg_sq",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        }
+      ],
+      "safe_load": "weights_only=True; trusted TorchVersion string type only",
+      "embedded_graph_or_dataset_tensors": false,
+      "secret_or_personal_home_path_hits": 0,
+      "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+    },
+    {
+      "dataset": "Elliptic",
+      "backbone": "gcn",
+      "explainer": "PGExplainer",
+      "family": "historical_seed42",
+      "seed": 42,
+      "original_path": "$BENCHMARK_ROOT/results/elliptic_pg_gcn_seed42.zip",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/historical_seed42/gcn.zip",
+      "sha256": "6035f9b343862a2c5fde376ba6160166c61ed916f5b497ee12498fe8726d3988",
+      "size_bytes": 231423,
+      "source_manifest": "$BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/preflight.json#/frozen_hashes/results/elliptic_pg_gcn_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/initial_receipts.json#/preserved_sha256/results/elliptic_pg_gcn_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/result.json#/preserved_sha256/results/elliptic_pg_gcn_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/run_state.json#/preserved_sha256/results/elliptic_pg_gcn_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/result.json#/preflight/frozen_hashes/results/elliptic_pg_gcn_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/run_state.json#/preflight/frozen_hashes/results/elliptic_pg_gcn_seed42.zip",
+      "original_archive_member": null,
+      "tensor_count": 16,
+      "tensor_schema": [
+        {
+          "path": "/algorithm_state_dict/mlp.0.weight",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.0.bias",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.weight",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.bias",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg_sq",
+          "shape": [
+            64,
+            270
+          ],
+          "dtype": "torch.float32",
+          "numel": 17280
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg_sq",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg_sq",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg_sq",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        }
+      ],
+      "safe_load": "weights_only=True; trusted TorchVersion string type only",
+      "embedded_graph_or_dataset_tensors": false,
+      "secret_or_personal_home_path_hits": 0,
+      "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+    },
+    {
+      "dataset": "Elliptic",
+      "backbone": "graphsage",
+      "explainer": "PGExplainer",
+      "family": "historical_seed42",
+      "seed": 42,
+      "original_path": "$BENCHMARK_ROOT/results/elliptic_pg_graphsage_seed42.zip",
+      "published_path": "artifacts/checkpoints/elliptic/pgexplainer/historical_seed42/graphsage.zip",
+      "sha256": "ef9e81c399283834aba6bc4d45b72e25e334f00674f1e389ba5003a77eb6e827",
+      "size_bytes": 261507,
+      "source_manifest": "$BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/preflight.json#/frozen_hashes/results/elliptic_pg_graphsage_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/initial_receipts.json#/preserved_sha256/results/elliptic_pg_graphsage_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05k1_zero_update_forward_audit/attempt-d3be300e9612/result.json#/preserved_sha256/results/elliptic_pg_graphsage_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_step05k_matched_branch_diagnostic/attempt-e6629298a169/run_state.json#/preserved_sha256/results/elliptic_pg_graphsage_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/result.json#/preflight/frozen_hashes/results/elliptic_pg_graphsage_seed42.zip ; $BENCHMARK_ROOT/artifacts/debug/task28_v2_micro_pilot/attempt-38edc00e878d/run_state.json#/preflight/frozen_hashes/results/elliptic_pg_graphsage_seed42.zip",
+      "original_archive_member": null,
+      "tensor_count": 16,
+      "tensor_schema": [
+        {
+          "path": "/algorithm_state_dict/mlp.0.weight",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.0.bias",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.weight",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/algorithm_state_dict/mlp.2.bias",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/optimizer_state_dict/state/0/exp_avg_sq",
+          "shape": [
+            64,
+            309
+          ],
+          "dtype": "torch.float32",
+          "numel": 19776
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/1/exp_avg_sq",
+          "shape": [
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/2/exp_avg_sq",
+          "shape": [
+            1,
+            64
+          ],
+          "dtype": "torch.float32",
+          "numel": 64
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/step",
+          "shape": [],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        },
+        {
+          "path": "/optimizer_state_dict/state/3/exp_avg_sq",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "numel": 1
+        }
+      ],
+      "safe_load": "weights_only=True; trusted TorchVersion string type only",
+      "embedded_graph_or_dataset_tensors": false,
+      "secret_or_personal_home_path_hits": 0,
+      "checkpoint_metadata": "Final model includes original optimizer state and target indices where originally saved; no COMPLETE logs or standalone resume history added",
+      "rights": "Owner-authorized model-only noncommercial thesis release; dataset rights remain separate"
+    }
+  ],
+  "architectures": {
+    "gcn": {
+      "in_channels": 165,
+      "hidden_dim": 211,
+      "embedding_dim": 90,
+      "output_dim": 2,
+      "num_layers": 2,
+      "dropout": 0.2361,
+      "cached": false,
+      "class": "gnnexplainer_benchmark.models.elliptic.EllipticGCN"
+    },
+    "graphsage": {
+      "in_channels": 165,
+      "hidden_dim": 140,
+      "embedding_dim": 103,
+      "output_dim": 2,
+      "num_layers": 2,
+      "dropout": 0.1135,
+      "aggregator": "mean",
+      "class": "gnnexplainer_benchmark.models.elliptic.EllipticSAGE"
+    }
+  },
+  "dataset": {
+    "file_sha256": "f807b83a7c739b16f69b5676226ce441b64d5fe8de95506a7727f86e8451291b",
+    "nodes": 203769,
+    "directed_edge_entries": 468710,
+    "features": 165,
+    "tensor_fingerprint": {
+      "x": {
+        "shape": [
+          203769,
+          165
+        ],
+        "dtype": "torch.float32",
+        "sha256": "7fd2be074c20034a80f348bbcc35ff0e24cc66e964fd9c648537b1086872ca7c"
+      },
+      "edge_index": {
+        "shape": [
+          2,
+          468710
+        ],
+        "dtype": "torch.int64",
+        "sha256": "9aeb39834e1c8389c5b9d182a0077ebbb9014174088b2f8e9d9a8cb25a4fa833"
+      },
+      "y": {
+        "shape": [
+          203769
+        ],
+        "dtype": "torch.int64",
+        "sha256": "a1a7094889a5b39f1558574f43af6c4636d82dcfd17b168cb93eaf1c6fb946fa"
+      },
+      "train_mask": {
+        "shape": [
+          203769
+        ],
+        "dtype": "torch.bool",
+        "sha256": "0787176b20d6a01f74994d3d6385497de11dca66237861554f9e41f9f556235a"
+      },
+      "val_mask": {
+        "shape": [
+          203769
+        ],
+        "dtype": "torch.bool",
+        "sha256": "ea79dd70497fb1de2266b83bc82efc00e1d22f0c08b97890c7a85dee0a3334da"
+      },
+      "test_mask": {
+        "shape": [
+          203769
+        ],
+        "dtype": "torch.bool",
+        "sha256": "702ac3dae1d1a1689efc3185b5c51d5283ff40a65f9e592239a090108a5069bf"
+      },
+      "time_step": {
+        "shape": [
+          203769
+        ],
+        "dtype": "torch.int64",
+        "sha256": "545dfc6125329be49e27c9d1ac3ea06499cec914fb37262f84770d9b37fd51c7"
+      }
+    },
+    "redistributed": false,
+    "source": "https://www.kaggle.com/datasets/ellipticco/elliptic-data-set",
+    "license": "CC BY-NC-ND 4.0"
+  },
+  "targets": {
+    "final200": {
+      "path": "configs/elliptic/targets/elliptic_xai_common_test_targets.csv",
+      "sha256": "e414941e6943b06484ecd5028c51daf80ff2bf9f1bbb06e6a5fd816de8dfb9c0",
+      "count": 200,
+      "original_working_copy_sha256": "8680dbd4b0bd6c2dd43d59f464fb1e3ee23f598fcc884812d0f08d7e12ee7de1",
+      "hash_policy": "utf8-crlf-cr-to-lf-v1"
+    },
+    "pg_train": {
+      "path": "configs/elliptic/targets/elliptic_pg_common_train.csv",
+      "sha256": "36c2f9b3a81336d304556702b02b6524411f308ee75f2152d79101586f9c1a22",
+      "count": 2000,
+      "original_working_copy_sha256": "066fcdd3d3c39d607c5a6a9c599dd13843cb59378833963c88fb7aeeb819acdd",
+      "hash_policy": "utf8-crlf-cr-to-lf-v1"
+    },
+    "pg_validation": {
+      "path": "configs/elliptic/targets/elliptic_pg_common_val.csv",
+      "sha256": "1a747030b9e903acd13d1ad22462cf7e3daf22c4f60fb475e421d2ecd87c8da6",
+      "count": 500,
+      "original_working_copy_sha256": "8675efd0e06265fd1c0afdb89aae7f58ad1156e188d422bc61fbb2f6b505e863",
+      "hash_policy": "utf8-crlf-cr-to-lf-v1"
+    }
+  },
+  "inference": {
+    "hops": 2,
+    "edge_identity": "global directed edge_index column; reverse entries distinct",
+    "ratio": 0.2,
+    "rounding": "ceil",
+    "scores": "RAW float32 MLP; no sigmoid for ranking",
+    "historical_seed42_selection": "scripts.evaluate_task29_final_stability.selection; torch.topk, original historical policy",
+    "fresh5_selection": "scripts.evaluate_task29_tie_v1.rank; exactly equal RAW float32 ties by global ID ascending",
+    "fresh5_reported_metric": "per-target mean of ten seed-pair Jaccards; target-mean aggregation",
+    "fidelity": "gnnexplainer_benchmark.evaluation.fidelity.compute_fidelity",
+    "no_training": true
+  },
+  "dependencies": {
+    "python": "3.11",
+    "torch": "requirements/lock.txt",
+    "pyg": "requirements/lock.txt",
+    "historical_linux": "docs/kaggle/task29/historical-linux-lock.txt"
+  }
+}

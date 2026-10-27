@@ -1,0 +1,15 @@
+evaluation:
+  schema_version: core_metrics_v1
+  candidate_edge_scope: computation_subgraph
+  top_k_edges: 25
+  sparsity_protocol: top_k_candidate_edges
+  fidelity_protocol: remove_top_k_and_retain_top_k_edges
+  fidelity_metric: remove_delta
+  budget_protocol: fixed_candidate_edge_ratio
+  selected_edge_ratio: 0.2
+  candidate_edge_ratios_evaluated_on_validation:
+  - 0.05
+  - 0.1
+  - 0.2
+  ratio_selection_criterion: validation_only_max_mean_remove_delta_tie_lowest_ratio
+  edge_ranking_metric_scope: continuous_scores_over_full_candidate_edge_set

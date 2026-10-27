@@ -1,0 +1,41 @@
+evaluation:
+  model: "GraphSAGE"
+  explainer: "PGExplainer"
+  dataset_artifact: "data/ba_house/ba500/graph.pt"
+  checkpoint: "artifacts/checkpoints/ba_house/ba500/backbones/graphsage/seed42.pt"
+  train_targets: "configs/ba_house/ba500/targets/pgexplainer_graphsage_train_targets.csv"
+  validation_targets: "configs/ba_house/ba500/targets/pgexplainer_graphsage_val_targets.csv"
+  generated_train_targets_copy: "results/metrics/pgexplainer_graphsage_train_targets.csv"
+  generated_validation_targets_copy: "results/metrics/pgexplainer_graphsage_val_targets.csv"
+  test_targets: "configs/ba_house/ba500/targets/ba_house_2x2_targets.csv"
+  candidate_edge_scope: "computation_subgraph"
+  edge_ranking_metric_scope: "continuous_scores_over_full_candidate_edge_set"
+  budget_protocol: "fixed_candidate_edge_ratio"
+  selected_edge_ratio: 0.2
+  rounding_rule: "ceil(candidate_edge_count * selected_edge_ratio), minimum 1"
+  metrics:
+    - edge_auroc
+    - edge_ap
+    - fid_plus
+    - fid_minus
+    - one_minus_fid_minus
+    - remove_probability_delta
+    - retain_probability_delta
+    - sparsity
+    - jaccard_stability
+    - runtime
+  runtime_fields:
+    - explainer_training_runtime_seconds
+    - explanation_inference_runtime_seconds
+    - evaluation_runtime_seconds
+  leakage_policy:
+    exclude_frozen_test_targets_from_train: true
+    exclude_frozen_test_targets_from_validation: true
+  hyperparameter_policy:
+    default_source: "paper_supplement"
+    large_search_allowed: false
+    validation_only_changes_allowed_for:
+      - api_incompatibility
+      - numerical_failure
+      - zero_or_nan_masks
+      - obvious_non_training

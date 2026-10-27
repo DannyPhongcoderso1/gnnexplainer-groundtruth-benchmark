@@ -1,0 +1,26 @@
+{
+  "frozen_before_graphsage_explanations": true,
+  "node_ids": [
+    306,
+    315,
+    316,
+    355,
+    365,
+    375,
+    376,
+    411,
+    445,
+    465,
+    486,
+    491
+  ],
+  "output": "configs\\targets\\ba_house_2x2_targets.csv",
+  "output_sha256": "2b1fa0cb70a4aaa107dfbfe864042ddb488372a6bcfd9ea6fd4c04bd1894526f",
+  "rule": "original frozen GCN target AND GCN correct AND GraphSAGE correct AND GT explanation eligible AND valid candidate mapping for both backbones",
+  "source_frozen_gcn_targets": "results\\metrics\\explainer_test_targets.csv",
+  "source_frozen_gcn_targets_sha256": "2b1fa0cb70a4aaa107dfbfe864042ddb488372a6bcfd9ea6fd4c04bd1894526f",
+  "source_parity_table": "results\\metrics\\model_target_parity_gcn_graphsage.csv",
+  "source_parity_table_sha256": "a66c39f77ed394f747b674b541f3200480da299a337cd1d41a2a869c3f38e393",
+  "status": "success",
+  "target_count": 12
+}

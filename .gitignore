@@ -60,3 +60,8 @@ logs/
 **/elliptic_txs_classes.csv
 **/elliptic_data.pt
 external_data/elliptic/
+
+# Elliptic provider data is never part of this publication.
+data/elliptic/**
+!data/elliptic/README.md
+outputs/

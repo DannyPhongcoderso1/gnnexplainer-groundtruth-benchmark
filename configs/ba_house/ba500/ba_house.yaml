@@ -1,0 +1,15 @@
+# Pilot configuration only. This file does not run dataset generation in the initialization phase.
+dataset:
+  type: "PyG ExplainerDataset"
+  background_graph: "Barabasi-Albert"
+  motif: "house"
+  seed: 42
+  background_nodes: 300
+  ba_attachment_parameter: 5
+  num_motifs: 40
+  constant_node_features: true
+  feature_dim: 10
+  split:
+    train_ratio: 0.6
+    val_ratio: 0.2
+    test_ratio: 0.2
