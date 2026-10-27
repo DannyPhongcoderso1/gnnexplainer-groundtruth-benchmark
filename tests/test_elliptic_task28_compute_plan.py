@@ -30,7 +30,7 @@ def test_compute_plan_commands_and_paths(run):
     args = run['argv']
     assert args == [
         'scripts/run_elliptic_pgexplainer_training.py', '--config',
-        'configs/evaluation/elliptic_pgexplainer_training.yaml',
+        'configs/elliptic/elliptic_pgexplainer_training.yaml',
         '--backbone', run['backbone'], '--seed', str(run['seed']), '--device', 'cuda',
     ]
     assert (ROOT / args[0]).is_file()
@@ -46,7 +46,7 @@ def test_compute_plan_frozen_hashes_and_configuration():
         path = Path(name) if Path(name).is_absolute() else ROOT / name
         assert hashlib.sha256(path.read_bytes()).hexdigest() == digest, name
     config = yaml.safe_load(
-        (ROOT / 'configs/evaluation/elliptic_pgexplainer_training.yaml').read_text()
+        (ROOT / 'configs/elliptic/elliptic_pgexplainer_training.yaml').read_text()
     )['task28_training']
     assert config['epochs'] == PLAN['epochs']
     assert config['selected_edge_ratio'] == PLAN['selected_edge_ratio'] == 0.2

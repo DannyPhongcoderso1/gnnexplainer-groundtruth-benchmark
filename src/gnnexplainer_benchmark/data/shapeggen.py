@@ -261,7 +261,7 @@ def build_metadata(config: dict[str, Any], data: Data, artifact_sha256: str) -> 
         "generator_config": deepcopy(config["dataset"]["upstream_generator"]),
         "generator_seed": int(config["dataset"]["upstream_generator"]["seed"]),
         "local_adapter_config": deepcopy(local_config),
-        "local_config_path": "configs/dataset/shapeggen.yaml",
+        "local_config_path": "configs/shapeggen/v1/shapeggen.yaml",
         "generation_command": (
             ".\\.venv\\Scripts\\python.exe scripts\\generate_shapeggen.py "
             "--config configs\\dataset\\shapeggen.yaml "

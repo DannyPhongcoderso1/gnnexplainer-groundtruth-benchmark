@@ -8,7 +8,7 @@ from gnnexplainer_benchmark.data.ba_house import generate_ba_house_data, load_ba
 
 
 def test_ground_truth_masks_exist_and_are_not_empty() -> None:
-    config = load_ba_house_config(Path("configs/dataset/ba_house.yaml"))
+    config = load_ba_house_config(Path("configs/ba_house/ba500/ba_house.yaml"))
 
     data = generate_ba_house_data(config)
 

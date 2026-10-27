@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 @pytest.fixture(scope="module")
 def loaded():
-    config = read_json(ROOT / "configs/evaluation/elliptic_frozen_publication.json")
+    config = read_json(ROOT / "configs/elliptic/elliptic_frozen_publication.json")
     models, algorithms = load_models(ROOT, config)
     return config, models, algorithms
 
@@ -93,7 +93,7 @@ def test_checkpoint_substitution_fails_before_unpickling(loaded):
 
 def test_existing_preprocessing_temporal_split_on_synthetic_fixture(tmp_path):
     spec = importlib.util.spec_from_file_location(
-        "licensed_dataset", ROOT / "external/elliptic_baseline/data/dataset.py"
+        "licensed_dataset", ROOT / "src/gnnexplainer_benchmark/data/elliptic.py"
     )
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)

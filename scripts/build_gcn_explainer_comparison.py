@@ -683,7 +683,7 @@ membership, checkpoint selection, or seed choice.
 - `results/metrics/gcn_explainer_comparison/manifest.json`
 - `docs/gcn_explainer_comparison_freeze.json`
 """
-    Path("docs/gcn_explainer_comparison_report.md").write_text(report, encoding="utf-8")
+    Path("docs/provenance/historical_reports/gcn_explainer_comparison_report.md").write_text(report, encoding="utf-8")
 
 
 def summary_markdown_row(row: dict[str, Any]) -> str:

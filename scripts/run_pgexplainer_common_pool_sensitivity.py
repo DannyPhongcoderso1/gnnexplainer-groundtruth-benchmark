@@ -18,14 +18,14 @@ from gnnexplainer_benchmark.explainers.pgexplainer_training import (
     train_pgexplainer_gcn,
 )
 
-COMMON_TRAIN_PATH = Path("configs/targets/ba_house_pg_common_train_targets.csv")
-COMMON_VAL_PATH = Path("configs/targets/ba_house_pg_common_val_targets.csv")
-FINAL_TARGETS_PATH = Path("configs/targets/ba_house_2x2_targets.csv")
-GCN_TRAIN_PATH = Path("configs/targets/pgexplainer_train_targets.csv")
-GCN_VAL_PATH = Path("configs/targets/pgexplainer_val_targets.csv")
-SAGE_TRAIN_PATH = Path("configs/targets/pgexplainer_graphsage_train_targets.csv")
-SAGE_VAL_PATH = Path("configs/targets/pgexplainer_graphsage_val_targets.csv")
-COMMON_CONFIG_PATH = Path("configs/evaluation/pgexplainer_graphsage_common_pool.yaml")
+COMMON_TRAIN_PATH = Path("configs/ba_house/ba500/targets/ba_house_pg_common_train_targets.csv")
+COMMON_VAL_PATH = Path("configs/ba_house/ba500/targets/ba_house_pg_common_val_targets.csv")
+FINAL_TARGETS_PATH = Path("configs/ba_house/ba500/targets/ba_house_2x2_targets.csv")
+GCN_TRAIN_PATH = Path("configs/ba_house/ba500/targets/pgexplainer_train_targets.csv")
+GCN_VAL_PATH = Path("configs/ba_house/ba500/targets/pgexplainer_val_targets.csv")
+SAGE_TRAIN_PATH = Path("configs/ba_house/ba500/targets/pgexplainer_graphsage_train_targets.csv")
+SAGE_VAL_PATH = Path("configs/ba_house/ba500/targets/pgexplainer_graphsage_val_targets.csv")
+COMMON_CONFIG_PATH = Path("configs/ba_house/ba500/pgexplainer_graphsage_common_pool.yaml")
 RESULT_ROOT = Path("results/metrics/pgexplainer_common_pool_sensitivity")
 GRAPH_METRICS_ROOT = Path("results/metrics/graphsage_pgexplainer_common_pool")
 GRAPH_EXPLANATIONS_ROOT = Path("results/explanations/graphsage_pgexplainer_common_pool")
@@ -60,7 +60,7 @@ def run_task19b(device: str) -> dict[str, Any]:
     write_common_pool_targets(pool)
     common_freeze = build_common_pool_freeze(pool, base_commit)
     write_json(Path("docs/ba_house_pg_common_pool_freeze.json"), common_freeze)
-    Path("docs/ba_house_pg_common_pool_freeze.md").write_text(
+    Path("docs/provenance/historical_reports/ba_house_pg_common_pool_freeze.md").write_text(
         build_common_pool_markdown(common_freeze),
         encoding="utf-8",
     )
@@ -91,7 +91,7 @@ def run_task19b(device: str) -> dict[str, Any]:
     )
     write_json(RESULT_ROOT / "manifest.json", manifest)
     write_json(Path("docs/pgexplainer_common_pool_sensitivity_freeze.json"), manifest)
-    Path("docs/pgexplainer_common_pool_sensitivity_report.md").write_text(
+    Path("docs/provenance/historical_reports/pgexplainer_common_pool_sensitivity_report.md").write_text(
         build_sensitivity_report(manifest),
         encoding="utf-8",
     )
@@ -207,13 +207,13 @@ def verify_gcn_common_reuse(pool: dict[str, Any]) -> None:
 
 
 def verify_graphsage_checkpoint() -> None:
-    dataset_hash = sha256_file(Path("artifacts/data/ba_house.pt"))
+    dataset_hash = sha256_file(Path("data/ba_house/ba500/graph.pt"))
     if dataset_hash != "4daeb6b5ca55ee1663fa79aa6be5a7fe1ebb86159aa9d60045aceb16fe271a94":
         raise RuntimeError(f"Unexpected BA-House dataset SHA256: {dataset_hash}")
     task19_hash = read_json(Path("docs/graphsage_explainers_ba_house_freeze.json"))[
         "graphsage_checkpoint_sha256"
     ]
-    current_hash = sha256_file(Path("artifacts/checkpoints/ba_house_graphsage_best.pt"))
+    current_hash = sha256_file(Path("artifacts/checkpoints/ba_house/ba500/backbones/graphsage/seed42.pt"))
     if current_hash != task19_hash:
         raise RuntimeError("GraphSAGE checkpoint SHA256 does not match frozen manifest")
 
@@ -226,7 +226,7 @@ def verify_protocol_parity() -> None:
         Path("artifacts/explainers/pgexplainer_graphsage_ba_house_seed42_manifest.json")
     )
     common_config = load_yaml(COMMON_CONFIG_PATH)
-    sage_config = load_yaml(Path("configs/evaluation/pgexplainer_graphsage.yaml"))
+    sage_config = load_yaml(Path("configs/ba_house/ba500/pgexplainer_graphsage.yaml"))
     if gcn_manifest["pgexplainer_hyperparameters"] != sage_manifest["pgexplainer_hyperparameters"]:
         raise RuntimeError("GCN and GraphSAGE frozen PG hyperparameters differ")
     keys = [
@@ -250,7 +250,7 @@ def train_graphsage_common(seed: int, device: str) -> dict[str, Any]:
         f"artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed{seed}_manifest.json"
     )
     result = train_pgexplainer_gcn(
-        checkpoint_path=Path("artifacts/checkpoints/ba_house_graphsage_best.pt"),
+        checkpoint_path=Path("artifacts/checkpoints/ba_house/ba500/backbones/graphsage/seed42.pt"),
         evaluation_config_path=COMMON_CONFIG_PATH,
         train_targets_path=COMMON_TRAIN_PATH,
         validation_targets_path=COMMON_VAL_PATH,
@@ -305,7 +305,7 @@ def evaluate_graphsage_common_seed(
     )
     started_at = perf_counter()
     result = evaluate_pgexplainer_gcn(
-        checkpoint_path=Path("artifacts/checkpoints/ba_house_graphsage_best.pt"),
+        checkpoint_path=Path("artifacts/checkpoints/ba_house/ba500/backbones/graphsage/seed42.pt"),
         explainer_checkpoint_path=artifact_path,
         explainer_manifest_path=manifest_path,
         evaluation_config_path=COMMON_CONFIG_PATH,
@@ -586,18 +586,18 @@ def build_task19b_manifest(
         "git_commit_at_manifest_build": git("rev-parse", "HEAD"),
         "branch": git("branch", "--show-current"),
         "device": device,
-        "dataset": file_record(Path("artifacts/data/ba_house.pt")),
+        "dataset": file_record(Path("data/ba_house/ba500/graph.pt")),
         "checkpoints": {
-            "gcn": file_record(Path("artifacts/checkpoints/ba_house_gcn_best.pt")),
-            "graphsage": file_record(Path("artifacts/checkpoints/ba_house_graphsage_best.pt")),
+            "gcn": file_record(Path("artifacts/checkpoints/ba_house/ba500/backbones/gcn/seed42.pt")),
+            "graphsage": file_record(Path("artifacts/checkpoints/ba_house/ba500/backbones/graphsage/seed42.pt")),
             "gcn_pg_seed42": file_record(
-                Path("artifacts/explainers/pgexplainer_gcn_ba_house_seed42.pt")
+                Path("artifacts/checkpoints/ba_house/ba500/pgexplainer/gcn/primary_seed42.pt")
             ),
             "graphsage_pg_natural_seed42": file_record(
-                Path("artifacts/explainers/pgexplainer_graphsage_ba_house_seed42.pt")
+                Path("artifacts/checkpoints/ba_house/ba500/pgexplainer/graphsage/natural106_35/primary_seed42.pt")
             ),
             "graphsage_pg_common_seed42": file_record(
-                Path("artifacts/explainers/pgexplainer_graphsage_ba_house_common_seed42.pt")
+                Path("artifacts/checkpoints/ba_house/ba500/pgexplainer/graphsage/common48_16/primary_seed42.pt")
             ),
         },
         "source_hashes": {
@@ -610,11 +610,11 @@ def build_task19b_manifest(
             "task19b_script": file_record(
                 Path("scripts/run_pgexplainer_common_pool_sensitivity.py")
             ),
-            "explainer_config": file_record(Path("configs/explainer/pgexplainer.yaml")),
+            "explainer_config": file_record(Path("configs/shared/pgexplainer.yaml")),
             "common_evaluation_config": file_record(COMMON_CONFIG_PATH),
         },
         "pgexplainer_config_hash": config_hash(
-            load_yaml(Path("configs/explainer/pgexplainer.yaml"))
+            load_yaml(Path("configs/shared/pgexplainer.yaml"))
         ),
         "common_pool": common_freeze,
         "gcn_common_reuse": {
@@ -645,7 +645,7 @@ def build_task19b_manifest(
             "graphsage_common_checkpoint_differs_from_natural": (
                 sage_common_manifest["pgexplainer_checkpoint_sha256"]
                 != sha256_file(
-                    Path("artifacts/explainers/pgexplainer_graphsage_ba_house_seed42.pt")
+                    Path("artifacts/checkpoints/ba_house/ba500/pgexplainer/graphsage/natural106_35/primary_seed42.pt")
                 )
             ),
             "final_targets_used_for_training": seed42_training.get(
@@ -660,7 +660,7 @@ def build_task19b_manifest(
 def write_freeze_files(manifest: dict[str, Any]) -> None:
     write_json(RESULT_ROOT / "manifest.json", manifest)
     write_json(Path("docs/pgexplainer_common_pool_sensitivity_freeze.json"), manifest)
-    Path("docs/pgexplainer_common_pool_sensitivity_report.md").write_text(
+    Path("docs/provenance/historical_reports/pgexplainer_common_pool_sensitivity_report.md").write_text(
         build_sensitivity_report(manifest),
         encoding="utf-8",
     )

@@ -7,8 +7,8 @@ from gnnexplainer_benchmark.training.trainer import build_gcn_model, load_traini
 
 
 def test_gcn_forward_returns_node_logits() -> None:
-    data = generate_ba_house_data(load_ba_house_config(Path("configs/dataset/ba_house.yaml")))
-    config = load_training_config(Path("configs/model/gcn.yaml"))
+    data = generate_ba_house_data(load_ba_house_config(Path("configs/ba_house/ba500/ba_house.yaml")))
+    config = load_training_config(Path("configs/ba_house/ba500/gcn.yaml"))
     model = build_gcn_model(data, config)
 
     logits = model(data.x, data.edge_index)

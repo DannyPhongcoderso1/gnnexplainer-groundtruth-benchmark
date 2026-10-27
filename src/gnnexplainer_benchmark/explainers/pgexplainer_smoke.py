@@ -77,10 +77,10 @@ def read_target_node_ids(path: Path, limit: int | None = None) -> list[int]:
 
 def run_pgexplainer_smoke(
     *,
-    artifact_path: Path = Path("artifacts/data/ba_house.pt"),
-    checkpoint_path: Path = Path("artifacts/checkpoints/ba_house_gcn_best.pt"),
-    train_targets_path: Path = Path("configs/targets/pgexplainer_train_targets.csv"),
-    validation_targets_path: Path = Path("configs/targets/pgexplainer_val_targets.csv"),
+    artifact_path: Path = Path("data/ba_house/ba500/graph.pt"),
+    checkpoint_path: Path = Path("artifacts/checkpoints/ba_house/ba500/backbones/gcn/seed42.pt"),
+    train_targets_path: Path = Path("configs/ba_house/ba500/targets/pgexplainer_train_targets.csv"),
+    validation_targets_path: Path = Path("configs/ba_house/ba500/targets/pgexplainer_val_targets.csv"),
     output_path: Path | None = Path("docs/pgexplainer_smoke_report.json"),
     device: str = "cpu",
     seed: int = 0,

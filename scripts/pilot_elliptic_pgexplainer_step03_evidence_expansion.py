@@ -48,15 +48,15 @@ from gnnexplainer_benchmark.explainers.pgexplainer_training import (
     wrap_pgexplainer,
 )
 
-CONFIG_PATH = Path("configs/evaluation/elliptic_pgexplainer_training.yaml")
+CONFIG_PATH = Path("configs/elliptic/elliptic_pgexplainer_training.yaml")
 ORIGINAL_SCRIPT_PATH = Path("scripts/pilot_elliptic_pgexplainer_step03.py")
 ORIGINAL_MANIFEST_PATH = Path("docs/elliptic_pgexplainer_step03_pilot_manifest.json")
-ORIGINAL_REPORT_PATH = Path("docs/elliptic_pgexplainer_step03_pilot_report.md")
+ORIGINAL_REPORT_PATH = Path("docs/provenance/historical_reports/elliptic_pgexplainer_step03_pilot_report.md")
 NEW_SCRIPT_PATH = Path("scripts/pilot_elliptic_pgexplainer_step03_evidence_expansion.py")
 MANIFEST_PATH = Path("docs/elliptic_pgexplainer_step03_evidence_expansion_manifest.json")
-REPORT_PATH = Path("docs/elliptic_pgexplainer_step03_evidence_expansion_report.md")
+REPORT_PATH = Path("docs/provenance/historical_reports/elliptic_pgexplainer_step03_evidence_expansion_report.md")
 PILOT_ROOT = Path("results/metrics/elliptic/task28_step03_evidence_expansion")
-FINAL_TARGET_METADATA_PATH = Path("configs/targets/elliptic_xai_common_test_targets.csv")
+FINAL_TARGET_METADATA_PATH = Path("configs/elliptic/targets/elliptic_xai_common_test_targets.csv")
 STATE_ATOL = 0.0
 STATE_RTOL = 0.0
 OUTPUT_MASK_ATOL = 1e-7

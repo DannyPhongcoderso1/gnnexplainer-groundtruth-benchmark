@@ -41,7 +41,7 @@ def test_shapeggen_2x2_matrix_excludes_random_and_has_four_cells() -> None:
 def test_shape_paired_matrix_uses_frozen_common_final_targets() -> None:
     ensure_task25_outputs()
     paired = read_csv("results/metrics/shapeggen_2x2/paired_matrix.csv")
-    frozen_targets = read_csv("configs/targets/shapeggen_2x2_targets.csv")
+    frozen_targets = read_csv("configs/shapeggen/v1/shapeggen_2x2_targets.csv")
 
     assert len(paired) == 167
     assert [row["node_id"] for row in paired] == [row["node_id"] for row in frozen_targets]
@@ -78,8 +78,8 @@ def test_cross_synthetic_outputs_do_not_pool_node_rows() -> None:
 def test_task25_reports_avoid_forbidden_causal_backbone_wording() -> None:
     ensure_task25_outputs()
     report_paths = [
-        ROOT / "docs/shapeggen_2x2_report.md",
-        ROOT / "docs/cross_synthetic_ba_house_shapeggen_report.md",
+        ROOT / "docs/provenance/historical_reports/shapeggen_2x2_report.md",
+        ROOT / "docs/provenance/historical_reports/cross_synthetic_ba_house_shapeggen_report.md",
     ]
     forbidden = [
         "backbone effect",

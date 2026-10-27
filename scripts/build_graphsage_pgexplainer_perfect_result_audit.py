@@ -27,7 +27,7 @@ def main() -> None:
         json.dumps(audit, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
-    Path("docs/graphsage_pgexplainer_perfect_result_audit.md").write_text(
+    Path("docs/provenance/historical_reports/graphsage_pgexplainer_perfect_result_audit.md").write_text(
         build_markdown(audit),
         encoding="utf-8",
     )
@@ -35,7 +35,7 @@ def main() -> None:
 
 
 def build_audit() -> dict[str, Any]:
-    data = load_data_artifact("artifacts/data/ba_house.pt")
+    data = load_data_artifact("data/ba_house/ba500/graph.pt")
     per_node = read_csv(Path("results/metrics/graphsage_pgexplainer/seed42/per_node_metrics.csv"))
     gnn_reference = read_csv(
         Path("results/metrics/graphsage_gnnexplainer/seed42/per_node_metrics.csv")
@@ -116,13 +116,13 @@ def frozen_inputs() -> dict[str, Any]:
             "results/metrics/graphsage_pgexplainer/seed42/per_node_metrics.csv"
         ),
         "graphsage_pgexplainer_explanations": "results/explanations/graphsage_pgexplainer/seed42",
-        "graphsage_report": "docs/graphsage_explainers_ba_house_report.md",
+        "graphsage_report": "docs/provenance/historical_reports/graphsage_explainers_ba_house_report.md",
         "graphsage_freeze": "docs/graphsage_explainers_ba_house_freeze.json",
-        "ba_house_2x2_targets": "configs/targets/ba_house_2x2_targets.csv",
-        "graphsage_pg_train": "configs/targets/pgexplainer_graphsage_train_targets.csv",
-        "graphsage_pg_val": "configs/targets/pgexplainer_graphsage_val_targets.csv",
-        "gcn_pg_train": "configs/targets/pgexplainer_train_targets.csv",
-        "gcn_pg_val": "configs/targets/pgexplainer_val_targets.csv",
+        "ba_house_2x2_targets": "configs/ba_house/ba500/targets/ba_house_2x2_targets.csv",
+        "graphsage_pg_train": "configs/ba_house/ba500/targets/pgexplainer_graphsage_train_targets.csv",
+        "graphsage_pg_val": "configs/ba_house/ba500/targets/pgexplainer_graphsage_val_targets.csv",
+        "gcn_pg_train": "configs/ba_house/ba500/targets/pgexplainer_train_targets.csv",
+        "gcn_pg_val": "configs/ba_house/ba500/targets/pgexplainer_val_targets.csv",
     }
     return {
         name: {
@@ -247,7 +247,7 @@ def score_separation_and_mapping_rows(
 
 def permutation_sanity(score_rows: list[dict[str, Any]]) -> dict[str, Any]:
     generator = torch.Generator().manual_seed(AUDIT_SEED)
-    data = load_data_artifact("artifacts/data/ba_house.pt")
+    data = load_data_artifact("data/ba_house/ba500/graph.pt")
     aurocs: list[float] = []
     aps: list[float] = []
     per_node = []
@@ -323,10 +323,10 @@ def fid_plus_audit(rows: list[dict[str, str]]) -> dict[str, Any]:
 
 
 def training_pool_audit(data: Any) -> dict[str, Any]:
-    gcn_train = read_target_set(Path("configs/targets/pgexplainer_train_targets.csv"))
-    gcn_val = read_target_set(Path("configs/targets/pgexplainer_val_targets.csv"))
-    sage_train = read_target_set(Path("configs/targets/pgexplainer_graphsage_train_targets.csv"))
-    sage_val = read_target_set(Path("configs/targets/pgexplainer_graphsage_val_targets.csv"))
+    gcn_train = read_target_set(Path("configs/ba_house/ba500/targets/pgexplainer_train_targets.csv"))
+    gcn_val = read_target_set(Path("configs/ba_house/ba500/targets/pgexplainer_val_targets.csv"))
+    sage_train = read_target_set(Path("configs/ba_house/ba500/targets/pgexplainer_graphsage_train_targets.csv"))
+    sage_val = read_target_set(Path("configs/ba_house/ba500/targets/pgexplainer_graphsage_val_targets.csv"))
     train_intersection = sorted(gcn_train & sage_train)
     val_intersection = sorted(gcn_val & sage_val)
     gcn_only_train = sorted(gcn_train - sage_train)
@@ -335,13 +335,13 @@ def training_pool_audit(data: Any) -> dict[str, Any]:
     graph_only_val = sorted(sage_val - gcn_val)
     return {
         "canonical_files": {
-            "gcn_train": file_info("configs/targets/pgexplainer_train_targets.csv"),
-            "gcn_val": file_info("configs/targets/pgexplainer_val_targets.csv"),
+            "gcn_train": file_info("configs/ba_house/ba500/targets/pgexplainer_train_targets.csv"),
+            "gcn_val": file_info("configs/ba_house/ba500/targets/pgexplainer_val_targets.csv"),
             "graphsage_train": file_info(
-                "configs/targets/pgexplainer_graphsage_train_targets.csv"
+                "configs/ba_house/ba500/targets/pgexplainer_graphsage_train_targets.csv"
             ),
             "graphsage_val": file_info(
-                "configs/targets/pgexplainer_graphsage_val_targets.csv"
+                "configs/ba_house/ba500/targets/pgexplainer_graphsage_val_targets.csv"
             ),
         },
         "eligibility_rule": (
@@ -395,7 +395,7 @@ def source_code_audit() -> dict[str, Any]:
     evaluation = Path(
         "src/gnnexplainer_benchmark/explainers/pgexplainer_evaluation.py"
     ).read_text(encoding="utf-8")
-    config = Path("configs/explainer/pgexplainer.yaml").read_text(encoding="utf-8")
+    config = Path("configs/shared/pgexplainer.yaml").read_text(encoding="utf-8")
     return {
         "ground_truth_used_in_pg_training_loss": False,
         "ground_truth_training_evidence": [

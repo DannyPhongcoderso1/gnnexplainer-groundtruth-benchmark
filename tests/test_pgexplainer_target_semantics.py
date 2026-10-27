@@ -8,8 +8,8 @@ from gnnexplainer_benchmark.explainers.pgexplainer_smoke import run_pgexplainer_
 
 def test_canonical_targets_store_frozen_prediction_as_pgexplainer_target() -> None:
     for path in [
-        Path("configs/targets/pgexplainer_train_targets.csv"),
-        Path("configs/targets/pgexplainer_val_targets.csv"),
+        Path("configs/ba_house/ba500/targets/pgexplainer_train_targets.csv"),
+        Path("configs/ba_house/ba500/targets/pgexplainer_val_targets.csv"),
     ]:
         with path.open(newline="", encoding="utf-8") as handle:
             rows = list(csv.DictReader(handle))

@@ -114,7 +114,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--task-config",
         type=Path,
-        default=Path("configs/evaluation/shapeggen_task23.yaml"),
+        default=Path("configs/shapeggen/v1/shapeggen_task23.yaml"),
     )
     parser.add_argument(
         "--previous-freeze",
@@ -124,7 +124,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--report",
         type=Path,
-        default=Path("docs/shapeggen_gnnexplainer_random_report.md"),
+        default=Path("docs/provenance/historical_reports/shapeggen_gnnexplainer_random_report.md"),
     )
     parser.add_argument(
         "--audit-json",

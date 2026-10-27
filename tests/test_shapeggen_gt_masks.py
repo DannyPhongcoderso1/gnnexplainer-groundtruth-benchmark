@@ -10,7 +10,7 @@ from gnnexplainer_benchmark.data.shapeggen import (
 
 
 def test_shapeggen_positive_edges_are_candidate_edges() -> None:
-    data = load_data_artifact(Path("artifacts/data/shapeggen.pt"))
+    data = load_data_artifact(Path("data/shapeggen/v1/graph.pt"))
 
     assert bool((data.edge_mask & ~data.candidate_edge_mask).any()) is False
     assert bool((data.edge_mask.sum(dim=1) > 0).all())
@@ -18,7 +18,7 @@ def test_shapeggen_positive_edges_are_candidate_edges() -> None:
 
 
 def test_shapeggen_reverse_edge_masks_are_aligned() -> None:
-    data = load_data_artifact(Path("artifacts/data/shapeggen.pt"))
+    data = load_data_artifact(Path("data/shapeggen/v1/graph.pt"))
     edge_lookup = {
         (int(data.edge_index[0, edge_idx]), int(data.edge_index[1, edge_idx])): edge_idx
         for edge_idx in range(data.edge_index.size(1))
@@ -37,7 +37,7 @@ def test_shapeggen_reverse_edge_masks_are_aligned() -> None:
 
 
 def test_shapeggen_feature_explanations_are_stored_but_not_core() -> None:
-    data = load_data_artifact(Path("artifacts/data/shapeggen.pt"))
+    data = load_data_artifact(Path("data/shapeggen/v1/graph.pt"))
 
     assert data.feature_mask.numel() == data.x.size(1)
     assert int(data.feature_mask.sum().item()) == 6
@@ -46,7 +46,7 @@ def test_shapeggen_feature_explanations_are_stored_but_not_core() -> None:
 
 
 def test_target_specific_gt_adapter_returns_edge_index_aligned_masks() -> None:
-    data = load_data_artifact(Path("artifacts/data/shapeggen.pt"))
+    data = load_data_artifact(Path("data/shapeggen/v1/graph.pt"))
 
     for node_id in [0, 17, data.num_nodes - 1]:
         gt = get_target_edge_ground_truth(data, node_id)

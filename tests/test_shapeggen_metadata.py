@@ -6,9 +6,9 @@ from gnnexplainer_benchmark.data.serialization import load_metadata, sha256_file
 
 
 def test_shapeggen_manifest_matches_artifact() -> None:
-    metadata = load_metadata(Path("artifacts/data/shapeggen_manifest.json"))
+    metadata = load_metadata(Path("data/shapeggen/v1/manifest.json"))
 
-    assert metadata["sha256"] == sha256_file(Path("artifacts/data/shapeggen.pt"))
+    assert metadata["sha256"] == sha256_file(Path("data/shapeggen/v1/graph.pt"))
     assert metadata["generator_seed"] == 912
     assert metadata["upstream_commit_or_version"] == "a11e65ffbc4df737f35522a8accf2283a8aeaa37"
     assert metadata["dependency_strategy"] == "vendored unmodified official GraphXAI source"
@@ -17,7 +17,7 @@ def test_shapeggen_manifest_matches_artifact() -> None:
 
 
 def test_shapeggen_manifest_records_ground_truth_statistics() -> None:
-    metadata = load_metadata(Path("artifacts/data/shapeggen_manifest.json"))
+    metadata = load_metadata(Path("data/shapeggen/v1/manifest.json"))
     gt_counts = metadata["ground_truth"]
 
     assert gt_counts["eligible_targets"] == metadata["shapes"]["num_nodes"]

@@ -15,7 +15,7 @@ from graphxai.datasets.shape_graph import ShapeGGen
 
 
 def test_frozen_shapeggen_artifact_shapes_are_valid() -> None:
-    data = load_data_artifact(Path("artifacts/data/shapeggen.pt"))
+    data = load_data_artifact(Path("data/shapeggen/v1/graph.pt"))
 
     validate_shapeggen_data(data)
     assert data.num_nodes == 1298
@@ -28,7 +28,7 @@ def test_frozen_shapeggen_artifact_shapes_are_valid() -> None:
 
 def test_frozen_shapeggen_artifact_checksum_is_locked() -> None:
     assert (
-        sha256_file(Path("artifacts/data/shapeggen.pt"))
+        sha256_file(Path("data/shapeggen/v1/graph.pt"))
         == "9a0d5c4b5ffc21a97e372d9e00f6a8971d7c88b063f2582b3a64332b9b0af39e"
     )
 
@@ -51,7 +51,7 @@ def test_active_adapter_does_not_contain_local_generator_algorithm() -> None:
 
 
 def test_small_shapeggen_generation_is_valid() -> None:
-    config = load_shapeggen_config(Path("configs/dataset/shapeggen.yaml"))
+    config = load_shapeggen_config(Path("configs/shapeggen/v1/shapeggen.yaml"))
     config["dataset"]["upstream_generator"]["num_subgraphs"] = 12
     config["dataset"]["upstream_generator"]["seed"] = 123
     config["dataset"]["upstream_generator"]["prob_connection"] = 0.12
@@ -65,7 +65,7 @@ def test_small_shapeggen_generation_is_valid() -> None:
 
 
 def test_unsupported_shapeggen_config_fields_fail_fast() -> None:
-    config = load_shapeggen_config(Path("configs/dataset/shapeggen.yaml"))
+    config = load_shapeggen_config(Path("configs/shapeggen/v1/shapeggen.yaml"))
     config["dataset"]["upstream_generator"]["unsupported_field"] = "boom"
 
     try:

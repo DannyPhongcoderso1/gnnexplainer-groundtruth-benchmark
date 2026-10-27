@@ -65,7 +65,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--task-config",
         type=Path,
-        default=Path("configs/evaluation/shapeggen_task24_pgexplainer.yaml"),
+        default=Path("configs/shapeggen/v1/shapeggen_task24_pgexplainer.yaml"),
     )
     parser.add_argument(
         "--freeze",
@@ -75,7 +75,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--report",
         type=Path,
-        default=Path("docs/shapeggen_pgexplainer_report.md"),
+        default=Path("docs/provenance/historical_reports/shapeggen_pgexplainer_report.md"),
     )
     parser.add_argument(
         "--audit-json",
@@ -529,7 +529,7 @@ def audit_stability() -> dict[str, Any]:
 
 
 def recompute_summary(config: dict[str, Any]) -> dict[str, Any]:
-    stored_rows = read_csv(Path("results/metrics/shapeggen/task24_pgexplainer_summary.csv"))
+    stored_rows = read_csv(Path("results/shapeggen/v1/metrics/task24_pgexplainer_summary.csv"))
     stored = {row["backbone"]: row for row in stored_rows}
     output = {}
     max_diff = 0.0
@@ -583,8 +583,8 @@ def file_hashes(config: dict[str, Any]) -> dict[str, Any]:
         Path(config["final_target_file"]),
         Path(config["gcn_checkpoint"]),
         Path(config["graphsage_checkpoint"]),
-        Path("results/metrics/shapeggen/task24_pgexplainer_summary.csv"),
-        Path("docs/shapeggen_pgexplainer_report.md"),
+        Path("results/shapeggen/v1/metrics/task24_pgexplainer_summary.csv"),
+        Path("docs/provenance/historical_reports/shapeggen_pgexplainer_report.md"),
         Path("docs/shapeggen_pgexplainer_freeze.json"),
     ]
     for backbone in BACKBONES:

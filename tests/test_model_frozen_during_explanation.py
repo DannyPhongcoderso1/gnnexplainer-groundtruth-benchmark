@@ -12,8 +12,8 @@ from gnnexplainer_benchmark.training.trainer import build_gcn_model, load_traini
 
 
 def test_model_weights_are_frozen_during_explanation() -> None:
-    data = generate_ba_house_data(load_ba_house_config(Path("configs/dataset/ba_house.yaml")))
-    model = build_gcn_model(data, load_training_config(Path("configs/model/gcn.yaml")))
+    data = generate_ba_house_data(load_ba_house_config(Path("configs/ba_house/ba500/ba_house.yaml")))
+    model = build_gcn_model(data, load_training_config(Path("configs/ba_house/ba500/gcn.yaml")))
     before = deepcopy(model.state_dict())
     target_id = int(torch.nonzero(data.test_mask & (data.y > 0), as_tuple=False).view(-1)[0].item())
     target = TargetNode(

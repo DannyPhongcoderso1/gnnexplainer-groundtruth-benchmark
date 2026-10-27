@@ -8,7 +8,7 @@ from gnnexplainer_benchmark.data.ba_house import generate_ba_house_data, load_ba
 
 
 def test_same_seed_generates_same_graph_and_masks() -> None:
-    config = load_ba_house_config(Path("configs/dataset/ba_house.yaml"))
+    config = load_ba_house_config(Path("configs/ba_house/ba500/ba_house.yaml"))
 
     first = generate_ba_house_data(config)
     second = generate_ba_house_data(config)

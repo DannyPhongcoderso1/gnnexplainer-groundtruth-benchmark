@@ -137,15 +137,15 @@ def materialize_pgexplainer(
 
 def train_pgexplainer_gcn(
     *,
-    dataset_path: Path = Path("artifacts/data/ba_house.pt"),
-    dataset_config_path: Path = Path("configs/dataset/ba_house.yaml"),
-    checkpoint_path: Path = Path("artifacts/checkpoints/ba_house_gcn_best.pt"),
-    explainer_config_path: Path = Path("configs/explainer/pgexplainer.yaml"),
-    evaluation_config_path: Path = Path("configs/evaluation/pgexplainer_gcn.yaml"),
-    train_targets_path: Path = Path("configs/targets/pgexplainer_train_targets.csv"),
-    validation_targets_path: Path = Path("configs/targets/pgexplainer_val_targets.csv"),
+    dataset_path: Path = Path("data/ba_house/ba500/graph.pt"),
+    dataset_config_path: Path = Path("configs/ba_house/ba500/ba_house.yaml"),
+    checkpoint_path: Path = Path("artifacts/checkpoints/ba_house/ba500/backbones/gcn/seed42.pt"),
+    explainer_config_path: Path = Path("configs/shared/pgexplainer.yaml"),
+    evaluation_config_path: Path = Path("configs/ba_house/ba500/pgexplainer_gcn.yaml"),
+    train_targets_path: Path = Path("configs/ba_house/ba500/targets/pgexplainer_train_targets.csv"),
+    validation_targets_path: Path = Path("configs/ba_house/ba500/targets/pgexplainer_val_targets.csv"),
     final_test_targets_path: Path = Path("results/metrics/explainer_test_targets.csv"),
-    artifact_path: Path = Path("artifacts/explainers/pgexplainer_gcn_ba_house_seed42.pt"),
+    artifact_path: Path = Path("artifacts/checkpoints/ba_house/ba500/pgexplainer/gcn/primary_seed42.pt"),
     manifest_path: Path = Path(
         "artifacts/explainers/pgexplainer_gcn_ba_house_seed42_manifest.json"
     ),

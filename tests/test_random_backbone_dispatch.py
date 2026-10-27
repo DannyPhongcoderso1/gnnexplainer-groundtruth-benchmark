@@ -45,7 +45,7 @@ def test_gcn_constructor_and_defaults_unchanged():
     cp = checkpoint("gcn")
     old = build_gcn_from_checkpoint(cp, 10, 4).eval()
     new = build_backbone_from_checkpoint(cp, backbone="gcn", in_channels=10, out_channels=4).eval()
-    data = load_data_artifact(Path("artifacts/data/ba_house.pt"))
+    data = load_data_artifact(Path("data/ba_house/ba500/graph.pt"))
     with torch.no_grad():
         assert torch.equal(old(data.x, data.edge_index), new(data.x, data.edge_index))
     args = parse_args([])
@@ -98,7 +98,7 @@ def test_frozen_protocol_parity_and_model_immutability():
 
 
 def test_random_generator_matches_saved_gcn_scores_without_gcn_evaluation():
-    data = load_data_artifact(Path("artifacts/data/ba_house.pt"))
+    data = load_data_artifact(Path("data/ba_house/ba500/graph.pt"))
     candidate = computation_subgraph_edge_mask(data, 306, 3)
     scores = random_candidate_edge_scores(
         edge_count=data.edge_index.size(1),

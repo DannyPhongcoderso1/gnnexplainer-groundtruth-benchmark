@@ -23,7 +23,7 @@ from gnnexplainer_benchmark.training.checkpointing import (
 
 
 def test_pgexplainer_training_config_uses_frozen_paper_aligned_coefficients() -> None:
-    config = load_yaml(Path("configs/explainer/pgexplainer.yaml"))
+    config = load_yaml(Path("configs/shared/pgexplainer.yaml"))
     algorithm = build_pgexplainer_from_config(config)
 
     assert algorithm.epochs == 30
@@ -35,9 +35,9 @@ def test_pgexplainer_training_config_uses_frozen_paper_aligned_coefficients() ->
 
 
 def test_pgexplainer_training_targets_do_not_include_final_test_nodes() -> None:
-    train_targets = read_pgexplainer_targets(Path("configs/targets/pgexplainer_train_targets.csv"))
+    train_targets = read_pgexplainer_targets(Path("configs/ba_house/ba500/targets/pgexplainer_train_targets.csv"))
     validation_targets = read_pgexplainer_targets(
-        Path("configs/targets/pgexplainer_val_targets.csv")
+        Path("configs/ba_house/ba500/targets/pgexplainer_val_targets.csv")
     )
     final_test_ids = read_final_test_node_ids(Path("results/metrics/explainer_test_targets.csv"))
 
@@ -49,8 +49,8 @@ def test_pgexplainer_training_targets_do_not_include_final_test_nodes() -> None:
 
 
 def test_pgexplainer_training_optimizer_excludes_frozen_gcn_parameters() -> None:
-    data = load_data_artifact(Path("artifacts/data/ba_house.pt"))
-    checkpoint = load_checkpoint(Path("artifacts/checkpoints/ba_house_gcn_best.pt"))
+    data = load_data_artifact(Path("data/ba_house/ba500/graph.pt"))
+    checkpoint = load_checkpoint(Path("artifacts/checkpoints/ba_house/ba500/backbones/gcn/seed42.pt"))
     model = build_gcn_from_checkpoint(
         checkpoint,
         in_channels=int(data.x.size(1)),
@@ -60,7 +60,7 @@ def test_pgexplainer_training_optimizer_excludes_frozen_gcn_parameters() -> None
     for parameter in model.parameters():
         parameter.requires_grad_(False)
 
-    config = load_yaml(Path("configs/explainer/pgexplainer.yaml"))
+    config = load_yaml(Path("configs/shared/pgexplainer.yaml"))
     algorithm = build_pgexplainer_from_config(config)
     wrap_pgexplainer(model, algorithm)
     materialize_pgexplainer(algorithm, model, data.x, data.edge_index, node_id=300)
@@ -72,7 +72,7 @@ def test_pgexplainer_training_optimizer_excludes_frozen_gcn_parameters() -> None
 
 
 def test_task15_manifest_records_artifact_provenance_and_no_test_leakage() -> None:
-    artifact_path = Path("artifacts/explainers/pgexplainer_gcn_ba_house_seed42.pt")
+    artifact_path = Path("artifacts/checkpoints/ba_house/ba500/pgexplainer/gcn/primary_seed42.pt")
     manifest_path = Path("artifacts/explainers/pgexplainer_gcn_ba_house_seed42_manifest.json")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
 
@@ -109,18 +109,18 @@ def test_task15_manifest_records_artifact_provenance_and_no_test_leakage() -> No
 
 
 def test_task15_pgexplainer_checkpoint_reload_path_is_supported() -> None:
-    data = load_data_artifact(Path("artifacts/data/ba_house.pt"))
-    checkpoint = load_checkpoint(Path("artifacts/checkpoints/ba_house_gcn_best.pt"))
+    data = load_data_artifact(Path("data/ba_house/ba500/graph.pt"))
+    checkpoint = load_checkpoint(Path("artifacts/checkpoints/ba_house/ba500/backbones/gcn/seed42.pt"))
     model = build_gcn_from_checkpoint(
         checkpoint,
         in_channels=int(data.x.size(1)),
         out_channels=int(data.y.max().item()) + 1,
     )
     model.eval()
-    config = load_yaml(Path("configs/explainer/pgexplainer.yaml"))
+    config = load_yaml(Path("configs/shared/pgexplainer.yaml"))
 
     assert verify_pgexplainer_reload(
-        Path("artifacts/explainers/pgexplainer_gcn_ba_house_seed42.pt"),
+        Path("artifacts/checkpoints/ba_house/ba500/pgexplainer/gcn/primary_seed42.pt"),
         config,
         model,
         data.x,

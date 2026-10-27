@@ -134,8 +134,8 @@ def assert_deterministic_unique_order(rows: list[dict[str, str]]) -> None:
 
 
 def test_canonical_pgexplainer_target_files_are_frozen_and_disjoint() -> None:
-    train_rows = read_target_rows(Path("configs/targets/pgexplainer_train_targets.csv"))
-    val_rows = read_target_rows(Path("configs/targets/pgexplainer_val_targets.csv"))
+    train_rows = read_target_rows(Path("configs/ba_house/ba500/targets/pgexplainer_train_targets.csv"))
+    val_rows = read_target_rows(Path("configs/ba_house/ba500/targets/pgexplainer_val_targets.csv"))
     test_rows = read_target_rows(Path("results/metrics/explainer_test_targets.csv"))
 
     assert len(train_rows) == 48
@@ -154,17 +154,17 @@ def test_canonical_pgexplainer_target_files_are_frozen_and_disjoint() -> None:
 
 
 def test_pgexplainer_config_points_to_canonical_train_and_validation_targets() -> None:
-    config = yaml.safe_load(Path("configs/evaluation/pgexplainer_gcn.yaml").read_text())
+    config = yaml.safe_load(Path("configs/ba_house/ba500/pgexplainer_gcn.yaml").read_text())
     evaluation = config["evaluation"]
 
-    assert evaluation["train_targets"] == "configs/targets/pgexplainer_train_targets.csv"
-    assert evaluation["validation_targets"] == "configs/targets/pgexplainer_val_targets.csv"
+    assert evaluation["train_targets"] == "configs/ba_house/ba500/targets/pgexplainer_train_targets.csv"
+    assert evaluation["validation_targets"] == "configs/ba_house/ba500/targets/pgexplainer_val_targets.csv"
     assert evaluation["test_targets"] == "results/metrics/explainer_test_targets.csv"
 
 
 def test_selector_reproduces_canonical_pgexplainer_targets() -> None:
-    data = load_data_artifact(Path("artifacts/data/ba_house.pt"))
-    checkpoint = load_checkpoint(Path("artifacts/checkpoints/ba_house_gcn_best.pt"))
+    data = load_data_artifact(Path("data/ba_house/ba500/graph.pt"))
+    checkpoint = load_checkpoint(Path("artifacts/checkpoints/ba_house/ba500/backbones/gcn/seed42.pt"))
     model = build_gcn_from_checkpoint(
         checkpoint,
         in_channels=int(data.x.size(1)),
@@ -192,10 +192,10 @@ def test_selector_reproduces_canonical_pgexplainer_targets() -> None:
     )
 
     assert [target.node_id for target in regenerated_train] == node_ids(
-        read_target_rows(Path("configs/targets/pgexplainer_train_targets.csv"))
+        read_target_rows(Path("configs/ba_house/ba500/targets/pgexplainer_train_targets.csv"))
     )
     assert [target.node_id for target in regenerated_val] == node_ids(
-        read_target_rows(Path("configs/targets/pgexplainer_val_targets.csv"))
+        read_target_rows(Path("configs/ba_house/ba500/targets/pgexplainer_val_targets.csv"))
     )
 
 

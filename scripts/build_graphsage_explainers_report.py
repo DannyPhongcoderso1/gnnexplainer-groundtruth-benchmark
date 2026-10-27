@@ -15,7 +15,7 @@ def main() -> None:
         json.dumps(manifest, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
-    Path("docs/graphsage_explainers_ba_house_report.md").write_text(
+    Path("docs/provenance/historical_reports/graphsage_explainers_ba_house_report.md").write_text(
         build_report(manifest),
         encoding="utf-8",
     )
@@ -48,7 +48,7 @@ def build_manifest() -> dict[str, Any]:
         )
     )
     target_manifest = json.loads(
-        Path("configs/targets/ba_house_2x2_targets_manifest.json").read_text(
+        Path("configs/ba_house/ba500/targets/ba_house_2x2_targets_manifest.json").read_text(
             encoding="utf-8"
         )
     )
@@ -56,9 +56,9 @@ def build_manifest() -> dict[str, Any]:
         "status": "success",
         "task": "Task 19 GraphSAGE explainers on BA-House",
         "model": "GraphSAGE",
-        "dataset_sha256": sha256_file(Path("artifacts/data/ba_house.pt")),
+        "dataset_sha256": sha256_file(Path("data/ba_house/ba500/graph.pt")),
         "graphsage_checkpoint_sha256": sha256_file(
-            Path("artifacts/checkpoints/ba_house_graphsage_best.pt")
+            Path("artifacts/checkpoints/ba_house/ba500/backbones/graphsage/seed42.pt")
         ),
         "target_intersection": target_manifest,
         "protocol": {
@@ -137,10 +137,10 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 
 def artifact_hashes() -> dict[str, str]:
     paths = [
-        "configs/targets/ba_house_2x2_targets.csv",
-        "configs/targets/pgexplainer_graphsage_train_targets.csv",
-        "configs/targets/pgexplainer_graphsage_val_targets.csv",
-        "artifacts/explainers/pgexplainer_graphsage_ba_house_seed42.pt",
+        "configs/ba_house/ba500/targets/ba_house_2x2_targets.csv",
+        "configs/ba_house/ba500/targets/pgexplainer_graphsage_train_targets.csv",
+        "configs/ba_house/ba500/targets/pgexplainer_graphsage_val_targets.csv",
+        "artifacts/checkpoints/ba_house/ba500/pgexplainer/graphsage/natural106_35/primary_seed42.pt",
         "results/metrics/graphsage_gnnexplainer/seed42/per_node_metrics.csv",
         "results/metrics/graphsage_pgexplainer/seed42/per_node_metrics.csv",
         "results/metrics/graphsage_pgexplainer/stability/manifest.json",

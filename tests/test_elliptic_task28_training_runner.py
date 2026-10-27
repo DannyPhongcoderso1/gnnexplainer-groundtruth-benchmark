@@ -23,7 +23,7 @@ from scripts.run_elliptic_pgexplainer_training import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-CONFIG_PATH = ROOT / "configs/evaluation/elliptic_pgexplainer_training.yaml"
+CONFIG_PATH = ROOT / "configs/elliptic/elliptic_pgexplainer_training.yaml"
 
 
 def config() -> dict:
@@ -100,7 +100,7 @@ def test_task28_cli_rejects_unknown_seed_and_final_target_argument() -> None:
         "--seed",
         "42",
         "--final-target-file",
-        "configs/targets/elliptic_xai_common_test_targets.csv",
+        "configs/elliptic/targets/elliptic_xai_common_test_targets.csv",
     )
 
     assert bad_seed.returncode != 0

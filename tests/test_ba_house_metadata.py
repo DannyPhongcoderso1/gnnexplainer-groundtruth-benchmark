@@ -11,7 +11,7 @@ def test_metadata_matches_artifact(tmp_path: Path) -> None:
     metadata_path = tmp_path / "ba_house_metadata.json"
 
     data = generate_and_save_ba_house(
-        Path("configs/dataset/ba_house.yaml"),
+        Path("configs/ba_house/ba500/ba_house.yaml"),
         artifact,
         metadata_path,
     )

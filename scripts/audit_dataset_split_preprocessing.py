@@ -480,7 +480,7 @@ def update_inventory(
     inventory["split_rationale"] = {
         "ba_house": {
             "split_design": "stratified 60/20/20 node split",
-            "actual_source": "project-defined local split in configs/dataset/ba_house.yaml",
+            "actual_source": "project-defined local split in configs/ba_house/ba500/ba_house.yaml",
             "rationale": {
                 "source": "INFERENCE",
                 "text": (
@@ -496,7 +496,7 @@ def update_inventory(
         },
         "shapeggen": {
             "split_design": "stratified 60/20/20 node split after official ShapeGGen generation",
-            "actual_source": "project-defined local adapter in configs/dataset/shapeggen.yaml",
+            "actual_source": "project-defined local adapter in configs/shapeggen/v1/shapeggen.yaml",
             "rationale": {
                 "source": "INFERENCE",
                 "text": (

@@ -9,9 +9,9 @@ import yaml
 
 from gnnexplainer_benchmark.data.serialization import sha256_file
 
-CONFIG_PATH = Path("configs/evaluation/shapeggen_task24_pgexplainer.yaml")
+CONFIG_PATH = Path("configs/shapeggen/v1/shapeggen_task24_pgexplainer.yaml")
 FREEZE_PATH = Path("docs/shapeggen_pgexplainer_freeze.json")
-REPORT_PATH = Path("docs/shapeggen_pgexplainer_report.md")
+REPORT_PATH = Path("docs/provenance/historical_reports/shapeggen_pgexplainer_report.md")
 
 
 def read_config() -> dict:

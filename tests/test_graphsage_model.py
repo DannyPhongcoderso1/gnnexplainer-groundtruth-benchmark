@@ -15,8 +15,8 @@ from gnnexplainer_benchmark.training.trainer import build_graphsage_model, load_
 
 
 def test_graphsage_forward_returns_node_logits() -> None:
-    data = generate_ba_house_data(load_ba_house_config(Path("configs/dataset/ba_house.yaml")))
-    config = load_training_config(Path("configs/model/graphsage_ba_house.yaml"))
+    data = generate_ba_house_data(load_ba_house_config(Path("configs/ba_house/ba500/ba_house.yaml")))
+    config = load_training_config(Path("configs/ba_house/ba500/graphsage_ba_house.yaml"))
     model = build_graphsage_model(data, config)
 
     logits = model(data.x, data.edge_index)
@@ -25,8 +25,8 @@ def test_graphsage_forward_returns_node_logits() -> None:
 
 
 def test_graphsage_checkpoint_reload_preserves_logits(tmp_path: Path) -> None:
-    data = generate_ba_house_data(load_ba_house_config(Path("configs/dataset/ba_house.yaml")))
-    config = load_training_config(Path("configs/model/graphsage_ba_house.yaml"))
+    data = generate_ba_house_data(load_ba_house_config(Path("configs/ba_house/ba500/ba_house.yaml")))
+    config = load_training_config(Path("configs/ba_house/ba500/graphsage_ba_house.yaml"))
     model = build_graphsage_model(data, config)
     model.eval()
     with torch.no_grad():

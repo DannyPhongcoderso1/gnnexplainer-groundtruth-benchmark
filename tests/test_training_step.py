@@ -11,8 +11,8 @@ from gnnexplainer_benchmark.utils.reproducibility import seed_everything
 
 def test_single_training_step_updates_with_finite_loss() -> None:
     seed_everything(42)
-    data = generate_ba_house_data(load_ba_house_config(Path("configs/dataset/ba_house.yaml")))
-    config = load_training_config(Path("configs/model/gcn.yaml"))
+    data = generate_ba_house_data(load_ba_house_config(Path("configs/ba_house/ba500/ba_house.yaml")))
+    config = load_training_config(Path("configs/ba_house/ba500/gcn.yaml"))
     model = build_gcn_model(data, config)
     optimizer = torch.optim.Adam(model.parameters(), lr=0.01, weight_decay=5e-4)
 

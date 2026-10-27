@@ -9,7 +9,7 @@ from gnnexplainer_benchmark.explain.subgraph_mapping import computation_subgraph
 
 
 def test_subgraph_mapping_returns_full_edge_boolean_mask() -> None:
-    data = generate_ba_house_data(load_ba_house_config(Path("configs/dataset/ba_house.yaml")))
+    data = generate_ba_house_data(load_ba_house_config(Path("configs/ba_house/ba500/ba_house.yaml")))
     node_id = int(torch.nonzero(data.test_mask & (data.y > 0), as_tuple=False).view(-1)[0].item())
 
     edge_mask = computation_subgraph_edge_mask(data, node_id=node_id, num_hops=3)

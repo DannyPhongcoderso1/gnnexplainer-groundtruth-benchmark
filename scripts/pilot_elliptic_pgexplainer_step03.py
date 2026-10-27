@@ -45,9 +45,9 @@ from gnnexplainer_benchmark.explainers.pgexplainer_training import (
 )
 
 
-CONFIG_PATH = Path("configs/evaluation/elliptic_pgexplainer_training.yaml")
+CONFIG_PATH = Path("configs/elliptic/elliptic_pgexplainer_training.yaml")
 MANIFEST_PATH = Path("docs/elliptic_pgexplainer_step03_pilot_manifest.json")
-REPORT_PATH = Path("docs/elliptic_pgexplainer_step03_pilot_report.md")
+REPORT_PATH = Path("docs/provenance/historical_reports/elliptic_pgexplainer_step03_pilot_report.md")
 PILOT_ROOT = Path("results/metrics/elliptic/task28_pilot")
 
 

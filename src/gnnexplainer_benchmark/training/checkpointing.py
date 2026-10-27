@@ -5,6 +5,8 @@ from typing import Any
 
 import torch
 
+from gnnexplainer_benchmark.utils.paths import resolve_repository_path
+
 from gnnexplainer_benchmark.models import GCN, GraphSAGE
 
 
@@ -32,7 +34,7 @@ def save_checkpoint(
 
 
 def load_checkpoint(path: Path, map_location: str | torch.device = "cpu") -> dict[str, Any]:
-    return torch.load(path, map_location=map_location, weights_only=False)
+    return torch.load(resolve_repository_path(path), map_location=map_location, weights_only=False)
 
 
 def build_gcn_from_checkpoint(

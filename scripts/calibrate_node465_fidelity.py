@@ -27,11 +27,11 @@ from gnnexplainer_benchmark.training.checkpointing import (
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Calibrate node 465 fidelity sanity checks.")
-    parser.add_argument("--artifact", type=Path, default=Path("artifacts/data/ba_house.pt"))
+    parser.add_argument("--artifact", type=Path, default=Path("data/ba_house/ba500/graph.pt"))
     parser.add_argument(
         "--checkpoint",
         type=Path,
-        default=Path("artifacts/checkpoints/ba_house_gcn_best.pt"),
+        default=Path("artifacts/checkpoints/ba_house/ba500/backbones/gcn/seed42.pt"),
     )
     parser.add_argument(
         "--gnn-edge-mask",

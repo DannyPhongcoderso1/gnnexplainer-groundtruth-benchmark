@@ -93,16 +93,16 @@ class PGExplainerEvaluationResult:
 
 def evaluate_pgexplainer_gcn(
     *,
-    artifact_path: Path = Path("artifacts/data/ba_house.pt"),
-    checkpoint_path: Path = Path("artifacts/checkpoints/ba_house_gcn_best.pt"),
+    artifact_path: Path = Path("data/ba_house/ba500/graph.pt"),
+    checkpoint_path: Path = Path("artifacts/checkpoints/ba_house/ba500/backbones/gcn/seed42.pt"),
     explainer_checkpoint_path: Path = Path(
-        "artifacts/explainers/pgexplainer_gcn_ba_house_seed42.pt"
+        "artifacts/checkpoints/ba_house/ba500/pgexplainer/gcn/primary_seed42.pt"
     ),
     explainer_manifest_path: Path = Path(
         "artifacts/explainers/pgexplainer_gcn_ba_house_seed42_manifest.json"
     ),
-    explainer_config_path: Path = Path("configs/explainer/pgexplainer.yaml"),
-    evaluation_config_path: Path = Path("configs/evaluation/pgexplainer_gcn.yaml"),
+    explainer_config_path: Path = Path("configs/shared/pgexplainer.yaml"),
+    evaluation_config_path: Path = Path("configs/ba_house/ba500/pgexplainer_gcn.yaml"),
     target_file: Path = Path("results/metrics/explainer_test_targets.csv"),
     phase4_reference_per_node_path: Path = Path(
         "results/metrics/frozen_phase4c_v2/per_node_metrics.csv"

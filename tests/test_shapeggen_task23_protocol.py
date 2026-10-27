@@ -15,9 +15,9 @@ from gnnexplainer_benchmark.data.shapeggen import (
 )
 from gnnexplainer_benchmark.evaluation.budget import selected_edge_count_for_ratio
 
-TASK23_CONFIG = Path("configs/evaluation/shapeggen_task23.yaml")
+TASK23_CONFIG = Path("configs/shapeggen/v1/shapeggen_task23.yaml")
 FREEZE_PATH = Path("docs/shapeggen_gnnexplainer_random_freeze.json")
-REPORT_PATH = Path("docs/shapeggen_gnnexplainer_random_report.md")
+REPORT_PATH = Path("docs/provenance/historical_reports/shapeggen_gnnexplainer_random_report.md")
 
 
 def read_task23_config() -> dict:

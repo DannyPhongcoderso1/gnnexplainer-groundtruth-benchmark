@@ -388,9 +388,9 @@ def eligibility_audit(csvs: dict[str, Path]) -> dict[str, Any]:
 
 def artifact_inventory(csvs: dict[str, Path]) -> dict[str, Any]:
     inventory = {
-        "docs/elliptic_xai_handoff_provenance.md": {**file_meta(DOCS / "elliptic_xai_handoff_provenance.md"), "role": "cross-repository provenance"},
-        "docs/elliptic_xai_protocol.md": {**file_meta(DOCS / "elliptic_xai_protocol.md"), "role": "Elliptic XAI metric and target protocol"},
-        "docs/elliptic_model_parity_report.md": {**file_meta(DOCS / "elliptic_model_parity_report.md"), "role": "model parity and perturbation smoke report"},
+        "docs/provenance/historical_reports/elliptic_xai_handoff_provenance.md": {**file_meta(DOCS / "elliptic_xai_handoff_provenance.md"), "role": "cross-repository provenance"},
+        "docs/provenance/historical_reports/elliptic_xai_protocol.md": {**file_meta(DOCS / "elliptic_xai_protocol.md"), "role": "Elliptic XAI metric and target protocol"},
+        "docs/provenance/historical_reports/elliptic_model_parity_report.md": {**file_meta(DOCS / "elliptic_model_parity_report.md"), "role": "model parity and perturbation smoke report"},
         "docs/elliptic_targets_freeze.json": {**file_meta(FREEZE_PATH), "role": "machine-readable freeze manifest"},
         "scripts/prepare_elliptic_task26.py": {**file_meta(ROOT / "scripts" / "prepare_elliptic_task26.py"), "role": "Task26 target/provenance preparation script"},
         "scripts/audit_elliptic_task26.py": {**file_meta(ROOT / "scripts" / "audit_elliptic_task26.py"), "role": "Task26 final deterministic audit script"},
@@ -739,7 +739,7 @@ def build_audit() -> dict[str, Any]:
 def main() -> None:
     audit = build_audit()
     write_report(audit)
-    audit["artifact_inventory"]["docs/elliptic_task26_final_audit_report.md"] = {
+    audit["artifact_inventory"]["docs/provenance/historical_reports/elliptic_task26_final_audit_report.md"] = {
         **file_meta(REPORT_PATH),
         "role": "durable final Task26 audit report",
     }

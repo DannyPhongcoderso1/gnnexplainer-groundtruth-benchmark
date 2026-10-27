@@ -85,12 +85,12 @@ def test_elliptic_unknown_labels_are_excluded_from_target_files() -> None:
 
 
 def test_elliptic_common_pg_pool_identity_files_match_backbone_eligibility() -> None:
-    common_train = node_ids("configs/targets/elliptic_pg_common_train.csv")
-    common_val = node_ids("configs/targets/elliptic_pg_common_val.csv")
-    gcn_train = node_ids("configs/targets/elliptic_pg_gcn_train_eligible.csv")
-    sage_train = node_ids("configs/targets/elliptic_pg_graphsage_train_eligible.csv")
-    gcn_val = node_ids("configs/targets/elliptic_pg_gcn_val_eligible.csv")
-    sage_val = node_ids("configs/targets/elliptic_pg_graphsage_val_eligible.csv")
+    common_train = node_ids("configs/elliptic/targets/elliptic_pg_common_train.csv")
+    common_val = node_ids("configs/elliptic/targets/elliptic_pg_common_val.csv")
+    gcn_train = node_ids("configs/elliptic/targets/elliptic_pg_gcn_train_eligible.csv")
+    sage_train = node_ids("configs/elliptic/targets/elliptic_pg_graphsage_train_eligible.csv")
+    gcn_val = node_ids("configs/elliptic/targets/elliptic_pg_gcn_val_eligible.csv")
+    sage_val = node_ids("configs/elliptic/targets/elliptic_pg_graphsage_val_eligible.csv")
 
     assert common_train <= gcn_train
     assert common_train <= sage_train
