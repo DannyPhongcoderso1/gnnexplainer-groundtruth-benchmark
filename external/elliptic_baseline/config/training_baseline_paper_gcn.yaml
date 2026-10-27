@@ -1,0 +1,45 @@
+data:
+  data_path: "datasets/elliptic/elliptic_data.pt"
+  weights_only: false
+
+runtime:
+  gpu_id: 0
+  available_cuda_ids: [0, 1, 2, 3]
+  device: "cuda:0"
+
+experiment:
+  setting: "baseline"
+  presets:
+    baseline:
+      graphnorm: false
+      init_mode: "default"
+      results_root: "results"
+      checkpoint_root: "checkpoints"
+
+training:
+  seed: 42
+  fold: 5
+  ratio: [0.8, 0.1, 0.1]
+  batch_size: 128
+  n_trials: 1
+  log_every: 10
+  fixed_hparams:
+    hidden_dim: 211
+    embedding_dim: 90
+    num_layers: 2
+    lr: 0.0008475
+    n_epochs: 497
+    dropout: 0.2361
+    weight_decay: 0.0005
+
+device: "cuda:0"
+
+optimizer:
+  type: adam
+  lr: 0.0008475
+  weight_decay: 0.0005
+  momentum: 0.9
+
+dataset:
+  type: elliptic
+  kwargs: {}
