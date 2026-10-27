@@ -1,3 +1,5 @@
+See [frozen artifact access](ARTIFACTS.md) before any historical pipeline command. Published checkpoints do not require replaying generation/training.
+
 # Reproduction scope
 
 Use the repository root as the working directory. Preserve frozen outputs and work in a separate checkout for new experiments. The release tests exercise saved evidence and selected implementation units. They do not retrain or regenerate scientific results.
@@ -30,7 +32,7 @@ GNNExplainer entry: `python scripts/run_elliptic_gnnexplainer.py --config config
 
 Historical PG full30 uses hard CE/SUM and RAW-logit final200 selection. Its original producer strings are preserved in `docs/provenance/archived_producers/` with original artifact hashes. These are archived text, not a promise of a portable CLI. GCN is diagnostic; GraphSAGE is the validation-supported case study. V2/V3/V4 diagnostic candidates are not official replacements.
 
-FRESH5 evaluates ten independently trained checkpoints (two backbones, seeds0–4), on the same 200 targets. `scripts/evaluate_task29_tie_v1.py` needs the exact Release002 archives and completed training packages. `docs/kaggle/task29/` preserves the Kaggle control plane and separate Linux lock. `/kaggle/working` paths are platform contracts. `ACTIVE_RELEASE.json` is a preflight-only historical snapshot, not proof of completion or permission to train. Restore the original archives through the maintainer; verify expected hashes first. The evaluator's historical filenames/receipts are not altered to bypass guards.
+FRESH5 evaluates ten independently trained PGExplainer checkpoints (frozen classifier backbones; seeds0–4), on the same 200 targets. `scripts/evaluate_task29_tie_v1.py` needs the exact Release002 archives and completed training packages. `docs/kaggle/task29/` preserves the Kaggle control plane and separate Linux lock. `/kaggle/working` paths are platform contracts. `ACTIVE_RELEASE.json` is a preflight-only historical snapshot, not proof of completion or permission to train. Restore the original archives through the maintainer; verify expected hashes first. The evaluator's historical filenames/receipts are not altered to bypass guards.
 
 ## Identity and availability
 

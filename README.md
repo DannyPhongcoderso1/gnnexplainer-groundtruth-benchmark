@@ -1,8 +1,8 @@
 # GNN XAI benchmark
 
-Ground-truth and perturbation evaluation of GNNExplainer, PGExplainer and a Random baseline on GCN and GraphSAGE. The thesis studies BA-House (500, 1000 and 1500 nodes), frozen ShapeGGen V1, and Elliptic.
+Ground-truth and perturbation evaluation of GNNExplainer, PGExplainer and a Random baseline on GCN and GraphSAGE. The thesis studies BA-House (500, 1000 and 1500 nodes), frozen ShapeGGen V1 (graph/split seed912), and Elliptic.
 
-This release is **PARTIAL for scientific reproducibility**: saved evidence is available, while some original inputs/checkpoints require access. BA500 GraphSAGE PGExplainer has a natural/common training-pool conflict in the thesis; nine affected cells are withheld from the release trace. No model training or fresh experiment was performed for this release.
+This release is **PARTIAL for scientific reproducibility**: 61 of the 76 minimum frozen model/graph artifacts are now in Git (32 added on 2026-10-27). Fifteen Elliptic artifacts remain in a hash-verified private local package and need authorized distribution. BA500 GraphSAGE PGExplainer has a natural/common training-pool conflict in the thesis; nine affected cells are withheld from the release trace. No model training or fresh experiment was performed for this release.
 
 ## Install
 
@@ -22,12 +22,17 @@ py -3.11 -m venv .venv
 Run the standard-library verifier without training or downloading datasets:
 
 ```powershell
+python scripts/verify_thesis_artifacts.py
 python scripts/verify_release_evidence.py
 ```
 
 [The thesis trace](results/final/thesis_traceability.json) maps 217 retained numerical cells across 20 tables and two figures to original evidence. [The release manifest](docs/provenance/release_manifest.json) provides hashes and derivation provenance. Original frozen result paths remain in place. [Release review](docs/release_review/04_VERIFICATION_REPORT.md) records tests and limitations.
 
 The verifier checks release hashes, displayed numerical precision, saved Elliptic final200 perturbation arithmetic, all 400 FRESH5 records and 4000 Jaccard comparisons, BA extension seed42 identities, and ShapeGGen diagnostic counts. A successful check verifies saved evidence, not full model reproduction. Original figure builders remain unlocated.
+
+## Frozen artifact access
+
+Clone this branch with `git clone --branch release/thesis-final-20261026 --single-branch https://github.com/DannyPhongcoderso1/gnnexplainer-groundtruth-benchmark.git`. See [artifact restoration and frozen evaluation](docs/reproducibility/ARTIFACTS.md) for hash checks, private package restoration, cached GNNExplainer records and commands that avoid training. The owner has verified all 76 original identities; this does not make the private package publicly downloadable.
 
 ## Running experiments
 
