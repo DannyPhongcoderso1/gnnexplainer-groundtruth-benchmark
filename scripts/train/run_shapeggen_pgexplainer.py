@@ -62,7 +62,8 @@ from gnnexplainer_benchmark.training.checkpointing import (
     load_checkpoint,
 )
 from gnnexplainer_benchmark.utils.reproducibility import seed_everything
-from scripts.run_shapeggen_gnnexplainer_random import (
+from gnnexplainer_benchmark.utils.paths import resolve_repository_path
+from scripts.evaluate.run_shapeggen_gnnexplainer_random import (
     BackboneSpec,
     compute_metrics_for_scores,
     distribution,
@@ -297,7 +298,7 @@ def checkpoint_paths(spec: BackboneSpec, seed: int) -> tuple[Path, Path]:
     if seed == 42:
         checkpoint = Path(f"artifacts/explainers/shapeggen_pg_{spec.slug}_seed42.pt")
         manifest = Path(f"artifacts/explainers/shapeggen_pg_{spec.slug}_seed42_manifest.json")
-    return checkpoint, manifest
+    return resolve_repository_path(checkpoint), manifest
 
 
 def train_one_pgexplainer(

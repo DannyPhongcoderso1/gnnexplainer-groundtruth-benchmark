@@ -10,8 +10,8 @@ import pytest
 import torch
 import yaml
 
-import scripts.run_elliptic_pgexplainer_training as runner
-from scripts.run_elliptic_pgexplainer_training import (
+import scripts.train.run_elliptic_pgexplainer_training as runner
+from scripts.train.run_elliptic_pgexplainer_training import (
     ALLOWED_SEEDS,
     SPECS,
     atomic_torch_save,
@@ -32,7 +32,7 @@ def config() -> dict:
 
 def run_cli(*args: str) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
-        [sys.executable, "scripts/run_elliptic_pgexplainer_training.py", *args],
+        [sys.executable, "scripts/train/run_elliptic_pgexplainer_training.py", *args],
         cwd=ROOT,
         text=True,
         capture_output=True,

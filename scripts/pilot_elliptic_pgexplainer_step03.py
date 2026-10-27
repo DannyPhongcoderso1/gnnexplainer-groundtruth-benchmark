@@ -24,7 +24,7 @@ if str(SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_ROOT))
 
 from prepare_elliptic_task26 import ROOT, build_models, load_data, logits, sha256
-from run_elliptic_pgexplainer_training import (
+from scripts.train.run_elliptic_pgexplainer_training import (
     SPECS,
     atomic_torch_save,
     config_hash,

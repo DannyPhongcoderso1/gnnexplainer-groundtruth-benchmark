@@ -1,7 +1,8 @@
 # ruff: noqa: E402
 """Hash-check/load final Elliptic models, or replay their existing inference policies.
 
-No dataset is bundled, no optimizer is constructed, and no training occurs.
+No dataset is bundled and no training occurs. The PyG constructor creates its
+optimizer; this adapter never steps it or restores its optimizer state.
 Graph replay requires an independently acquired local graph with frozen tensors.
 """
 

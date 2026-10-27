@@ -46,10 +46,9 @@ def test_catalog_cannot_redirect_outside_repository(tmp_path):
         resolve_repository_path("old.pt", tmp_path)
 
 
-def test_old_cli_imports_reexport_canonical_functions():
-    from scripts.elliptic_frozen_models import load_models as legacy
-    from scripts.evaluate.elliptic_frozen_models import load_models as current
-    from scripts.verify.verify_release_evidence import verify as current_verify
-    from scripts.verify_release_evidence import verify as legacy_verify
+def test_canonical_api_exports_refer_to_one_implementation():
+    from gnnexplainer_benchmark.explain import run_gnnexplainer_for_node as public
+    from gnnexplainer_benchmark.explainers.gnnexplainer import run_gnnexplainer_for_node
 
-    assert legacy is current and legacy_verify is current_verify
+    assert public is run_gnnexplainer_for_node
+    assert GCN is SyntheticGCN and GraphSAGE is SyntheticGraphSAGE

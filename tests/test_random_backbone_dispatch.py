@@ -13,7 +13,7 @@ from gnnexplainer_benchmark.explain.subgraph_mapping import computation_subgraph
 from gnnexplainer_benchmark.explainers.random_baseline import random_candidate_edge_scores
 from gnnexplainer_benchmark.models import GCN, GraphSAGE
 from gnnexplainer_benchmark.training.checkpointing import build_gcn_from_checkpoint, load_checkpoint
-from scripts.run_random_baseline import build_backbone_from_checkpoint, parse_args, seed_for_node
+from scripts.evaluate.run_random_baseline import build_backbone_from_checkpoint, parse_args, seed_for_node
 
 TARGETS = [306, 315, 316, 355, 365, 375, 376, 411, 445, 465, 486, 491]
 

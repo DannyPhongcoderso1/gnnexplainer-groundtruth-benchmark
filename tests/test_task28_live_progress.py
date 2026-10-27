@@ -12,7 +12,7 @@ from types import SimpleNamespace
 import pytest
 import torch
 
-import scripts.run_elliptic_pgexplainer_training as runner
+import scripts.train.run_elliptic_pgexplainer_training as runner
 
 ROOT = Path(__file__).resolve().parents[1]
 

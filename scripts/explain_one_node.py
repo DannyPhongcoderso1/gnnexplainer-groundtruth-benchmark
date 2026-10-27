@@ -11,7 +11,7 @@ from gnnexplainer_benchmark.data.serialization import (
     sha256_file,
 )
 from gnnexplainer_benchmark.data.validation import validate_ba_house_data
-from gnnexplainer_benchmark.explain.gnnexplainer_runner import (
+from gnnexplainer_benchmark.explainers.gnnexplainer import (
     load_explainer_config,
     run_gnnexplainer_for_node,
 )

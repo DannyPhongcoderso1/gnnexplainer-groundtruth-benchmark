@@ -54,7 +54,7 @@ from gnnexplainer_benchmark.evaluation.stability import (
     pairwise_jaccard_rows,
     summarize_stability_rows,
 )
-from gnnexplainer_benchmark.explain.gnnexplainer_runner import (
+from gnnexplainer_benchmark.explainers.gnnexplainer import (
     load_explainer_config,
     run_gnnexplainer_for_node,
 )

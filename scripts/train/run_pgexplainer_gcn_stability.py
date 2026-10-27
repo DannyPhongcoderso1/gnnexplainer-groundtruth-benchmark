@@ -284,7 +284,7 @@ def build_stability_manifest(
         },
         "pgexplainer_config_hash": config_hash(explainer_config),
         "stability_code_base_commit": current_git_commit(),
-        "stability_script_sha256": sha256_file(Path("scripts/run_pgexplainer_gcn_stability.py")),
+        "stability_script_sha256": sha256_file(Path("scripts/train/run_pgexplainer_gcn_stability.py")),
         "training_module_sha256": sha256_file(
             Path("src/gnnexplainer_benchmark/explainers/pgexplainer_training.py")
         ),

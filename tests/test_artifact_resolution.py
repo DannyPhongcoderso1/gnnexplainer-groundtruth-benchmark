@@ -5,7 +5,7 @@ import zipfile
 
 import pytest
 
-from scripts.verify_thesis_artifacts import (
+from scripts.verify.verify_thesis_artifacts import (
     discover,
     restore_bundle,
     safe_path,

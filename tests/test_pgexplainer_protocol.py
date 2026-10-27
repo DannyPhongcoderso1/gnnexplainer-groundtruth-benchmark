@@ -20,7 +20,7 @@ from gnnexplainer_benchmark.training.checkpointing import (
     build_gcn_from_checkpoint,
     load_checkpoint,
 )
-from scripts.select_pgexplainer_targets import target_rows_match
+from scripts.data.select_pgexplainer_targets import target_rows_match
 
 
 def make_chain_data() -> Data:

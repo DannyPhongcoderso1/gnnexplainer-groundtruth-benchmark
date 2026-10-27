@@ -33,7 +33,7 @@ from gnnexplainer_benchmark.evaluation.batch_gnnexplainer import (
     write_per_node_metrics,
     write_summary_metrics,
 )
-from gnnexplainer_benchmark.explain.gnnexplainer_runner import load_explainer_config
+from gnnexplainer_benchmark.explainers.gnnexplainer import load_explainer_config
 from gnnexplainer_benchmark.training.checkpointing import (
     build_model_from_checkpoint,
     load_checkpoint,

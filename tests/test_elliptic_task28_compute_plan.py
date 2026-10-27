@@ -29,7 +29,7 @@ def test_compute_plan_schema_and_authorizations():
 def test_compute_plan_commands_and_paths(run):
     args = run['argv']
     assert args == [
-        'scripts/run_elliptic_pgexplainer_training.py', '--config',
+        "scripts/train/run_elliptic_pgexplainer_training.py", '--config',
         'configs/elliptic/elliptic_pgexplainer_training.yaml',
         '--backbone', run['backbone'], '--seed', str(run['seed']), '--device', 'cuda',
     ]

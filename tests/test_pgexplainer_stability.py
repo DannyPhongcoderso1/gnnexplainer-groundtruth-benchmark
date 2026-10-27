@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from scripts.run_pgexplainer_gcn_stability import compute_stability_rows, summarize_values
+from scripts.train.run_pgexplainer_gcn_stability import compute_stability_rows, summarize_values
 
 
 def write_selected(path: Path, edges: list[int]) -> None:

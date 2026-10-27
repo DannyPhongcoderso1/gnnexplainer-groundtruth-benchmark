@@ -21,7 +21,7 @@ from gnnexplainer_benchmark.evaluation.edge_ground_truth import (
 )
 from gnnexplainer_benchmark.evaluation.fidelity import compute_fidelity
 from gnnexplainer_benchmark.evaluation.runtime import measure_runtime
-from gnnexplainer_benchmark.explain.gnnexplainer_runner import run_gnnexplainer_for_node
+from gnnexplainer_benchmark.explainers.gnnexplainer import run_gnnexplainer_for_node
 from gnnexplainer_benchmark.explain.mask_export import export_single_node_explanation
 from gnnexplainer_benchmark.explain.node_selection import TargetNode
 from gnnexplainer_benchmark.explain.subgraph_mapping import computation_subgraph_edge_mask

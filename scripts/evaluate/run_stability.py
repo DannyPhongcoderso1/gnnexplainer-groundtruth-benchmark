@@ -37,7 +37,7 @@ from gnnexplainer_benchmark.evaluation.stability import (
     summarize_node_stability,
     summarize_stability_rows,
 )
-from gnnexplainer_benchmark.explain.gnnexplainer_runner import load_explainer_config
+from gnnexplainer_benchmark.explainers.gnnexplainer import load_explainer_config
 from gnnexplainer_benchmark.explain.subgraph_mapping import computation_subgraph_edge_mask
 from gnnexplainer_benchmark.training.checkpointing import (
     build_model_from_checkpoint,

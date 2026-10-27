@@ -30,7 +30,7 @@ from gnnexplainer_benchmark.evaluation.edge_ground_truth import (
     compute_edge_ground_truth_metrics,
 )
 from gnnexplainer_benchmark.evaluation.fidelity import compute_fidelity
-from gnnexplainer_benchmark.explain.gnnexplainer_runner import (
+from gnnexplainer_benchmark.explainers.gnnexplainer import (
     load_explainer_config,
     run_gnnexplainer_for_node,
 )

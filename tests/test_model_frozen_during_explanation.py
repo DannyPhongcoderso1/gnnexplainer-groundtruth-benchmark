@@ -6,7 +6,7 @@ from pathlib import Path
 import torch
 
 from gnnexplainer_benchmark.data.ba_house import generate_ba_house_data, load_ba_house_config
-from gnnexplainer_benchmark.explain.gnnexplainer_runner import run_gnnexplainer_for_node
+from gnnexplainer_benchmark.explainers.gnnexplainer import run_gnnexplainer_for_node
 from gnnexplainer_benchmark.explain.node_selection import TargetNode
 from gnnexplainer_benchmark.training.trainer import build_gcn_model, load_training_config
 
